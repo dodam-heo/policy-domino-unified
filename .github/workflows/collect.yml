@@ -1,0 +1,46 @@
+name: Independent official incremental collector
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '13 */6 * * *'
+  push:
+    branches: [main]
+    paths:
+      - 'unified/engine.py'
+      - '.github/workflows/collect.yml'
+permissions:
+  contents: write
+concurrency:
+  group: independent-unified-collector
+  cancel-in-progress: false
+jobs:
+  official:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify source parser and storage
+        run: python -m unittest discover -s tests -v
+      - name: Collect official notices and independent prior versions
+        env:
+          LAW_OC: ${{ vars.LAW_OC || 'dori' }}
+        run: python -m unified.engine --root data --streams 4 --details 24
+      - name: Publish compact new-version files only
+        run: |
+          git config user.name policy-domino-unified-bot
+          git config user.email policy-domino-unified-bot@users.noreply.github.com
+          git add data/
+          if ! git diff --cached --quiet; then
+            git commit -m 'data: store incremental official versions [skip ci]'
+            git fetch origin main
+            if [ "$(git rev-parse HEAD^)" != "$(git rev-parse FETCH_HEAD)" ]; then
+              echo "::error::main advanced; do not rebase competing data writes"
+              exit 1
+            fi
+            git push origin HEAD:main
+          fi

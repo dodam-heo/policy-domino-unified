@@ -20,3 +20,12 @@
 - 2027년 기준 중위소득·주거급여·교육급여 고시는 필수 회귀 확인 예시이며, 다른 모든 행정규칙 종류에도 동일한 파이프라인을 적용합니다.
 - 공공기관의 실제 반영 완료 여부는 판정하지 않습니다.
 - 제출 저장소로 옮기기 전 성능·커버리지·근거 검증을 완료합니다.
+
+
+## Independently runnable collection engine
+
+`python -m unified.engine --root data --streams 4 --details 24`
+
+Requires the official law API `LAW_OC` identifier (`dori` is configured in Actions). The collection engine does **not** read the previous repositories. It scans the 15 legal/rule kind/current/history streams in rotating batches, retains a complete/incomplete coverage ledger, writes gzip files per official document version and compares verified prior versions. It also detects annual successor announcements without merging different legal IDs. Incomplete annex files produce partial/unverified status rather than invented amounts.
+
+Output structure: `data/documents/<source>/<hashed-stable-id>/<hashed-version>.json.gz`, `data/comparisons/<version-hash>.json.gz`, and small `data/collection-state.json`. A later GitHub Actions run only stages changed per-version files. The first audit is independent of this new collection process.
