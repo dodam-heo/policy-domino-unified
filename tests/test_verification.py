@@ -1,4 +1,6 @@
 import unittest
+import base64
+import hashlib
 from unified.verification import (OFFICIAL, LEGACY, PARTIAL, source_grade,
                                   comparison_grade, quality_report)
 
@@ -10,16 +12,20 @@ class VerificationTests(unittest.TestCase):
         self.assertEqual(source_grade(package), LEGACY)
 
     def test_actual_official_xml_required(self):
-        package = {"body": {"status": "complete", "raw_xml_sha256": "abc"},
-                   "official_xml_base64": "ZGF0YQ=="}
+        raw = b"<root/>"
+        package = {"body": {"status": "complete",
+                            "raw_xml_sha256": hashlib.sha256(raw).hexdigest()},
+                   "official_xml_base64": base64.b64encode(raw).decode()}
         self.assertEqual(source_grade(package), OFFICIAL)
         self.assertEqual(source_grade({"body": package["body"]}), PARTIAL)
 
     def test_no_legacy_verification_promotion(self):
         old = {"body": {"status": "complete"},
                "source_snapshot_provenance": {"has_raw_official_xml": False}}
-        new = {"body": {"status": "complete", "raw_xml_sha256": "abc"},
-               "official_xml_base64": "ZGF0YQ=="}
+        raw = b"<root/>"
+        new = {"body": {"status": "complete",
+                        "raw_xml_sha256": hashlib.sha256(raw).hexdigest()},
+               "official_xml_base64": base64.b64encode(raw).decode()}
         self.assertEqual(comparison_grade("changed", old, new),
                          "historical_comparison_needs_revalidation")
         self.assertEqual(comparison_grade("changed", new, new),

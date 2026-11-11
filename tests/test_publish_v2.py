@@ -1,4 +1,6 @@
 import json
+import base64
+import hashlib
 import tempfile
 import unittest
 from pathlib import Path
@@ -18,8 +20,10 @@ class PublicationContractTest(unittest.TestCase):
                 "status": "legacy_extracted", "clauses": {"본문": "100원"}},
                 "source_snapshot_provenance": {"has_raw_official_xml": False}})
             store(root/relative_path(new), {"record": new, "body": {
-                "status": "complete", "raw_xml_sha256": "valid",
-                "clauses": {"본문": "120원"}}, "official_xml_base64": "ZGF0YQ=="})
+                "status": "complete",
+                "raw_xml_sha256": hashlib.sha256(b"<root/>").hexdigest(),
+                "clauses": {"본문": "120원"}}, "official_xml_base64":
+                base64.b64encode(b"<root/>").decode()})
             store(root/"comparisons"/"c.json.gz", {
                 "changed_record": new, "prior_record": old, "status": "changed",
                 "changes": [{"clause": "본문", "before": "100원",

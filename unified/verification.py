@@ -2,6 +2,10 @@
 The grades travel through analysis, publication and human-readable health reports.
 """
 from __future__ import annotations
+import base64
+import hashlib
+import json
+import xml.etree.ElementTree as ET
 
 OFFICIAL = "official_original_verified"
 LEGACY = "legacy_extract_needs_revalidation"
@@ -18,7 +22,19 @@ def source_grade(package: dict) -> str:
             body.get("raw_xml_sha256") and
             not body.get("unresolved_attachments") and
             not body.get("incomplete_keys")):
-        return OFFICIAL
+        try:
+            raw = base64.b64decode(package["official_xml_base64"], validate=True)
+            if hashlib.sha256(raw).hexdigest() != body["raw_xml_sha256"]:
+                return PARTIAL
+            ET.fromstring(raw)
+            clauses = body.get("clauses") or {}
+            expected = hashlib.sha256(json.dumps(
+                clauses, ensure_ascii=False, sort_keys=True).encode("utf8")).hexdigest()
+            if body.get("body_sha256") and expected != body["body_sha256"]:
+                return PARTIAL
+            return OFFICIAL
+        except (ValueError, TypeError, ET.ParseError):
+            return PARTIAL
     return PARTIAL
 
 

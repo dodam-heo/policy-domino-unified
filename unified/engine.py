@@ -385,6 +385,53 @@ def _priority(rec: dict, today: dt.date) -> tuple:
             rec.get("published_at", ""), rec.get("serial", ""))
 
 
+def _annual_name_signature(title: str) -> set[str]:
+    """Generic year-neutral bigrams for renamed annual official standards."""
+    stripped = YEAR.sub("", str(title or ""))
+    plain = re.sub(r"[^가-힣a-zA-Z0-9]", "", stripped)
+    return {plain[i:i+2] for i in range(max(0,len(plain)-1))}
+
+
+def _local_predecessor(record: dict, records: list[dict]):
+    """Select only an unambiguous official predecessor.
+
+    Different legal IDs may represent a later year's identical policy family.
+    Require same issuing authority and kind, preceding year, strong title
+    similarity and a gap to the runner-up; never infer changed amounts.
+    """
+    older = [x for x in records if x.get("source") == record.get("source") and
+             x.get("published_at", "") < record.get("published_at", "") and
+             x.get("serial") != record.get("serial")]
+    same_id = [x for x in older if x.get("stable_id") == record.get("stable_id")]
+    if same_id:
+        return max(same_id,key=lambda x:(x.get("published_at",""),x.get("serial",""))),False
+    title = record.get("title", "")
+    current = YEAR.search(title)
+    ministry = record.get("ministry", "")
+    if not current or not ministry or record.get("source") != "admrul":
+        return None,False
+    current_year = int(current.group()[:4])
+    basis = _annual_name_signature(title)
+    if not basis:
+        return None,False
+    matches=[]
+    for candidate in older:
+        if (candidate.get("ministry") != ministry or
+            candidate.get("kind") != record.get("kind")):
+            continue
+        year = YEAR.search(candidate.get("title", ""))
+        if not year or int(year.group()[:4]) != current_year-1:
+            continue
+        past = _annual_name_signature(candidate["title"])
+        score = 2*len(basis & past)/max(1,len(basis)+len(past))
+        if score >= .68:
+            matches.append((score,candidate))
+    matches.sort(key=lambda x:(x[0],x[1].get("published_at","")),reverse=True)
+    if not matches or (len(matches)>1 and matches[0][0]-matches[1][0]<.12):
+        return None,False
+    return matches[0][1],True
+
+
 def _pending_index_records(root: Path, max_files=15000) -> list[dict]:
     """Never lose official list results when per-run detail budget is exhausted."""
     pending = {}
@@ -500,7 +547,12 @@ def run(root: Path, api: OfficialAPI, limit_streams=3, detail_budget=20,
                 complete += 1
             if not after["body"]["clauses"]:
                 continue
-            prev, annual = api.predecessor(rec)
+            try:
+                prev, annual = api.predecessor(rec)
+            except (OSError, RuntimeError, ValueError):
+                prev, annual = None, False
+            if not prev:
+                prev, annual = _local_predecessor(rec, records)
             if not prev:
                 continue
             before = process(api, root, state, prev)

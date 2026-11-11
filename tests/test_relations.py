@@ -1,4 +1,6 @@
 import tempfile
+import base64
+import hashlib
 from pathlib import Path
 import unittest
 from unified.engine import store, relative_path, ident
@@ -21,8 +23,9 @@ class RelationsTests(unittest.TestCase):
             rule={"source":"admrul","stable_id":"200","serial":"3",
                   "title":"하위 지침","published_at":"2025-02-01"}
             store(root/relative_path(rule), {"record":rule,
-                "official_xml_base64":"YWJj",
-                "body":{"status":"complete","raw_xml_sha256":"a",
+                "official_xml_base64":base64.b64encode(b"<root/>").decode(),
+                "body":{"status":"complete",
+                  "raw_xml_sha256":hashlib.sha256(b"<root/>").hexdigest(),
                   "clauses":{"제3조":"「상위 법」 제1조에 따른 기준을 적용한다."}}})
             comparison={"changed_record":changed, "prior_record":prior,
               "status":"changed","changes":[{"clause":"제1조",
