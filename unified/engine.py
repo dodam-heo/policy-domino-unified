@@ -588,11 +588,18 @@ def run(root: Path, api: OfficialAPI, limit_streams=3, detail_budget=20,
     started_at = time.monotonic()
     max_seconds = max(45.0, float(os.getenv("PD_COLLECTION_MAX_SECONDS", "420")))
     deadline = started_at + max_seconds
+    # Reserve most of each run for detailed original recovery. Date-range
+    # discovery must not consume the entire run before document validation.
+    collection_deadline = started_at + max_seconds * .4
+    collection_deferred = False
     connection_failures = 0
     network_unavailable = False
 
     def collect_window(source, edition, kind, start, end, stage, query=""):
-        nonlocal failed, connection_failures, network_unavailable
+        nonlocal failed, connection_failures, network_unavailable, collection_deferred
+        if time.monotonic() >= collection_deadline:
+            collection_deferred = True
+            return False
         key = "|".join((source, edition, kind, start, end, stage))
         if network_unavailable:
             failed += 1
@@ -606,7 +613,10 @@ def run(root: Path, api: OfficialAPI, limit_streams=3, detail_budget=20,
         try:
             records, info = verified_window(
                 api, source, start, end, edition, kind, query=query,
-                deadline=deadline)
+                deadline=collection_deadline)
+            if info.get("error") == "collection_time_budget_deferred":
+                collection_deferred = True
+                return False
             connection_failures = 0
             saved = {
                 **info, "source": source, "edition": edition, "kind": kind,
@@ -748,7 +758,7 @@ def run(root: Path, api: OfficialAPI, limit_streams=3, detail_budget=20,
         "failed_windows": failed, "streams_checked": len(schedule),
         "pending_index_versions": len(records),
         "year_search_year": today.year+1,
-        "time_budget_deferred": deadline_deferred,
+        "time_budget_deferred": deadline_deferred or collection_deferred,
         "collection_elapsed_seconds": round(time.monotonic()-started_at,1),
     }
     save_json(state_file, state)

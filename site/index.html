@@ -11,14 +11,14 @@
 </head>
 <body>
   <header class="site-head">
-    <div class="head-inner"><div class="brand"><strong>POLICY <em>DOMINO</em></strong><span>CHANGE → IMPACT → ACTION</span></div>
+    <div class="head-inner"><a class="brand" href="./" aria-label="정책도미노 첫 화면으로"><strong>POLICY <em>DOMINO</em></strong><span>CHANGE → IMPACT → ACTION</span></a>
     <a class="head-link" href="https://github.com/dodam-heo/policy-domino-unified/actions" target="_blank" rel="noopener noreferrer">자료 갱신 기록 ↗</a></div>
   </header>
   <main class="page">
     <section class="hero">
       <p class="eyebrow">공식 정책 변경 · 공공기관 업무 영향분석</p>
       <h1>무엇이 바뀌고,<br><span>어느 기관은 무엇을 바꿔야 할까?</span></h1>
-      <p class="intro">정책의 실질적인 변경 내용과 공공기관·사업에 이어지는 법적 근거를 확인합니다.</p>
+      <p class="intro">법령·고시 등 정책의 변화를 추적하고, 영향을 받는 제도·사업·행정서비스와 필요한 변경사항을 공식 근거로 연결합니다.</p>
       <div class="metrics" id="metrics" aria-label="분석 현황"></div>
       <details class="health" id="health"><summary id="health-title">수집·검증 상태 확인 중</summary><div id="health-body"></div></details>
     </section>
@@ -46,6 +46,7 @@
         <div class="list-count" id="list-count" aria-live="polite">공식 자료 조회 중</div>
         <div id="items" class="items"><p class="empty">정책 변경 목록을 불러오는 중입니다.</p></div>
         <button id="more" class="more" type="button" hidden>목록 더 보기</button>
+        <button id="load-history" class="more history" type="button" hidden>과거 자료 전체 검색하기</button>
       </aside>
       <section class="panel detail-panel" id="detail-panel" aria-label="정책 상세 및 기관별 업무 영향">
         <div class="mobile-back"><button id="back" type="button">← 정책 변경 목록</button></div>

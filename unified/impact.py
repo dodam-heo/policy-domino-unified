@@ -134,14 +134,20 @@ def proof(program: dict, doc: dict, change: dict) -> dict | None:
     }
 
 
-def impact_for(doc: dict, comparison: dict, programs: list[dict]) -> list[dict]:
+def impact_for(doc: dict, comparison: dict, programs: list[dict],
+               program_index: dict | None = None) -> list[dict]:
     if comparison.get("status") not in ("changed", "partial_unverified"):
         return []
     if not comparison.get("changes"):
         return []
+    # Reuse the exact legal-basis inverted index instead of testing every
+    # one of ~10k public services against each changed clause. This keeps
+    # the original proof gate, but reduces work to cited candidates only.
+    lookup = program_index if program_index is not None else index_program_references(programs)
     results = []
     for change in comparison["changes"]:
-        for p in programs:
+        key = (plain(doc.get("title", "")), plain(change.get("clause", "")))
+        for p in lookup.get(key, []):
             evidence = proof(p, doc, change)
             if evidence is None:
                 continue
@@ -193,7 +199,7 @@ def run(root: Path, limit_events: int = 300) -> dict:
             prior.get(k) for k in ("source", "stable_id", "serial")) else {}
         grade = comparison_grade(comparison.get("status", ""),
                                  prior_package, now_package)
-        impacted = impact_for(doc, comparison, programs)
+        impacted = impact_for(doc, comparison, programs, program_refs)
         for action in impacted:
             if grade != "official_comparison_verified":
                 action["status"] = "program_link_candidate_requires_source_revalidation"

@@ -13,3 +13,6 @@ class SiteContractTest(unittest.TestCase):
         self.assertIn("공식 신구 검증", js)
         self.assertNotIn("반영 완료", html)
         self.assertNotIn("v2/index.html", html)
+        self.assertIn('href="./" aria-label="정책도미노 첫 화면으로"', html)
+        self.assertIn('id="load-history"', html)
+        self.assertNotIn("      hydrateCatalog(d);", js)

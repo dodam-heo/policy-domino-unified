@@ -52,6 +52,13 @@ def headline(changes: list[dict], verification: str) -> str:
     article = selected.get("clause") or selected.get("article") or "해당 기준"
     if not focus["changed"]:
         return "실질 변경 대조 중"
+    excerpt = focus["before"] + focus["after"]
+    # Box-drawing characters indicate that a raw annex table was flattened.
+    # A splice of the text layout is not a meaningful policy change summary.
+    if sum(ch in "─┬┴┌┐└┘├┤│┼┏┓┗┛" for ch in excerpt) >= 4:
+        marker = article + " 표·서식 텍스트 변경 — 항목별 신구 대조 확인"
+        return (marker if verification == "official_comparison_verified"
+                else "원문 재검증 필요 · " + marker)
     brief = (article+": "+focus["before"]+" → "+focus["after"])
     if verification != "official_comparison_verified":
         return "원문 재검증 필요 · "+compact(brief, 210)

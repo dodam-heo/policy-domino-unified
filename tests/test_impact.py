@@ -1,4 +1,5 @@
 import unittest
+from unittest.mock import patch
 from unified.impact import collect_programs, impact_for, proof
 from unified.ai import verify, UnverifiedAnalysis
 
@@ -25,6 +26,18 @@ class ImpactTests(unittest.TestCase):
         rows = impact_for(self.doc, {"status": "changed", "changes": [self.change]}, [self.program])
         self.assertEqual(len(rows), 1)
         self.assertEqual(rows[0]["agency"], "실제공공기관")
+    def test_impact_only_checks_programs_citing_changed_article(self):
+        unrelated = [{**self.program,
+                      "id": f"other-{i}",
+                      "basis": {"법령": "「다른 법률」 제3조"}}
+                     for i in range(100)]
+        with patch("unified.impact.proof", wraps=proof) as candidate_proof:
+            rows = impact_for(
+                self.doc, {"status": "changed", "changes": [self.change]},
+                unrelated + [self.program])
+        self.assertEqual(len(rows), 1)
+        self.assertEqual(candidate_proof.call_count, 1)
+
     def test_ai_must_quote_original(self):
         impact = {"before": "100원", "after": "120원",
                   "evidence": {"service_quote": "100원 기준"}}
