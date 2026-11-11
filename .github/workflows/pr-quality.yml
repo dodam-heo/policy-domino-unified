@@ -60,6 +60,26 @@ jobs:
           assert len(queued)==46647, len(queued)
           print('HISTORIC_INDEX_CONTRACT_PASS', report)
           PY
+      - name: Verify annual predecessor discovery against real 46k archived metadata
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from unified.engine import _pending_index_records, _local_predecessor
+          records=_pending_index_records(Path('/tmp/legacy-index-validation'))
+          by_serial={r['serial']:r for r in records}
+          for number in ('2100000283464','2100000284670','2100000285242'):
+              row=by_serial.get(number)
+              if not row:
+                  print('ANNUAL_PREDECESSOR',number,'NOT_INDEXED')
+                  continue
+              previous,annual=_local_predecessor(row,records)
+              print('ANNUAL_PREDECESSOR',number,
+                'title',row.get('title'),'ministry',row.get('ministry'),
+                'effective',row.get('effective_date'),
+                'previous',previous.get('serial') if previous else None,
+                'previous_title',previous.get('title') if previous else None,
+                'annual',annual)
+          PY
       - name: Build the actual full-index preview without mutating the source repository
         env:
           LAW_OC: ${{ vars.LAW_OC || 'dori' }}
