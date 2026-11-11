@@ -402,6 +402,8 @@ def verified_window(api, source: str, start: str, end: str,
     rows, info = api.search(source, start, end, edition, kind, query=query)
     if info.get("complete"):
         return rows, info
+    if info.get("error") == "collection_time_budget_deferred":
+        return rows, info
     if start >= end or depth >= max_depth:
         return rows, info
     # Request or parsing errors are raised by api.search; only incomplete
@@ -415,7 +417,7 @@ def verified_window(api, source: str, start: str, end: str,
         depth + 1, max_depth, deadline)
     right, right_info = verified_window(
         api, source, (mid + dt.timedelta(days=1)).isoformat(), end,
-        edition, kind, query, depth + 1, max_depth)
+        edition, kind, query, depth + 1, max_depth, deadline)
     unique = {ident(row): row for row in [*left, *right]}
     reported = int(left_info.get("reported") or 0) + int(
         right_info.get("reported") or 0)
