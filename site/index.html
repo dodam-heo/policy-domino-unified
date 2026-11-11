@@ -3,54 +3,55 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="color-scheme" content="light">
-  <title>정책 도미노 | 공공기관 정책변경 영향분석</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="theme-color" content="#102744">
+  <meta name="description" content="공식 정책 변경에서 공공기관의 사업·업무 변경까지 근거를 따라 확인합니다.">
+  <title>정책도미노 | 정책 변경에서 공공기관 업무까지</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="./app.js" defer></script>
 </head>
 <body>
-  <header class="header">
-    <div class="shell brand">
-      <div class="brand-icon" aria-hidden="true">◈</div>
-      <div><b>정책 도미노</b><small>POLICY DOMINO · PUBLIC IMPACT WORKBENCH</small></div>
-      <span class="version">UNIFIED</span>
-    </div>
+  <header class="site-head">
+    <div class="head-inner"><div class="brand"><strong>POLICY <em>DOMINO</em></strong><span>CHANGE → IMPACT → ACTION</span></div>
+    <a class="head-link" href="https://github.com/dodam-heo/policy-domino-unified/actions" target="_blank" rel="noopener noreferrer">자료 갱신 기록 ↗</a></div>
   </header>
-  <main class="shell">
-    <section class="intro">
-      <p class="eyebrow">변경된 정책에서 실제 공공업무까지</p>
-      <h1>정책이 바뀌면, 어디의 무엇을 바꿔야 할까?</h1>
-      <p>공식 개정 원문과 공공서비스 운영근거를 연결해 기관별 후속조치를 확인합니다.</p>
-      <div class="summary" id="summary"><span>공식 원천 자료를 불러오고 있어요.</span></div>
+  <main class="page">
+    <section class="hero">
+      <p class="eyebrow">공식 정책 변경 · 공공기관 업무 영향분석</p>
+      <h1>무엇이 바뀌고,<br><span>어느 기관은 무엇을 바꿔야 할까?</span></h1>
+      <p class="intro">정책의 실질적인 변경 내용과 공공기관·사업에 이어지는 법적 근거를 확인합니다.</p>
+      <div class="metrics" id="metrics" aria-label="분석 현황"></div>
+      <details class="health" id="health"><summary id="health-title">수집·검증 상태 확인 중</summary><div id="health-body"></div></details>
     </section>
-    <section class="toolbar" aria-label="정책 필터">
-      <label class="search">
-        <span class="sr">정책명 검색</span>
-        <input id="search" type="search" placeholder="정책명·부처명·기관명 검색">
-      </label>
-      <label><span class="sr">분야</span><select id="category">
-        <option value="">전체 분야</option><option value="급여·지원기준">급여·지원기준</option>
-        <option value="행정절차·인허가">행정절차·인허가</option>
-        <option value="공공재정·요율">공공재정·요율</option><option value="조직·인력">조직·인력</option>
-        <option value="기타 제·개정">기타 제·개정</option>
-      </select></label>
-      <label><span class="sr">자료 종류</span><select id="source">
-        <option value="">전체 종류</option>
-        <option value="law">법령</option><option value="admrul">행정규칙·고시</option>
-        <option value="ordin">자치법규</option>
-      </select></label>
-      <label class="only"><input id="verified" type="checkbox"> 신구 변경 확인</label>
-    </section>
-    <div class="workspace">
-      <aside class="panel listing" aria-label="정책 변경 목록">
-        <div class="pane-top"><h2>정책 변경 목록</h2><span id="count">0건</span></div>
-        <div id="events" class="events"></div>
+    <div class="workspace" id="workspace">
+      <aside class="panel listing" id="list-panel">
+        <div class="panel-head"><h2>정책 변경 목록</h2><span class="subdued">공포·발령일 최신순</span></div>
+        <div class="filterbar" role="group" aria-label="정책 유형 필터">
+          <button class="filter active" type="button" data-mode="all">전체</button>
+          <button class="filter" type="button" data-mode="new">신규</button>
+          <button class="filter" type="button" data-mode="amended">개정</button>
+          <button class="filter" type="button" data-mode="repealed">폐지</button>
+          <button class="filter" type="button" data-mode="impact">기관 영향 확인</button>
+        </div>
+        <label class="searchlabel"><span class="sr">정책명·소관기관 검색</span>
+          <input id="search" type="search" placeholder="법령·고시·정책명·소관기관 검색" autocomplete="off">
+        </label>
+        <div class="selects">
+          <label>정책 분야<select id="area"><option value="">모든 분야</option></select></label>
+          <label>자료 종류<select id="source"><option value="">모든 자료</option>
+            <option value="law">법령</option><option value="admrul">행정규칙</option>
+            <option value="ordin">자치법규</option>
+          </select></label>
+        </div>
+        <div class="list-count" id="list-count" aria-live="polite">공식 자료 조회 중</div>
+        <div id="items" class="items"><p class="empty">정책 변경 목록을 불러오는 중입니다.</p></div>
+        <button id="more" class="more" type="button" hidden>목록 더 보기</button>
       </aside>
-      <section class="panel detail" aria-live="polite">
-        <div id="detail"><div class="empty">정책을 선택하면 변경 근거와 기관별 후속조치를 볼 수 있어요.</div></div>
+      <section class="panel detail-panel" id="detail-panel" aria-label="정책 상세 및 기관별 업무 영향">
+        <div class="mobile-back"><button id="back" type="button">← 정책 변경 목록</button></div>
+        <div id="detail" class="detail"><div class="empty">왼쪽에서 정책을 선택하면 변경 핵심과 기관별 업무 영향을 표시합니다.</div></div>
       </section>
     </div>
-    <footer>공식 원문 미확보와 실제 변경사항 확인을 구분합니다. 기관의 이행 완료 여부는 판정하지 않습니다.</footer>
+    <footer>법제처 등 공식 자료를 기반으로 검증 수준을 구분해 제공합니다. 공공기관의 조치 완료 여부는 판정하지 않습니다.</footer>
   </main>
-  <script src="app.js" defer></script>
 </body>
 </html>
