@@ -123,6 +123,7 @@ def assemble(root: Path, limit: int = 50000) -> dict:
                 "change_count":0,
                 "numeric_change_count":0,
                 "standard_changes":[],
+                "current_standard_tables":[],
                 "changes":[],
                 "unresolved":[],
                 "institutions":[],
@@ -180,6 +181,8 @@ def assemble(root: Path, limit: int = 50000) -> dict:
             "change_count": len(changes),
             "numeric_change_count": len(comp.get("numeric_changes",[])),
             "standard_changes": comp.get("numeric_changes",[])[:200],
+            "current_standard_tables": present_package.get("body",{}).get(
+                "numeric_tables",[])[:24],
             "changes": before_after,
             "unresolved": comp.get("unresolved", [])[:40],
             "institutions": actions,

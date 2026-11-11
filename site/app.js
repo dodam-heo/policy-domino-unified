@@ -140,6 +140,38 @@
     add(now,el("small","",newLabel),el("div","",text(after).slice(0,340)||"본문 미확보"));
     return add(wrap,old,now);
   }
+  function currentTables(event){
+    const tables=event.current_standard_tables||[];
+    if(!tables.length)return null;
+    const block=section("현재 적용할 공식 기준표",
+      "공식 행정규칙 HWPX 원본에서 추출한 표입니다. 이전 연도와의 차이는 신구 검증이 완료된 경우에만 확정합니다.");
+    const wrap=el("div","table-stack");
+    for(const item of tables.slice(0,12)){
+      const holder=el("div","official-table");
+      holder.appendChild(el("strong","", "공식 첨부 표 "+item.table));
+      const viewport=el("div","table-scroll");
+      const table=el("table","standard-table");
+      const head=el("thead"),tr=el("tr");
+      for(const name of item.header||[])tr.appendChild(el("th","",name));
+      head.appendChild(tr);table.appendChild(head);
+      const body=el("tbody");
+      const rows=new Map();
+      for(const cell of item.cells||[]){
+        const key=cell.row||"기준";
+        if(!rows.has(key))rows.set(key,new Map());
+        rows.get(key).set(cell.column,cell.value);
+      }
+      for(const [label,columns] of rows){
+        const tr=el("tr");tr.appendChild(el("th","",label));
+        for(const header of (item.header||[]).slice(1))
+          tr.appendChild(el("td","",columns.get(header)||""));
+        body.appendChild(tr);
+      }
+      table.appendChild(body);viewport.appendChild(table);holder.appendChild(viewport);
+      wrap.appendChild(holder);
+    }
+    block.appendChild(wrap);return block;
+  }
   function numericSection(event){
     const changed=event.standard_changes||[];
     const block=section("공식 표·금액 기준 신구 비교",
@@ -333,6 +365,7 @@
         anchor("공식 원문 ↗",e.url)));
     root.appendChild(overview(e));
     root.appendChild(agencySection(e));
+    const current=currentTables(e);if(current)root.appendChild(current);
     const values=numericSection(e);if(values)root.appendChild(values);
     const change=changesSection(e);root.appendChild(change);
     root.appendChild(citations(e));
