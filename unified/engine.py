@@ -18,6 +18,8 @@ import os
 from pathlib import Path
 import re
 import time
+import threading
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from urllib.parse import urlencode, quote, urlparse
 from urllib.request import Request, urlopen
 import xml.etree.ElementTree as ET
@@ -82,7 +84,9 @@ def store(path: Path, obj: dict):
     content = gzip.compress(data, compresslevel=6, mtime=0)
     if path.exists() and path.read_bytes() == content:
         return False
-    temp = path.with_name(path.name + ".tmp")
+    # Concurrent version recovery can write the same predecessor. Each writer
+    # must own its temporary path; atomic replacement preserves a complete blob.
+    temp = path.with_name(path.name + "." + str(threading.get_ident()) + ".tmp")
     temp.write_bytes(content)
     temp.replace(path)
     return True
@@ -482,7 +486,8 @@ def process(api, root: Path, state: dict, record: dict) -> dict:
     if body.get("attachment_links") and os.getenv(
             "PD_FETCH_OFFICIAL_ATTACHMENTS", "true").lower() == "true":
         from .attachments import resolve_attachments
-        body = resolve_attachments(root, body)
+        body = resolve_attachments(root, body,
+                                   previous=existing.get("body") if existing else None)
     if (existing and body.get("status") != "complete"
             and existing.get("body", {}).get("clauses")):
         # Preserve an older extracted body in a separate immutable archive,
@@ -720,48 +725,71 @@ def run(root: Path, api: OfficialAPI, limit_streams=3, detail_budget=20,
             seen.add(ident(rec))
     attempted, complete, compared = 0, 0, 0
     deadline_deferred = False
-    for rec in ordered:
-        if attempted >= detail_budget:
-            break
-        if time.monotonic() >= deadline:
-            deadline_deferred = True
-            break
-        stored = load(root / relative_path(rec))
-        if (stored and stored.get("body", {}).get("status") == "complete"
-                and stored.get("official_xml_base64")
-                and not stored.get("source_snapshot_provenance")):
-            continue
-        attempted += 1
-        state["attempts"][ident(rec)] = int(state["attempts"].get(ident(rec), 0)) + 1
-        state["last_detail_attempt"][ident(rec)] = dt.datetime.now(dt.timezone.utc).isoformat()
+
+    def recover_one(rec):
+        # Separate documents may be retrieved concurrently. Only the main
+        # thread mutates the checkpoint ledger.
+        after = process(api, root, state, rec)
+        obtained = bool(after.get("body", {}).get("status") == "complete" and
+                        after.get("official_xml_base64") and
+                        not after.get("source_snapshot_provenance"))
+        if not after.get("body", {}).get("clauses"):
+            return obtained, False
         try:
-            after = process(api, root, state, rec)
-            if (after.get("body", {}).get("status") == "complete"
-                    and after.get("official_xml_base64")
-                    and not after.get("source_snapshot_provenance")):
-                complete += 1
-            if not after["body"]["clauses"]:
+            prev, annual = api.predecessor(rec)
+        except (OSError, RuntimeError, ValueError):
+            prev, annual = None, False
+        if not prev:
+            prev, annual = _local_predecessor(rec, records)
+        if not prev:
+            return obtained, False
+        before = process(api, root, state, prev)
+        result = compare_bodies(before["body"], after["body"], annual=annual)
+        result["prior_record"] = prev
+        result["changed_record"] = rec
+        store(root / "comparisons" / (hash256(ident(rec))[:24] + ".json.gz"), result)
+        return obtained, True
+
+    # Three bounded workers recover independent official originals without
+    # making every 13-second transport timeout block the entire pipeline.
+    workers = min(3, max(1, detail_budget))
+    cursor = 0
+    with ThreadPoolExecutor(max_workers=workers) as pool:
+        while cursor < len(ordered) and attempted < detail_budget:
+            if time.monotonic() >= deadline:
+                deadline_deferred = True
+                break
+            batch = []
+            while cursor < len(ordered) and len(batch) < workers and attempted < detail_budget:
+                rec = ordered[cursor]
+                cursor += 1
+                stored = load(root / relative_path(rec))
+                if (stored and stored.get("body", {}).get("status") == "complete"
+                        and stored.get("official_xml_base64")
+                        and not stored.get("source_snapshot_provenance")):
+                    continue
+                attempted += 1
+                state["attempts"][ident(rec)] = int(state["attempts"].get(ident(rec), 0)) + 1
+                state["last_detail_attempt"][ident(rec)] = dt.datetime.now(
+                    dt.timezone.utc).isoformat()
+                batch.append(rec)
+            if not batch:
                 continue
-            try:
-                prev, annual = api.predecessor(rec)
-            except (OSError, RuntimeError, ValueError):
-                prev, annual = None, False
-            if not prev:
-                prev, annual = _local_predecessor(rec, records)
-            if not prev:
-                continue
-            before = process(api, root, state, prev)
-            result = compare_bodies(before["body"], after["body"], annual=annual)
-            result["prior_record"] = prev
-            result["changed_record"] = rec
-            store(root / "comparisons" / (hash256(ident(rec))[:24] +
-                  ".json.gz"), result)
-            compared += 1
-            state["errors"].pop(ident(rec), None)
-        except Exception as exc:
-            state["errors"][ident(rec)] = type(exc).__name__ + ": " + str(exc)[:150]
-        finally:
             save_json(state_file, state)
+            futures = {pool.submit(recover_one, rec): rec for rec in batch}
+            for future in as_completed(futures):
+                rec = futures[future]
+                try:
+                    original_ok, comparison_ok = future.result()
+                    complete += int(original_ok)
+                    compared += int(comparison_ok)
+                    state["errors"].pop(ident(rec), None)
+                except Exception as exc:
+                    state["errors"][ident(rec)] = type(exc).__name__ + ": " + str(exc)[:150]
+                finally:
+                    save_json(state_file, state)
+    if cursor < len(ordered) and time.monotonic() >= deadline:
+        deadline_deferred = True
     state["stream_offset"] = (offset + len(schedule)) % len(states)
     state["last_run"] = today.isoformat()
     state["last_run_stats"] = {

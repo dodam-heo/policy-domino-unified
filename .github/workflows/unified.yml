@@ -74,11 +74,11 @@ jobs:
         run: python -m unified.engine --root data --streams 3 --details 18
       - name: Incrementally refresh official Gov24 program criteria if configured
         env:
-          GOV24_SERVICE_KEY: ${{ secrets.GOV24_SERVICE_KEY }}
+          GOV24_SERVICE_KEY: ${{ secrets.GOV24_SERVICE_KEY || secrets.ODCLOUD_API_KEY || secrets.ODCLOUD_SERVICE_KEY }}
         run: python -m unified.gov24 --root data --list-pages 3 --detail-pages 3
       - name: Identify verified public-agency program impacts
         env:
-          PD_LLM_API_KEY: ${{ secrets.PD_LLM_API_KEY }}
+          PD_LLM_API_KEY: ${{ secrets.PD_LLM_API_KEY || secrets.OPENAI_API_KEY }}
           PD_LLM_MODEL: ${{ vars.PD_LLM_MODEL }}
           PD_LLM_URL: ${{ vars.PD_LLM_URL || 'https://api.openai.com/v1/chat/completions' }}
           PD_LLM_MAX_REQUESTS: ${{ vars.PD_LLM_MAX_REQUESTS || '12' }}

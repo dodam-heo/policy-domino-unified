@@ -1,11 +1,7 @@
 name: Audit v2 v4 NEXT source inventories
+# Historical corpus census is pinned and already completed.
+# Run it explicitly when the historical snapshots or audit contract change.
 on:
-  push:
-    branches: [main]
-    paths:
-      - 'unified/**'
-      - 'tests/**'
-      - '.github/workflows/audit.yml'
   workflow_dispatch:
 permissions:
   contents: read

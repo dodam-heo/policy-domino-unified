@@ -134,7 +134,7 @@ def _format(raw: bytes) -> str:
 
 
 def resolve_attachments(root: Path, original: dict,
-                        transport=None, max_links: int=8) -> dict:
+                        transport=None, max_links: int=8, previous=None) -> dict:
     links = original.get("attachment_links") or []
     if not links:
         return original
@@ -143,6 +143,9 @@ def resolve_attachments(root: Path, original: dict,
     structured_tables = []
     incomplete = list(original.get("incomplete_keys") or [])
     recovered_clauses = []
+    cached = {item.get("source_url"): item for item in
+              (previous or {}).get("attachments", [])
+              if isinstance(item, dict) and item.get("verified_text")}
     for n, rawurl in enumerate(links):
         url = normalized_url(rawurl)
         row = {"index": n+1, "source_url": url or str(rawurl)[:120],
@@ -157,7 +160,24 @@ def resolve_attachments(root: Path, original: dict,
             unresolved.append(row)
             continue
         try:
-            data = fetch(url, transport)
+            # Verified archived bytes are cheaper and more reliable than
+            # downloading the same official attachment on every retry.
+            prior = cached.get(url, {})
+            sha_before = prior.get("sha256", "")
+            archived = (root / "attachments" / sha_before[:2] /
+                        (sha_before + ".gz")) if re.fullmatch(
+                            r"[0-9a-f]{64}", sha_before) else None
+            data = None
+            if archived and archived.is_file():
+                try:
+                    saved = gzip.decompress(archived.read_bytes())
+                    if hashlib.sha256(saved).hexdigest() == sha_before:
+                        data = saved
+                        row["reused_verified_archive"] = True
+                except (OSError, ValueError):
+                    pass
+            if data is None:
+                data = fetch(url, transport)
             if len(data) > MAX_ATTACHMENT_BYTES:
                 raise ValueError("official_attachment_too_large")
             fmt = _format(data)
