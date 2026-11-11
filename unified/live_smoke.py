@@ -48,6 +48,16 @@ def main():
                 resolved=resolve_attachments(Path("/tmp/policy-live-annex"),body,max_links=3)
                 print("ATTACHMENTS",serial,json.dumps(
                     resolved.get("attachments",[]),ensure_ascii=False)[:2300],flush=True)
+                import gzip,io,zipfile
+                for attachment in resolved.get("attachments",[]):
+                    if attachment.get("format")=="zip_other" and attachment.get("sha256"):
+                        sha=attachment["sha256"]
+                        archive=Path("/tmp/policy-live-annex")/"attachments"/sha[:2]/(sha+".gz")
+                        try:
+                            with zipfile.ZipFile(io.BytesIO(gzip.decompress(archive.read_bytes()))) as package:
+                                print("ZIP_MEMBERS",serial,package.namelist()[:22],flush=True)
+                        except Exception as exc:
+                            print("ZIP_INSPECT_ERROR",type(exc).__name__,str(exc)[:100],flush=True)
                 print("EXTRACT",serial,"clauses",len(resolved.get("clauses",{})),
                       "status",resolved.get("status"),flush=True)
             if len(body["clauses"]) or body["attachment_links"]:

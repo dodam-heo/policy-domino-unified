@@ -244,24 +244,33 @@ class OfficialAPI:
         self.oc, self.transport = oc, transport
 
     def request(self, endpoint, source, **params):
-        url = API + endpoint + "?" + urlencode(
-            {"OC": self.oc, "target": source, "type": "XML", **params})
+        query=urlencode({"OC": self.oc, "target": source, "type": "XML", **params})
+        url = API + endpoint + "?" + query
         if self.transport:
             raw = self.transport(url)
         else:
-            last = None
-            for n in range(3):
-                try:
-                    with urlopen(Request(url, headers={
-                            "User-Agent": "PolicyDominoUnified/1.0"}), timeout=25) as r:
-                        raw = r.read(MAX_RESPONSE + 1)
-                    break
-                except OSError as exc:
-                    last = exc
-                    if n < 2:
-                        time.sleep(n + 1)
+            # The official service has intermittent runner-level connection
+            # errors. Try both official HTTPS hostnames before a failure is
+            # recorded in coverage; never silently mark the date as complete.
+            urls=(url, "https://law.go.kr/DRF/" + endpoint + "?" + query)
+            last=None
+            for alternate in urls:
+                for n in range(2):
+                    try:
+                        with urlopen(Request(alternate, headers={
+                                "User-Agent":"Mozilla/5.0 (PolicyDominoUnified/2.0)",
+                                "Accept":"application/xml,text/xml,*/*"}), timeout=13) as r:
+                            raw=r.read(MAX_RESPONSE+1)
+                        break
+                    except (OSError, TimeoutError) as exc:
+                        last=exc
+                        if n==0:time.sleep(0.5)
+                else:
+                    continue
+                break
             else:
-                raise RuntimeError("official_api_network_error: " + type(last).__name__)
+                raise RuntimeError("official_api_network_error: "+
+                    type(last).__name__+": "+str(last)[:130])
         if len(raw) > MAX_RESPONSE:
             raise ValueError("official_api_payload_too_large")
         root = ET.fromstring(raw)
