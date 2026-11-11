@@ -141,6 +141,8 @@ def resolve_attachments(root: Path, original: dict,
     clauses = dict(original.get("clauses") or {})
     records, unresolved = [], []
     structured_tables = []
+    incomplete = list(original.get("incomplete_keys") or [])
+    recovered_clauses = []
     for n, rawurl in enumerate(links):
         url = normalized_url(rawurl)
         row = {"index": n+1, "source_url": url or str(rawurl)[:120],
@@ -173,6 +175,13 @@ def resolve_attachments(root: Path, original: dict,
                 text = docx_text(data)
             elif fmt == "hwpx":
                 text = hwpx_text(data)
+                from .annex_clauses import recover
+                recovered = recover(clauses, incomplete, data)
+                for key, value in recovered.items():
+                    clauses[key] = value
+                    incomplete.remove(key)
+                    recovered_clauses.append({"clause": key, "attachment_sha256": sha,
+                                              "method": "matching_official_hwpx_clause"})
             else:
                 text = ""
             text = re.sub(r"[ \t]+", " ", text)
@@ -196,8 +205,10 @@ def resolve_attachments(root: Path, original: dict,
         **original, "clauses": clauses,
         "attachments": records, "unresolved_attachments": unresolved,
         "numeric_tables": structured_tables,
+        "incomplete_keys": incomplete,
+        "recovered_clauses": recovered_clauses,
         "body_sha256": hashlib.sha256(json.dumps(
             clauses, ensure_ascii=False, sort_keys=True).encode("utf8")).hexdigest(),
         "status": "complete" if clauses and not unresolved and
-                    not original.get("incomplete_keys") else "partial",
+                    not incomplete else "partial",
     }

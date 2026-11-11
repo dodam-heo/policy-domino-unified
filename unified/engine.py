@@ -579,7 +579,7 @@ def run(root: Path, api: OfficialAPI, limit_streams=3, detail_budget=20,
     today = today or dt.date.today()
     state_file = root / "collection-state.json"
     state = load(state_file, {}) or {}
-    for key in ("backfill", "coverage", "attempts", "errors"):
+    for key in ("backfill", "coverage", "attempts", "errors", "last_detail_attempt"):
         state.setdefault(key, {})
     states = streams()
     offset = int(state.get("stream_offset", 0)) % len(states)
@@ -670,7 +670,8 @@ def run(root: Path, api: OfficialAPI, limit_streams=3, detail_budget=20,
 
     # Reuse metadata saved by EVERY prior run, not only the latest window.
     records = _pending_index_records(root)
-    prioritized = sorted(records, key=lambda r: _priority(r, today), reverse=True)
+    prioritized = sorted(records, key=lambda r: (
+        -int(state["attempts"].get(ident(r), 0)), _priority(r, today)), reverse=True)
     if network_unavailable:
         state["stream_offset"] = (offset + len(schedule)) % len(states)
         state["last_run"] = today.isoformat()
@@ -689,7 +690,7 @@ def run(root: Path, api: OfficialAPI, limit_streams=3, detail_budget=20,
     aged = sorted(records, key=lambda r: (
         int(state["attempts"].get(ident(r), 0)), r.get("published_at", ""), ident(r)))
     reserve = max(1, detail_budget // 4)
-    selected = prioritized[:max(0, detail_budget-reserve)*3] + aged + prioritized
+    selected = prioritized[:max(0, detail_budget-reserve)] + aged[:reserve] + prioritized + aged
     ordered, seen = [], set()
     for rec in selected:
         if ident(rec) not in seen:
@@ -709,6 +710,8 @@ def run(root: Path, api: OfficialAPI, limit_streams=3, detail_budget=20,
                 and not stored.get("source_snapshot_provenance")):
             continue
         attempted += 1
+        state["attempts"][ident(rec)] = int(state["attempts"].get(ident(rec), 0)) + 1
+        state["last_detail_attempt"][ident(rec)] = dt.datetime.now(dt.timezone.utc).isoformat()
         try:
             after = process(api, root, state, rec)
             if (after.get("body", {}).get("status") == "complete"
@@ -734,8 +737,9 @@ def run(root: Path, api: OfficialAPI, limit_streams=3, detail_budget=20,
             compared += 1
             state["errors"].pop(ident(rec), None)
         except Exception as exc:
-            state["attempts"][ident(rec)] = int(state["attempts"].get(ident(rec), 0)) + 1
             state["errors"][ident(rec)] = type(exc).__name__ + ": " + str(exc)[:150]
+        finally:
+            save_json(state_file, state)
     state["stream_offset"] = (offset + len(schedule)) % len(states)
     state["last_run"] = today.isoformat()
     state["last_run_stats"] = {
