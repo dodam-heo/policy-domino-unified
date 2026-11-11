@@ -36,7 +36,11 @@ def bootstrap(inputs: dict[str, Path], root: Path) -> dict:
                                     earlier.get("published_at") or "",
                     "effective_date": record.get("effective_date") or
                                       earlier.get("effective_date") or "",
-                    "kind": record.get("kind") or earlier.get("kind") or ""}
+                    "kind": record.get("kind") or earlier.get("kind") or "",
+                    "ministry": record.get("ministry") or earlier.get("ministry") or "",
+                    "number": record.get("number") or earlier.get("number") or "",
+                    "revision": record.get("revision") or earlier.get("revision") or "",
+                    "url": record.get("url") or earlier.get("url") or ""}
             # Preserve the best available metadata, never infer a complete original.
             if not earlier or sum(bool(v) for v in info.values()) >= sum(
                     bool(v) for v in earlier.values()):
