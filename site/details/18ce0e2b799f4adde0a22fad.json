@@ -16,7 +16,7 @@
   "category_basis": "not_verified",
   "support_standard": false,
   "headline": "신구 원문의 실질 변경 내용을 확인하고 있습니다",
-  "source_grade": "legacy_extract_needs_revalidation",
+  "source_grade": "partial_or_missing_original",
   "verification": "comparison_incomplete",
   "comparison_status": "partial_unverified",
   "relationship": "same_official_id_revision",
@@ -54,7 +54,7 @@
       "title": "영덕군물가대책위원회설치및운영에관한조례",
       "url": "https://www.law.go.kr/%EC%9E%90%EC%B9%98%EB%B2%95%EA%B7%9C/%EC%98%81%EB%8D%95%EA%B5%B0%EB%AC%BC%EA%B0%80%EB%8C%80%EC%B1%85%EC%9C%84%EC%9B%90%ED%9A%8C%EC%84%A4%EC%B9%98%EB%B0%8F%EC%9A%B4%EC%98%81%EC%97%90%EA%B4%80%ED%95%9C%EC%A1%B0%EB%A1%80",
       "id": "ordin|2093530|2183559",
-      "verification": "legacy_extract_needs_revalidation"
+      "verification": "partial_or_missing_original"
     }
   ]
 }
