@@ -140,12 +140,14 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: site
+          name: github-pages-${{ github.run_id }}-${{ github.run_attempt }}
       - name: Deploy unified source-backed site
         if: steps.pages.outcome == 'success'
         id: deployment
         uses: actions/deploy-pages@v4
         with:
           timeout: 1200000
+          artifact_name: github-pages-${{ github.run_id }}-${{ github.run_attempt }}
       - name: Fail the production status if required coverage is still missing
         if: always()
         run: |
@@ -158,7 +160,7 @@ jobs:
               sys.exit(1)
           acceptance=json.loads(path.read_text('utf8'))
           if not acceptance['ready_for_final_release']:
-              print('::error::Public demo published, but core source→agency acceptance FAILED')
+              print('::error::Core source→agency acceptance FAILED; see the deployment step for publication status')
               sys.exit(1)
           quality=json.loads(Path('site/data.json').read_text('utf8')).get('quality',{})
           if quality.get('failed_collection_windows',0):
