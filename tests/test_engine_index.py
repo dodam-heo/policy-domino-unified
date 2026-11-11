@@ -23,6 +23,20 @@ class OfficialStub:
 
 
 class IncrementalLedgerTest(unittest.TestCase):
+    def test_api_outage_is_bounded_and_index_is_retained(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            class OutageAPI:
+                def search(self, *args, **kwargs):
+                    raise RuntimeError("official_api_network_error: refused")
+                def detail(self, record):
+                    raise AssertionError("Do not fetch detail during network outage")
+            result = run(root, OutageAPI(), limit_streams=1, detail_budget=18,
+                         today=dt.date(2026,11,11))
+            self.assertEqual(result["source_connection"], "unavailable_deferred")
+            self.assertEqual(result["detail_attempted"], 0)
+            self.assertGreaterEqual(result["failed_windows"], 2)
+
     def test_discovered_versions_survive_zero_detail_budget(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
