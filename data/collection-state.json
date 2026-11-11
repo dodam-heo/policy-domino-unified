@@ -5,9 +5,9 @@
     "law|1|": "2026-10-07",
     "admrul|1|1": "2026-10-07",
     "admrul|1|2": "2026-10-07",
-    "admrul|1|4": "2026-10-21",
-    "admrul|1|5": "2026-10-21",
-    "admrul|1|6": "2026-10-21",
+    "admrul|1|4": "2026-10-07",
+    "admrul|1|5": "2026-10-07",
+    "admrul|1|6": "2026-10-07",
     "admrul|2|1": "2026-10-21",
     "admrul|2|5": "2026-10-21",
     "admrul|2|6": "2026-10-21",
@@ -461,7 +461,7 @@
       "last": "2026-11-11",
       "stage": "annual_forward",
       "query_year": "2027",
-      "checked_at": "2026-11-11T07:18:55.051759+00:00"
+      "checked_at": "2026-11-11T08:13:46.757202+00:00"
     },
     "admrul|2|2|2025-05-20|2026-11-11|annual_forward": {
       "reported": 0,
@@ -475,7 +475,7 @@
       "last": "2026-11-11",
       "stage": "annual_forward",
       "query_year": "2027",
-      "checked_at": "2026-11-11T07:18:55.773554+00:00"
+      "checked_at": "2026-11-11T08:13:47.973580+00:00"
     },
     "admrul|1|4|2025-05-20|2026-11-11|annual_forward": {
       "reported": 0,
@@ -489,13 +489,9 @@
       "last": "2026-11-11",
       "stage": "annual_forward",
       "query_year": "2027",
-      "checked_at": "2026-11-11T07:18:56.369275+00:00"
+      "checked_at": "2026-11-11T08:13:48.664046+00:00"
     },
     "admrul|2|4|2025-05-20|2026-11-11|annual_forward": {
-      "reported": 0,
-      "collected": 0,
-      "pages": 1,
-      "complete": true,
       "source": "admrul",
       "edition": "2",
       "kind": "4",
@@ -503,7 +499,8 @@
       "last": "2026-11-11",
       "stage": "annual_forward",
       "query_year": "2027",
-      "checked_at": "2026-11-11T07:18:57.189935+00:00"
+      "complete": false,
+      "error": "RuntimeError: official_api_network_error: URLError: <urlopen error timed out>"
     },
     "ordin|2||2026-11-05|2026-11-11|recent": {
       "reported": 847,
@@ -728,30 +725,127 @@
       "stage": "historical",
       "query_year": "",
       "checked_at": "2026-11-11T07:37:33.499499+00:00"
+    },
+    "admrul|1|4|2026-11-05|2026-11-11|recent": {
+      "reported": 0,
+      "collected": 0,
+      "pages": 1,
+      "complete": true,
+      "source": "admrul",
+      "edition": "1",
+      "kind": "4",
+      "first": "2026-11-05",
+      "last": "2026-11-11",
+      "stage": "recent",
+      "query_year": "",
+      "checked_at": "2026-11-11T08:12:43.754900+00:00"
+    },
+    "admrul|1|4|2026-10-08|2026-10-21|historical": {
+      "reported": 3,
+      "collected": 3,
+      "pages": 1,
+      "complete": true,
+      "source": "admrul",
+      "edition": "1",
+      "kind": "4",
+      "first": "2026-10-08",
+      "last": "2026-10-21",
+      "stage": "historical",
+      "query_year": "",
+      "checked_at": "2026-11-11T08:12:49.817010+00:00"
+    },
+    "admrul|1|5|2026-11-05|2026-11-11|recent": {
+      "reported": 0,
+      "collected": 0,
+      "pages": 1,
+      "complete": true,
+      "source": "admrul",
+      "edition": "1",
+      "kind": "5",
+      "first": "2026-11-05",
+      "last": "2026-11-11",
+      "stage": "recent",
+      "query_year": "",
+      "checked_at": "2026-11-11T08:13:04.948211+00:00"
+    },
+    "admrul|1|5|2026-10-08|2026-10-21|historical": {
+      "reported": 1,
+      "collected": 1,
+      "pages": 1,
+      "complete": true,
+      "source": "admrul",
+      "edition": "1",
+      "kind": "5",
+      "first": "2026-10-08",
+      "last": "2026-10-21",
+      "stage": "historical",
+      "query_year": "",
+      "checked_at": "2026-11-11T08:13:29.439629+00:00"
+    },
+    "admrul|1|6|2026-11-05|2026-11-11|recent": {
+      "reported": 0,
+      "collected": 0,
+      "pages": 1,
+      "complete": true,
+      "source": "admrul",
+      "edition": "1",
+      "kind": "6",
+      "first": "2026-11-05",
+      "last": "2026-11-11",
+      "stage": "recent",
+      "query_year": "",
+      "checked_at": "2026-11-11T08:13:30.338346+00:00"
+    },
+    "admrul|1|6|2026-10-08|2026-10-21|historical": {
+      "reported": 0,
+      "collected": 0,
+      "pages": 1,
+      "complete": true,
+      "source": "admrul",
+      "edition": "1",
+      "kind": "6",
+      "first": "2026-10-08",
+      "last": "2026-10-21",
+      "stage": "historical",
+      "query_year": "",
+      "checked_at": "2026-11-11T08:13:31.591904+00:00"
     }
   },
   "attempts": {
     "admrul|40796|2100000287994": 1,
     "admrul|83700|2100000287816": 1,
-    "admrul|83355|2100000287814": 1
+    "admrul|83355|2100000287814": 1,
+    "admrul|48377|2100000285242": 1,
+    "admrul|48362|2100000284670": 1,
+    "admrul|2039274|2100000280632": 1,
+    "admrul|2031096|2100000271630": 1,
+    "admrul|2075865|2100000266578": 1
   },
   "errors": {
     "admrul|40796|2100000287994": "RuntimeError: official_api_network_error: URLError",
     "admrul|83700|2100000287816": "RuntimeError: official_api_network_error: URLError",
-    "admrul|83355|2100000287814": "RuntimeError: official_api_network_error: URLError"
+    "admrul|83355|2100000287814": "RuntimeError: official_api_network_error: URLError",
+    "admrul|2075865|2100000266578": "RuntimeError: official_api_network_error: URLError: <urlopen error timed out>"
   },
-  "stream_offset": 5,
+  "stream_offset": 8,
   "last_run": "2026-11-11",
   "last_run_stats": {
-    "detail_attempted": 10,
+    "detail_attempted": 5,
     "complete_originals_added": 0,
-    "compared_pairs_processed": 10,
-    "failed_windows": 0,
+    "compared_pairs_processed": 4,
+    "failed_windows": 1,
     "streams_checked": 3,
     "pending_index_versions": 46674,
     "year_search_year": 2027,
     "time_budget_deferred": true,
-    "collection_elapsed_seconds": 423.2
+    "collection_elapsed_seconds": 385.3
   },
-  "annual_kind_offset": 2
+  "annual_kind_offset": 4,
+  "last_detail_attempt": {
+    "admrul|48377|2100000285242": "2026-11-11T08:15:01.667368+00:00",
+    "admrul|48362|2100000284670": "2026-11-11T08:15:47.389411+00:00",
+    "admrul|2039274|2100000280632": "2026-11-11T08:17:03.830636+00:00",
+    "admrul|2031096|2100000271630": "2026-11-11T08:17:21.385451+00:00",
+    "admrul|2075865|2100000266578": "2026-11-11T08:17:56.344027+00:00"
+  }
 }

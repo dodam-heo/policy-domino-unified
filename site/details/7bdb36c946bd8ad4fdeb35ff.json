@@ -23,7 +23,101 @@
   "change_count": 2,
   "numeric_change_count": 0,
   "standard_changes": [],
-  "current_standard_tables": [],
+  "current_standard_tables": [
+    {
+      "table": 1,
+      "header": [
+        "구 분",
+        "1인가구",
+        "2인가구",
+        "3인가구",
+        "4인가구",
+        "5인가구",
+        "6인가구",
+        "7인가구"
+      ],
+      "cells": [
+        {
+          "row": "금액 (원/월)",
+          "column": "1인가구",
+          "value": "1,368,021"
+        },
+        {
+          "row": "금액 (원/월)",
+          "column": "2인가구",
+          "value": "2,240,323"
+        },
+        {
+          "row": "금액 (원/월)",
+          "column": "3인가구",
+          "value": "2,859,046"
+        },
+        {
+          "row": "금액 (원/월)",
+          "column": "4인가구",
+          "value": "3,464,943"
+        },
+        {
+          "row": "금액 (원/월)",
+          "column": "5인가구",
+          "value": "4,031,510"
+        },
+        {
+          "row": "금액 (원/월)",
+          "column": "6인가구",
+          "value": "4,564,601"
+        },
+        {
+          "row": "금액 (원/월)",
+          "column": "7인가구",
+          "value": "5,076,333"
+        }
+      ],
+      "official_attachment_sha256": "16f6c2fbffc2ffa9e21536635d042f478d83569e01e1f3d2715ce00c502cf09a"
+    },
+    {
+      "table": 2,
+      "header": [
+        "구 분",
+        "교육활동지원비",
+        "교과서",
+        "입학금 및 수업료"
+      ],
+      "cells": [
+        {
+          "row": "초등학생",
+          "column": "교육활동지원비",
+          "value": "513,000원"
+        },
+        {
+          "row": "중학생",
+          "column": "교육활동지원비",
+          "value": "714,000원"
+        },
+        {
+          "row": "고등학생",
+          "column": "교육활동지원비",
+          "value": "945,000원"
+        },
+        {
+          "row": "지급횟수",
+          "column": "교육활동지원비",
+          "value": "연 1회"
+        },
+        {
+          "row": "지급횟수",
+          "column": "교과서",
+          "value": "연 1회"
+        },
+        {
+          "row": "지급횟수",
+          "column": "입학금 및 수업료",
+          "value": "입학금은 입학시 1회, 수업료는 분기별 지급"
+        }
+      ],
+      "official_attachment_sha256": "16f6c2fbffc2ffa9e21536635d042f478d83569e01e1f3d2715ce00c502cf09a"
+    }
+  ],
   "changes": [
     {
       "article": "본문 1",

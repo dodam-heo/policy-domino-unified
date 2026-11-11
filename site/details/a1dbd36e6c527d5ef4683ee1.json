@@ -15,7 +15,7 @@
   "category": "노동·인사",
   "category_basis": "policy_title_text_rule",
   "support_standard": false,
-  "headline": "원문 재검증 필요 · 별표 0000: 지급규칙 [별표] 특수지근무수당 지급 등급 및 대상기관(제2조 관련) ┌───┬─────────────────┬────────────────────┐ │등 급│기 관 명 │주 소 │ ├───┼─────────────────… → 지급규칙 [별표] 특수지근무수당 지급 등급 및 대상기관(제2조 관련) ┌──┬───────────────┬─────────────…",
+  "headline": "원문 재검증 필요 · 별표 0000 표·서식 텍스트 변경 — 항목별 신구 대조 확인",
   "source_grade": "legacy_extract_needs_revalidation",
   "verification": "historical_comparison_needs_revalidation",
   "comparison_status": "changed",

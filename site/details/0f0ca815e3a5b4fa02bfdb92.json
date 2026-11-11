@@ -15,7 +15,7 @@
   "category": "복지·소득",
   "category_basis": "verified_excerpt_text_rule",
   "support_standard": false,
-  "headline": "원문 재검증 필요 · 별표 0011: ─────────────────────────────────────────── 접수번호 │접수일 │처리일│처리기간 30일 ───────┴──────┴───┴─────────────────────────────────────… → ────────────────────────────────────────── 접수번호 │접수일 │처리일│처리기간 30일 ─────…",
+  "headline": "원문 재검증 필요 · 별표 0011 표·서식 텍스트 변경 — 항목별 신구 대조 확인",
   "source_grade": "legacy_extract_needs_revalidation",
   "verification": "historical_comparison_needs_revalidation",
   "comparison_status": "changed",

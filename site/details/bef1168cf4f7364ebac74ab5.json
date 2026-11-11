@@ -15,7 +15,7 @@
   "category": "안전·사법",
   "category_basis": "policy_title_text_rule",
   "support_standard": false,
-  "headline": "원문 재검증 필요 · 별표 0008: ────────┬─────────┬─────┬───────────────── 접수번호 │접수일시 │처리일시 │처리기간 60일 ───────────┴─────────┴─────┴───────────────── ────────… → ────────┬─────────┬─────┬───────────────────────── 접수번호 │접수일시 │처리일시 │처리기…",
+  "headline": "원문 재검증 필요 · 별표 0008 표·서식 텍스트 변경 — 항목별 신구 대조 확인",
   "source_grade": "legacy_extract_needs_revalidation",
   "verification": "historical_comparison_needs_revalidation",
   "comparison_status": "changed",
