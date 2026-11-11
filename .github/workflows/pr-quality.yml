@@ -21,6 +21,10 @@ jobs:
         run: python -m unittest discover -s tests -v
       - name: Check client JavaScript syntax
         run: node --check site/app.js
+      - name: Live official notices smoke (test fixtures only)
+        env:
+          LAW_OC: ${{ vars.LAW_OC || 'dori' }}
+        run: python -m unified.live_smoke
       - name: Fetch pinned V2 state for real migration test
         uses: actions/checkout@v4
         with:
