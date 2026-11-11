@@ -14,6 +14,7 @@ from .engine import ident, load, save_json, hash256
 from .verification import (comparison_grade, quality_report,
                            source_grade, OFFICIAL)
 from .meaning import focused_change, headline
+from .catalog import indexed_documents
 
 AREAS = (
     ("복지·소득", r"중위소득|생계급여|의료급여|기초생활|사회보장|복지|연금|수급"),
@@ -64,18 +65,22 @@ def detail_path(event_id: str) -> str:
     return "details/" + hash256(event_id)[:24] + ".json"
 
 
-def assemble(root: Path, limit: int = 1200) -> dict:
+def assemble(root: Path, limit: int = 50000) -> dict:
     versions = {}
-    documents = []
+    documents_by_id = indexed_documents(root)
     for path in (root/"documents").glob("*/*/*.json.gz"):
         package = load(path, {})
         doc = package.get("record") or {}
         if not all(doc.get(k) for k in ("source", "stable_id", "serial", "title")):
             continue
-        versions[ident(doc)] = package
-        documents.append(doc)
-    documents.sort(key=lambda v: (v.get("published_at", ""), v.get("serial", "")),
-                   reverse=True)
+        key=ident(doc)
+        versions[key] = package
+        previous=documents_by_id.get(key, {})
+        documents_by_id[key]={**previous,**{k:v for k,v in doc.items() if v},
+                              "index_grade":previous.get("index_grade","original_saved")}
+    documents = sorted(documents_by_id.values(),
+                       key=lambda v: (v.get("published_at", ""), v.get("serial", "")),
+                       reverse=True)
     comparisons = {}
     for path in (root/"comparisons").glob("*.json.gz"):
         c = load(path, {})
@@ -93,6 +98,42 @@ def assemble(root: Path, limit: int = 1200) -> dict:
     events = []
     for doc in documents[:limit]:
         key = ident(doc)
+        if key not in versions:
+            category, basis = classify(doc, [])
+            events.append({
+                "id":key, "title":doc.get("title",""),
+                "source":doc["source"],
+                "source_kind":SOURCE_NAMES.get(doc["source"],"기타"),
+                "kind":doc.get("kind",""),
+                "ministry":doc.get("ministry",""),
+                "published_at":doc.get("published_at",""),
+                "effective_date":doc.get("effective_date",""),
+                "revision":doc.get("revision",""),
+                "change_type":kind_of(doc),
+                "number":doc.get("number",""),
+                "url":doc.get("url",""),
+                "category":category,
+                "category_basis":basis,
+                "support_standard":bool(SUPPORT_STANDARD.search(doc.get("title",""))),
+                "headline":"공식 목록 확보 · 신구 본문 분석 대기",
+                "source_grade":doc.get("index_grade","historic_index_only"),
+                "verification":"comparison_incomplete",
+                "comparison_status":"official_index_only",
+                "relationship":"",
+                "change_count":0,
+                "changes":[],
+                "unresolved":[],
+                "institutions":[],
+                "related_regulations":[],
+                "linked_regulation_count":0,
+                "institution_count":0,
+                "action_count":0,
+                "details_path":"",
+                "prior_url":"",
+                "source_documents":[{"title":doc["title"],"url":doc.get("url",""),
+                  "id":key,"verification":"indexed_only_not_complete_original"}],
+            })
+            continue
         comp = comparisons.get(key, {})
         changes = comp.get("changes", [])
         old = comp.get("prior_record") or {}
@@ -175,11 +216,14 @@ def assemble(root: Path, limit: int = 1200) -> dict:
     index_windows = len(list((root/"indexes").glob("*/*.json.gz")))
     report["quality"] = quality_report(events, ledger, indexed=index_windows)
     report["quality"]["historic_index_versions"] = archived.get("unique_official_versions", 0)
+    report["quality"]["indexed_versions_in_catalog"] = len(documents_by_id)
+    report["quality"]["analysis_pending"] = sum(e["comparison_status"] in (
+        "official_index_only","original_saved_comparison_pending") for e in events)
     return report
 
 
 INDEX_KEYS = (
-    "id", "title", "source", "source_kind", "kind", "ministry",
+    "id", "title", "url", "source", "source_kind", "kind", "ministry",
     "published_at", "effective_date", "revision", "change_type", "number",
     "category", "category_basis", "support_standard", "headline", "comparison_status", "verification",
     "source_grade", "relationship", "change_count", "institution_count",
@@ -190,18 +234,37 @@ INDEX_KEYS = (
 def write_site(payload: dict, output: Path) -> dict:
     folder = output.parent/"details"
     folder.mkdir(parents=True, exist_ok=True)
+    catalog = output.parent/"catalog"
+    catalog.mkdir(parents=True, exist_ok=True)
     retained = set()
     small = []
     for event in payload["events"]:
-        path = output.parent/event["details_path"]
-        save_json(path, {"schema": "policy-domino-unified-detail-v2", **event})
-        retained.add(path.name)
+        if event["details_path"]:
+            path = output.parent/event["details_path"]
+            save_json(path, {"schema": "policy-domino-unified-detail-v2", **event})
+            retained.add(path.name)
         small.append({key: event.get(key) for key in INDEX_KEYS})
     for previous in folder.glob("*.json"):
         if previous.name not in retained:
             previous.unlink()
     index = {key: value for key, value in payload.items() if key != "events"}
-    index["events"] = small
+    # Keep initial payload responsive. The full discovered inventory is
+    # split into independently cacheable, bounded-size catalogue files.
+    recent_count=700
+    index["events"] = small[:recent_count]
+    manifest=[]
+    kept=set()
+    for i in range(recent_count,len(small),800):
+        name = "catalog/"+str(i//800).zfill(5)+".json"
+        path = output.parent/name
+        save_json(path, {"events":small[i:i+800]})
+        kept.add(path.name)
+        manifest.append(name)
+    for previous in catalog.glob("*.json"):
+        if previous.name not in kept:
+            previous.unlink()
+    index["archive_shards"]=manifest
+    index["total_indexed_versions"]=len(small)
     save_json(output, index)
     return index
 

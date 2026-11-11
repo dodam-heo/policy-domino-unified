@@ -104,6 +104,13 @@
     renderList();
     $("detail").replaceChildren(empty("공식 변경 내용과 기관 연결 근거를 불러오는 중입니다."));
     const seq=++state.request;
+    if(!current.details_path){
+      state.detail={...current, changes:[],institutions:[],related_regulations:[],
+        source_documents:[{title:current.title,url:current.url,
+          verification:"indexed_only_not_complete_original"}],unresolved:[]};
+      renderDetail();
+      return;
+    }
     try{
       const resp=await fetch("./"+current.details_path,{cache:"no-store"});
       if(!resp.ok)throw Error("HTTP "+resp.status);
@@ -312,6 +319,31 @@
     const change=changesSection(e);root.appendChild(change);
     root.appendChild(citations(e));
   }
+  async function hydrateCatalog(index){
+    const paths=index.archive_shards||[];
+    if(!paths.length)return;
+    const merged=new Map(state.events.map(e=>[e.id,e]));
+    for(let i=0;i<paths.length;i+=8){
+      const batch=await Promise.all(paths.slice(i,i+8).map(async p=>{
+        try{
+          const resp=await fetch("./"+p);
+          if(!resp.ok)throw Error("HTTP "+resp.status);
+          return (await resp.json()).events||[];
+        }catch{return null;}
+      }));
+      batch.forEach(rows=>{if(rows)rows.forEach(e=>merged.set(e.id,e));});
+      state.events=[...merged.values()].sort((a,b)=>
+        String(b.published_at||"").localeCompare(String(a.published_at||""))||
+        String(b.id||"").localeCompare(String(a.id||"")));
+      if((i+8)%32===0||i+8>=paths.length)renderList();
+    }
+    const area=$("area"),used=new Set([...area.options].map(x=>x.value));
+    for(const name of [...new Set(state.events.map(e=>e.category).filter(Boolean))].sort()){
+      if(used.has(name))continue;
+      const opt=el("option","",name);opt.value=name;area.appendChild(opt);
+    }
+    renderList();
+  }
   async function boot(){
     try{
       const resp=await fetch("./data.json",{cache:"no-store"});
@@ -334,6 +366,7 @@
       const areas=[...new Set(state.events.map(x=>x.category).filter(Boolean))].sort();
       for(const area of areas){const opt=el("option","",area);opt.value=area;$("area").appendChild(opt);}
       refreshSummary();renderList();
+      hydrateCatalog(d);
       const selected=decodeURIComponent((location.hash.match(/^#event=(.*)$/)||[])[1]||"");
       if(state.events.some(x=>x.id===selected))select(selected,false);
       else if(state.events.length && window.matchMedia("(min-width:761px)").matches)

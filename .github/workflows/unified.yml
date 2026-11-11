@@ -112,7 +112,7 @@ jobs:
           set -euo pipefail
           git config user.name policy-domino-unified-bot
           git config user.email policy-domino-unified-bot@users.noreply.github.com
-          git add data/ site/data.json site/details/ site/acceptance.json
+          git add -A data/ site/data.json site/details/ site/catalog/ site/acceptance.json
           if ! git diff --cached --quiet; then
             base_sha=$(git rev-parse HEAD)
             git fetch origin main
