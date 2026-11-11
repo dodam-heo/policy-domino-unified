@@ -13,6 +13,7 @@ import re
 from .engine import ident, load, save_json, hash256
 from .verification import (comparison_grade, quality_report,
                            source_grade, OFFICIAL)
+from .meaning import focused_change, headline
 
 AREAS = (
     ("복지·소득", r"중위소득|생계급여|의료급여|기초생활|사회보장|복지|연금|수급"),
@@ -106,6 +107,7 @@ def assemble(root: Path, limit: int = 1200) -> dict:
         before_after = [{
             "article": c.get("clause", ""), "before": c.get("before", "")[:15000],
             "after": c.get("after", "")[:15000],
+            "focus": focused_change(c.get("before", ""), c.get("after", "")),
             "verification": verification,
         } for c in changes[:80]]
         row = {
@@ -122,6 +124,7 @@ def assemble(root: Path, limit: int = 1200) -> dict:
             "url": doc.get("url", ""),
             "category": category,
             "category_basis": category_reason,
+            "headline": headline(changes, verification),
             "source_grade": source_status,
             "verification": verification,
             "comparison_status": comparison_status,
@@ -173,7 +176,7 @@ def assemble(root: Path, limit: int = 1200) -> dict:
 INDEX_KEYS = (
     "id", "title", "source", "source_kind", "kind", "ministry",
     "published_at", "effective_date", "revision", "change_type", "number",
-    "category", "category_basis", "comparison_status", "verification",
+    "category", "category_basis", "headline", "comparison_status", "verification",
     "source_grade", "relationship", "change_count", "institution_count",
     "action_count", "details_path", "linked_regulation_count",
 )

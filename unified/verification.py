@@ -3,6 +3,7 @@ The grades travel through analysis, publication and human-readable health report
 """
 from __future__ import annotations
 import base64
+import binascii
 import hashlib
 import json
 import xml.etree.ElementTree as ET
@@ -33,7 +34,7 @@ def source_grade(package: dict) -> str:
             if body.get("body_sha256") and expected != body["body_sha256"]:
                 return PARTIAL
             return OFFICIAL
-        except (ValueError, TypeError, ET.ParseError):
+        except (ValueError, TypeError, ET.ParseError, binascii.Error):
             return PARTIAL
     return PARTIAL
 

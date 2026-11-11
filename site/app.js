@@ -117,11 +117,9 @@
   function overview(event){
     const box=el("section","overview");
     const change=event.changes?.find(c=>c.before!==c.after);
-    let message="";
-    if(change && event.verification==="official_comparison_verified")
-      message=change.article+"의 종전·개정 내용이 달라졌습니다. 아래에서 변경 전후를 확인하세요.";
-    else if(change)message=change.article+"의 비교 내용이 있으나 공식 원문 재검증이 필요합니다.";
-    else message="공식 문서는 확보했으나 변경된 핵심 조항과 적용 기준의 대조가 아직 완료되지 않았습니다.";
+    const message=event.headline||
+      (change ? change.article+"의 실제 신구 원문 비교" :
+      "공식 문서는 확보했으나 변경된 핵심 조항과 적용 기준의 대조가 아직 완료되지 않았습니다.");
     add(box,el("div","headline",message),el("small","",
       "시행일 "+date(event.effective_date)+" · "+
       (statuses[event.verification]||"확인 중")));
@@ -155,7 +153,8 @@
     add(card,add(el("div","action-head"),el("strong","",change.article||"변경 조문"),
       pill(grade==="official_comparison_verified"?"원문 검증":"재검증 필요",
         grade==="official_comparison_verified"?"verified":"uncertain")),
-      evidencePair(change.before,change.after));
+      evidencePair(change.focus?.before||change.before,
+                   change.focus?.after||change.after));
     if((change.before||"").length>340||(change.after||"").length>340){
       const more=el("details","subdetails");
       add(more,el("summary","","해당 조문 원문 펼쳐보기"),
@@ -304,7 +303,8 @@
       refreshSummary();renderList();
       const selected=decodeURIComponent((location.hash.match(/^#event=(.*)$/)||[])[1]||"");
       if(state.events.some(x=>x.id===selected))select(selected,false);
-      else if(state.events.length)select(state.events[0].id,false);
+      else if(state.events.length && window.matchMedia("(min-width:761px)").matches)
+        select(state.events[0].id,false);
     }catch(error){
       $("metrics").replaceChildren();
       $("health-title").textContent="공식 자료 표시 실패";
