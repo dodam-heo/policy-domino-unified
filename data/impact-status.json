@@ -1,8 +1,10 @@
 {
   "official_programs": 9683,
-  "comparisons_considered": 7,
+  "comparisons_considered": 204,
   "verified_institutional_tasks": 0,
   "comparison_statuses": {
-    "partial_unverified": 7
+    "partial_unverified": 172,
+    "changed": 26,
+    "no_text_change": 6
   }
 }
