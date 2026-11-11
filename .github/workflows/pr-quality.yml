@@ -39,6 +39,31 @@ jobs:
           repository: dodam-heo/policy-domino-next
           ref: 898db398694f55fc95d1d2ac188c7ea67b9e623e
           path: _test_next
+      - name: Diagnose live official API transport (no credentials printed)
+        env:
+          LAW_OC: ${{ vars.LAW_OC || 'dori' }}
+        run: |
+          python - <<'PY'
+          import os
+          from urllib.parse import urlencode
+          from urllib.request import urlopen,Request
+          q=urlencode({'OC':os.environ['LAW_OC'],'target':'admrul',
+                       'type':'XML','display':1,'page':1})
+          success=False
+          for base in ('https://www.law.go.kr','https://law.go.kr',
+                       'http://www.law.go.kr'):
+              try:
+                  with urlopen(Request(base+'/DRF/lawSearch.do?'+q,
+                         headers={'User-Agent':'Mozilla/5.0'}),timeout=8) as r:
+                      raw=r.read(150000)
+                      print('PROBE',base,'status',r.status,'length',len(raw),
+                            'xml',raw.lstrip().startswith(b'<?xml') or b'LawSearch' in raw or b'AdmRulSearch' in raw)
+                      if b'LawSearch' in raw or b'AdmRulSearch' in raw:
+                          success=True
+              except Exception as ex:
+                  print('PROBE',base,type(ex).__name__,str(ex)[:220])
+          print('PROBE_SUCCESS',success)
+          PY
       - name: Real-corpus bootstrap check without mutating production data
         run: |
           python -m unified.bootstrap --root /tmp/legacy-index-validation \
