@@ -1,0 +1,14 @@
+{
+  "candidate_complete_versions": 862,
+  "imported_originals": 846,
+  "skipped_or_superseded": 16,
+  "built_comparisons": 183,
+  "unresolved_candidate_origins": 0,
+  "full_document_originals_not_inferred_from_excerpts": true,
+  "latest_source_identity_maintained": true,
+  "source_snapshot_pins": {
+    "v2": "66212ee4060e7742ce37f114287f5afecb0244e9",
+    "v4": "b590e4324d5b6e55d805914862c8356d0bf7c1b4",
+    "next": "898db398694f55fc95d1d2ac188c7ea67b9e623e"
+  }
+}
