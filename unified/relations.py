@@ -13,7 +13,7 @@ from .verification import OFFICIAL, source_grade
 CITE = re.compile(r"「([^」]{2,180})」")
 ARTICLE = re.compile(r"제\s*(\d+)\s*조(?:의\s*(\d+))?")
 OPERATIVE = re.compile(r"따라|따른|적용|준용|산정|계산|선정|지급|기준으로|규정에\s*의하여")
-PARAGRAPH = re.compile(r"제\\s*(\\d+)\\s*항")
+PARAGRAPH = re.compile(r"제\s*(\d+)\s*항")
 CIRCLES = "①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑬⑭⑮⑯⑰⑱⑲⑳"
 
 
