@@ -57,6 +57,7 @@
     const needle=state.query.toLocaleLowerCase("ko-KR");
     return state.events.filter(v=>{
       if(state.mode==="impact"&&!v.action_count)return false;
+      if(state.mode==="support"&&!v.support_standard)return false;
       if(!["all","impact"].includes(state.mode)&&v.change_type!==state.mode)return false;
       if(state.area&&v.category!==state.area)return false;
       if(state.source&&v.source!==state.source)return false;
@@ -171,11 +172,17 @@
     if(/공공기관/.test(raw))return "공공기관";
     return "기관 유형 미확인";
   }
+  const REGION_PREFIX=/^([가-힣]+?(?:특별자치시|특별자치도|특별시|광역시|도))(?=\\s|교육청|교육지원청|$)/;
+  function agencyRegion(name){
+    const m=text(name).match(REGION_PREFIX);
+    return m?m[1]:"지역 구분 없음";
+  }
   function agencyEntries(actions){
     const m=new Map();
     actions.forEach(a=>{
       const key=text(a.agency).trim();if(!key)return;
-      if(!m.has(key))m.set(key,{name:key,type:agencyType(a),actions:[]});
+      if(!m.has(key))m.set(key,{name:key,type:agencyType(a),
+        region:agencyRegion(key),actions:[]});
       m.get(key).actions.push(a);
     });
     return [...m.values()].sort((a,b)=>a.name.localeCompare(b.name,"ko"));
@@ -223,11 +230,26 @@
         if(!group.length)continue;
         const d=el("details","agency-group");d.open=true;
         d.appendChild(el("summary","",type+" · "+fmt(group.length)+"곳"));
-        group.forEach(item=>{
-          const b=el("button","agency-row"+(state.agency===item.name?" selected":""),
-                     item.name+" · "+item.actions.length+"건");
-          b.onclick=()=>choose(item.name);d.appendChild(b);
-        });menu.appendChild(d);
+        const regions=new Map();
+        for(const item of group){
+          const key=(type==="지방자치단체"||type==="교육청")?item.region:"전체";
+          if(!regions.has(key))regions.set(key,[]);
+          regions.get(key).push(item);
+        }
+        for(const [region,members] of [...regions].sort((a,b)=>a[0].localeCompare(b[0],"ko"))){
+          const container=(region==="전체")?d:el("details","agency-group");
+          if(region!=="전체"){
+            container.open=!!q||members.some(x=>x.name===state.agency);
+            container.appendChild(el("summary","",region+" · "+fmt(members.length)+"곳"));
+          }
+          members.forEach(item=>{
+            const b=el("button","agency-row"+(state.agency===item.name?" selected":""),
+                       item.name+" · "+item.actions.length+"건");
+            b.onclick=()=>choose(item.name);container.appendChild(b);
+          });
+          if(container!==d)d.appendChild(container);
+        }
+        menu.appendChild(d);
       }
       const showing=state.agency?entries.filter(x=>x.name===state.agency):entries;
       result.replaceChildren();

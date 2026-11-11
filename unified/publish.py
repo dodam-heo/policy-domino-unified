@@ -30,6 +30,7 @@ AREAS = (
     ("조직·행정", r"직제|조직|정원|행정절차|행정기관|사무분장"),
 )
 REGEX_AREAS = [(name, re.compile(pattern)) for name, pattern in AREAS]
+SUPPORT_STANDARD = re.compile(r"급여|지원기준|지원대상|선정기준|소득기준|수급|최저보장|지급기준|급부기준")
 SOURCE_NAMES = {"law": "법령", "admrul": "행정규칙", "ordin": "자치법규"}
 
 
@@ -124,6 +125,10 @@ def assemble(root: Path, limit: int = 1200) -> dict:
             "url": doc.get("url", ""),
             "category": category,
             "category_basis": category_reason,
+            "support_standard": bool(SUPPORT_STANDARD.search(
+                doc.get("title", "")+" "+
+                " ".join((c.get("before","")+" "+c.get("after",""))[:600]
+                         for c in changes[:3]))),
             "headline": headline(changes, verification),
             "source_grade": source_status,
             "verification": verification,
@@ -176,7 +181,7 @@ def assemble(root: Path, limit: int = 1200) -> dict:
 INDEX_KEYS = (
     "id", "title", "source", "source_kind", "kind", "ministry",
     "published_at", "effective_date", "revision", "change_type", "number",
-    "category", "category_basis", "headline", "comparison_status", "verification",
+    "category", "category_basis", "support_standard", "headline", "comparison_status", "verification",
     "source_grade", "relationship", "change_count", "institution_count",
     "action_count", "details_path", "linked_regulation_count",
 )

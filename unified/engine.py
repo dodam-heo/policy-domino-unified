@@ -116,7 +116,11 @@ def parse_index(root, source, rule_kind=""):
         issued = ymd(field(node, cfg[3], True) or field(node, "공포일자", True))
         if not (title and stable and serial and issued):
             continue
-        kind = KINDS.get(rule_kind, field(node, "행정규칙종류", True))
+        kind = (KINDS.get(rule_kind) or
+                field(node, "행정규칙종류", True) if source == "admrul" else
+                field(node, "법령구분명", True) or
+                field(node, "법령구분", True) if source == "law" else
+                "자치법규")
         rec = {
             "source": source, "stable_id": stable, "serial": serial,
             "title": title, "published_at": issued,
