@@ -14,7 +14,7 @@ from pathlib import Path
 import re
 
 from .engine import hash256, clean, load, store, save_json, relative_path, ident
-from .relations import legal_dependents, index_program_references, two_hop_program_leads
+from .relations import legal_dependents, index_program_references, two_hop_program_leads, references, changed_paragraph_numbers
 from .verification import comparison_grade
 
 REFERENCES = re.compile(r"「([^」]{2,180})」\s*(제\s*\d+\s*조(?:의\s*\d+)?)?")
@@ -99,12 +99,12 @@ def proof(program: dict, doc: dict, change: dict) -> dict | None:
     if not title or not clause:
         return None
     expected_title, expected_article = plain(title), plain(clause)
-    basis = " ".join(program["basis"].values())
-    # An explicit reference to the changed article, not just the legal title.
-    citations = [(plain(m.group(1)), plain(m.group(2)), m.group(0))
-                 for m in REFERENCES.finditer(basis)]
-    exact = [quote for ref_title, ref_article, quote in citations
-             if ref_title == expected_title and ref_article == expected_article]
+    basis = "||".join(v for v in program["basis"].values() if v)
+    paragraphs = changed_paragraph_numbers(change.get("before", ""), change.get("after", ""))
+    exact = [ref["excerpt"] for ref in references(basis)
+             if plain(ref["title"]) == expected_title and plain(ref["article"]) == expected_article
+             and (ref.get("paragraph") is None or
+                  (paragraphs is not None and ref["paragraph"] in paragraphs))]
     # Old/new must be complete, different and retained from official bodies.
     old, new = change.get("before", ""), change.get("after", "")
     if not exact or not old or not new or old == new:

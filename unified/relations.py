@@ -46,6 +46,17 @@ def references(text: str) -> list[dict]:
             "excerpt": fragment,
             "operational": bool(OPERATIVE.search(window[:50])),
         })
+    # Government24 legal-basis fields use Title(제8조의0, 제1항)||Title(...).
+    # Parse each field independently so one law cannot borrow another's article.
+    for segment in re.split(r"\|\||\n", text):
+        match = re.fullmatch(r"\s*([^「」()]{2,180})\(\s*제\s*(\d+)\s*조(?:의\s*(\d+))?(?:\s*,\s*제\s*(\d+)\s*항)?\s*\)\s*", segment)
+        if not match or int(match[2]) == 0:
+            continue
+        branch = match[3]
+        result.append({"title": match[1].strip(),
+                       "article": "제"+match[2]+"조"+("의"+branch if branch and int(branch) else ""),
+                       "paragraph": int(match[4]) if match[4] and int(match[4]) else None,
+                       "excerpt": segment.strip(), "operational": False})
     return result
 
 
@@ -66,7 +77,7 @@ def changed_paragraph_numbers(before: str, after: str) -> set[int] | None:
 def index_program_references(programs: list[dict]):
     lookup = defaultdict(list)
     for program in programs:
-        basis = " ".join(str(x or "") for x in program.get("basis", {}).values())
+        basis = "||".join(str(x or "") for x in program.get("basis", {}).values() if x)
         unique = {(normalize(ref["title"]),normalize(ref["article"]))
                   for ref in references(basis)}
         for key in unique:
