@@ -13,6 +13,8 @@ from .verification import OFFICIAL, source_grade
 CITE = re.compile(r"「([^」]{2,180})」")
 ARTICLE = re.compile(r"제\s*(\d+)\s*조(?:의\s*(\d+))?")
 OPERATIVE = re.compile(r"따라|따른|적용|준용|산정|계산|선정|지급|기준으로|규정에\s*의하여")
+PARAGRAPH = re.compile(r"제\\s*(\\d+)\\s*항")
+CIRCLES = "①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑬⑭⑮⑯⑰⑱⑲⑳"
 
 
 def normalize(text: str) -> str:
@@ -33,14 +35,32 @@ def references(text: str) -> list[dict]:
             continue
         clause = "제"+article.group(1)+"조"+(
             "의"+article.group(2) if article.group(2) else "")
+        extra = window[article.end():article.end()+15]
+        paragraph = PARAGRAPH.search(extra)
+        number = int(paragraph.group(1)) if paragraph and paragraph.start() <= 4 else None
         fragment = text[max(0, cite.start()-50):min(len(text), cite.end()+130)]
         result.append({
             "title": cite.group(1),
             "article": clause,
+            "paragraph": number,
             "excerpt": fragment,
             "operational": bool(OPERATIVE.search(window[:50])),
         })
     return result
+
+
+def changed_paragraph_numbers(before: str, after: str) -> set[int] | None:
+    """Compare the cited paragraph, not merely its parent article."""
+    def split(text):
+        hits = [(n,i) for i,ch in enumerate(text) if (n:=CIRCLES.find(ch)+1)>0]
+        if not hits:
+            return None
+        return {number: text[start: hits[i+1][1] if i+1<len(hits) else len(text)]
+                for i,(number,start) in enumerate(hits)}
+    a,b=split(str(before or "")),split(str(after or ""))
+    if a is None or b is None:
+        return None
+    return {n for n in set(a)|set(b) if a.get(n)!=b.get(n)}
 
 
 def index_program_references(programs: list[dict]):
@@ -83,18 +103,26 @@ def legal_dependents(root: Path, comparisons: list[dict]) -> dict[str, list[dict
                 for match in changed.get((normalize(ref["title"]),
                                           normalize(ref["article"])), []):
                     parent = match["doc"]
+                    paragraphs = changed_paragraph_numbers(
+                        match["change"].get("before", ""),
+                        match["change"].get("after", ""))
+                    if (ref.get("paragraph") is not None and
+                            paragraphs is not None and ref["paragraph"] not in paragraphs):
+                        continue
                     if ident(parent) == ident(doc) or (
                             parent["source"] == doc["source"] and
                             parent["stable_id"] == doc["stable_id"]):
                         continue
                     status = ("official_reference_verified" if
-                              source_grade(package) == OFFICIAL else
-                              "historic_reference_needs_revalidation")
+                              source_grade(package) == OFFICIAL and
+                              (ref.get("paragraph") is None or paragraphs is not None)
+                              else "reference_scope_needs_revalidation")
                     graph[ident(parent)].append({
                         "title": doc.get("title"), "id": ident(doc),
                         "source": doc.get("source", ""),
                         "article": clause,
                         "changed_article": ref["article"],
+                        "referenced_paragraph": ref.get("paragraph"),
                         "reference_quote": ref["excerpt"][:300],
                         "url": doc.get("url", ""),
                         "ministry": doc.get("ministry", ""),

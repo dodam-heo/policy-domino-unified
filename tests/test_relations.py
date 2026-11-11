@@ -44,6 +44,19 @@ class RelationsTests(unittest.TestCase):
             self.assertEqual(leads[0]["status"],
                              "program_link_candidate_requires_operational_proof")
 
+    def test_wrong_paragraph_is_not_a_verified_dependency(self):
+        with tempfile.TemporaryDirectory() as d:
+            root=Path(d)
+            doc={"source":"law","stable_id":"10","serial":"2","title":"상위 법"}
+            downstream={"source":"admrul","stable_id":"20","serial":"3","title":"하위 규정"}
+            store(root/relative_path(downstream),{"record":downstream,
+              "body":{"status":"complete",
+                "clauses":{"제5조":"「상위 법」 제1조제2항에 따른 기준을 적용한다."}}})
+            changed={"changed_record":doc,"changes":[
+                {"clause":"제1조", "before":"① 100원 ② 200원",
+                 "after":"① 120원 ② 200원"}]}
+            self.assertFalse(legal_dependents(root,[changed]))
+
     def test_title_similarity_not_an_edge(self):
         with tempfile.TemporaryDirectory() as d:
             root=Path(d)
