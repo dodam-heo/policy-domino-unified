@@ -16,7 +16,7 @@
   "category_basis": "policy_title_text_rule",
   "support_standard": false,
   "headline": "신구 원문의 실질 변경 내용을 확인하고 있습니다",
-  "source_grade": "legacy_extract_needs_revalidation",
+  "source_grade": "partial_or_missing_original",
   "verification": "comparison_incomplete",
   "comparison_status": "partial_unverified",
   "relationship": "same_official_id_revision",
@@ -50,7 +50,7 @@
       "title": "대구광역시교육감 소속 일반직 지방공무원 보직관리 규정",
       "url": "https://www.law.go.kr/%EC%9E%90%EC%B9%98%EB%B2%95%EA%B7%9C/%EB%8C%80%EA%B5%AC%EA%B4%91%EC%97%AD%EC%8B%9C%EA%B5%90%EC%9C%A1%EA%B0%90%20%EC%86%8C%EC%86%8D%20%EC%9D%BC%EB%B0%98%EC%A7%81%20%EC%A7%80%EB%B0%A9%EA%B3%B5%EB%AC%B4%EC%9B%90%20%EB%B3%B4%EC%A7%81%EA%B4%80%EB%A6%AC%20%EA%B7%9C%EC%A0%95",
       "id": "ordin|217823|2183641",
-      "verification": "legacy_extract_needs_revalidation"
+      "verification": "partial_or_missing_original"
     }
   ]
 }

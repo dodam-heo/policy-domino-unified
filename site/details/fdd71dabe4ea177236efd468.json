@@ -15,17 +15,50 @@
   "category": "산업·조달",
   "category_basis": "policy_title_text_rule",
   "support_standard": false,
-  "headline": "신구 원문의 실질 변경 내용을 확인하고 있습니다",
+  "headline": "원문 재검증 필요 · 제11조: 이 예규에 대하여「훈령ㆍ예규 등의 발령 및 관리에 관한 규정」에 따라 2022년 1월 1일 기준으로 매 3년이 되는 시점(매 3년째의 12월 31일까지를 말한다)마다 그 타당성을 검토하여 개선 등의 조치를 해야 한다. → 이 예규에 대하여「훈령ㆍ예규 등의 발령 및 관리에 관한 규정」에 따라 2026년 7월 1일 기준으로 매 3년이 되는 시점(매 3년째의 6월 3…",
   "source_grade": "partial_or_missing_original",
   "verification": "comparison_incomplete",
-  "comparison_status": "original_saved_comparison_pending",
-  "relationship": "",
-  "change_count": 0,
+  "comparison_status": "partial_unverified",
+  "relationship": "same_official_id_revision",
+  "change_count": 2,
   "numeric_change_count": 0,
   "standard_changes": [],
   "current_standard_tables": [],
-  "changes": [],
-  "unresolved": [],
+  "changes": [
+    {
+      "article": "제11조",
+      "before": "제11조(재검토기한) 청장은 이 예규에 대하여「훈령ㆍ예규 등의 발령 및 관리에 관한 규정」에 따라 2022년 1월 1일 기준으로 매 3년이 되는 시점(매 3년째의 12월 31일까지를 말한다)마다 그 타당성을 검토하여 개선 등의 조치를 해야 한다.",
+      "after": "제11조(재검토기한) 청장은 이 예규에 대하여「훈령ㆍ예규 등의 발령 및 관리에 관한 규정」에 따라 2026년 7월 1일 기준으로 매 3년이 되는 시점(매 3년째의 6월 30일까지를 말한다)마다 그 타당성을 검토하여 개선 등의 조치를 해야 한다.",
+      "focus": {
+        "before": "이 예규에 대하여「훈령ㆍ예규 등의 발령 및 관리에 관한 규정」에 따라 2022년 1월 1일 기준으로 매 3년이 되는 시점(매 3년째의 12월 31일까지를 말한다)마다 그 타당성을 검토하여 개선 등의 조치를 해야 한다.",
+        "after": "이 예규에 대하여「훈령ㆍ예규 등의 발령 및 관리에 관한 규정」에 따라 2026년 7월 1일 기준으로 매 3년이 되는 시점(매 3년째의 6월 30일까지를 말한다)마다 그 타당성을 검토하여 개선 등의 조치를 해야 한다.",
+        "changed": true,
+        "old_deleted": "2년 1월 1일 기준으로 매 3년이 되는 시점(매 3년째의 12월 31",
+        "new_added": "6년 7월 1일 기준으로 매 3년이 되는 시점(매 3년째의 6월 30",
+        "precision": "single_edit"
+      },
+      "verification": "comparison_incomplete"
+    },
+    {
+      "article": "제3조",
+      "before": "제3조(정의) 이 규정에서 사용하는 용어의 뜻은 다음과 같다. 1. \"청장\"이란 마산지방해양수산청장을 말한다. 2. \"과장\"이란 마산지방해양수산청 항로표지과장을 말한다. 3. \"소장\"이란 소매물도항로표지관리소 소장을 말한다. 4. \"등대해양문화공간\"이란 소매물도등대의 전망대 및 진입로 등을 말한다.",
+      "after": "제3조(정의) 이 규정에서 사용하는 용어의 뜻은 다음과 같다. 1. \"청장\"이란 마산지방해양수산청장을 말한다. 2. \"과장\"이란 마산지방해양수산청 항행정보시설과장을 말한다. 3. \"소장\"이란 소매물도항로표지관리소장을 말한다. 4. \"등대해양문화공간\"이란 소매물도등대의 전망대 및 진입로 등을 말한다.",
+      "focus": {
+        "before": "\"이란 마산지방해양수산청장을 말한다. 2. \"과장\"이란 마산지방해양수산청 항로표지과장을 말한다. 3. \"소장\"이란 소매물도항로표지관리소 소장을 말한다. 4. \"등대해양문화공간\"이란 소매물도등대의 전망대 및 진입로",
+        "after": "\"이란 마산지방해양수산청장을 말한다. 2. \"과장\"이란 마산지방해양수산청 항행정보시설과장을 말한다. 3. \"소장\"이란 소매물도항로표지관리소장을 말한다. 4. \"등대해양문화공간\"이란 소매물도등대의 전망대 및 진입로",
+        "changed": true,
+        "old_deleted": "로표지과장을 말한다. 3. \"소장\"이란 소매물도항로표지관리소",
+        "new_added": "행정보시설과장을 말한다. 3. \"소장\"이란 소매물도항로표지관리",
+        "precision": "single_edit"
+      },
+      "verification": "comparison_incomplete"
+    }
+  ],
+  "unresolved": [
+    {
+      "reason": "incomplete_original_or_attachment"
+    }
+  ],
   "institutions": [],
   "related_regulations": [],
   "linked_regulation_count": 0,
@@ -33,12 +66,12 @@
   "action_count": 0,
   "candidate_count": 0,
   "details_path": "details/fdd71dabe4ea177236efd468.json",
-  "prior_url": "",
+  "prior_url": "https://www.law.go.kr/%ED%96%89%EC%A0%95%EA%B7%9C%EC%B9%99/%EB%A7%88%EC%82%B0%EC%A7%80%EB%B0%A9%ED%95%B4%EC%96%91%EC%88%98%EC%82%B0%EC%B2%AD%20%EB%93%B1%EB%8C%80%ED%95%B4%EC%96%91%EB%AC%B8%ED%99%94%EA%B3%B5%EA%B0%84%20%EC%9A%B4%EC%98%81%EA%B7%9C%EC%A0%95",
   "source_documents": [
     {
-      "title": "",
-      "url": "",
-      "id": "",
+      "title": "마산지방해양수산청 등대해양문화공간 운영규정",
+      "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000211687",
+      "id": "admrul|70414|2100000211687",
       "verification": "partial_or_missing_original"
     },
     {

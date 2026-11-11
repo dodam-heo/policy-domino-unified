@@ -16,7 +16,7 @@
   "category_basis": "not_verified",
   "support_standard": false,
   "headline": "신구 원문의 실질 변경 내용을 확인하고 있습니다",
-  "source_grade": "legacy_extract_needs_revalidation",
+  "source_grade": "partial_or_missing_original",
   "verification": "comparison_incomplete",
   "comparison_status": "partial_unverified",
   "relationship": "same_official_id_revision",
@@ -54,7 +54,7 @@
       "title": "영덕군민자유치사업심의위원회운영조례",
       "url": "https://www.law.go.kr/%EC%9E%90%EC%B9%98%EB%B2%95%EA%B7%9C/%EC%98%81%EB%8D%95%EA%B5%B0%EB%AF%BC%EC%9E%90%EC%9C%A0%EC%B9%98%EC%82%AC%EC%97%85%EC%8B%AC%EC%9D%98%EC%9C%84%EC%9B%90%ED%9A%8C%EC%9A%B4%EC%98%81%EC%A1%B0%EB%A1%80",
       "id": "ordin|2093538|2183591",
-      "verification": "legacy_extract_needs_revalidation"
+      "verification": "partial_or_missing_original"
     }
   ]
 }

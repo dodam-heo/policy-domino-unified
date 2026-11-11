@@ -1,0 +1,101 @@
+{
+  "schema": "policy-domino-unified-detail-v2",
+  "id": "admrul|43263|2100000280066",
+  "title": "해외진출기업의 국내복귀 지원에 관한 고시",
+  "source": "admrul",
+  "source_kind": "행정규칙",
+  "kind": "고시",
+  "ministry": "산업통상부",
+  "published_at": "2026-05-29",
+  "effective_date": "2026-05-29",
+  "revision": "일부개정",
+  "change_type": "amended",
+  "number": "2026-50",
+  "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000280066",
+  "category": "산업·조달",
+  "category_basis": "policy_title_text_rule",
+  "support_standard": false,
+  "headline": "신구 원문의 실질 변경 내용을 확인하고 있습니다",
+  "source_grade": "partial_or_missing_original",
+  "verification": "comparison_incomplete",
+  "comparison_status": "original_saved_comparison_pending",
+  "relationship": "",
+  "change_count": 0,
+  "numeric_change_count": 0,
+  "standard_changes": [],
+  "current_standard_tables": [
+    {
+      "table": 1,
+      "header": [
+        "구분",
+        "유휴면적"
+      ],
+      "cells": [
+        {
+          "row": "예시",
+          "column": "유휴면적",
+          "value": "□ 인정가능 < 기존 국내 사업장(측면도) > <A동> <B동> <C동> 3층 유휴공간③ 3층 유휴공간⑤ 2층 유휴공간② 2층 2층 유휴공간⑤ 1층 유휴공간① 1층 유휴공간④ 1층 유휴공간⑤ * 유휴공간①, ②, ③, ④, ⑤ 투자사업장으로 인정 < 기존 국내 사업장(평면도) > <A동> <B동> <c동> 유휴공간 유휴공간 유휴공간 □ 인정불가 < 기존 국내 사업장(측면도) > <A동> 2층 1층 유휴공간⑤ 유휴공간⑥ * 유휴공간⑤, ⑥ 동시 인정 불가(반드시 양자택일)"
+        }
+      ],
+      "official_attachment_sha256": "59ffcab6cdd16dd97ef3068ea6a6195b61d573039165bc17bbadb6d998a71386"
+    },
+    {
+      "table": 3,
+      "header": [
+        "건 물 (동)",
+        "층 별",
+        "구 조",
+        "바닥면적(㎡)",
+        "유휴공간(㎡)",
+        "실사용 용도"
+      ],
+      "cells": [
+        {
+          "row": "A동",
+          "column": "층 별",
+          "value": "1층"
+        },
+        {
+          "row": "A동",
+          "column": "층 별",
+          "value": "2층"
+        },
+        {
+          "row": "B동",
+          "column": "층 별",
+          "value": "1층"
+        },
+        {
+          "row": "C동",
+          "column": "층 별",
+          "value": "3층"
+        }
+      ],
+      "official_attachment_sha256": "af8f6b2e603d2e08807c7b601ac96c4169782cddd48a2a53b45e868e8b71c1f4"
+    }
+  ],
+  "changes": [],
+  "unresolved": [],
+  "institutions": [],
+  "related_regulations": [],
+  "linked_regulation_count": 0,
+  "institution_count": 0,
+  "action_count": 0,
+  "candidate_count": 0,
+  "details_path": "details/b1cbf65c3e888098f1ef0b00.json",
+  "prior_url": "",
+  "source_documents": [
+    {
+      "title": "",
+      "url": "",
+      "id": "",
+      "verification": "partial_or_missing_original"
+    },
+    {
+      "title": "해외진출기업의 국내복귀 지원에 관한 고시",
+      "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000280066",
+      "id": "admrul|43263|2100000280066",
+      "verification": "partial_or_missing_original"
+    }
+  ]
+}
