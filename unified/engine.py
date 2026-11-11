@@ -184,7 +184,7 @@ def parse_body(xml: bytes) -> dict:
                 for node in root.iter() if tag(node) == "조문내용"]
         flat = list(dict.fromkeys(x for x in flat if x))
         for index, value in enumerate(flat, 1):
-            match = re.search(r"^제\\s*(\\d+)\\s*조(?:의\\s*(\\d+))?", value)
+            match = re.search(r"^제\s*(\d+)\s*조(?:의\s*(\d+))?", value)
             key = ("제"+match.group(1)+"조"+
                    ("의"+match.group(2) if match.group(2) else "")
                    if match else "본문 "+str(index))
@@ -204,7 +204,7 @@ def parse_body(xml: bytes) -> dict:
         if addenda:
             clauses["부칙"] = " ".join(dict.fromkeys(x for x in addenda if x))
     incomplete = [k for k, v in clauses.items() if not v or len(v) >= 15000 or
-                  re.search(r"<\\s*img\\b|&lt;\\s*img\\b", v, re.I)]
+                  re.search(r"<\s*img\b|&lt;\s*img\b", v, re.I)]
     return {
         "status": "complete" if clauses and not incomplete and not links else "partial",
         "clauses": clauses,
