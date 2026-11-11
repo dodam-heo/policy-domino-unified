@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>정책 도미노 | 공공기관 정책변경 영향분석</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="shell brand">
+      <div class="brand-icon" aria-hidden="true">◈</div>
+      <div><b>정책 도미노</b><small>POLICY DOMINO · PUBLIC IMPACT WORKBENCH</small></div>
+      <span class="version">UNIFIED</span>
+    </div>
+  </header>
+  <main class="shell">
+    <section class="intro">
+      <p class="eyebrow">변경된 정책에서 실제 공공업무까지</p>
+      <h1>정책이 바뀌면, 어디의 무엇을 바꿔야 할까?</h1>
+      <p>공식 개정 원문과 공공서비스 운영근거를 연결해 기관별 후속조치를 확인합니다.</p>
+      <div class="summary" id="summary"><span>공식 원천 자료를 불러오고 있어요.</span></div>
+    </section>
+    <section class="toolbar" aria-label="정책 필터">
+      <label class="search">
+        <span class="sr">정책명 검색</span>
+        <input id="search" type="search" placeholder="정책명·부처명·기관명 검색">
+      </label>
+      <label><span class="sr">분야</span><select id="category">
+        <option value="">전체 분야</option><option value="급여·지원기준">급여·지원기준</option>
+        <option value="행정절차·인허가">행정절차·인허가</option>
+        <option value="공공재정·요율">공공재정·요율</option><option value="조직·인력">조직·인력</option>
+        <option value="기타 제·개정">기타 제·개정</option>
+      </select></label>
+      <label><span class="sr">자료 종류</span><select id="source">
+        <option value="">전체 종류</option>
+        <option value="law">법령</option><option value="admrul">행정규칙·고시</option>
+        <option value="ordin">자치법규</option>
+      </select></label>
+      <label class="only"><input id="verified" type="checkbox"> 신구 변경 확인</label>
+    </section>
+    <div class="workspace">
+      <aside class="panel listing" aria-label="정책 변경 목록">
+        <div class="pane-top"><h2>정책 변경 목록</h2><span id="count">0건</span></div>
+        <div id="events" class="events"></div>
+      </aside>
+      <section class="panel detail" aria-live="polite">
+        <div id="detail"><div class="empty">정책을 선택하면 변경 근거와 기관별 후속조치를 볼 수 있어요.</div></div>
+      </section>
+    </div>
+    <footer>공식 원문 미확보와 실제 변경사항 확인을 구분합니다. 기관의 이행 완료 여부는 판정하지 않습니다.</footer>
+  </main>
+  <script src="app.js" defer></script>
+</body>
+</html>
