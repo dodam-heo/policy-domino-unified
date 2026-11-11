@@ -25,18 +25,6 @@ jobs:
         run: python -m unittest discover -s tests -v
       - name: Check client JavaScript syntax
         run: node --check site/app.js
-      - name: Live official notices smoke (test fixtures only)
-        env:
-          LAW_OC: ${{ vars.LAW_OC || 'dori' }}
-        run: python -m unified.live_smoke
-      - name: Preserve official regression annex samples for extractor verification
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: official-annex-extraction-samples
-          path: /tmp/policy-live-annex/attachments/
-          retention-days: 3
-          if-no-files-found: warn
       - name: Fetch pinned V2 state for real migration test
         uses: actions/checkout@v4
         with:
@@ -55,31 +43,6 @@ jobs:
           repository: dodam-heo/policy-domino-next
           ref: 898db398694f55fc95d1d2ac188c7ea67b9e623e
           path: _test_next
-      - name: Diagnose live official API transport (no credentials printed)
-        env:
-          LAW_OC: ${{ vars.LAW_OC || 'dori' }}
-        run: |
-          python - <<'PY'
-          import os
-          from urllib.parse import urlencode
-          from urllib.request import urlopen,Request
-          q=urlencode({'OC':os.environ['LAW_OC'],'target':'admrul',
-                       'type':'XML','display':1,'page':1})
-          success=False
-          for base in ('https://www.law.go.kr','https://law.go.kr',
-                       'http://www.law.go.kr'):
-              try:
-                  with urlopen(Request(base+'/DRF/lawSearch.do?'+q,
-                         headers={'User-Agent':'Mozilla/5.0'}),timeout=8) as r:
-                      raw=r.read(150000)
-                      print('PROBE',base,'status',r.status,'length',len(raw),
-                            'xml',raw.lstrip().startswith(b'<?xml') or b'LawSearch' in raw or b'AdmRulSearch' in raw)
-                      if b'LawSearch' in raw or b'AdmRulSearch' in raw:
-                          success=True
-              except Exception as ex:
-                  print('PROBE',base,type(ex).__name__,str(ex)[:220])
-          print('PROBE_SUCCESS',success)
-          PY
       - name: Real-corpus bootstrap check without mutating production data
         run: |
           python -m unified.bootstrap --root /tmp/legacy-index-validation \
@@ -104,7 +67,8 @@ jobs:
         run: |
           mkdir -p data/indexes/legacy
           cp -a /tmp/legacy-index-validation/indexes/legacy/. data/indexes/legacy/
-          python -m unified.engine --root data --streams 2 --details 12
+          # The actual API integration has a separate live regression runner.
+          # A deterministic PR build must not hang on intermittent official API transport.
           python -m unified.impact --root data
           python -m unified.publish --root data --output site/data.json
           python -m unified.acceptance --root data --site site --output site/acceptance.json
