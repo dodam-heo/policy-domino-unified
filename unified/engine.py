@@ -344,7 +344,10 @@ def streams():
 def process(api, root: Path, state: dict, record: dict) -> dict:
     destination = root / relative_path(record)
     existing = load(destination)
-    if existing and existing.get("body", {}).get("status") == "complete":
+    # Archived extracted text is not proof of a complete official original.
+    if (existing and existing.get("body", {}).get("status") == "complete"
+            and existing.get("official_xml_base64")
+            and not existing.get("source_snapshot_provenance")):
         return existing
     xml = api.detail(record)
     body = parse_body(xml)
@@ -352,6 +355,10 @@ def process(api, root: Path, state: dict, record: dict) -> dict:
             "PD_FETCH_OFFICIAL_ATTACHMENTS", "true").lower() == "true":
         from .attachments import resolve_attachments
         body = resolve_attachments(root, body)
+    if (existing and body.get("status") != "complete"
+            and existing.get("body", {}).get("clauses")):
+        # An incomplete response cannot destroy historic extracted content.
+        raise ValueError("official_revalidation_partial_retains_historic_original")
     obj = {"identity": ident(record), "record": record, "body": body,
            "official_xml_base64": base64.b64encode(xml).decode("ascii"),
            "fetched_at": dt.datetime.now(dt.timezone.utc).isoformat()}
@@ -381,11 +388,13 @@ def _priority(rec: dict, today: dt.date) -> tuple:
 def _pending_index_records(root: Path, max_files=15000) -> list[dict]:
     """Never lose official list results when per-run detail budget is exhausted."""
     pending = {}
-    for path in sorted((root / "indexes").glob("*/*.json.gz"))[-max_files:]:
+    historic = sorted((root / "indexes" / "legacy").glob("*/*.json.gz"))
+    live = sorted((root / "indexes").glob("*/*.json.gz"))[-max_files:]
+    for path in [*historic, *live]:
         index = load(path, {})
         for record in index.get("records", []):
             if all(record.get(key) for key in ("source", "stable_id", "serial")):
-                pending[ident(record)] = record
+                pending[ident(record)] = record  # Live evidence supersedes historic.
     return list(pending.values())
 
 
@@ -461,18 +470,33 @@ def run(root: Path, api: OfficialAPI, limit_streams=3, detail_budget=20,
 
     # Reuse metadata saved by EVERY prior run, not only the latest window.
     records = _pending_index_records(root)
-    records.sort(key=lambda r: _priority(r, today), reverse=True)
+    prioritized = sorted(records, key=lambda r: _priority(r, today), reverse=True)
+    # Every run reserves work for older undigested versions, while prioritizing
+    # recent standards. The capped per-run budget cannot erase the full queue.
+    aged = sorted(records, key=lambda r: (
+        int(state["attempts"].get(ident(r), 0)), r.get("published_at", ""), ident(r)))
+    reserve = max(1, detail_budget // 4)
+    selected = prioritized[:max(0, detail_budget-reserve)*3] + aged + prioritized
+    ordered, seen = [], set()
+    for rec in selected:
+        if ident(rec) not in seen:
+            ordered.append(rec)
+            seen.add(ident(rec))
     attempted, complete, compared = 0, 0, 0
-    for rec in records:
+    for rec in ordered:
         if attempted >= detail_budget:
             break
         stored = load(root / relative_path(rec))
-        if stored and stored.get("body", {}).get("status") == "complete":
+        if (stored and stored.get("body", {}).get("status") == "complete"
+                and stored.get("official_xml_base64")
+                and not stored.get("source_snapshot_provenance")):
             continue
         attempted += 1
         try:
             after = process(api, root, state, rec)
-            if after.get("body", {}).get("status") == "complete":
+            if (after.get("body", {}).get("status") == "complete"
+                    and after.get("official_xml_base64")
+                    and not after.get("source_snapshot_provenance")):
                 complete += 1
             if not after["body"]["clauses"]:
                 continue

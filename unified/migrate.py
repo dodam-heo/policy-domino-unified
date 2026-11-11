@@ -19,7 +19,7 @@ from .engine import (relative_path, store, load, compare_bodies, hash256,
 
 def _body(clauses: dict):
     return {
-        "status": "complete",
+        "status": "legacy_extracted",
         "clauses": {str(k): (v["text"] if isinstance(v, dict) else v)
                     for k, v in clauses.items()},
         "attachment_links": [],
