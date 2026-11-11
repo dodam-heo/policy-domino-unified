@@ -3,7 +3,7 @@
   const $ = id=>document.getElementById(id);
   const state={data:null,events:[],mode:"all",query:"",area:"",source:"",
                selected:null,detail:null,displayLimit:60,agency:"",
-               agencyQuery:"",request:0};
+               agencyQuery:"",request:0,archiveLoaded:false,archiveLoading:false};
   const fmt=n=>Number(n||0).toLocaleString("ko-KR");
   const text=s=>String(s??"");
   const date=s=>text(s).replaceAll("-",". ")||"미확인";
@@ -32,7 +32,7 @@
   function refreshSummary(){
     const data=state.data||{},summary=data.summary||{},quality=data.quality||{};
     const nums=[
-      ["표시된 공식 문서 판본",fmt(summary.displayed_events)],
+      ["색인에 등록된 문서 판본",fmt(summary.displayed_events)],
       ["공식 신구 검증 변경",fmt(summary.with_verified_changes)],
       ["공공기관별 근거 조치",fmt(summary.agency_action_count)]];
     $("metrics").replaceChildren(...nums.map(([title,value])=>add(el("div","metric"),
@@ -87,7 +87,9 @@
   function renderList(){
     filters();
     const result=filtered();$("list-count").textContent=
-      "전체 "+fmt(state.events.length)+"건 · 조건에 맞는 자료 "+fmt(result.length)+"건";
+      (state.archiveLoaded?"전체 기록 ":"최근 목록 ")+fmt(state.events.length)+
+      "건 · 조건 일치 "+fmt(result.length)+"건"+
+      (state.archiveLoaded?"":" · 전체 색인 "+fmt(state.data?.total_indexed_versions)+"건(과거 자료는 별도 불러오기)");
     const items=$("items");
     items.replaceChildren(...(result.length?result.slice(0,state.displayLimit).map(row):
       [empty("조건에 맞는 자료가 없습니다. 분석 대기 자료도 '전체'에서 확인할 수 있습니다.")]));
@@ -128,7 +130,9 @@
     const message=event.headline||
       (change ? change.article+"의 실제 신구 원문 비교" :
       "공식 문서는 확보했으나 변경된 핵심 조항과 적용 기준의 대조가 아직 완료되지 않았습니다.");
-    add(box,el("div","headline",message),el("small","",
+    const readable=/[─┬┴┌┐└┘├┤│┼┏┓┗┛]{4,}/.test(message) ?
+      "표·서식 텍스트의 변경이 탐지됐습니다. 구체적인 항목은 아래 신구 원문에서 확인하세요." : message;
+    add(box,el("div","headline",readable),el("small","",
       "시행일 "+date(event.effective_date)+" · "+
       (statuses[event.verification]||"확인 중")));
     return box;
@@ -210,8 +214,10 @@
     add(card,add(el("div","action-head"),el("strong","",change.article||"변경 조문"),
       pill(grade==="official_comparison_verified"?"원문 검증":"재검증 필요",
         grade==="official_comparison_verified"?"verified":"uncertain")),
-      evidencePair(change.focus?.before||change.before,
-                   change.focus?.after||change.after));
+      /[─┬┴┌┐└┘├┤│┼┏┓┗┛]{4,}/.test((change.focus?.before||"")+(change.focus?.after||""))
+        ? el("p","note","표 테두리 문자로 인해 자동 요약이 부정확할 수 있습니다. 아래 원문을 펼쳐 항목별로 대조하세요.")
+        : evidencePair(change.focus?.before||change.before,
+                       change.focus?.after||change.after));
     if((change.before||"").length>340||(change.after||"").length>340){
       const more=el("details","subdetails");
       add(more,el("summary","","해당 조문 원문 펼쳐보기"),
@@ -372,6 +378,7 @@
   }
   async function hydrateCatalog(index){
     const paths=index.archive_shards||[];
+    let failures=0;
     if(!paths.length)return;
     const merged=new Map(state.events.map(e=>[e.id,e]));
     for(let i=0;i<paths.length;i+=8){
@@ -382,7 +389,7 @@
           return (await resp.json()).events||[];
         }catch{return null;}
       }));
-      batch.forEach(rows=>{if(rows)rows.forEach(e=>merged.set(e.id,e));});
+      batch.forEach(rows=>{if(rows)rows.forEach(e=>merged.set(e.id,e));else failures++;});
       state.events=[...merged.values()].sort((a,b)=>
         String(b.published_at||"").localeCompare(String(a.published_at||""))||
         String(b.id||"").localeCompare(String(a.id||"")));
@@ -393,7 +400,9 @@
       if(used.has(name))continue;
       const opt=el("option","",name);opt.value=name;area.appendChild(opt);
     }
+    state.archiveLoaded=failures===0;
     renderList();
+    return failures;
   }
   async function boot(){
     try{
@@ -417,7 +426,7 @@
       const areas=[...new Set(state.events.map(x=>x.category).filter(Boolean))].sort();
       for(const area of areas){const opt=el("option","",area);opt.value=area;$("area").appendChild(opt);}
       refreshSummary();renderList();
-      hydrateCatalog(d);
+      $("load-history").hidden=!(d.archive_shards||[]).length;
       const selected=decodeURIComponent((location.hash.match(/^#event=(.*)$/)||[])[1]||"");
       if(state.events.some(x=>x.id===selected))select(selected,false);
       else if(state.events.length && window.matchMedia("(min-width:761px)").matches)
@@ -435,6 +444,19 @@
   $("area").onchange=e=>{state.area=e.target.value;renderList();};
   $("source").onchange=e=>{state.source=e.target.value;renderList();};
   $("more").onclick=()=>{state.displayLimit+=60;renderList();};
+  $("load-history").onclick=async()=>{
+    if(state.archiveLoading||!state.data)return;
+    state.archiveLoading=true;
+    const button=$("load-history");button.disabled=true;
+    button.textContent="전체 색인을 불러오는 중입니다…";
+    try{
+      const failures=await hydrateCatalog(state.data);
+      button.hidden=failures===0;
+      if(failures)button.textContent="일부 자료 로딩 실패 · 다시 불러오기";
+    }catch{
+      button.textContent="과거 자료 불러오기 재시도";
+    }finally{state.archiveLoading=false;button.disabled=false;}
+  };
   $("back").onclick=back;
   window.addEventListener("popstate",()=>{
     const id=decodeURIComponent((location.hash.match(/^#event=(.*)$/)||[])[1]||"");

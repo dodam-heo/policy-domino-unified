@@ -11,6 +11,15 @@ class MeaningTests(unittest.TestCase):
         self.assertIn("120원", pair["after"])
         self.assertNotIn("200", pair["new_added"])
 
+    def test_flattened_annex_border_does_not_become_headline(self):
+        before = "┌────────┬──────┐ 기준 100원 └────────┴──────┘"
+        after = "┌────────┬──────┐ 기준 120원 └────────┴──────┘"
+        value = headline([{"clause":"별표 1","before":before,"after":after}],
+                         "historical_comparison_needs_revalidation")
+        self.assertIn("표·서식", value)
+        self.assertNotIn("┌", value)
+        self.assertTrue(value.startswith("원문 재검증 필요"))
+
     def test_uncertain_excerpt_not_labelled_verified(self):
         changes = [{"clause": "제1조", "before": "100원", "after": "120원"}]
         self.assertTrue(headline(changes, "comparison_incomplete").startswith(
