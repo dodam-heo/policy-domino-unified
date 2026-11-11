@@ -97,7 +97,14 @@ jobs:
           assert catalog['events']
           ids=[e['id'] for e in catalog['events']]
           assert len(ids)==len(set(ids))
+          assert catalog['total_indexed_versions']==catalog['summary']['displayed_events']
+          for shard in catalog.get('archive_shards',[]):
+              assert (Path('site')/shard).is_file(), shard
           for item in catalog['events']:
+              if not item['details_path']:
+                  assert item['comparison_status']=='official_index_only'
+                  assert item['verification']=='comparison_incomplete'
+                  continue
               assert item['details_path'].startswith('details/')
               detail=json.loads((Path('site')/item['details_path']).read_text('utf8'))
               assert detail['id']==item['id']
