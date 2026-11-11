@@ -21,6 +21,41 @@ jobs:
         run: python -m unittest discover -s tests -v
       - name: Check client JavaScript syntax
         run: node --check site/app.js
+      - name: Fetch pinned V2 state for real migration test
+        uses: actions/checkout@v4
+        with:
+          repository: dodam-heo/policy-domino
+          ref: 66212ee4060e7742ce37f114287f5afecb0244e9
+          path: _test_v2
+      - name: Fetch pinned domino V4 state for real migration test
+        uses: actions/checkout@v4
+        with:
+          repository: dodam-heo/policy-domino
+          ref: b590e4324d5b6e55d805914862c8356d0bf7c1b4
+          path: _test_v4
+      - name: Fetch pinned NEXT state for real migration test
+        uses: actions/checkout@v4
+        with:
+          repository: dodam-heo/policy-domino-next
+          ref: 898db398694f55fc95d1d2ac188c7ea67b9e623e
+          path: _test_next
+      - name: Real-corpus bootstrap check without mutating production data
+        run: |
+          python -m unified.bootstrap --root /tmp/legacy-index-validation \
+            --v2 _test_v2/data/v2_state.json \
+            --v4 _test_v4/data/v4_state.json \
+            --next _test_next/data/state.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from unified.engine import _pending_index_records
+          path=Path('/tmp/legacy-index-validation')
+          report=json.loads((path/'legacy-index-status.json').read_text('utf8'))
+          assert report['unique_official_versions']==46647, report
+          queued=_pending_index_records(path)
+          assert len(queued)==46647, len(queued)
+          print('HISTORIC_INDEX_CONTRACT_PASS', report)
+          PY
       - name: Verify current saved corpus can publish
         run: python -m unified.publish --root data --output /tmp/policy-domino-pr-catalog.json
       - name: Report source-grounded acceptance gaps without hiding them
