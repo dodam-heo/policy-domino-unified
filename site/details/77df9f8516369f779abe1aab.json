@@ -1,0 +1,51 @@
+{
+  "schema": "policy-domino-unified-detail-v2",
+  "id": "ordin|2214185|2183869",
+  "title": "동해시의회 지방공무원 복무조례",
+  "source": "ordin",
+  "source_kind": "자치법규",
+  "kind": "자치법규",
+  "ministry": "강원특별자치도 동해시",
+  "published_at": "2026-11-10",
+  "effective_date": "2027-01-01",
+  "revision": "일부개정",
+  "change_type": "amended",
+  "number": "2531",
+  "url": "https://www.law.go.kr/%EC%9E%90%EC%B9%98%EB%B2%95%EA%B7%9C/%EB%8F%99%ED%95%B4%EC%8B%9C%EC%9D%98%ED%9A%8C%20%EC%A7%80%EB%B0%A9%EA%B3%B5%EB%AC%B4%EC%9B%90%20%EB%B3%B5%EB%AC%B4%EC%A1%B0%EB%A1%80",
+  "category": "노동·인사",
+  "category_basis": "policy_title_text_rule",
+  "support_standard": false,
+  "headline": "신구 원문의 실질 변경 내용을 확인하고 있습니다",
+  "source_grade": "partial_or_missing_original",
+  "verification": "comparison_incomplete",
+  "comparison_status": "original_saved_comparison_pending",
+  "relationship": "",
+  "change_count": 0,
+  "numeric_change_count": 0,
+  "standard_changes": [],
+  "current_standard_tables": [],
+  "changes": [],
+  "unresolved": [],
+  "institutions": [],
+  "related_regulations": [],
+  "linked_regulation_count": 0,
+  "institution_count": 0,
+  "action_count": 0,
+  "candidate_count": 0,
+  "details_path": "details/77df9f8516369f779abe1aab.json",
+  "prior_url": "",
+  "source_documents": [
+    {
+      "title": "",
+      "url": "",
+      "id": "",
+      "verification": "partial_or_missing_original"
+    },
+    {
+      "title": "동해시의회 지방공무원 복무조례",
+      "url": "https://www.law.go.kr/%EC%9E%90%EC%B9%98%EB%B2%95%EA%B7%9C/%EB%8F%99%ED%95%B4%EC%8B%9C%EC%9D%98%ED%9A%8C%20%EC%A7%80%EB%B0%A9%EA%B3%B5%EB%AC%B4%EC%9B%90%20%EB%B3%B5%EB%AC%B4%EC%A1%B0%EB%A1%80",
+      "id": "ordin|2214185|2183869",
+      "verification": "partial_or_missing_original"
+    }
+  ]
+}

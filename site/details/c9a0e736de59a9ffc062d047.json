@@ -1,0 +1,51 @@
+{
+  "schema": "policy-domino-unified-detail-v2",
+  "id": "ordin|2221728|2183901",
+  "title": "완주군의회 회기와 그 운영에 관한 조례",
+  "source": "ordin",
+  "source_kind": "자치법규",
+  "kind": "자치법규",
+  "ministry": "전북특별자치도 완주군",
+  "published_at": "2026-11-10",
+  "effective_date": "2027-01-01",
+  "revision": "일부개정",
+  "change_type": "amended",
+  "number": "3550",
+  "url": "https://www.law.go.kr/%EC%9E%90%EC%B9%98%EB%B2%95%EA%B7%9C/%EC%99%84%EC%A3%BC%EA%B5%B0%EC%9D%98%ED%9A%8C%20%ED%9A%8C%EA%B8%B0%EC%99%80%20%EA%B7%B8%20%EC%9A%B4%EC%98%81%EC%97%90%20%EA%B4%80%ED%95%9C%20%EC%A1%B0%EB%A1%80",
+  "category": "분야 미확정",
+  "category_basis": "not_verified",
+  "support_standard": false,
+  "headline": "신구 원문의 실질 변경 내용을 확인하고 있습니다",
+  "source_grade": "partial_or_missing_original",
+  "verification": "comparison_incomplete",
+  "comparison_status": "original_saved_comparison_pending",
+  "relationship": "",
+  "change_count": 0,
+  "numeric_change_count": 0,
+  "standard_changes": [],
+  "current_standard_tables": [],
+  "changes": [],
+  "unresolved": [],
+  "institutions": [],
+  "related_regulations": [],
+  "linked_regulation_count": 0,
+  "institution_count": 0,
+  "action_count": 0,
+  "candidate_count": 0,
+  "details_path": "details/c9a0e736de59a9ffc062d047.json",
+  "prior_url": "",
+  "source_documents": [
+    {
+      "title": "",
+      "url": "",
+      "id": "",
+      "verification": "partial_or_missing_original"
+    },
+    {
+      "title": "완주군의회 회기와 그 운영에 관한 조례",
+      "url": "https://www.law.go.kr/%EC%9E%90%EC%B9%98%EB%B2%95%EA%B7%9C/%EC%99%84%EC%A3%BC%EA%B5%B0%EC%9D%98%ED%9A%8C%20%ED%9A%8C%EA%B8%B0%EC%99%80%20%EA%B7%B8%20%EC%9A%B4%EC%98%81%EC%97%90%20%EA%B4%80%ED%95%9C%20%EC%A1%B0%EB%A1%80",
+      "id": "ordin|2221728|2183901",
+      "verification": "partial_or_missing_original"
+    }
+  ]
+}

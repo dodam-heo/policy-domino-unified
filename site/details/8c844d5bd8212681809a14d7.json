@@ -615,12 +615,54 @@
       "reason": "incomplete_original_or_attachment"
     }
   ],
-  "institutions": [],
+  "institutions": [
+    {
+      "agency": "국토교통부",
+      "agency_type": "중앙행정기관",
+      "service": "주거급여 (맞춤형 급여)",
+      "service_id": "336000000096",
+      "service_url": "https://www.data.go.kr/data/15113968/openapi.do",
+      "policy_url": "https://www.law.go.kr/%ED%96%89%EC%A0%95%EA%B7%9C%EC%B9%99/2027%EB%85%84%20%EC%A3%BC%EA%B1%B0%EA%B8%89%EC%97%AC%20%EC%84%A0%EC%A0%95%EA%B8%B0%EC%A4%80%20%EB%B0%8F%20%EC%B5%9C%EC%A0%80%EB%B3%B4%EC%9E%A5%EC%88%98%EC%A4%80",
+      "policy": "2027년 주거급여 선정기준 및 최저보장수준",
+      "changed_clause": "공식 첨부 기준표",
+      "before": "3,117,474",
+      "after": "3,326,345",
+      "affected_values": [
+        {
+          "table": 1,
+          "row": "금액 (원/월)",
+          "column": "4인 가구",
+          "before": "3,117,474",
+          "after": "3,326,345"
+        },
+        {
+          "table": 2,
+          "row": "4인",
+          "column": "3급지 (광역·세종 시 ·수도권 외 특례시)",
+          "before": "381,000",
+          "after": "403,000"
+        }
+      ],
+      "required_change": "공식 기준표 2개 행·열의 금액 변경을 해당 사업의 선정·심사 기준 및 안내와 대조하여 적용 금액과 시행시점을 검토",
+      "evidence": {
+        "proof_type": "official_hwpx_parent_law_review_candidate",
+        "reference_quote": "–506호\n2026년 주거급여 선정기준 및 최저보장수준 제정고시안\n1. 주거급여 선정기준\n「주거급여법」제5조제1항에 따라 주거급여 선정기준은 다음 값 이하로 한다.\n구 분1인 가구2인 가구3인 가구4인 가구5인 가구6인 가구7인 가구금액(원/월)1,230,8342,015,6602,572,3373,117,4743,627,2254,106",
+        "program_reference": "주거급여법(제1조)||주거급여법(제2조)||주거급여법(제3조)||국민기초생활 보장법(제34조)",
+        "service_quote": "○ 소득 인정액 기준 - 가구 소득인정액이 기준 중위소득의 48% 이하인 가구 ㆍ4인 가구 기준 : 3,117,474원 이하 ※ 지원형태: 서비스(임차급여, 수선유지급여) 소득인정액이 기준 중위소득 48% 이내의 가구 ※ 지원형태: 서비스(임차급여, 수선유지급여) ○ 현금급여 - 타인의 주택 등에 거주하면서 임대차 계약 등을 체결하고 임차료를 지불하는 자에게 지역별 기준임대료를 상한으로 실제 임차료(월임차료+보증금 환산액) 지원 ㆍ3급지(광역시) 기준 4인 가구 최대 381,000원 지급",
+        "old_value": "3,117,474",
+        "new_value": "3,326,345",
+        "numeric_value_in_operating_criteria": true,
+        "old_attachment_sha256": "6aabf85be793036246dfd3df3959d0b2de93db4923a40c32a90a0d055339d522",
+        "new_attachment_sha256": "b5ff83c74e657f17f9d11e84688a7c6668c6b767dea4ce5502b2f986e6928b02"
+      },
+      "status": "program_link_candidate_requires_operational_proof"
+    }
+  ],
   "related_regulations": [],
   "linked_regulation_count": 0,
-  "institution_count": 0,
+  "institution_count": 1,
   "action_count": 0,
-  "candidate_count": 0,
+  "candidate_count": 1,
   "details_path": "details/8c844d5bd8212681809a14d7.json",
   "prior_url": "https://www.law.go.kr/%ED%96%89%EC%A0%95%EA%B7%9C%EC%B9%99/2026%EB%85%84%20%EC%A3%BC%EA%B1%B0%EA%B8%89%EC%97%AC%20%EC%84%A0%EC%A0%95%EA%B8%B0%EC%A4%80%20%EB%B0%8F%20%EC%B5%9C%EC%A0%80%EB%B3%B4%EC%9E%A5%EC%88%98%EC%A4%80",
   "source_documents": [
