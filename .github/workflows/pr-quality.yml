@@ -85,6 +85,38 @@ jobs:
           assert len(queued)==46647, len(queued)
           print('HISTORIC_INDEX_CONTRACT_PASS', report)
           PY
+      - name: Build the actual full-index preview without mutating the source repository
+        env:
+          LAW_OC: ${{ vars.LAW_OC || 'dori' }}
+          PD_FETCH_OFFICIAL_ATTACHMENTS: 'true'
+        run: |
+          mkdir -p data/indexes/legacy
+          cp -a /tmp/legacy-index-validation/indexes/legacy/. data/indexes/legacy/
+          python -m unified.engine --root data --streams 2 --details 12
+          python -m unified.impact --root data
+          python -m unified.publish --root data --output site/data.json
+          python -m unified.acceptance --root data --site site --output site/acceptance.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path('site/data.json').read_text('utf8'))
+          assert d['total_indexed_versions'] >= 46647,d['total_indexed_versions']
+          assert len(d.get('archive_shards',[])) >= 10
+          print('PREVIEW_FULL_INDEX_PASS',d['summary'],d['quality'])
+          PY
+      - name: Upload full-source-index interactive preview for review
+        uses: actions/upload-artifact@v4
+        with:
+          name: policy-domino-full-preview
+          path: |
+            site/index.html
+            site/style.css
+            site/app.js
+            site/data.json
+            site/catalog/
+            site/details/
+            site/acceptance.json
+          retention-days: 7
       - name: Verify current saved corpus can publish
         run: python -m unified.publish --root data --output /tmp/policy-domino-pr-catalog.json
       - name: Report source-grounded acceptance gaps without hiding them
