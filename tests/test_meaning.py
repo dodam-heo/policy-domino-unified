@@ -20,6 +20,24 @@ class MeaningTests(unittest.TestCase):
         self.assertNotIn("┌", value)
         self.assertTrue(value.startswith("원문 재검증 필요"))
 
+    def test_official_hwpx_amount_beats_image_placeholder(self):
+        c = [{"clause": "본문 1",
+              "before": '<img id="159311793"/>', "after": '<img id="169491527"/>'}]
+        numeric = [{"column": "4인 가구", "row": "금액 (원/월)",
+                    "before": "3,117,474", "after": "3,326,345",
+                    "verification": "official_hwpx_cell_pair"}]
+        result = headline(c, "comparison_incomplete", numeric)
+        self.assertIn("3,117,474", result)
+        self.assertIn("3,326,345", result)
+        self.assertNotIn("img", result)
+        self.assertIn("재검증", result)
+
+    def test_img_markup_is_not_reported_as_substantive_change(self):
+        result = headline([{"clause": "본문", "before": '<img id="7"/>',
+                           "after": '<img id="9"/>'}], "comparison_incomplete")
+        self.assertIn("첨부자료 대조 필요", result)
+        self.assertNotIn('id="', result)
+
     def test_uncertain_excerpt_not_labelled_verified(self):
         changes = [{"clause": "제1조", "before": "100원", "after": "120원"}]
         self.assertTrue(headline(changes, "comparison_incomplete").startswith(

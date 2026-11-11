@@ -176,7 +176,7 @@ def assemble(root: Path, limit: int = 50000) -> dict:
                 doc.get("title", "")+" "+
                 " ".join((c.get("before","")+" "+c.get("after",""))[:600]
                          for c in changes[:3]))),
-            "headline": headline(changes, verification),
+            "headline": headline(changes, verification, comp.get("numeric_changes", [])),
             "source_grade": source_status,
             "verification": verification,
             "comparison_status": comparison_status,
