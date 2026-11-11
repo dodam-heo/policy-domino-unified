@@ -388,12 +388,17 @@ class OfficialAPI:
 
 def verified_window(api, source: str, start: str, end: str,
                     edition: str, kind: str, query: str = "",
-                    depth: int = 0, max_depth: int = 12):
+                    depth: int = 0, max_depth: int = 12,
+                    deadline: float | None = None):
     """Split incomplete official result windows instead of abandoning page 1501+.
 
     Never mark a wide window complete merely because the first page succeeded.
     The exact split leaves are fully checked against official totalCnt.
     """
+    if deadline is not None and time.monotonic() >= deadline:
+        return [], {"reported": 0, "collected": 0,
+                    "pages": 0, "complete": False,
+                    "error": "collection_time_budget_deferred"}
     rows, info = api.search(source, start, end, edition, kind, query=query)
     if info.get("complete"):
         return rows, info
@@ -407,7 +412,7 @@ def verified_window(api, source: str, start: str, end: str,
         return rows, info
     left, left_info = verified_window(
         api, source, start, mid.isoformat(), edition, kind, query,
-        depth + 1, max_depth)
+        depth + 1, max_depth, deadline)
     right, right_info = verified_window(
         api, source, (mid + dt.timedelta(days=1)).isoformat(), end,
         edition, kind, query, depth + 1, max_depth)
@@ -578,6 +583,9 @@ def run(root: Path, api: OfficialAPI, limit_streams=3, detail_budget=20,
     offset = int(state.get("stream_offset", 0)) % len(states)
     schedule = (states[offset:] + states[:offset])[:min(len(states), limit_streams)]
     failed = 0
+    started_at = time.monotonic()
+    max_seconds = max(45.0, float(os.getenv("PD_COLLECTION_MAX_SECONDS", "420")))
+    deadline = started_at + max_seconds
     connection_failures = 0
     network_unavailable = False
 
@@ -595,7 +603,8 @@ def run(root: Path, api: OfficialAPI, limit_streams=3, detail_budget=20,
             return False
         try:
             records, info = verified_window(
-                api, source, start, end, edition, kind, query=query)
+                api, source, start, end, edition, kind, query=query,
+                deadline=deadline)
             connection_failures = 0
             saved = {
                 **info, "source": source, "edition": edition, "kind": kind,
@@ -669,7 +678,8 @@ def run(root: Path, api: OfficialAPI, limit_streams=3, detail_budget=20,
             "streams_checked": len(schedule),
             "pending_index_versions": len(records),
             "year_search_year": today.year + 1,
-            "source_connection": "unavailable_deferred"}
+            "source_connection": "unavailable_deferred",
+            "collection_elapsed_seconds": round(time.monotonic()-started_at,1)}
         save_json(state_file, state)
         return state["last_run_stats"]
     # Every run reserves work for older undigested versions, while prioritizing
@@ -684,8 +694,12 @@ def run(root: Path, api: OfficialAPI, limit_streams=3, detail_budget=20,
             ordered.append(rec)
             seen.add(ident(rec))
     attempted, complete, compared = 0, 0, 0
+    deadline_deferred = False
     for rec in ordered:
         if attempted >= detail_budget:
+            break
+        if time.monotonic() >= deadline:
+            deadline_deferred = True
             break
         stored = load(root / relative_path(rec))
         if (stored and stored.get("body", {}).get("status") == "complete"
@@ -728,6 +742,8 @@ def run(root: Path, api: OfficialAPI, limit_streams=3, detail_budget=20,
         "failed_windows": failed, "streams_checked": len(schedule),
         "pending_index_versions": len(records),
         "year_search_year": today.year+1,
+        "time_budget_deferred": deadline_deferred,
+        "collection_elapsed_seconds": round(time.monotonic()-started_at,1),
     }
     save_json(state_file, state)
     return state["last_run_stats"]
