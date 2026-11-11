@@ -309,6 +309,10 @@ class OfficialAPI:
                 raise ValueError("official_totalCnt_changed_during_pagination")
             reported = int(count)
             rows = parse_index(root, source, kind)
+            if page == 1 and reported > 1500 and start != end:
+                return [], {"reported": reported, "collected": 0,
+                            "pages": 1, "complete": False,
+                            "error": "date_window_split_required"}
             if reported and not rows:
                 raise ValueError("official_rows_not_parsed")
             for row in rows:
@@ -380,6 +384,48 @@ class OfficialAPI:
                     except (OSError,ValueError,RuntimeError):
                         continue
         return None, False
+
+
+def verified_window(api, source: str, start: str, end: str,
+                    edition: str, kind: str, query: str = "",
+                    depth: int = 0, max_depth: int = 12):
+    """Split incomplete official result windows instead of abandoning page 1501+.
+
+    Never mark a wide window complete merely because the first page succeeded.
+    The exact split leaves are fully checked against official totalCnt.
+    """
+    rows, info = api.search(source, start, end, edition, kind, query=query)
+    if info.get("complete"):
+        return rows, info
+    if start >= end or depth >= max_depth:
+        return rows, info
+    # Request or parsing errors are raised by api.search; only incomplete
+    # official pagination/count evidence is eligible for date bisection.
+    a, b = dt.date.fromisoformat(start), dt.date.fromisoformat(end)
+    mid = a + (b - a) // 2
+    if mid >= b:
+        return rows, info
+    left, left_info = verified_window(
+        api, source, start, mid.isoformat(), edition, kind, query,
+        depth + 1, max_depth)
+    right, right_info = verified_window(
+        api, source, (mid + dt.timedelta(days=1)).isoformat(), end,
+        edition, kind, query, depth + 1, max_depth)
+    unique = {ident(row): row for row in [*left, *right]}
+    reported = int(left_info.get("reported") or 0) + int(
+        right_info.get("reported") or 0)
+    finished = (left_info.get("complete") is True and
+                right_info.get("complete") is True and
+                len(unique) == reported)
+    return list(unique.values()), {
+        "reported": reported, "collected": len(unique),
+        "pages": int(left_info.get("pages") or 0) +
+                 int(right_info.get("pages") or 0),
+        "complete": finished, "subwindow_count":
+            int(left_info.get("subwindow_count") or 1) +
+            int(right_info.get("subwindow_count") or 1),
+        "error": "" if finished else "subwindow_incomplete",
+    }
 
 
 def _windows(root, state, source, edition, kind, today):
@@ -548,8 +594,8 @@ def run(root: Path, api: OfficialAPI, limit_streams=3, detail_budget=20,
             save_json(state_file, state)
             return False
         try:
-            records, info = api.search(source, start, end, edition, kind,
-                                       query=query)
+            records, info = verified_window(
+                api, source, start, end, edition, kind, query=query)
             connection_failures = 0
             saved = {
                 **info, "source": source, "edition": edition, "kind": kind,

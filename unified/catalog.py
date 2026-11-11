@@ -12,6 +12,13 @@ TITLES={"law":"법령","admrul":"행정규칙","ordin":"자치법규"}
 
 
 def official_link(record: dict) -> str:
+    # A stable historical revision link is more reliable than the title-only
+    # URL, which can redirect to a newer version after annual replacement.
+    serial=str(record.get("serial") or "")
+    if record.get("source") == "admrul" and serial.isdigit():
+        return "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq="+serial
+    if record.get("source") == "law" and serial.isdigit():
+        return "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq="+serial
     url=str(record.get("url") or "")
     if url.startswith("https://www.law.go.kr/") or url.startswith("https://law.go.kr/"):
         return url
