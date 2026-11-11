@@ -34,7 +34,8 @@
     const nums=[
       ["변경 근거 확보",fmt(summary.with_source_changes)],
       ["공식 신구 검증 완료",fmt(summary.with_verified_changes)],
-      ["공공기관별 근거 조치",fmt(summary.agency_action_count)]];
+      ["기관별 조치 / 검토 후보",fmt(summary.agency_action_count)+" / "+
+        fmt(summary.program_review_candidates)]];
     $("metrics").replaceChildren(...nums.map(([title,value])=>add(el("div","metric"),
       el("strong","",value),el("span","",title))));
     $("health-title").textContent="자료 수집·검증 상태 · 실패 구간 "+
@@ -56,7 +57,7 @@
   function filtered(){
     const needle=state.query.toLocaleLowerCase("ko-KR");
     return state.events.filter(v=>{
-      if(state.mode==="impact"&&!v.action_count)return false;
+      if(state.mode==="impact"&&!v.action_count&&!v.candidate_count)return false;
        if(state.mode==="changed"&&!v.change_count&&!v.action_count)return false;
       if(state.mode==="support"&&!v.support_standard)return false;
       if(!["all","impact","changed"].includes(state.mode)&&v.change_type!==state.mode)return false;
@@ -81,6 +82,7 @@
         e.verification==="official_comparison_verified"?pill("원문 검증","verified"):
           pill("검증 진행 중","uncertain"),
         e.action_count?pill("기관별 조치 "+fmt(e.action_count),"blue"):
+        e.candidate_count?pill("기관 연결 후보 "+fmt(e.candidate_count),"uncertain"):
         e.change_count?pill("신구 대조 "+fmt(e.change_count)):null));
     node.onclick=()=>select(e.id);
     return node;
@@ -257,12 +259,23 @@
       pill(confirmed?"공식 변경 조문 연결":"영향 검증 중",confirmed?"verified":"uncertain")));
     add(box,el("div","action-label","변경해야 할 업무·기준"),
       el("p","",confirmed?(a.required_change||"변경 조문 적용기준 확인"):
-        "관련 사업 후보입니다. 실제 업무 변경 필요성은 공식 근거 대조가 필요합니다."));
+        "검토 후보 — "+(a.required_change||
+        "공식 근거에 따라 해당 사업의 기준·절차를 추가 대조해야 합니다.")));
     if(a.before||a.after)box.appendChild(evidencePair(a.before,a.after,"상위 정책 변경 전","상위 정책 변경 후"));
     const more=el("details","subdetails");more.appendChild(el("summary","","사업 적용관계 및 공식 근거 펼쳐보기"));
     if(a.changed_clause)more.appendChild(el("p","evidence","관련 변경 조문: "+a.changed_clause));
     if(a.evidence?.reference_quote)more.appendChild(el("p","evidence","인용 근거: "+a.evidence.reference_quote));
+    if(a.evidence?.program_reference)
+      more.appendChild(el("p","evidence","공공사업 법적 근거: "+a.evidence.program_reference));
     if(a.evidence?.service_quote)more.appendChild(el("p","evidence","사업 운영기준: "+a.evidence.service_quote));
+    if((a.affected_values||[]).length){
+      const values=el("details","subdetails");
+      values.appendChild(el("summary","","공식 기준표 변경값 "+fmt(a.affected_values.length)+"건"));
+      a.affected_values.forEach(v=>values.appendChild(evidencePair(
+        v.before,v.after,(v.column||v.row||"해당 기준")+" · 변경 전",
+        (v.column||v.row||"해당 기준")+" · 변경 후")));
+      more.appendChild(values);
+    }
     if(a.service_url)more.appendChild(anchor("공공사업 공식 자료 ↗",a.service_url));
     if(a.policy_url)more.appendChild(add(el("div","evidence"),anchor("변경 법령 공식 원문 ↗",a.policy_url)));
     box.appendChild(more);return box;
@@ -272,6 +285,9 @@
     const wrap=section("영향받는 공공기관·사업과 후속조치",
       "공식적으로 확인된 기관명·사업명·기준을 사용합니다. 기관의 실제 조치 완료 여부는 표시하지 않습니다.");
     const entries=agencyEntries(actions);
+    if(entries.length && !actions.some(a=>a.status==="review_of_verified_citation"))
+      wrap.appendChild(el("p","note",
+        "공식 기준표·상위 근거 조문·사업 운영자료로 연결한 검토 후보입니다. 실제 적용 대상과 후속조치 필요성은 추가 대조가 필요합니다."));
     if(!entries.length){
       wrap.appendChild(el("p","note",
         "현재 이 정책과 실제 공공사업의 검증된 연결이 없습니다. 이는 영향받는 기관이 없다는 뜻이 아니라, 공식 근거 연결이 완료되지 않았다는 뜻입니다."));

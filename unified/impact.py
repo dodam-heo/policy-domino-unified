@@ -173,6 +173,108 @@ def impact_for(doc: dict, comparison: dict, programs: list[dict],
     return results
 
 
+
+def numeric_standard_leads(doc: dict, comparison: dict, program_index: dict,
+                           grade: str) -> list[dict]:
+    """Match official changed HWPX cells to documented program legal bases.
+
+    Matching an amount or a title by itself never establishes an institution.
+    Partial sources yield review candidates, not verified agency directives.
+    """
+    cells = [c for c in comparison.get("numeric_changes", [])
+             if c.get("verification") == "official_hwpx_cell_pair"
+             and c.get("before") and c.get("after")
+             and c["before"] != c["after"]
+             and c.get("old_attachment_sha256")
+             and c.get("new_attachment_sha256")]
+    if not cells:
+        return []
+    parents = {}
+    for change in comparison.get("changes", []):
+        passage = str(change.get("after") or "") + "\n" + str(change.get("before") or "")
+        for ref in references(passage):
+            if ref.get("operational"):
+                parents[(plain(ref["title"]), plain(ref["article"]),
+                         ref.get("paragraph"))] = ref
+    if not parents:
+        return []
+    title_words = set()
+    for word in re.findall(r"[가-힣]{3,}", str(doc.get("title", ""))):
+        term = word.rstrip("의을를은는")
+        if len(term) >= 3 and term not in {
+                "선정기준", "최저보장수준", "일부개정", "시행규칙",
+                "시행령", "법률", "행정규칙", "고시"}:
+            title_words.add(term)
+    def values(text):
+        return {re.sub(r"\D", "", value) for value in re.findall(
+            r"(?<!\d)\d[\d,]*(?!\d)", str(text or ""))
+            if len(re.sub(r"\D", "", value)) >= 4}
+    result = {}
+    for (parent_title, parent_article, paragraph), ref in parents.items():
+        for program in program_index.get((parent_title, parent_article), []):
+            if not all(program.get(k) for k in ("id", "agency", "service_name")):
+                continue
+            basis = "||".join(str(v) for v in program.get("basis", {}).values() if v)
+            links = [b for b in references(basis)
+                     if plain(b["title"]) == parent_title
+                     and plain(b["article"]) == parent_article
+                     and (paragraph is None or b.get("paragraph") is None
+                          or b["paragraph"] == paragraph)]
+            if not links:
+                continue
+            criteria = " ".join(str(v) for v in program.get("criteria", {}).values() if v)
+            if not criteria:
+                continue
+            nums = values(criteria)
+            matched = [c for c in cells if values(c["before"]) & nums]
+            subject = program["service_name"] + " " + criteria
+            if not matched and not any(term in subject for term in title_words):
+                continue
+            if not matched and not re.search(r"선정|기준|산정|지급|소득|금액|급여", criteria):
+                continue
+            selected = matched or cells
+            first = selected[0]
+            verified = grade == "official_comparison_verified" and bool(matched)
+            if program["id"] in result:
+                continue
+            result[program["id"]] = {
+                "agency": program["agency"],
+                "agency_type": program.get("agency_type", ""),
+                "service": program["service_name"],
+                "service_id": program["id"],
+                "service_url": program.get("url", ""),
+                "policy_url": doc.get("url", ""),
+                "policy": doc.get("title", ""),
+                "changed_clause": "공식 첨부 기준표",
+                "before": first["before"], "after": first["after"],
+                "affected_values": [{
+                    "table": c.get("table"), "row": c.get("row", ""),
+                    "column": c.get("column", ""),
+                    "before": c["before"], "after": c["after"],
+                } for c in selected[:24]],
+                "required_change": (
+                    "공식 기준표 " + str(len(selected)) + "개 행·열의 금액 변경을 "
+                    "해당 사업의 선정·심사 기준 및 안내와 대조하여 적용 금액과 "
+                    "시행시점을 검토"),
+                "evidence": {
+                    "proof_type": ("official_hwpx_cell_parent_law_criterion"
+                                   if verified else
+                                   "official_hwpx_parent_law_review_candidate"),
+                    "reference_quote": ref["excerpt"][:300],
+                    "program_reference": links[0]["excerpt"][:300],
+                    "service_quote": criteria[:1200],
+                    "old_value": first["before"],
+                    "new_value": first["after"],
+                    "numeric_value_in_operating_criteria": bool(matched),
+                    "old_attachment_sha256": first["old_attachment_sha256"],
+                    "new_attachment_sha256": first["new_attachment_sha256"],
+                },
+                "status": ("review_of_verified_citation" if verified else
+                           "program_link_candidate_requires_operational_proof"),
+            }
+    return list(result.values())
+
+
 def run(root: Path) -> dict:
     programs = list(read_programs(root))
     generated = []
@@ -211,6 +313,14 @@ def run(root: Path) -> dict:
         for lead in two_hop_program_leads(doc, comparison, related, program_refs):
             if (lead["service_id"], lead["changed_clause"]) not in seen:
                 impacted.append(lead)
+        # Include exact official HWPX table changes. These were previously
+        # omitted from all program impact matching despite valid source hashes.
+        existing = {(a["service_id"], a["changed_clause"]) for a in impacted}
+        for lead in numeric_standard_leads(doc, comparison, program_refs, grade):
+            key = (lead["service_id"], lead["changed_clause"])
+            if key not in existing:
+                impacted.append(lead)
+                existing.add(key)
         candidates += sum(a["status"] != "review_of_verified_citation"
                           for a in impacted)
         # AI is an optional explanatory layer AFTER deterministic official

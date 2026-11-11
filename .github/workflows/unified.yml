@@ -111,7 +111,9 @@ jobs:
               for action in detail.get('institutions',[]):
                   assert action['evidence']['reference_quote']
                   if action['status']=='review_of_verified_citation':
-                      assert action['evidence']['proof_type']=='exact_changed_article_cited_by_official_program'
+                      assert action['evidence']['proof_type'] in (
+                          'exact_changed_article_cited_by_official_program',
+                          'official_hwpx_cell_parent_law_criterion')
                       assert detail['verification']=='official_comparison_verified'
           print('PUBLISH_CONTRACT_PASS',catalog['summary'])
           PY

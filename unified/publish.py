@@ -133,6 +133,7 @@ def assemble(root: Path, limit: int = 50000) -> dict:
                 "linked_regulation_count":0,
                 "institution_count":0,
                 "action_count":0,
+                "candidate_count":0,
                 "details_path":"",
                 "prior_url":"",
                 "source_documents":[{"title":doc["title"],"url":doc.get("url",""),
@@ -193,6 +194,8 @@ def assemble(root: Path, limit: int = 50000) -> dict:
             "institution_count": len({a.get("agency") for a in actions if a.get("agency")}),
             "action_count": sum(a.get("status") == "review_of_verified_citation"
                                 for a in actions),
+            "candidate_count": sum(a.get("status") != "review_of_verified_citation"
+                                   for a in actions),
             "details_path": detail_path(key),
             "prior_url": old.get("url", ""),
             "source_documents": [
@@ -217,6 +220,7 @@ def assemble(root: Path, limit: int = 50000) -> dict:
                 e["verification"] == "official_comparison_verified" for e in events),
             "with_institutional_actions": sum(e["action_count"] > 0 for e in events),
             "agency_action_count": sum(e["action_count"] for e in events),
+            "program_review_candidates": sum(e["candidate_count"] for e in events),
             "by_category": dict(Counter(e["category"] for e in events)),
         },
     }
@@ -236,7 +240,7 @@ INDEX_KEYS = (
     "published_at", "effective_date", "revision", "change_type", "number",
     "category", "category_basis", "support_standard", "headline", "comparison_status", "verification",
     "source_grade", "relationship", "change_count", "institution_count",
-    "action_count", "details_path", "linked_regulation_count",
+    "action_count", "candidate_count", "details_path", "linked_regulation_count",
     "numeric_change_count",
 )
 
