@@ -382,8 +382,12 @@ def process(api, root: Path, state: dict, record: dict) -> dict:
         body = resolve_attachments(root, body)
     if (existing and body.get("status") != "complete"
             and existing.get("body", {}).get("clauses")):
-        # An incomplete response cannot destroy historic extracted content.
-        raise ValueError("official_revalidation_partial_retains_historic_original")
+        # Preserve an older extracted body in a separate immutable archive,
+        # while retaining the newly retrieved official XML and all unresolved
+        # annexes for later re-extraction. Neither source is lost or promoted.
+        archive = root / "historic_extracts" / (
+            hash256(ident(record))[:24] + ".json.gz")
+        store(archive, existing)
     obj = {"identity": ident(record), "record": record, "body": body,
            "official_xml_base64": base64.b64encode(xml).decode("ascii"),
            "fetched_at": dt.datetime.now(dt.timezone.utc).isoformat()}
