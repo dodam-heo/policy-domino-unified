@@ -10,7 +10,7 @@ import json
 import io
 import re
 from pathlib import Path
-from urllib.parse import urljoin, urlparse
+from urllib.parse import urljoin, urlparse, urlunparse
 from urllib.request import Request, urlopen
 import xml.etree.ElementTree as ET
 import zipfile
@@ -25,10 +25,15 @@ def normalized_url(raw: str) -> str:
     full = urljoin(BASE, raw)
     parsed = urlparse(full)
     host = (parsed.hostname or "").lower()
-    if (parsed.scheme != "https" or host not in ("law.go.kr", "www.law.go.kr") or
-        parsed.username or parsed.password):
+    if (host not in ("law.go.kr", "www.law.go.kr") or
+        parsed.username or parsed.password or
+        parsed.scheme not in ("http", "https")):
         return ""
-    return full
+    # The official API itself emits http://law.go.kr/flDownload.do links.
+    # Safely upgrade only this allowlisted official origin to HTTPS.
+    if parsed.scheme == "http":
+        parsed = parsed._replace(scheme="https")
+    return urlunparse(parsed)
 
 
 def fetch(url: str, transport=None):
@@ -90,6 +95,7 @@ def resolve_attachments(root: Path, original: dict,
         if not url:
             row["reason"] = "non_official_or_invalid_attachment_url"
             unresolved.append(row)
+            records.append(row)
             continue
         if n >= max_links:
             row["reason"] = "deferred_attachment_budget"

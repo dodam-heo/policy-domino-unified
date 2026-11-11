@@ -10,6 +10,7 @@ import base64
 import datetime as dt
 from dataclasses import dataclass, asdict
 import gzip
+import html
 import hashlib
 import io
 import json
@@ -177,13 +178,33 @@ def parse_body(xml: bytes) -> dict:
             if number and value:
                 clauses["제"+number+"조"] = value
     if not clauses:
-        fallback = [field(el, tag(el)) for el in root.iter()
-                    if tag(el) in ("본문내용", "행정규칙본문") and
-                    not any(tag(child) in CLAUSE_TAGS for child in el)]
-        fallback = [x for x in fallback if x]
-        if fallback:
-            clauses["본문"] = " ".join(dict.fromkeys(fallback))
-    incomplete = [k for k, v in clauses.items() if not v or len(v) >= 15000]
+        # Official AdmRulService XML commonly exposes multiple flat
+        # <조문내용> elements directly, without a <조문단위> wrapper.
+        flat = [html.unescape(clean("".join(node.itertext())))
+                for node in root.iter() if tag(node) == "조문내용"]
+        flat = list(dict.fromkeys(x for x in flat if x))
+        for index, value in enumerate(flat, 1):
+            match = re.search(r"^제\\s*(\\d+)\\s*조(?:의\\s*(\\d+))?", value)
+            key = ("제"+match.group(1)+"조"+
+                   ("의"+match.group(2) if match.group(2) else "")
+                   if match else "본문 "+str(index))
+            if key in clauses:
+                key += " ("+str(index)+")"
+            clauses[key] = value
+        if not clauses:
+            fallback = [field(el, tag(el)) for el in root.iter()
+                        if tag(el) in ("본문내용", "행정규칙본문") and
+                        not any(tag(child) in CLAUSE_TAGS for child in el)]
+            fallback = [html.unescape(x) for x in fallback if x]
+            if fallback:
+                clauses["본문"] = " ".join(dict.fromkeys(fallback))
+    if clauses:
+        addenda = [html.unescape(clean("".join(node.itertext())))
+                   for node in root.iter() if tag(node) == "부칙내용"]
+        if addenda:
+            clauses["부칙"] = " ".join(dict.fromkeys(x for x in addenda if x))
+    incomplete = [k for k, v in clauses.items() if not v or len(v) >= 15000 or
+                  re.search(r"<\\s*img\\b|&lt;\\s*img\\b", v, re.I)]
     return {
         "status": "complete" if clauses and not incomplete and not links else "partial",
         "clauses": clauses,
