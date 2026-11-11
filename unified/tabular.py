@@ -45,26 +45,68 @@ def extract_tables(text: str, source_sha: str) -> list[dict]:
 
 
 def compare_tables(old: list[dict], new: list[dict]) -> list[dict]:
-    previous={r["table"]:r for r in old}
-    changes=[]
+    """Pair unique HWPX tables by their actual row/column coordinates.
+
+    Annex numbering restarts within each attachment, so 'table: 1' is NOT a
+    stable cross-version identifier. Ambiguous pairs stay unresolved instead
+    of manufacturing before/after monetary changes.
+    """
+    def cells(table):
+        return {(norm(c.get("row")), norm(c.get("column"))): c
+                for c in table.get("cells", [])
+                if norm(c.get("row")) and norm(c.get("column"))}
+    def columns(table):
+        return {norm(v) for v in table.get("header", [])[1:] if norm(v)}
+    old_index = [(table, cells(table)) for table in old]
+    used = set()
+    changes = []
     for current in new:
-        prior=previous.get(current.get("table"))
-        if not prior or (list(map(norm,prior["header"])) !=
-                        list(map(norm,current["header"]))):
+        current_cells = cells(current)
+        if not current_cells:
             continue
-        old_cells={(norm(c["row"]),norm(c["column"])):c
-                   for c in prior["cells"]}
-        for cell in current["cells"]:
-            pair=(norm(cell["row"]),norm(cell["column"]))
-            former=old_cells.get(pair)
-            if not former or norm(former["value"])==norm(cell["value"]):
+        scored = []
+        for index, (prior, previous_cells) in enumerate(old_index):
+            common = set(current_cells) & set(previous_cells)
+            if not common:
+                continue
+            same_header = list(map(norm, prior.get("header", []))) == (
+                list(map(norm, current.get("header", []))))
+            # Multiple shared coordinates or one truly identical single-cell
+            # table are required. A shared table ordinal is never sufficient.
+            if len(common) < 2 and not (
+                    len(common) == 1 and same_header and
+                    len(previous_cells) == len(current_cells) == 1):
+                continue
+            overlap = len(common) / max(1, min(len(previous_cells), len(current_cells)))
+            if overlap < 0.6:
+                continue
+            shared_headers = len(columns(prior) & columns(current))
+            score = (len(common), overlap, shared_headers,
+                     int(same_header),
+                     int(prior.get("table") == current.get("table")))
+            scored.append((score, index, common))
+        if not scored:
+            continue
+        scored.sort(reverse=True)
+        best_score, old_index_number, coordinates = scored[0]
+        # A tie might be two attachments with identical-looking columns. No
+        # arbitrary attachment-to-attachment mapping is acceptable.
+        if (old_index_number in used or
+                (len(scored) > 1 and scored[1][0] == best_score)):
+            continue
+        used.add(old_index_number)
+        prior, previous_cells = old_index[old_index_number]
+        for key in sorted(coordinates):
+            before, after = previous_cells[key], current_cells[key]
+            if norm(before["value"]) == norm(after["value"]):
                 continue
             changes.append({
-                "table":current["table"],
-                "row":cell["row"],"column":cell["column"],
-                "before":former["value"],"after":cell["value"],
-                "old_attachment_sha256":prior["official_attachment_sha256"],
-                "new_attachment_sha256":current["official_attachment_sha256"],
-                "verification":"official_hwpx_cell_pair",
+                "table": current.get("table"),
+                "row": after["row"], "column": after["column"],
+                "before": before["value"], "after": after["value"],
+                "old_attachment_sha256": prior["official_attachment_sha256"],
+                "new_attachment_sha256": current["official_attachment_sha256"],
+                "verification": "official_hwpx_cell_pair",
+                "matching_method": "unique_row_column_table_pair",
             })
     return changes
