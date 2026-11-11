@@ -19,5 +19,7 @@ jobs:
         run: python -m compileall -q unified tests
       - name: Run all deterministic tests
         run: python -m unittest discover -s tests -v
+      - name: Check client JavaScript syntax
+        run: node --check site/app.js
       - name: Verify current saved corpus can publish
         run: python -m unified.publish --root data --output /tmp/policy-domino-pr-catalog.json

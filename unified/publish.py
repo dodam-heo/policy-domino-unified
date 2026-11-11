@@ -81,11 +81,13 @@ def assemble(root: Path, limit: int = 1200) -> dict:
         if all(row.get(k) for k in ("source", "stable_id", "serial")):
             comparisons[ident(row)] = c
     impacts = {}
+    regulations = {}
     for path in (root/"impacts").glob("*.json.gz"):
         payload = load(path, {})
         row = payload.get("doc") or {}
         if all(row.get(k) for k in ("source", "stable_id", "serial")):
             impacts[ident(row)] = payload.get("institutional_actions", [])
+            regulations[ident(row)] = payload.get("related_regulations", [])
     events = []
     for doc in documents[:limit]:
         key = ident(doc)
@@ -128,6 +130,8 @@ def assemble(root: Path, limit: int = 1200) -> dict:
             "changes": before_after,
             "unresolved": comp.get("unresolved", [])[:40],
             "institutions": actions,
+            "related_regulations": regulations.get(key, []),
+            "linked_regulation_count": len(regulations.get(key, [])),
             "institution_count": len({a.get("agency") for a in actions if a.get("agency")}),
             "action_count": sum(a.get("status") == "review_of_verified_citation"
                                 for a in actions),
@@ -171,7 +175,7 @@ INDEX_KEYS = (
     "published_at", "effective_date", "revision", "change_type", "number",
     "category", "category_basis", "comparison_status", "verification",
     "source_grade", "relationship", "change_count", "institution_count",
-    "action_count", "details_path",
+    "action_count", "details_path", "linked_regulation_count",
 )
 
 

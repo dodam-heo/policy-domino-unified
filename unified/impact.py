@@ -13,7 +13,9 @@ import os
 from pathlib import Path
 import re
 
-from .engine import hash256, clean, load, store, save_json
+from .engine import hash256, clean, load, store, save_json, relative_path, ident
+from .relations import legal_dependents, index_program_references, two_hop_program_leads
+from .verification import comparison_grade
 
 REFERENCES = re.compile(r"「([^」]{2,180})」\s*(제\s*\d+\s*조(?:의\s*\d+)?)?")
 ARTICLE = re.compile(r"제\s*\d+\s*조(?:의\s*\d+)?")
@@ -175,17 +177,42 @@ def run(root: Path, limit_events: int = 300) -> dict:
     ai_budget = max(0, int(os.getenv("PD_LLM_MAX_REQUESTS", "12")))
     files = sorted((root / "comparisons").glob("*.json.gz"),
                    key=lambda p: p.stat().st_mtime, reverse=True)
-    for source in files[:limit_events]:
-        comparison = load(source, {})
+    comparisons = [load(source, {}) for source in files[:limit_events]]
+    # Index the changed clauses and official downstream rule bodies ONCE.
+    # Direct and two-hop references remain distinct from verified duties.
+    relation_graph = legal_dependents(root, comparisons)
+    program_refs = index_program_references(programs)
+    candidates = 0
+    for comparison in comparisons:
         doc = comparison.get("changed_record") or {}
         if not doc:
             continue
+        prior = comparison.get("prior_record") or {}
+        now_package = load(root/relative_path(doc), {})
+        prior_package = load(root/relative_path(prior), {}) if all(
+            prior.get(k) for k in ("source", "stable_id", "serial")) else {}
+        grade = comparison_grade(comparison.get("status", ""),
+                                 prior_package, now_package)
         impacted = impact_for(doc, comparison, programs)
+        for action in impacted:
+            if grade != "official_comparison_verified":
+                action["status"] = "program_link_candidate_requires_source_revalidation"
+            elif not action["evidence"].get("numeric_value_in_operating_criteria"):
+                action["status"] = "program_link_candidate_requires_operational_proof"
+        related = relation_graph.get(ident(doc), [])
+        seen = {(a["service_id"], a["changed_clause"]) for a in impacted}
+        for lead in two_hop_program_leads(doc, comparison, related, program_refs):
+            if (lead["service_id"], lead["changed_clause"]) not in seen:
+                impacted.append(lead)
+        candidates += sum(a["status"] != "review_of_verified_citation"
+                          for a in impacted)
         # AI is an optional explanatory layer AFTER deterministic official
         # linkage; model text cannot create a new agency or evidence edge.
         if key_available and model_available:
             from .ai import analyze
             for action in impacted:
+                if action["status"] != "review_of_verified_citation":
+                    continue
                 fingerprint = hash256(json.dumps(action, ensure_ascii=False, sort_keys=True))
                 output = root / "ai" / (fingerprint[:24] + ".json.gz")
                 verified = load(output)
@@ -201,7 +228,9 @@ def run(root: Path, limit_events: int = 300) -> dict:
                     action["ai_analysis"] = verified
                     ai_verified += 1
         payload = {"doc": doc, "comparison_status": comparison.get("status"),
+                   "comparison_verification": grade,
                    "changes_count": len(comparison.get("changes", [])),
+                   "related_regulations": related,
                    "institutional_actions": impacted}
         target = root / "impacts" / (hash256("|".join((
             doc.get("source", ""), doc.get("stable_id", ""),
@@ -210,7 +239,10 @@ def run(root: Path, limit_events: int = 300) -> dict:
         statuses[comparison.get("status", "")] += 1
         generated.extend(impacted)
     stats = {"official_programs": len(programs), "comparisons_considered": sum(statuses.values()),
-             "verified_institutional_tasks": len(generated),
+             "verified_institutional_tasks": sum(
+                 a["status"] == "review_of_verified_citation" for a in generated),
+             "program_review_candidates": candidates,
+             "related_regulations": sum(len(x) for x in relation_graph.values()),
              "comparison_statuses": dict(statuses),
              "ai_explanation_attempts": ai_attempts,
              "ai_verified_explanations": ai_verified,
