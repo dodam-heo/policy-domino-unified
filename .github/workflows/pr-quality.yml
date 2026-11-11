@@ -23,3 +23,5 @@ jobs:
         run: node --check site/app.js
       - name: Verify current saved corpus can publish
         run: python -m unified.publish --root data --output /tmp/policy-domino-pr-catalog.json
+      - name: Report source-grounded acceptance gaps without hiding them
+        run: python -m unified.acceptance --root data --site /tmp --output /tmp/acceptance.json

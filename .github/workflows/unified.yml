@@ -84,6 +84,8 @@ jobs:
         run: python -m unified.impact --root data
       - name: Build compact source-backed policy workbench
         run: python -m unified.publish --root data --output site/data.json
+      - name: Report the actual source → impact acceptance coverage
+        run: python -m unified.acceptance --root data --site site --output site/acceptance.json
       - name: Check final publication contract
         run: |
           python - <<'PY'
@@ -110,7 +112,7 @@ jobs:
           set -euo pipefail
           git config user.name policy-domino-unified-bot
           git config user.email policy-domino-unified-bot@users.noreply.github.com
-          git add data/ site/data.json site/details/
+          git add data/ site/data.json site/details/ site/acceptance.json
           if ! git diff --cached --quiet; then
             base_sha=$(git rev-parse HEAD)
             git fetch origin main
@@ -136,6 +138,25 @@ jobs:
         uses: actions/deploy-pages@v4
         with:
           timeout: 1200000
+      - name: Fail the production status if required coverage is still missing
+        if: always()
+        run: |
+          python - <<'PY'
+          import json,sys
+          from pathlib import Path
+          path=Path('site/acceptance.json')
+          if not path.exists():
+              print('::error::No verified source/impact acceptance report was produced')
+              sys.exit(1)
+          acceptance=json.loads(path.read_text('utf8'))
+          if not acceptance['ready_for_final_release']:
+              print('::error::Public demo published, but core source→agency acceptance FAILED')
+              sys.exit(1)
+          quality=json.loads(Path('site/data.json').read_text('utf8')).get('quality',{})
+          if quality.get('failed_collection_windows',0):
+              print('::error::Some official collection windows failed; cannot claim current data complete')
+              sys.exit(1)
+          PY
       - name: Explain required one-time Pages setting if unavailable
         if: steps.pages.outcome != 'success'
         run: |

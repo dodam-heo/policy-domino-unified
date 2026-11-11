@@ -298,6 +298,17 @@
       if(d.schema!=="policy-domino-unified-ui-v2"||!Array.isArray(d.events))
         throw Error("Unexpected catalog schema");
       state.data=d;state.events=d.events;
+      // Acceptance records are a separate quality contract. The list remains
+      // usable even when current source or agency evidence is incomplete.
+      fetch("./acceptance.json",{cache:"no-store"}).then(r=>r.ok?r.json():null)
+        .then(a=>{
+          if(!a)return;
+          const failed=(a.required_examples||[]).filter(x=>x.missing_steps?.length);
+          const body=$("health-body");
+          body.appendChild(el("p","",
+            "필수 연도별 기준 회귀 검증: "+fmt(3-failed.length)+"/3건 전체 단계 통과"+
+            (failed.length?" · 미완료 사례 "+failed.map(x=>x.name).join(", "):"")));
+        }).catch(()=>{});
       const areas=[...new Set(state.events.map(x=>x.category).filter(Boolean))].sort();
       for(const area of areas){const opt=el("option","",area);opt.value=area;$("area").appendChild(opt);}
       refreshSummary();renderList();
