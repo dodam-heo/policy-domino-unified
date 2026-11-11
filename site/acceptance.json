@@ -36,7 +36,7 @@
         "comparison_exists": true,
         "official_comparison_verified": false,
         "institutional_action_verified": false,
-        "published": false
+        "published": true
       },
       "source_title": "2027년 주거급여 선정기준 및 최저보장수준",
       "source_url": "https://www.law.go.kr/%ED%96%89%EC%A0%95%EA%B7%9C%EC%B9%99/2027%EB%85%84%20%EC%A3%BC%EA%B1%B0%EA%B8%89%EC%97%AC%20%EC%84%A0%EC%A0%95%EA%B8%B0%EC%A4%80%20%EB%B0%8F%20%EC%B5%9C%EC%A0%80%EB%B3%B4%EC%9E%A5%EC%88%98%EC%A4%80",
@@ -44,8 +44,7 @@
       "missing_steps": [
         "official_original_verified",
         "official_comparison_verified",
-        "institutional_action_verified",
-        "published"
+        "institutional_action_verified"
       ]
     },
     {
@@ -58,7 +57,7 @@
         "comparison_exists": true,
         "official_comparison_verified": false,
         "institutional_action_verified": false,
-        "published": false
+        "published": true
       },
       "source_title": "2027년 교육급여의 선정기준 및 최저보장수준",
       "source_url": "https://www.law.go.kr/%ED%96%89%EC%A0%95%EA%B7%9C%EC%B9%99/2027%EB%85%84%20%EA%B5%90%EC%9C%A1%EA%B8%89%EC%97%AC%EC%9D%98%20%EC%84%A0%EC%A0%95%EA%B8%B0%EC%A4%80%20%EB%B0%8F%20%EC%B5%9C%EC%A0%80%EB%B3%B4%EC%9E%A5%EC%88%98%EC%A4%80",
@@ -66,8 +65,7 @@
       "missing_steps": [
         "official_original_verified",
         "official_comparison_verified",
-        "institutional_action_verified",
-        "published"
+        "institutional_action_verified"
       ]
     }
   ],
@@ -128,5 +126,5 @@
     }
   ],
   "ready_for_final_release": false,
-  "failure_count": 14
+  "failure_count": 12
 }
