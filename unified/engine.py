@@ -10,6 +10,7 @@ import base64
 import datetime as dt
 from dataclasses import dataclass, asdict
 import gzip
+import html
 import hashlib
 import io
 import json
@@ -116,7 +117,11 @@ def parse_index(root, source, rule_kind=""):
         issued = ymd(field(node, cfg[3], True) or field(node, "공포일자", True))
         if not (title and stable and serial and issued):
             continue
-        kind = KINDS.get(rule_kind, field(node, "행정규칙종류", True))
+        kind = (KINDS.get(rule_kind) or
+                field(node, "행정규칙종류", True) if source == "admrul" else
+                field(node, "법령구분명", True) or
+                field(node, "법령구분", True) if source == "law" else
+                "자치법규")
         rec = {
             "source": source, "stable_id": stable, "serial": serial,
             "title": title, "published_at": issued,
@@ -173,13 +178,33 @@ def parse_body(xml: bytes) -> dict:
             if number and value:
                 clauses["제"+number+"조"] = value
     if not clauses:
-        fallback = [field(el, tag(el)) for el in root.iter()
-                    if tag(el) in ("본문내용", "행정규칙본문") and
-                    not any(tag(child) in CLAUSE_TAGS for child in el)]
-        fallback = [x for x in fallback if x]
-        if fallback:
-            clauses["본문"] = " ".join(dict.fromkeys(fallback))
-    incomplete = [k for k, v in clauses.items() if not v or len(v) >= 15000]
+        # Official AdmRulService XML commonly exposes multiple flat
+        # <조문내용> elements directly, without a <조문단위> wrapper.
+        flat = [html.unescape(clean("".join(node.itertext())))
+                for node in root.iter() if tag(node) == "조문내용"]
+        flat = list(dict.fromkeys(x for x in flat if x))
+        for index, value in enumerate(flat, 1):
+            match = re.search(r"^제\s*(\d+)\s*조(?:의\s*(\d+))?", value)
+            key = ("제"+match.group(1)+"조"+
+                   ("의"+match.group(2) if match.group(2) else "")
+                   if match else "본문 "+str(index))
+            if key in clauses:
+                key += " ("+str(index)+")"
+            clauses[key] = value
+        if not clauses:
+            fallback = [field(el, tag(el)) for el in root.iter()
+                        if tag(el) in ("본문내용", "행정규칙본문") and
+                        not any(tag(child) in CLAUSE_TAGS for child in el)]
+            fallback = [html.unescape(x) for x in fallback if x]
+            if fallback:
+                clauses["본문"] = " ".join(dict.fromkeys(fallback))
+    if clauses:
+        addenda = [html.unescape(clean("".join(node.itertext())))
+                   for node in root.iter() if tag(node) == "부칙내용"]
+        if addenda:
+            clauses["부칙"] = " ".join(dict.fromkeys(x for x in addenda if x))
+    incomplete = [k for k, v in clauses.items() if not v or len(v) >= 15000 or
+                  re.search(r"<\s*img\b|&lt;\s*img\b", v, re.I)]
     return {
         "status": "complete" if clauses and not incomplete and not links else "partial",
         "clauses": clauses,
@@ -203,12 +228,17 @@ def compare_bodies(before: dict, after: dict, *, annual=False) -> dict:
                             "before_hash": hash256(old), "after_hash": hash256(new)})
     if before.get("status") != "complete" or after.get("status") != "complete":
         unresolved.append({"reason": "incomplete_original_or_attachment"})
+    from .tabular import compare_tables
+    numeric_changes=compare_tables(before.get("numeric_tables",[]),
+                                   after.get("numeric_tables",[]))
     return {
         "status": ("partial_unverified" if unresolved else
                    "changed" if changes else "no_text_change"),
         "relationship": "annual_successor" if annual else "same_official_id_revision",
-        "changes": changes, "unresolved": unresolved,
-        "counts": {"changed": len(changes), "unresolved": len(unresolved)},
+        "changes": changes, "numeric_changes": numeric_changes,
+        "unresolved": unresolved,
+        "counts": {"changed": len(changes), "numeric": len(numeric_changes),
+                   "unresolved": len(unresolved)},
     }
 
 
@@ -219,24 +249,33 @@ class OfficialAPI:
         self.oc, self.transport = oc, transport
 
     def request(self, endpoint, source, **params):
-        url = API + endpoint + "?" + urlencode(
-            {"OC": self.oc, "target": source, "type": "XML", **params})
+        query=urlencode({"OC": self.oc, "target": source, "type": "XML", **params})
+        url = API + endpoint + "?" + query
         if self.transport:
             raw = self.transport(url)
         else:
-            last = None
-            for n in range(3):
-                try:
-                    with urlopen(Request(url, headers={
-                            "User-Agent": "PolicyDominoUnified/1.0"}), timeout=25) as r:
-                        raw = r.read(MAX_RESPONSE + 1)
-                    break
-                except OSError as exc:
-                    last = exc
-                    if n < 2:
-                        time.sleep(n + 1)
+            # The official service has intermittent runner-level connection
+            # errors. Try both official HTTPS hostnames before a failure is
+            # recorded in coverage; never silently mark the date as complete.
+            urls=(url, "https://law.go.kr/DRF/" + endpoint + "?" + query)
+            last=None
+            for alternate in urls:
+                for n in range(2):
+                    try:
+                        with urlopen(Request(alternate, headers={
+                                "User-Agent":"Mozilla/5.0 (PolicyDominoUnified/2.0)",
+                                "Accept":"application/xml,text/xml,*/*"}), timeout=13) as r:
+                            raw=r.read(MAX_RESPONSE+1)
+                        break
+                    except (OSError, TimeoutError) as exc:
+                        last=exc
+                        if n==0:time.sleep(0.5)
+                else:
+                    continue
+                break
             else:
-                raise RuntimeError("official_api_network_error: " + type(last).__name__)
+                raise RuntimeError("official_api_network_error: "+
+                    type(last).__name__+": "+str(last)[:130])
         if len(raw) > MAX_RESPONSE:
             raise ValueError("official_api_payload_too_large")
         root = ET.fromstring(raw)
@@ -299,7 +338,10 @@ class OfficialAPI:
                       (r["published_at"], r["serial"]) <
                       (record["published_at"], record["serial"])]
         if candidates:
-            return max(candidates, key=lambda r: (r["published_at"], r["serial"])), False
+            prior=max(candidates, key=lambda r: (r["published_at"], r["serial"]))
+            annual=src=="admrul" and _effective_year(prior)>0 and (
+                _effective_year(record)==_effective_year(prior)+1)
+            return prior,annual
         if src == "admrul":
             m = YEAR.search(record["title"])
             if m:
@@ -316,6 +358,23 @@ class OfficialAPI:
                               r.get("ministry") == record["ministry"])]
                     if prior:
                         return max(prior, key=lambda r: r["published_at"]), True
+        # A renamed annual notice may have an entirely different official ID.
+        # Search using distinctive title tokens without enrolling policy names.
+        if src=="admrul" and _effective_year(record)>0:
+            tokens=[t for t in re.findall(r"[가-힣]{3,}",record["title"])
+                    if t not in ("기준", "고시", "제정", "개정", "년도")]
+            tokens=sorted(set(tokens),key=len,reverse=True)[:3]
+            for token in tokens:
+                for edition in ("2","1"):
+                    try:
+                        root,_=self.request("lawSearch.do","admrul",query=token,
+                                          nw=edition, page=1,display=100,sort="ddes")
+                        pool=parse_index(root,"admrul")
+                        candidate,annual=_local_predecessor(record,pool)
+                        if candidate and annual:
+                            return candidate,True
+                    except (OSError,ValueError,RuntimeError):
+                        continue
         return None, False
 
 
@@ -344,7 +403,10 @@ def streams():
 def process(api, root: Path, state: dict, record: dict) -> dict:
     destination = root / relative_path(record)
     existing = load(destination)
-    if existing and existing.get("body", {}).get("status") == "complete":
+    # Archived extracted text is not proof of a complete official original.
+    if (existing and existing.get("body", {}).get("status") == "complete"
+            and existing.get("official_xml_base64")
+            and not existing.get("source_snapshot_provenance")):
         return existing
     xml = api.detail(record)
     body = parse_body(xml)
@@ -352,6 +414,14 @@ def process(api, root: Path, state: dict, record: dict) -> dict:
             "PD_FETCH_OFFICIAL_ATTACHMENTS", "true").lower() == "true":
         from .attachments import resolve_attachments
         body = resolve_attachments(root, body)
+    if (existing and body.get("status") != "complete"
+            and existing.get("body", {}).get("clauses")):
+        # Preserve an older extracted body in a separate immutable archive,
+        # while retaining the newly retrieved official XML and all unresolved
+        # annexes for later re-extraction. Neither source is lost or promoted.
+        archive = root / "historic_extracts" / (
+            hash256(ident(record))[:24] + ".json.gz")
+        store(archive, existing)
     obj = {"identity": ident(record), "record": record, "body": body,
            "official_xml_base64": base64.b64encode(xml).decode("ascii"),
            "fetched_at": dt.datetime.now(dt.timezone.utc).isoformat()}
@@ -378,14 +448,72 @@ def _priority(rec: dict, today: dt.date) -> tuple:
             rec.get("published_at", ""), rec.get("serial", ""))
 
 
+def _effective_year(record: dict) -> int:
+    value=str(record.get("effective_date") or "")[:4]
+    if value.isdigit() and 1900<int(value)<2100:
+        return int(value)
+    match=YEAR.search(record.get("title", ""))
+    return int(match.group()[:4]) if match else 0
+
+
+def _annual_name_signature(title: str) -> set[str]:
+    """Generic year-neutral bigrams for renamed annual official standards."""
+    stripped = YEAR.sub("", str(title or ""))
+    plain = re.sub(r"[^가-힣a-zA-Z0-9]", "", stripped)
+    return {plain[i:i+2] for i in range(max(0,len(plain)-1))}
+
+
+def _local_predecessor(record: dict, records: list[dict]):
+    """Select only an unambiguous official predecessor.
+
+    Different legal IDs may represent a later year's identical policy family.
+    Require same issuing authority and kind, preceding year, strong title
+    similarity and a gap to the runner-up; never infer changed amounts.
+    """
+    older = [x for x in records if x.get("source") == record.get("source") and
+             x.get("published_at", "") < record.get("published_at", "") and
+             x.get("serial") != record.get("serial")]
+    same_id = [x for x in older if x.get("stable_id") == record.get("stable_id")]
+    if same_id:
+        previous=max(same_id,key=lambda x:(x.get("published_at",""),x.get("serial","")))
+        return previous,(_effective_year(record)>0 and
+                         _effective_year(record)==_effective_year(previous)+1)
+    title = record.get("title", "")
+    ministry = record.get("ministry", "")
+    current_year=_effective_year(record)
+    if not current_year or not ministry or record.get("source") != "admrul":
+        return None,False
+    basis = _annual_name_signature(title)
+    if not basis:
+        return None,False
+    matches=[]
+    for candidate in older:
+        if (candidate.get("ministry") != ministry or
+            candidate.get("kind") != record.get("kind")):
+            continue
+        previous_year=_effective_year(candidate)
+        if previous_year != current_year-1:
+            continue
+        past = _annual_name_signature(candidate["title"])
+        score = 2*len(basis & past)/max(1,len(basis)+len(past))
+        if score >= .56:
+            matches.append((score,candidate))
+    matches.sort(key=lambda x:(x[0],x[1].get("published_at","")),reverse=True)
+    if not matches or (len(matches)>1 and matches[0][0]-matches[1][0]<.12):
+        return None,False
+    return matches[0][1],True
+
+
 def _pending_index_records(root: Path, max_files=15000) -> list[dict]:
     """Never lose official list results when per-run detail budget is exhausted."""
     pending = {}
-    for path in sorted((root / "indexes").glob("*/*.json.gz"))[-max_files:]:
+    historic = sorted((root / "indexes" / "legacy").glob("*/*.json.gz"))
+    live = sorted((root / "indexes").glob("*/*.json.gz"))[-max_files:]
+    for path in [*historic, *live]:
         index = load(path, {})
         for record in index.get("records", []):
             if all(record.get(key) for key in ("source", "stable_id", "serial")):
-                pending[ident(record)] = record
+                pending[ident(record)] = record  # Live evidence supersedes historic.
     return list(pending.values())
 
 
@@ -461,22 +589,42 @@ def run(root: Path, api: OfficialAPI, limit_streams=3, detail_budget=20,
 
     # Reuse metadata saved by EVERY prior run, not only the latest window.
     records = _pending_index_records(root)
-    records.sort(key=lambda r: _priority(r, today), reverse=True)
+    prioritized = sorted(records, key=lambda r: _priority(r, today), reverse=True)
+    # Every run reserves work for older undigested versions, while prioritizing
+    # recent standards. The capped per-run budget cannot erase the full queue.
+    aged = sorted(records, key=lambda r: (
+        int(state["attempts"].get(ident(r), 0)), r.get("published_at", ""), ident(r)))
+    reserve = max(1, detail_budget // 4)
+    selected = prioritized[:max(0, detail_budget-reserve)*3] + aged + prioritized
+    ordered, seen = [], set()
+    for rec in selected:
+        if ident(rec) not in seen:
+            ordered.append(rec)
+            seen.add(ident(rec))
     attempted, complete, compared = 0, 0, 0
-    for rec in records:
+    for rec in ordered:
         if attempted >= detail_budget:
             break
         stored = load(root / relative_path(rec))
-        if stored and stored.get("body", {}).get("status") == "complete":
+        if (stored and stored.get("body", {}).get("status") == "complete"
+                and stored.get("official_xml_base64")
+                and not stored.get("source_snapshot_provenance")):
             continue
         attempted += 1
         try:
             after = process(api, root, state, rec)
-            if after.get("body", {}).get("status") == "complete":
+            if (after.get("body", {}).get("status") == "complete"
+                    and after.get("official_xml_base64")
+                    and not after.get("source_snapshot_provenance")):
                 complete += 1
             if not after["body"]["clauses"]:
                 continue
-            prev, annual = api.predecessor(rec)
+            try:
+                prev, annual = api.predecessor(rec)
+            except (OSError, RuntimeError, ValueError):
+                prev, annual = None, False
+            if not prev:
+                prev, annual = _local_predecessor(rec, records)
             if not prev:
                 continue
             before = process(api, root, state, prev)

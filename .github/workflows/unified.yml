@@ -37,6 +37,35 @@ jobs:
         run: python -m pip install --disable-pip-version-check 'pypdf>=5,<7'
       - name: Verify audited source and evidence gates
         run: python -m unittest discover -s tests -v
+      # Perform the historical metadata import exactly once. This is NOT a
+      # repeat audit: it retains already-audited official version identities
+      # for subsequent detail recovery. Old repositories remain read-only.
+      - name: Fetch pinned V2 archive once
+        if: ${{ hashFiles('data/legacy-index-status.json') == '' }}
+        uses: actions/checkout@v4
+        with:
+          repository: dodam-heo/policy-domino
+          ref: 66212ee4060e7742ce37f114287f5afecb0244e9
+          path: _archive_v2
+      - name: Fetch pinned domino V4 archive once
+        if: ${{ hashFiles('data/legacy-index-status.json') == '' }}
+        uses: actions/checkout@v4
+        with:
+          repository: dodam-heo/policy-domino
+          ref: b590e4324d5b6e55d805914862c8356d0bf7c1b4
+          path: _archive_v4
+      - name: Fetch pinned NEXT archive once
+        if: ${{ hashFiles('data/legacy-index-status.json') == '' }}
+        uses: actions/checkout@v4
+        with:
+          repository: dodam-heo/policy-domino-next
+          ref: 898db398694f55fc95d1d2ac188c7ea67b9e623e
+          path: _archive_next
+      - name: Retain all audited official version identities (metadata only)
+        if: ${{ hashFiles('data/legacy-index-status.json') == '' }}
+        run: |
+          python -m unified.bootstrap --root data --v2 _archive_v2/data/v2_state.json --v4 _archive_v4/data/v4_state.json --next _archive_next/data/state.json
+          rm -rf _archive_v2 _archive_v4 _archive_next
       - name: Collect independent official change versions
         env:
           LAW_OC: ${{ vars.LAW_OC || 'dori' }}
@@ -55,21 +84,27 @@ jobs:
         run: python -m unified.impact --root data
       - name: Build compact source-backed policy workbench
         run: python -m unified.publish --root data --output site/data.json
+      - name: Report the actual source → impact acceptance coverage
+        run: python -m unified.acceptance --root data --site site --output site/acceptance.json
       - name: Check final publication contract
         run: |
           python - <<'PY'
           import json
           from pathlib import Path
           catalog=json.loads(Path('site/data.json').read_text('utf8'))
-          assert catalog['schema']=='policy-domino-unified-ui-v1'
+          assert catalog['schema']=='policy-domino-unified-ui-v2'
           assert catalog['events']
           ids=[e['id'] for e in catalog['events']]
           assert len(ids)==len(set(ids))
           for item in catalog['events']:
-              for action in item.get('institutions',[]):
-                  assert action['evidence']['proof_type']=='exact_changed_article_cited_by_official_program'
+              assert item['details_path'].startswith('details/')
+              detail=json.loads((Path('site')/item['details_path']).read_text('utf8'))
+              assert detail['id']==item['id']
+              for action in detail.get('institutions',[]):
                   assert action['evidence']['reference_quote']
-                  assert action['evidence']['service_quote']
+                  if action['status']=='review_of_verified_citation':
+                      assert action['evidence']['proof_type']=='exact_changed_article_cited_by_official_program'
+                      assert detail['verification']=='official_comparison_verified'
           print('PUBLISH_CONTRACT_PASS',catalog['summary'])
           PY
       - name: Store only incremental source versions and current public index
@@ -77,7 +112,7 @@ jobs:
           set -euo pipefail
           git config user.name policy-domino-unified-bot
           git config user.email policy-domino-unified-bot@users.noreply.github.com
-          git add data/ site/data.json
+          git add -A data/ site/data.json site/details/ site/catalog/ site/acceptance.json
           if ! git diff --cached --quiet; then
             base_sha=$(git rev-parse HEAD)
             git fetch origin main
@@ -103,6 +138,25 @@ jobs:
         uses: actions/deploy-pages@v4
         with:
           timeout: 1200000
+      - name: Fail the production status if required coverage is still missing
+        if: always()
+        run: |
+          python - <<'PY'
+          import json,sys
+          from pathlib import Path
+          path=Path('site/acceptance.json')
+          if not path.exists():
+              print('::error::No verified source/impact acceptance report was produced')
+              sys.exit(1)
+          acceptance=json.loads(path.read_text('utf8'))
+          if not acceptance['ready_for_final_release']:
+              print('::error::Public demo published, but core source→agency acceptance FAILED')
+              sys.exit(1)
+          quality=json.loads(Path('site/data.json').read_text('utf8')).get('quality',{})
+          if quality.get('failed_collection_windows',0):
+              print('::error::Some official collection windows failed; cannot claim current data complete')
+              sys.exit(1)
+          PY
       - name: Explain required one-time Pages setting if unavailable
         if: steps.pages.outcome != 'success'
         run: |

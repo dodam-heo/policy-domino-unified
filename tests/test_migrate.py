@@ -25,7 +25,7 @@ class MigrationTests(unittest.TestCase):
             summary = migrate(paths, root/"out")
             self.assertEqual(summary["imported_originals"], 1)
             saved = load(root/"out"/relative_path(doc))
-            self.assertEqual(saved["body"]["status"], "complete")
+            self.assertEqual(saved["body"]["status"], "legacy_extracted")
             self.assertFalse(saved["source_snapshot_provenance"]["has_raw_official_xml"])
 
 

@@ -68,6 +68,10 @@ def record_from(row: dict, label: str, locator: str, body: dict | None = None) -
         "published_at": row.get("published_at") or row.get("promulgated_at") or "",
         "effective_date": row.get("effective_date") or "",
         "kind": row.get("law_type") or row.get("kind") or "",
+        "ministry": row.get("ministry") or "",
+        "number": row.get("number") or "",
+        "revision": row.get("revision") or "",
+        "url": row.get("url") or "",
         "body": body or {"complete": False, "hash": "", "parts": 0, "chars": 0},
     }
 

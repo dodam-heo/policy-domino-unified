@@ -1,0 +1,129 @@
+name: Verify unified integration pull request
+on:
+  pull_request:
+    paths:
+      - 'unified/**'
+      - 'tests/**'
+      - 'site/**'
+      - '.github/workflows/pr-quality.yml'
+concurrency:
+  group: unified-pr-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 28
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install 'pypdf>=5,<7'
+      - name: Compile all modules
+        run: python -m compileall -q unified tests
+      - name: Run all deterministic tests
+        run: python -m unittest discover -s tests -v
+      - name: Check client JavaScript syntax
+        run: node --check site/app.js
+      - name: Fetch pinned V2 state for real migration test
+        uses: actions/checkout@v4
+        with:
+          repository: dodam-heo/policy-domino
+          ref: 66212ee4060e7742ce37f114287f5afecb0244e9
+          path: _test_v2
+      - name: Fetch pinned domino V4 state for real migration test
+        uses: actions/checkout@v4
+        with:
+          repository: dodam-heo/policy-domino
+          ref: b590e4324d5b6e55d805914862c8356d0bf7c1b4
+          path: _test_v4
+      - name: Fetch pinned NEXT state for real migration test
+        uses: actions/checkout@v4
+        with:
+          repository: dodam-heo/policy-domino-next
+          ref: 898db398694f55fc95d1d2ac188c7ea67b9e623e
+          path: _test_next
+      - name: Real-corpus bootstrap check without mutating production data
+        run: |
+          python -m unified.bootstrap --root /tmp/legacy-index-validation \
+            --v2 _test_v2/data/v2_state.json \
+            --v4 _test_v4/data/v4_state.json \
+            --next _test_next/data/state.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from unified.engine import _pending_index_records
+          path=Path('/tmp/legacy-index-validation')
+          report=json.loads((path/'legacy-index-status.json').read_text('utf8'))
+          assert report['unique_official_versions']==46647, report
+          queued=_pending_index_records(path)
+          assert len(queued)==46647, len(queued)
+          print('HISTORIC_INDEX_CONTRACT_PASS', report)
+          PY
+      - name: Verify annual predecessor discovery against real 46k archived metadata
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from unified.engine import _pending_index_records, _local_predecessor
+          records=_pending_index_records(Path('/tmp/legacy-index-validation'))
+          by_serial={r['serial']:r for r in records}
+          median=next((r for r in records if r["serial"]=="2100000283464"),None)
+          if median:
+              matches=[r for r in records if r.get("source")=="admrul" and
+                       r.get("ministry")==median.get("ministry") and
+                       "소득" in r.get("title","") and
+                       "2025" in r.get("published_at","")]
+              matches.sort(key=lambda r:r.get("published_at",""),reverse=True)
+              print("MEDIAN_PREVIOUS_OFFICIAL_CANDIDATES",
+                    [(r.get("serial"),r.get("title"),r.get("published_at"),
+                      r.get("effective_date")) for r in matches[:18]])
+          for number in ('2100000283464','2100000284670','2100000285242'):
+              row=by_serial.get(number)
+              if not row:
+                  print('ANNUAL_PREDECESSOR',number,'NOT_INDEXED')
+                  continue
+              previous,annual=_local_predecessor(row,records)
+              print('ANNUAL_PREDECESSOR',number,
+                'title',row.get('title'),'ministry',row.get('ministry'),
+                'effective',row.get('effective_date'),
+                'previous',previous.get('serial') if previous else None,
+                'previous_title',previous.get('title') if previous else None,
+                'annual',annual)
+          PY
+      - name: Build the actual full-index preview without mutating the source repository
+        env:
+          LAW_OC: ${{ vars.LAW_OC || 'dori' }}
+          PD_FETCH_OFFICIAL_ATTACHMENTS: 'true'
+        run: |
+          mkdir -p data/indexes/legacy
+          cp -a /tmp/legacy-index-validation/indexes/legacy/. data/indexes/legacy/
+          # The actual API integration has a separate live regression runner.
+          # A deterministic PR build must not hang on intermittent official API transport.
+          python -m unified.impact --root data
+          python -m unified.publish --root data --output site/data.json
+          python -m unified.acceptance --root data --site site --output site/acceptance.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path('site/data.json').read_text('utf8'))
+          assert d['total_indexed_versions'] >= 46647,d['total_indexed_versions']
+          assert len(d.get('archive_shards',[])) >= 10
+          print('PREVIEW_FULL_INDEX_PASS',d['summary'],d['quality'])
+          PY
+      - name: Upload full-source-index interactive preview for review
+        uses: actions/upload-artifact@v4
+        with:
+          name: policy-domino-full-preview
+          path: |
+            site/index.html
+            site/style.css
+            site/app.js
+            site/data.json
+            site/catalog/
+            site/details/
+            site/acceptance.json
+          retention-days: 7
+      - name: Verify current saved corpus can publish
+        run: python -m unified.publish --root data --output /tmp/policy-domino-pr-catalog.json
+      - name: Report source-grounded acceptance gaps without hiding them
+        run: python -m unified.acceptance --root data --site /tmp --output /tmp/acceptance.json
