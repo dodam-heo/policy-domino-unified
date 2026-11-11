@@ -1,0 +1,64 @@
+name: Audit v2 v4 NEXT source inventories
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'unified/**'
+      - 'tests/**'
+      - '.github/workflows/audit.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - name: Checkout independent workspace
+        uses: actions/checkout@v4
+        with:
+          path: unified-work
+      - name: Checkout v2 source at historical backup (read only)
+        uses: actions/checkout@v4
+        with:
+          repository: dodam-heo/policy-domino
+          ref: 66212ee4060e7742ce37f114287f5afecb0244e9
+          path: old-v2
+          persist-credentials: false
+      - name: Checkout current v4 source (read only)
+        uses: actions/checkout@v4
+        with:
+          repository: dodam-heo/policy-domino
+          ref: b590e4324d5b6e55d805914862c8356d0bf7c1b4
+          path: current-v4
+          persist-credentials: false
+      - name: Checkout NEXT source (read only)
+        uses: actions/checkout@v4
+        with:
+          repository: dodam-heo/policy-domino-next
+          ref: 898db398694f55fc95d1d2ac188c7ea67b9e623e
+          path: next-source
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Unit tests
+        working-directory: unified-work
+        run: python -m unittest discover -s tests -v
+      - name: Full inventory and verified-original census
+        working-directory: unified-work
+        run: |
+          python -m unified.audit \
+            --v2 ../old-v2/data/v2_state.json \
+            --v4 ../current-v4/data/v4_state.json \
+            --next ../next-source/data/state.json \
+            --out reports
+          cat reports/audit.md >> "$GITHUB_STEP_SUMMARY"
+      - name: Publish independent audit result
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: policy-domino-cross-version-audit
+          path: unified-work/reports/
+          if-no-files-found: warn
+          retention-days: 30
