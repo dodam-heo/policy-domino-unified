@@ -5,6 +5,7 @@ Any unsupported generated field is rejected; no agent or agency is invented.
 from __future__ import annotations
 import json
 import os
+import re
 import urllib.request
 
 
@@ -29,6 +30,13 @@ def verify(reply: dict, impact: dict) -> dict:
             raise UnverifiedAnalysis("Unsupported exact source quotation")
     if len(reply["explanation"]) > 1200:
         raise UnverifiedAnalysis("Explanation too long")
+    # Reject unsupported amount/date claims even if the model quotes at least
+    # one valid fragment: arbitrary new numbers must be source-backed too.
+    allowed = (" ".join((impact.get("before", ""), impact.get("after", ""),
+               evidence.get("service_quote", ""))))
+    for number in re.findall(r"\d[\d,]*(?:\.\d+)?\s*(?:원|만원|%|명|개월)", reply["explanation"]):
+        if number not in allowed:
+            raise UnverifiedAnalysis("Explanation contains unsupported numerical claim")
     return {
         "explanation": reply["explanation"],
         "old_quote": reply["old_quote"],

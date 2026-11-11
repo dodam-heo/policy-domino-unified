@@ -29,3 +29,15 @@
 Requires the official law API `LAW_OC` identifier (`dori` is configured in Actions). The collection engine does **not** read the previous repositories. It scans the 15 legal/rule kind/current/history streams in rotating batches, retains a complete/incomplete coverage ledger, writes gzip files per official document version and compares verified prior versions. It also detects annual successor announcements without merging different legal IDs. Incomplete annex files produce partial/unverified status rather than invented amounts.
 
 Output structure: `data/documents/<source>/<hashed-stable-id>/<hashed-version>.json.gz`, `data/comparisons/<version-hash>.json.gz`, and small `data/collection-state.json`. A later GitHub Actions run only stages changed per-version files. The first audit is independent of this new collection process.
+
+## Unified production (one runner, one writer)
+
+- `.github/workflows/unified.yml`: validate → official live collection → Gov24 (when a key is present) → evidence-gated agency impacts → UI index → commit → Pages.
+- `.github/workflows/audit.yml`: **read-only** historic data cross-audit artifact, not a second production collector.
+- All other production workflows were retired. Large monolithic historical JSON files are not copied.
+- Failed source windows and every successfully listed official ID/version are saved independently in the current data store. The next run processes pending versions, even if detail budget was exhausted.
+- Annual policy notices for the coming year are discovered in rotating scans across every administrative-rule category, not by a fixed list of three notice names.
+- Official XML annexes are compared directly; linked PDF/DOCX files are archived and text extracted when readable. HWP / scanned attachments that cannot be parsed remain explicitly unresolved.
+- For live Gov24 updates, set the `GOV24_SERVICE_KEY` GitHub Actions secret in this repository. The existing 9,683 service snapshot is available without it.
+- For optional AI explanatory drafts, set `PD_LLM_API_KEY` as a secret and `PD_LLM_MODEL` as a variable. The OpenAI-compatible `PD_LLM_URL` variable may select another compatible provider; exact source quotes are checked before any model response is used.
+- For public deployment, the repository owner must enable **Settings → Pages → Build and deployment → GitHub Actions** once. GitHub's scoped Actions token cannot create a Pages site automatically.

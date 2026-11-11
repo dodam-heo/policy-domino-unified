@@ -6,6 +6,7 @@ Unresolved annexes/attachments are explicitly incomplete, never invented.
 """
 from __future__ import annotations
 import argparse
+import base64
 import datetime as dt
 from dataclasses import dataclass, asdict
 import gzip
@@ -243,7 +244,8 @@ class OfficialAPI:
             raise ValueError("official_api_error_document")
         return root, raw
 
-    def search(self, source, start, end, edition="1", kind="", max_pages=20):
+    def search(self, source, start, end, edition="1", kind="", max_pages=20,
+               query=""):
         if source not in FIELDS:
             raise ValueError("Unsupported source")
         params = {FIELDS[source][4]: start.replace("-", "") +
@@ -252,6 +254,8 @@ class OfficialAPI:
             params["nw"] = edition
         if kind and source == "admrul":
             params["knd"] = kind
+        if query:
+            params["query"] = query
         found, reported, seen_pages = {}, None, 0
         for page in range(1, max_pages+1):
             root, _ = self.request("lawSearch.do", source, page=page, **params)
@@ -344,11 +348,45 @@ def process(api, root: Path, state: dict, record: dict) -> dict:
         return existing
     xml = api.detail(record)
     body = parse_body(xml)
+    if body.get("attachment_links") and os.getenv(
+            "PD_FETCH_OFFICIAL_ATTACHMENTS", "true").lower() == "true":
+        from .attachments import resolve_attachments
+        body = resolve_attachments(root, body)
     obj = {"identity": ident(record), "record": record, "body": body,
-           "official_xml": xml.decode("utf8", errors="replace"),
+           "official_xml_base64": base64.b64encode(xml).decode("ascii"),
            "fetched_at": dt.datetime.now(dt.timezone.utc).isoformat()}
     store(destination, obj)
     return obj
+
+
+def _index_path(root: Path, source: str, edition: str, kind: str,
+                start: str, end: str, stage: str) -> Path:
+    key = "|".join((source, edition, kind, start, end, stage))
+    return root / "indexes" / source / (hash256(key)[:24] + ".json.gz")
+
+
+def _priority(rec: dict, today: dt.date) -> tuple:
+    """Generic date/year priority, not a policy-name or institution whitelist."""
+    target = today.year + 1
+    years = [int(x[:4]) for x in YEAR.findall(rec.get("title", ""))]
+    # YEAR.findall includes its whole 4-digit match when there are no captures.
+    annual = any(y >= target for y in years)
+    future = rec.get("effective_date", "") > today.isoformat()
+    current = rec.get("published_at", "") >= (
+        today - dt.timedelta(days=90)).isoformat()
+    return (int(annual)*5 + int(future)*3 + int(current),
+            rec.get("published_at", ""), rec.get("serial", ""))
+
+
+def _pending_index_records(root: Path, max_files=15000) -> list[dict]:
+    """Never lose official list results when per-run detail budget is exhausted."""
+    pending = {}
+    for path in sorted((root / "indexes").glob("*/*.json.gz"))[-max_files:]:
+        index = load(path, {})
+        for record in index.get("records", []):
+            if all(record.get(key) for key in ("source", "stable_id", "serial")):
+                pending[ident(record)] = record
+    return list(pending.values())
 
 
 def run(root: Path, api: OfficialAPI, limit_streams=3, detail_budget=20,
@@ -361,53 +399,106 @@ def run(root: Path, api: OfficialAPI, limit_streams=3, detail_budget=20,
     states = streams()
     offset = int(state.get("stream_offset", 0)) % len(states)
     schedule = (states[offset:] + states[:offset])[:min(len(states), limit_streams)]
-    count, downloaded, failed = 0, 0, 0
+    failed = 0
+
+    def collect_window(source, edition, kind, start, end, stage, query=""):
+        nonlocal failed
+        key = "|".join((source, edition, kind, start, end, stage))
+        try:
+            records, info = api.search(source, start, end, edition, kind,
+                                       query=query)
+            saved = {
+                **info, "source": source, "edition": edition, "kind": kind,
+                "first": start, "last": end, "stage": stage,
+                "query_year": query, "checked_at": dt.datetime.now(
+                    dt.timezone.utc).isoformat()}
+            state["coverage"][key] = saved
+            store(_index_path(root, source, edition, kind, start, end, stage),
+                  {"coverage": saved, "records": records})
+            if not info.get("complete"):
+                failed += 1
+            elif stage == "historical":
+                state["backfill"]["|".join((source, edition, kind))] = (
+                    dt.date.fromisoformat(start) - dt.timedelta(days=1)).isoformat()
+            return info.get("complete", False)
+        except Exception as exc:
+            failed += 1
+            state["coverage"][key] = {
+                "source": source, "edition": edition, "kind": kind,
+                "first": start, "last": end, "stage": stage,
+                "query_year": query, "complete": False,
+                "error": type(exc).__name__ + ": " + str(exc)[:150]}
+            return False
+        finally:
+            save_json(state_file, state)
+
+    # Failed page windows are retried explicitly, ahead of advancing backfill.
+    prior_failures = [entry for entry in list(state["coverage"].values())
+                      if isinstance(entry, dict) and entry.get("complete") is not True
+                      and all(entry.get(k) for k in ("source", "edition", "first", "last"))]
+    for win in prior_failures[:2]:
+        collect_window(win["source"], win["edition"], win.get("kind", ""),
+                       win["first"], win["last"], win.get("stage", "retry"),
+                       win.get("query_year", ""))
+
+    # One uniform index for all official source/date/kind streams.
     for source, edition, kind in schedule:
         for start, end, stage in _windows(root, state, source, edition, kind, today):
-            win_key = "|".join((source, edition, kind, start, end))
-            try:
-                listed, info = api.search(source, start, end, edition, kind)
-                state["coverage"][win_key] = {
-                    **info, "source": source, "edition": edition, "kind": kind,
-                    "first": start, "last": end, "stage": stage,
-                    "checked_at": dt.datetime.now(dt.timezone.utc).isoformat()}
-                if not info.get("complete"):
-                    failed += 1
-                elif stage == "historical":
-                    state["backfill"]["|".join((source, edition, kind))] = (
-                        dt.date.fromisoformat(start) - dt.timedelta(days=1)).isoformat()
-                for rec in listed:
-                    if count >= detail_budget:
-                        continue
-                    try:
-                        after = process(api, root, state, rec)
-                        downloaded += 1
-                        count += 1
-                        if not after["body"]["clauses"]:
-                            continue
-                        prev, annual = api.predecessor(rec)
-                        if not prev:
-                            continue
-                        before = process(api, root, state, prev)
-                        result = compare_bodies(before["body"], after["body"], annual=annual)
-                        result["prior_record"] = prev
-                        result["changed_record"] = rec
-                        store(root / "comparisons" / (hash256(ident(rec))[:24] + ".json.gz"), result)
-                    except Exception as exc:
-                        state["attempts"][ident(rec)] = int(state["attempts"].get(ident(rec), 0)) + 1
-                        state["errors"][ident(rec)] = type(exc).__name__ + ": " + str(exc)[:160]
-                save_json(state_file, state)
-            except Exception as exc:
-                failed += 1
-                state["coverage"][win_key] = {
-                    "source": source, "edition": edition, "kind": kind,
-                    "first": start, "last": end, "complete": False,
-                    "error": type(exc).__name__ + ": " + str(exc)[:160]}
-                save_json(state_file, state)
+            collect_window(source, edition, kind, start, end, stage)
+
+    # Annual announcements are sometimes issued many months before taking
+    # effect. Search next-year notices across official administrative-rule
+    # categories, without enrolling any policy title.
+    annual_types = ["3", "1", "2", "4", "5", "6"]
+    shift = int(state.get("annual_kind_offset", 0)) % len(annual_types)
+    for kind in (annual_types[shift], annual_types[(shift+1) % len(annual_types)]):
+        for edition in ("1", "2"):
+            collect_window("admrul", edition, kind,
+                           (today - dt.timedelta(days=540)).isoformat(),
+                           today.isoformat(), "annual_forward",
+                           str(today.year+1))
+    state["annual_kind_offset"] = (shift+2) % len(annual_types)
+
+    # Reuse metadata saved by EVERY prior run, not only the latest window.
+    records = _pending_index_records(root)
+    records.sort(key=lambda r: _priority(r, today), reverse=True)
+    attempted, complete, compared = 0, 0, 0
+    for rec in records:
+        if attempted >= detail_budget:
+            break
+        stored = load(root / relative_path(rec))
+        if stored and stored.get("body", {}).get("status") == "complete":
+            continue
+        attempted += 1
+        try:
+            after = process(api, root, state, rec)
+            if after.get("body", {}).get("status") == "complete":
+                complete += 1
+            if not after["body"]["clauses"]:
+                continue
+            prev, annual = api.predecessor(rec)
+            if not prev:
+                continue
+            before = process(api, root, state, prev)
+            result = compare_bodies(before["body"], after["body"], annual=annual)
+            result["prior_record"] = prev
+            result["changed_record"] = rec
+            store(root / "comparisons" / (hash256(ident(rec))[:24] +
+                  ".json.gz"), result)
+            compared += 1
+            state["errors"].pop(ident(rec), None)
+        except Exception as exc:
+            state["attempts"][ident(rec)] = int(state["attempts"].get(ident(rec), 0)) + 1
+            state["errors"][ident(rec)] = type(exc).__name__ + ": " + str(exc)[:150]
     state["stream_offset"] = (offset + len(schedule)) % len(states)
     state["last_run"] = today.isoformat()
-    state["last_run_stats"] = {"detail_attempted": count, "body_downloaded": downloaded,
-                               "failed_windows": failed, "streams_checked": len(schedule)}
+    state["last_run_stats"] = {
+        "detail_attempted": attempted, "complete_originals_added": complete,
+        "compared_pairs_processed": compared,
+        "failed_windows": failed, "streams_checked": len(schedule),
+        "pending_index_versions": len(records),
+        "year_search_year": today.year+1,
+    }
     save_json(state_file, state)
     return state["last_run_stats"]
 

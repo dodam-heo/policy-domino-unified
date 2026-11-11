@@ -103,6 +103,11 @@ function renderDetail(){
       const item=node('article','agency-item');
       add(item,node('strong','',x.agency),node('div','secondary','공공서비스 · '+x.service));
       add(item,node('p','',x.required_change));
+      if(x.ai_analysis?.verified){
+        const ai=node('details','');
+        add(ai,node('summary','','검증된 AI 설명'),node('p','proof',x.ai_analysis.explanation));
+        item.appendChild(ai);
+      }
       add(item,node('div','proof','공식 근거: '+x.evidence.reference_quote+'\n사업 적용 항목: '+x.evidence.service_field));
       const more=node('details','');
       add(more,node('summary','','운영기준 원문 확인'),node('p','proof',x.evidence.service_quote));

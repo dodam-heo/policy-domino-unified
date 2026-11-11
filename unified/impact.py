@@ -169,6 +169,10 @@ def run(root: Path, limit_events: int = 300) -> dict:
     programs = list(read_programs(root))
     generated = []
     statuses = Counter()
+    ai_attempts, ai_verified, ai_errors = 0, 0, 0
+    key_available = bool(os.getenv("PD_LLM_API_KEY") or os.getenv("OPENAI_API_KEY"))
+    model_available = bool(os.getenv("PD_LLM_MODEL"))
+    ai_budget = max(0, int(os.getenv("PD_LLM_MAX_REQUESTS", "12")))
     files = sorted((root / "comparisons").glob("*.json.gz"),
                    key=lambda p: p.stat().st_mtime, reverse=True)
     for source in files[:limit_events]:
@@ -177,6 +181,25 @@ def run(root: Path, limit_events: int = 300) -> dict:
         if not doc:
             continue
         impacted = impact_for(doc, comparison, programs)
+        # AI is an optional explanatory layer AFTER deterministic official
+        # linkage; model text cannot create a new agency or evidence edge.
+        if key_available and model_available:
+            from .ai import analyze
+            for action in impacted:
+                fingerprint = hash256(json.dumps(action, ensure_ascii=False, sort_keys=True))
+                output = root / "ai" / (fingerprint[:24] + ".json.gz")
+                verified = load(output)
+                if not verified and ai_attempts < ai_budget:
+                    ai_attempts += 1
+                    try:
+                        verified = analyze(action)
+                        if verified:
+                            store(output, verified)
+                    except Exception:
+                        ai_errors += 1
+                if verified and verified.get("verified"):
+                    action["ai_analysis"] = verified
+                    ai_verified += 1
         payload = {"doc": doc, "comparison_status": comparison.get("status"),
                    "changes_count": len(comparison.get("changes", [])),
                    "institutional_actions": impacted}
@@ -188,7 +211,10 @@ def run(root: Path, limit_events: int = 300) -> dict:
         generated.extend(impacted)
     stats = {"official_programs": len(programs), "comparisons_considered": sum(statuses.values()),
              "verified_institutional_tasks": len(generated),
-             "comparison_statuses": dict(statuses)}
+             "comparison_statuses": dict(statuses),
+             "ai_explanation_attempts": ai_attempts,
+             "ai_verified_explanations": ai_verified,
+             "ai_failures": ai_errors}
     save_json(root / "impact-status.json", stats)
     return stats
 
