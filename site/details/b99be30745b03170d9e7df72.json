@@ -1,0 +1,50 @@
+{
+  "schema": "policy-domino-unified-detail-v2",
+  "id": "law|015224|290601",
+  "title": "검사와 특별사법경찰관의 상호협력에 관한 규정",
+  "source": "law",
+  "source_kind": "법령",
+  "kind": "대통령령",
+  "ministry": "법무부",
+  "published_at": "2026-09-29",
+  "effective_date": "2026-10-02",
+  "revision": "제정",
+  "change_type": "new",
+  "number": "36706",
+  "url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=290601",
+  "category": "안전·사법",
+  "category_basis": "policy_title_text_rule",
+  "support_standard": false,
+  "headline": "신구 원문의 실질 변경 내용을 확인하고 있습니다",
+  "source_grade": "legacy_extract_needs_revalidation",
+  "verification": "comparison_incomplete",
+  "comparison_status": "original_saved_comparison_pending",
+  "relationship": "",
+  "change_count": 0,
+  "numeric_change_count": 0,
+  "standard_changes": [],
+  "current_standard_tables": [],
+  "changes": [],
+  "unresolved": [],
+  "institutions": [],
+  "related_regulations": [],
+  "linked_regulation_count": 0,
+  "institution_count": 0,
+  "action_count": 0,
+  "details_path": "details/b99be30745b03170d9e7df72.json",
+  "prior_url": "",
+  "source_documents": [
+    {
+      "title": "",
+      "url": "",
+      "id": "",
+      "verification": "partial_or_missing_original"
+    },
+    {
+      "title": "검사와 특별사법경찰관의 상호협력에 관한 규정",
+      "url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=290601",
+      "id": "law|015224|290601",
+      "verification": "legacy_extract_needs_revalidation"
+    }
+  ]
+}

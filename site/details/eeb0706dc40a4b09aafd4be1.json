@@ -1,0 +1,50 @@
+{
+  "schema": "policy-domino-unified-detail-v2",
+  "id": "ordin|2268795|2183467",
+  "title": "군산시 액화석유가스 사업 허가 세부 기준에 관한 조례",
+  "source": "ordin",
+  "source_kind": "자치법규",
+  "kind": "자치법규",
+  "ministry": "전북특별자치도 군산시",
+  "published_at": "2026-11-09",
+  "effective_date": "2026-11-09",
+  "revision": "제정",
+  "change_type": "new",
+  "number": "2491",
+  "url": "https://www.law.go.kr/%EC%9E%90%EC%B9%98%EB%B2%95%EA%B7%9C/%EA%B5%B0%EC%82%B0%EC%8B%9C%20%EC%95%A1%ED%99%94%EC%84%9D%EC%9C%A0%EA%B0%80%EC%8A%A4%20%EC%82%AC%EC%97%85%20%ED%97%88%EA%B0%80%20%EC%84%B8%EB%B6%80%20%EA%B8%B0%EC%A4%80%EC%97%90%20%EA%B4%80%ED%95%9C%20%EC%A1%B0%EB%A1%80",
+  "category": "분야 미확정",
+  "category_basis": "not_verified",
+  "support_standard": false,
+  "headline": "신구 원문의 실질 변경 내용을 확인하고 있습니다",
+  "source_grade": "legacy_extract_needs_revalidation",
+  "verification": "comparison_incomplete",
+  "comparison_status": "original_saved_comparison_pending",
+  "relationship": "",
+  "change_count": 0,
+  "numeric_change_count": 0,
+  "standard_changes": [],
+  "current_standard_tables": [],
+  "changes": [],
+  "unresolved": [],
+  "institutions": [],
+  "related_regulations": [],
+  "linked_regulation_count": 0,
+  "institution_count": 0,
+  "action_count": 0,
+  "details_path": "details/eeb0706dc40a4b09aafd4be1.json",
+  "prior_url": "",
+  "source_documents": [
+    {
+      "title": "",
+      "url": "",
+      "id": "",
+      "verification": "partial_or_missing_original"
+    },
+    {
+      "title": "군산시 액화석유가스 사업 허가 세부 기준에 관한 조례",
+      "url": "https://www.law.go.kr/%EC%9E%90%EC%B9%98%EB%B2%95%EA%B7%9C/%EA%B5%B0%EC%82%B0%EC%8B%9C%20%EC%95%A1%ED%99%94%EC%84%9D%EC%9C%A0%EA%B0%80%EC%8A%A4%20%EC%82%AC%EC%97%85%20%ED%97%88%EA%B0%80%20%EC%84%B8%EB%B6%80%20%EA%B8%B0%EC%A4%80%EC%97%90%20%EA%B4%80%ED%95%9C%20%EC%A1%B0%EB%A1%80",
+      "id": "ordin|2268795|2183467",
+      "verification": "legacy_extract_needs_revalidation"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "schema": "policy-domino-unified-detail-v2",
+  "id": "admrul|91074|2100000286734",
+  "title": "통계작성의 변경승인(협의) 고시(충청북도제천시기본통계)",
+  "source": "admrul",
+  "source_kind": "행정규칙",
+  "kind": "고시",
+  "ministry": "국가데이터처",
+  "published_at": "2026-10-08",
+  "effective_date": "2026-11-30",
+  "revision": "일부개정",
+  "change_type": "amended",
+  "number": "2026-703",
+  "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000286734",
+  "category": "분야 미확정",
+  "category_basis": "not_verified",
+  "support_standard": false,
+  "headline": "신구 원문의 실질 변경 내용을 확인하고 있습니다",
+  "source_grade": "legacy_extract_needs_revalidation",
+  "verification": "comparison_incomplete",
+  "comparison_status": "original_saved_comparison_pending",
+  "relationship": "",
+  "change_count": 0,
+  "numeric_change_count": 0,
+  "standard_changes": [],
+  "current_standard_tables": [],
+  "changes": [],
+  "unresolved": [],
+  "institutions": [],
+  "related_regulations": [],
+  "linked_regulation_count": 0,
+  "institution_count": 0,
+  "action_count": 0,
+  "details_path": "details/4108df25f18c2c247aa9867a.json",
+  "prior_url": "",
+  "source_documents": [
+    {
+      "title": "",
+      "url": "",
+      "id": "",
+      "verification": "partial_or_missing_original"
+    },
+    {
+      "title": "통계작성의 변경승인(협의) 고시(충청북도제천시기본통계)",
+      "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000286734",
+      "id": "admrul|91074|2100000286734",
+      "verification": "legacy_extract_needs_revalidation"
+    }
+  ]
+}

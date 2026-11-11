@@ -1,0 +1,50 @@
+{
+  "schema": "policy-domino-unified-detail-v2",
+  "id": "ordin|2095872|1935501",
+  "title": "영주시의회 위원회 조례",
+  "source": "ordin",
+  "source_kind": "자치법규",
+  "kind": "자치법규",
+  "ministry": "경상북도 영주시",
+  "published_at": "2024-06-03",
+  "effective_date": "2024-06-03",
+  "revision": "일부개정",
+  "change_type": "amended",
+  "number": "1595",
+  "url": "https://www.law.go.kr/%EC%9E%90%EC%B9%98%EB%B2%95%EA%B7%9C/%EC%98%81%EC%A3%BC%EC%8B%9C%EC%9D%98%ED%9A%8C%20%EC%9C%84%EC%9B%90%ED%9A%8C%20%EC%A1%B0%EB%A1%80",
+  "category": "분야 미확정",
+  "category_basis": "not_verified",
+  "support_standard": false,
+  "headline": "신구 원문의 실질 변경 내용을 확인하고 있습니다",
+  "source_grade": "legacy_extract_needs_revalidation",
+  "verification": "comparison_incomplete",
+  "comparison_status": "original_saved_comparison_pending",
+  "relationship": "",
+  "change_count": 0,
+  "numeric_change_count": 0,
+  "standard_changes": [],
+  "current_standard_tables": [],
+  "changes": [],
+  "unresolved": [],
+  "institutions": [],
+  "related_regulations": [],
+  "linked_regulation_count": 0,
+  "institution_count": 0,
+  "action_count": 0,
+  "details_path": "details/03d3b40c5c95125391cc8908.json",
+  "prior_url": "",
+  "source_documents": [
+    {
+      "title": "",
+      "url": "",
+      "id": "",
+      "verification": "partial_or_missing_original"
+    },
+    {
+      "title": "영주시의회 위원회 조례",
+      "url": "https://www.law.go.kr/%EC%9E%90%EC%B9%98%EB%B2%95%EA%B7%9C/%EC%98%81%EC%A3%BC%EC%8B%9C%EC%9D%98%ED%9A%8C%20%EC%9C%84%EC%9B%90%ED%9A%8C%20%EC%A1%B0%EB%A1%80",
+      "id": "ordin|2095872|1935501",
+      "verification": "legacy_extract_needs_revalidation"
+    }
+  ]
+}

@@ -1,0 +1,150 @@
+{
+  "schema": "policy-domino-unified-detail-v2",
+  "id": "admrul|2057365|2100000287794",
+  "title": "지리적표시품 사후관리 요령",
+  "source": "admrul",
+  "source_kind": "행정규칙",
+  "kind": "예규",
+  "ministry": "국립농산물품질관리원",
+  "published_at": "2026-11-04",
+  "effective_date": "2026-11-04",
+  "revision": "일부개정",
+  "change_type": "amended",
+  "number": "250",
+  "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000287794",
+  "category": "분야 미확정",
+  "category_basis": "not_verified",
+  "support_standard": false,
+  "headline": "신구 원문의 실질 변경 내용을 확인하고 있습니다",
+  "source_grade": "legacy_extract_needs_revalidation",
+  "verification": "comparison_incomplete",
+  "comparison_status": "partial_unverified",
+  "relationship": "same_official_id_revision",
+  "change_count": 0,
+  "numeric_change_count": 0,
+  "standard_changes": [],
+  "current_standard_tables": [],
+  "changes": [],
+  "unresolved": [
+    {
+      "clause": "별표 0001",
+      "reason": "counterpart_not_verified"
+    },
+    {
+      "clause": "별표 0001 (생산(가공)과정 조사 결과 보고서)",
+      "reason": "counterpart_not_verified"
+    },
+    {
+      "clause": "별표 0001 (표본 구성원 수 선정기준표)",
+      "reason": "counterpart_not_verified"
+    },
+    {
+      "clause": "별표 0002",
+      "reason": "counterpart_not_verified"
+    },
+    {
+      "clause": "별표 0002 (시료수거 확인서)",
+      "reason": "counterpart_not_verified"
+    },
+    {
+      "clause": "별표 0002 (지리적표시품의 조사)",
+      "reason": "counterpart_not_verified"
+    },
+    {
+      "clause": "별표 0003",
+      "reason": "counterpart_not_verified"
+    },
+    {
+      "clause": "별표 0003 (시정명령서(예시))",
+      "reason": "counterpart_not_verified"
+    },
+    {
+      "clause": "별표 0003 (확인서)",
+      "reason": "counterpart_not_verified"
+    },
+    {
+      "clause": "별표 0004",
+      "reason": "counterpart_not_verified"
+    },
+    {
+      "clause": "별표 0004 (단속·송치 절차도)",
+      "reason": "counterpart_not_verified"
+    },
+    {
+      "clause": "별표 0004 (시판품조사 보고서)",
+      "reason": "counterpart_not_verified"
+    },
+    {
+      "clause": "별표 0005",
+      "reason": "counterpart_not_verified"
+    },
+    {
+      "clause": "별표 0005 (처분사전통지서(청문실시통지))",
+      "reason": "counterpart_not_verified"
+    },
+    {
+      "clause": "별표 0006",
+      "reason": "counterpart_not_verified"
+    },
+    {
+      "clause": "별표 0006 (지리적표시품 행정처분결과 통지서)",
+      "reason": "counterpart_not_verified"
+    },
+    {
+      "clause": "별표 0007",
+      "reason": "counterpart_not_verified"
+    },
+    {
+      "clause": "별표 0007 (과태료부과 의견진술 안내서)",
+      "reason": "counterpart_not_verified"
+    },
+    {
+      "clause": "별표 0008",
+      "reason": "counterpart_not_verified"
+    },
+    {
+      "clause": "별표 0008 (과태료처분통지서)",
+      "reason": "counterpart_not_verified"
+    },
+    {
+      "clause": "별표 0009",
+      "reason": "counterpart_not_verified"
+    },
+    {
+      "clause": "별표 0009 (과태료 처분에 따른 이의신청서)",
+      "reason": "counterpart_not_verified"
+    },
+    {
+      "clause": "별표 0010",
+      "reason": "counterpart_not_verified"
+    },
+    {
+      "clause": "별표 0010 (의견제출서)",
+      "reason": "counterpart_not_verified"
+    },
+    {
+      "reason": "incomplete_original_or_attachment"
+    }
+  ],
+  "institutions": [],
+  "related_regulations": [],
+  "linked_regulation_count": 0,
+  "institution_count": 0,
+  "action_count": 0,
+  "details_path": "details/43b3e1cc2582305907c0cf7a.json",
+  "prior_url": "https://www.law.go.kr/%ED%96%89%EC%A0%95%EA%B7%9C%EC%B9%99/%EC%A7%80%EB%A6%AC%EC%A0%81%ED%91%9C%EC%8B%9C%ED%92%88%20%EC%82%AC%ED%9B%84%EA%B4%80%EB%A6%AC%20%EC%9A%94%EB%A0%B9",
+  "source_documents": [
+    {
+      "title": "지리적표시품 사후관리 요령",
+      "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000232390",
+      "id": "admrul|2057365|2100000232390",
+      "verification": "partial_or_missing_original"
+    },
+    {
+      "title": "지리적표시품 사후관리 요령",
+      "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000287794",
+      "id": "admrul|2057365|2100000287794",
+      "verification": "legacy_extract_needs_revalidation"
+    }
+  ]
+}

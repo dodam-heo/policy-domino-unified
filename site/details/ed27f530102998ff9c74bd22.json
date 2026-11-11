@@ -1,0 +1,82 @@
+{
+  "schema": "policy-domino-unified-detail-v2",
+  "id": "admrul|54334|2100000287842",
+  "title": "국립나주병원 임상연구규정",
+  "source": "admrul",
+  "source_kind": "행정규칙",
+  "kind": "예규",
+  "ministry": "국립나주병원",
+  "published_at": "2026-11-06",
+  "effective_date": "2026-11-06",
+  "revision": "일부개정",
+  "change_type": "amended",
+  "number": "453",
+  "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000287842",
+  "category": "보건·의료",
+  "category_basis": "policy_title_text_rule",
+  "support_standard": false,
+  "headline": "신구 원문의 실질 변경 내용을 확인하고 있습니다",
+  "source_grade": "legacy_extract_needs_revalidation",
+  "verification": "comparison_incomplete",
+  "comparison_status": "partial_unverified",
+  "relationship": "same_official_id_revision",
+  "change_count": 0,
+  "numeric_change_count": 0,
+  "standard_changes": [],
+  "current_standard_tables": [],
+  "changes": [],
+  "unresolved": [
+    {
+      "clause": "별표 0000",
+      "reason": "counterpart_not_verified"
+    },
+    {
+      "clause": "별표 0000 (연구비 비목 및 연구비 계상 세부기준)",
+      "reason": "counterpart_not_verified"
+    },
+    {
+      "clause": "별표 0001",
+      "reason": "counterpart_not_verified"
+    },
+    {
+      "clause": "별표 0001 (임상연구계획 심사서)",
+      "reason": "counterpart_not_verified"
+    },
+    {
+      "clause": "별표 0002",
+      "reason": "counterpart_not_verified"
+    },
+    {
+      "clause": "별표 0002 (임상연구결과 심사서)",
+      "reason": "counterpart_not_verified"
+    },
+    {
+      "clause": "별표 0003",
+      "reason": "counterpart_not_verified"
+    },
+    {
+      "reason": "incomplete_original_or_attachment"
+    }
+  ],
+  "institutions": [],
+  "related_regulations": [],
+  "linked_regulation_count": 0,
+  "institution_count": 0,
+  "action_count": 0,
+  "details_path": "details/ed27f530102998ff9c74bd22.json",
+  "prior_url": "https://www.law.go.kr/%ED%96%89%EC%A0%95%EA%B7%9C%EC%B9%99/%EA%B5%AD%EB%A6%BD%EB%82%98%EC%A3%BC%EB%B3%91%EC%9B%90%20%EC%9E%84%EC%83%81%EC%97%B0%EA%B5%AC%EA%B7%9C%EC%A0%95",
+  "source_documents": [
+    {
+      "title": "국립나주병원 임상연구규정",
+      "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000214106",
+      "id": "admrul|54334|2100000214106",
+      "verification": "partial_or_missing_original"
+    },
+    {
+      "title": "국립나주병원 임상연구규정",
+      "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000287842",
+      "id": "admrul|54334|2100000287842",
+      "verification": "legacy_extract_needs_revalidation"
+    }
+  ]
+}

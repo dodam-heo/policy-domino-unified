@@ -1,0 +1,50 @@
+{
+  "schema": "policy-domino-unified-detail-v2",
+  "id": "ordin|2093505|2069311",
+  "title": "영덕군 주소정보 등에 관한 조례",
+  "source": "ordin",
+  "source_kind": "자치법규",
+  "kind": "자치법규",
+  "ministry": "경상북도 영덕군",
+  "published_at": "2025-09-23",
+  "effective_date": "2025-09-23",
+  "revision": "일부개정",
+  "change_type": "amended",
+  "number": "2436",
+  "url": "https://www.law.go.kr/%EC%9E%90%EC%B9%98%EB%B2%95%EA%B7%9C/%EC%98%81%EB%8D%95%EA%B5%B0%20%EC%A3%BC%EC%86%8C%EC%A0%95%EB%B3%B4%20%EB%93%B1%EC%97%90%20%EA%B4%80%ED%95%9C%20%EC%A1%B0%EB%A1%80",
+  "category": "분야 미확정",
+  "category_basis": "not_verified",
+  "support_standard": false,
+  "headline": "신구 원문의 실질 변경 내용을 확인하고 있습니다",
+  "source_grade": "legacy_extract_needs_revalidation",
+  "verification": "comparison_incomplete",
+  "comparison_status": "original_saved_comparison_pending",
+  "relationship": "",
+  "change_count": 0,
+  "numeric_change_count": 0,
+  "standard_changes": [],
+  "current_standard_tables": [],
+  "changes": [],
+  "unresolved": [],
+  "institutions": [],
+  "related_regulations": [],
+  "linked_regulation_count": 0,
+  "institution_count": 0,
+  "action_count": 0,
+  "details_path": "details/e4f814ea04a6742540485e45.json",
+  "prior_url": "",
+  "source_documents": [
+    {
+      "title": "",
+      "url": "",
+      "id": "",
+      "verification": "partial_or_missing_original"
+    },
+    {
+      "title": "영덕군 주소정보 등에 관한 조례",
+      "url": "https://www.law.go.kr/%EC%9E%90%EC%B9%98%EB%B2%95%EA%B7%9C/%EC%98%81%EB%8D%95%EA%B5%B0%20%EC%A3%BC%EC%86%8C%EC%A0%95%EB%B3%B4%20%EB%93%B1%EC%97%90%20%EA%B4%80%ED%95%9C%20%EC%A1%B0%EB%A1%80",
+      "id": "ordin|2093505|2069311",
+      "verification": "legacy_extract_needs_revalidation"
+    }
+  ]
+}

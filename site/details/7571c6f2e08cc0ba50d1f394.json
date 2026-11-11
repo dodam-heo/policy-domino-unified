@@ -1,0 +1,50 @@
+{
+  "schema": "policy-domino-unified-detail-v2",
+  "id": "admrul|69848|2100000261666",
+  "title": "농업기계 검정기준",
+  "source": "admrul",
+  "source_kind": "행정규칙",
+  "kind": "고시",
+  "ministry": "농림축산식품부",
+  "published_at": "2025-07-11",
+  "effective_date": "2025-07-11",
+  "revision": "일부개정",
+  "change_type": "amended",
+  "number": "2025-72",
+  "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000261666",
+  "category": "산업·조달",
+  "category_basis": "policy_title_text_rule",
+  "support_standard": false,
+  "headline": "신구 원문의 실질 변경 내용을 확인하고 있습니다",
+  "source_grade": "partial_or_missing_original",
+  "verification": "comparison_incomplete",
+  "comparison_status": "original_saved_comparison_pending",
+  "relationship": "",
+  "change_count": 0,
+  "numeric_change_count": 0,
+  "standard_changes": [],
+  "current_standard_tables": [],
+  "changes": [],
+  "unresolved": [],
+  "institutions": [],
+  "related_regulations": [],
+  "linked_regulation_count": 0,
+  "institution_count": 0,
+  "action_count": 0,
+  "details_path": "details/7571c6f2e08cc0ba50d1f394.json",
+  "prior_url": "",
+  "source_documents": [
+    {
+      "title": "",
+      "url": "",
+      "id": "",
+      "verification": "partial_or_missing_original"
+    },
+    {
+      "title": "농업기계 검정기준",
+      "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000261666",
+      "id": "admrul|69848|2100000261666",
+      "verification": "partial_or_missing_original"
+    }
+  ]
+}

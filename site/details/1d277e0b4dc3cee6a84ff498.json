@@ -1,0 +1,50 @@
+{
+  "schema": "policy-domino-unified-detail-v2",
+  "id": "admrul|75449|2100000287310",
+  "title": "부당한 표시 또는 광고로 보지 아니하는 식품등의 기능성 표시 또는 광고에 관한 규정",
+  "source": "admrul",
+  "source_kind": "행정규칙",
+  "kind": "고시",
+  "ministry": "식품의약품안전처",
+  "published_at": "2026-10-23",
+  "effective_date": "2028-01-01",
+  "revision": "일부개정",
+  "change_type": "amended",
+  "number": "2026-70",
+  "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000287310",
+  "category": "분야 미확정",
+  "category_basis": "not_verified",
+  "support_standard": false,
+  "headline": "신구 원문의 실질 변경 내용을 확인하고 있습니다",
+  "source_grade": "legacy_extract_needs_revalidation",
+  "verification": "comparison_incomplete",
+  "comparison_status": "original_saved_comparison_pending",
+  "relationship": "",
+  "change_count": 0,
+  "numeric_change_count": 0,
+  "standard_changes": [],
+  "current_standard_tables": [],
+  "changes": [],
+  "unresolved": [],
+  "institutions": [],
+  "related_regulations": [],
+  "linked_regulation_count": 0,
+  "institution_count": 0,
+  "action_count": 0,
+  "details_path": "details/1d277e0b4dc3cee6a84ff498.json",
+  "prior_url": "",
+  "source_documents": [
+    {
+      "title": "",
+      "url": "",
+      "id": "",
+      "verification": "partial_or_missing_original"
+    },
+    {
+      "title": "부당한 표시 또는 광고로 보지 아니하는 식품등의 기능성 표시 또는 광고에 관한 규정",
+      "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000287310",
+      "id": "admrul|75449|2100000287310",
+      "verification": "legacy_extract_needs_revalidation"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "schema": "policy-domino-unified-detail-v2",
+  "id": "admrul|9015181|2200000108881",
+  "title": "2028년 주요 20개국 정상회의 준비위원회 및 준비기획단의 설치와 운영에 관한 규정",
+  "source": "admrul",
+  "source_kind": "행정규칙",
+  "kind": "행정규칙",
+  "ministry": "외교부",
+  "published_at": "2026-07-30",
+  "effective_date": "2026-07-30",
+  "revision": "제정",
+  "change_type": "new",
+  "number": "00492",
+  "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2200000108881",
+  "category": "분야 미확정",
+  "category_basis": "not_verified",
+  "support_standard": false,
+  "headline": "신구 원문의 실질 변경 내용을 확인하고 있습니다",
+  "source_grade": "official_original_verified",
+  "verification": "comparison_incomplete",
+  "comparison_status": "original_saved_comparison_pending",
+  "relationship": "",
+  "change_count": 0,
+  "numeric_change_count": 0,
+  "standard_changes": [],
+  "current_standard_tables": [],
+  "changes": [],
+  "unresolved": [],
+  "institutions": [],
+  "related_regulations": [],
+  "linked_regulation_count": 0,
+  "institution_count": 0,
+  "action_count": 0,
+  "details_path": "details/059fb5d5d0a0e590460f67f4.json",
+  "prior_url": "",
+  "source_documents": [
+    {
+      "title": "",
+      "url": "",
+      "id": "",
+      "verification": "partial_or_missing_original"
+    },
+    {
+      "title": "2028년 주요 20개국 정상회의 준비위원회 및 준비기획단의 설치와 운영에 관한 규정",
+      "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2200000108881",
+      "id": "admrul|9015181|2200000108881",
+      "verification": "official_original_verified"
+    }
+  ]
+}

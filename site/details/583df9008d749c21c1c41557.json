@@ -1,0 +1,50 @@
+{
+  "schema": "policy-domino-unified-detail-v2",
+  "id": "law|011790|291649",
+  "title": "해양수산부와 그 소속기관 직제",
+  "source": "law",
+  "source_kind": "법령",
+  "kind": "대통령령",
+  "ministry": "해양수산부,행정안전부",
+  "published_at": "2026-11-06",
+  "effective_date": "2026-11-06",
+  "revision": "타법개정",
+  "change_type": "amended",
+  "number": "36801",
+  "url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=291649",
+  "category": "산업·조달",
+  "category_basis": "policy_title_text_rule",
+  "support_standard": false,
+  "headline": "신구 원문의 실질 변경 내용을 확인하고 있습니다",
+  "source_grade": "legacy_extract_needs_revalidation",
+  "verification": "comparison_incomplete",
+  "comparison_status": "original_saved_comparison_pending",
+  "relationship": "",
+  "change_count": 0,
+  "numeric_change_count": 0,
+  "standard_changes": [],
+  "current_standard_tables": [],
+  "changes": [],
+  "unresolved": [],
+  "institutions": [],
+  "related_regulations": [],
+  "linked_regulation_count": 0,
+  "institution_count": 0,
+  "action_count": 0,
+  "details_path": "details/583df9008d749c21c1c41557.json",
+  "prior_url": "",
+  "source_documents": [
+    {
+      "title": "",
+      "url": "",
+      "id": "",
+      "verification": "partial_or_missing_original"
+    },
+    {
+      "title": "해양수산부와 그 소속기관 직제",
+      "url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=291649",
+      "id": "law|011790|291649",
+      "verification": "legacy_extract_needs_revalidation"
+    }
+  ]
+}

@@ -1,0 +1,277 @@
+{
+  "schema": "policy-domino-unified-detail-v2",
+  "id": "admrul|48362|2100000264366",
+  "title": "2026년 주거급여 선정기준 및 최저보장수준",
+  "source": "admrul",
+  "source_kind": "행정규칙",
+  "kind": "고시",
+  "ministry": "국토교통부",
+  "published_at": "2025-09-15",
+  "effective_date": "2026-01-01",
+  "revision": "제정",
+  "change_type": "new",
+  "number": "2025-506",
+  "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000264366",
+  "category": "주거·국토",
+  "category_basis": "policy_title_text_rule",
+  "support_standard": true,
+  "headline": "신구 원문의 실질 변경 내용을 확인하고 있습니다",
+  "source_grade": "partial_or_missing_original",
+  "verification": "comparison_incomplete",
+  "comparison_status": "original_saved_comparison_pending",
+  "relationship": "",
+  "change_count": 0,
+  "numeric_change_count": 0,
+  "standard_changes": [],
+  "current_standard_tables": [
+    {
+      "table": 1,
+      "header": [
+        "구 분",
+        "1인 가구",
+        "2인 가구",
+        "3인 가구",
+        "4인 가구",
+        "5인 가구",
+        "6인 가구",
+        "7인 가구"
+      ],
+      "cells": [
+        {
+          "row": "금액 (원/월)",
+          "column": "1인 가구",
+          "value": "1,230,834"
+        },
+        {
+          "row": "금액 (원/월)",
+          "column": "2인 가구",
+          "value": "2,015,660"
+        },
+        {
+          "row": "금액 (원/월)",
+          "column": "3인 가구",
+          "value": "2,572,337"
+        },
+        {
+          "row": "금액 (원/월)",
+          "column": "4인 가구",
+          "value": "3,117,474"
+        },
+        {
+          "row": "금액 (원/월)",
+          "column": "5인 가구",
+          "value": "3,627,225"
+        },
+        {
+          "row": "금액 (원/월)",
+          "column": "6인 가구",
+          "value": "4,106,857"
+        },
+        {
+          "row": "금액 (원/월)",
+          "column": "7인 가구",
+          "value": "4,567,272"
+        }
+      ],
+      "official_attachment_sha256": "6aabf85be793036246dfd3df3959d0b2de93db4923a40c32a90a0d055339d522"
+    },
+    {
+      "table": 2,
+      "header": [
+        "구분",
+        "1급지 (서울)",
+        "2급지 (경기·인천)",
+        "3급지 (광역·세종 시 ·수도권 외 특례시)",
+        "4급지 (그외 지역)"
+      ],
+      "cells": [
+        {
+          "row": "1인",
+          "column": "1급지 (서울)",
+          "value": "369,000"
+        },
+        {
+          "row": "1인",
+          "column": "2급지 (경기·인천)",
+          "value": "300,000"
+        },
+        {
+          "row": "1인",
+          "column": "3급지 (광역·세종 시 ·수도권 외 특례시)",
+          "value": "247,000"
+        },
+        {
+          "row": "1인",
+          "column": "4급지 (그외 지역)",
+          "value": "212,000"
+        },
+        {
+          "row": "2인",
+          "column": "1급지 (서울)",
+          "value": "414,000"
+        },
+        {
+          "row": "2인",
+          "column": "2급지 (경기·인천)",
+          "value": "335,000"
+        },
+        {
+          "row": "2인",
+          "column": "3급지 (광역·세종 시 ·수도권 외 특례시)",
+          "value": "275,000"
+        },
+        {
+          "row": "2인",
+          "column": "4급지 (그외 지역)",
+          "value": "238,000"
+        },
+        {
+          "row": "3인",
+          "column": "1급지 (서울)",
+          "value": "492,000"
+        },
+        {
+          "row": "3인",
+          "column": "2급지 (경기·인천)",
+          "value": "401,000"
+        },
+        {
+          "row": "3인",
+          "column": "3급지 (광역·세종 시 ·수도권 외 특례시)",
+          "value": "327,000"
+        },
+        {
+          "row": "3인",
+          "column": "4급지 (그외 지역)",
+          "value": "283,000"
+        },
+        {
+          "row": "4인",
+          "column": "1급지 (서울)",
+          "value": "571,000"
+        },
+        {
+          "row": "4인",
+          "column": "2급지 (경기·인천)",
+          "value": "463,000"
+        },
+        {
+          "row": "4인",
+          "column": "3급지 (광역·세종 시 ·수도권 외 특례시)",
+          "value": "381,000"
+        },
+        {
+          "row": "4인",
+          "column": "4급지 (그외 지역)",
+          "value": "329,000"
+        },
+        {
+          "row": "5인",
+          "column": "1급지 (서울)",
+          "value": "591,000"
+        },
+        {
+          "row": "5인",
+          "column": "2급지 (경기·인천)",
+          "value": "479,000"
+        },
+        {
+          "row": "5인",
+          "column": "3급지 (광역·세종 시 ·수도권 외 특례시)",
+          "value": "394,000"
+        },
+        {
+          "row": "5인",
+          "column": "4급지 (그외 지역)",
+          "value": "340,000"
+        },
+        {
+          "row": "6인",
+          "column": "1급지 (서울)",
+          "value": "699,000"
+        },
+        {
+          "row": "6인",
+          "column": "2급지 (경기·인천)",
+          "value": "568,000"
+        },
+        {
+          "row": "6인",
+          "column": "3급지 (광역·세종 시 ·수도권 외 특례시)",
+          "value": "463,000"
+        },
+        {
+          "row": "6인",
+          "column": "4급지 (그외 지역)",
+          "value": "402,000"
+        }
+      ],
+      "official_attachment_sha256": "6aabf85be793036246dfd3df3959d0b2de93db4923a40c32a90a0d055339d522"
+    },
+    {
+      "table": 3,
+      "header": [
+        "구분",
+        "경보수",
+        "중보수",
+        "대보수"
+      ],
+      "cells": [
+        {
+          "row": "수선비용",
+          "column": "경보수",
+          "value": "590만원"
+        },
+        {
+          "row": "수선비용",
+          "column": "중보수",
+          "value": "1,095만원"
+        },
+        {
+          "row": "수선비용",
+          "column": "대보수",
+          "value": "1,601만원"
+        },
+        {
+          "row": "수선주기",
+          "column": "경보수",
+          "value": "3년"
+        },
+        {
+          "row": "수선주기",
+          "column": "중보수",
+          "value": "5년"
+        },
+        {
+          "row": "수선주기",
+          "column": "대보수",
+          "value": "7년"
+        }
+      ],
+      "official_attachment_sha256": "6aabf85be793036246dfd3df3959d0b2de93db4923a40c32a90a0d055339d522"
+    }
+  ],
+  "changes": [],
+  "unresolved": [],
+  "institutions": [],
+  "related_regulations": [],
+  "linked_regulation_count": 0,
+  "institution_count": 0,
+  "action_count": 0,
+  "details_path": "details/c6c5512394d7a293c1045afc.json",
+  "prior_url": "",
+  "source_documents": [
+    {
+      "title": "",
+      "url": "",
+      "id": "",
+      "verification": "partial_or_missing_original"
+    },
+    {
+      "title": "2026년 주거급여 선정기준 및 최저보장수준",
+      "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000264366",
+      "id": "admrul|48362|2100000264366",
+      "verification": "partial_or_missing_original"
+    }
+  ]
+}

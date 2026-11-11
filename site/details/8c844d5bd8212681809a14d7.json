@@ -1,0 +1,639 @@
+{
+  "schema": "policy-domino-unified-detail-v2",
+  "id": "admrul|48362|2100000284670",
+  "title": "2027년 주거급여 선정기준 및 최저보장수준",
+  "source": "admrul",
+  "source_kind": "행정규칙",
+  "kind": "행정규칙",
+  "ministry": "국토교통부",
+  "published_at": "2026-08-31",
+  "effective_date": "2027-01-01",
+  "revision": "제정",
+  "change_type": "new",
+  "number": "2026-455",
+  "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000284670",
+  "category": "주거·국토",
+  "category_basis": "policy_title_text_rule",
+  "support_standard": true,
+  "headline": "원문 재검증 필요 · 본문 1: 제1항에 따라 주거급여 선정기준은 다음 값 이하로 한다. <img id=\"156388679\"> </img> * 8인 가구는 7인 가구 기준과 6인 가구 기준의 차이를 7인 가구 기준에 더하여 산정(9인 가구 이상은 동일한… → 제1항에 따라 주거급여 선정기준은 다음 값 이하로 한다. <img id=\"168989221\"> </img> * 8인 가구는 7인 가구 기…",
+  "source_grade": "partial_or_missing_original",
+  "verification": "comparison_incomplete",
+  "comparison_status": "partial_unverified",
+  "relationship": "annual_successor",
+  "change_count": 3,
+  "numeric_change_count": 31,
+  "standard_changes": [
+    {
+      "table": 1,
+      "row": "금액 (원/월)",
+      "column": "1인 가구",
+      "before": "1,230,834",
+      "after": "1,313,300",
+      "old_attachment_sha256": "6aabf85be793036246dfd3df3959d0b2de93db4923a40c32a90a0d055339d522",
+      "new_attachment_sha256": "b5ff83c74e657f17f9d11e84688a7c6668c6b767dea4ce5502b2f986e6928b02",
+      "verification": "official_hwpx_cell_pair"
+    },
+    {
+      "table": 1,
+      "row": "금액 (원/월)",
+      "column": "2인 가구",
+      "before": "2,015,660",
+      "after": "2,150,710",
+      "old_attachment_sha256": "6aabf85be793036246dfd3df3959d0b2de93db4923a40c32a90a0d055339d522",
+      "new_attachment_sha256": "b5ff83c74e657f17f9d11e84688a7c6668c6b767dea4ce5502b2f986e6928b02",
+      "verification": "official_hwpx_cell_pair"
+    },
+    {
+      "table": 1,
+      "row": "금액 (원/월)",
+      "column": "3인 가구",
+      "before": "2,572,337",
+      "after": "2,744,684",
+      "old_attachment_sha256": "6aabf85be793036246dfd3df3959d0b2de93db4923a40c32a90a0d055339d522",
+      "new_attachment_sha256": "b5ff83c74e657f17f9d11e84688a7c6668c6b767dea4ce5502b2f986e6928b02",
+      "verification": "official_hwpx_cell_pair"
+    },
+    {
+      "table": 1,
+      "row": "금액 (원/월)",
+      "column": "4인 가구",
+      "before": "3,117,474",
+      "after": "3,326,345",
+      "old_attachment_sha256": "6aabf85be793036246dfd3df3959d0b2de93db4923a40c32a90a0d055339d522",
+      "new_attachment_sha256": "b5ff83c74e657f17f9d11e84688a7c6668c6b767dea4ce5502b2f986e6928b02",
+      "verification": "official_hwpx_cell_pair"
+    },
+    {
+      "table": 1,
+      "row": "금액 (원/월)",
+      "column": "5인 가구",
+      "before": "3,627,225",
+      "after": "3,870,249",
+      "old_attachment_sha256": "6aabf85be793036246dfd3df3959d0b2de93db4923a40c32a90a0d055339d522",
+      "new_attachment_sha256": "b5ff83c74e657f17f9d11e84688a7c6668c6b767dea4ce5502b2f986e6928b02",
+      "verification": "official_hwpx_cell_pair"
+    },
+    {
+      "table": 1,
+      "row": "금액 (원/월)",
+      "column": "6인 가구",
+      "before": "4,106,857",
+      "after": "4,382,016",
+      "old_attachment_sha256": "6aabf85be793036246dfd3df3959d0b2de93db4923a40c32a90a0d055339d522",
+      "new_attachment_sha256": "b5ff83c74e657f17f9d11e84688a7c6668c6b767dea4ce5502b2f986e6928b02",
+      "verification": "official_hwpx_cell_pair"
+    },
+    {
+      "table": 1,
+      "row": "금액 (원/월)",
+      "column": "7인 가구",
+      "before": "4,567,272",
+      "after": "4,873,279",
+      "old_attachment_sha256": "6aabf85be793036246dfd3df3959d0b2de93db4923a40c32a90a0d055339d522",
+      "new_attachment_sha256": "b5ff83c74e657f17f9d11e84688a7c6668c6b767dea4ce5502b2f986e6928b02",
+      "verification": "official_hwpx_cell_pair"
+    },
+    {
+      "table": 2,
+      "row": "1인",
+      "column": "1급지 (서울)",
+      "before": "369,000",
+      "after": "381,000",
+      "old_attachment_sha256": "6aabf85be793036246dfd3df3959d0b2de93db4923a40c32a90a0d055339d522",
+      "new_attachment_sha256": "b5ff83c74e657f17f9d11e84688a7c6668c6b767dea4ce5502b2f986e6928b02",
+      "verification": "official_hwpx_cell_pair"
+    },
+    {
+      "table": 2,
+      "row": "1인",
+      "column": "2급지 (경기·인천)",
+      "before": "300,000",
+      "after": "313,000",
+      "old_attachment_sha256": "6aabf85be793036246dfd3df3959d0b2de93db4923a40c32a90a0d055339d522",
+      "new_attachment_sha256": "b5ff83c74e657f17f9d11e84688a7c6668c6b767dea4ce5502b2f986e6928b02",
+      "verification": "official_hwpx_cell_pair"
+    },
+    {
+      "table": 2,
+      "row": "1인",
+      "column": "3급지 (광역·세종 시 ·수도권 외 특례시)",
+      "before": "247,000",
+      "after": "259,000",
+      "old_attachment_sha256": "6aabf85be793036246dfd3df3959d0b2de93db4923a40c32a90a0d055339d522",
+      "new_attachment_sha256": "b5ff83c74e657f17f9d11e84688a7c6668c6b767dea4ce5502b2f986e6928b02",
+      "verification": "official_hwpx_cell_pair"
+    },
+    {
+      "table": 2,
+      "row": "1인",
+      "column": "4급지 (그외 지역)",
+      "before": "212,000",
+      "after": "234,000",
+      "old_attachment_sha256": "6aabf85be793036246dfd3df3959d0b2de93db4923a40c32a90a0d055339d522",
+      "new_attachment_sha256": "b5ff83c74e657f17f9d11e84688a7c6668c6b767dea4ce5502b2f986e6928b02",
+      "verification": "official_hwpx_cell_pair"
+    },
+    {
+      "table": 2,
+      "row": "2인",
+      "column": "1급지 (서울)",
+      "before": "414,000",
+      "after": "431,000",
+      "old_attachment_sha256": "6aabf85be793036246dfd3df3959d0b2de93db4923a40c32a90a0d055339d522",
+      "new_attachment_sha256": "b5ff83c74e657f17f9d11e84688a7c6668c6b767dea4ce5502b2f986e6928b02",
+      "verification": "official_hwpx_cell_pair"
+    },
+    {
+      "table": 2,
+      "row": "2인",
+      "column": "2급지 (경기·인천)",
+      "before": "335,000",
+      "after": "352,000",
+      "old_attachment_sha256": "6aabf85be793036246dfd3df3959d0b2de93db4923a40c32a90a0d055339d522",
+      "new_attachment_sha256": "b5ff83c74e657f17f9d11e84688a7c6668c6b767dea4ce5502b2f986e6928b02",
+      "verification": "official_hwpx_cell_pair"
+    },
+    {
+      "table": 2,
+      "row": "2인",
+      "column": "3급지 (광역·세종 시 ·수도권 외 특례시)",
+      "before": "275,000",
+      "after": "291,000",
+      "old_attachment_sha256": "6aabf85be793036246dfd3df3959d0b2de93db4923a40c32a90a0d055339d522",
+      "new_attachment_sha256": "b5ff83c74e657f17f9d11e84688a7c6668c6b767dea4ce5502b2f986e6928b02",
+      "verification": "official_hwpx_cell_pair"
+    },
+    {
+      "table": 2,
+      "row": "2인",
+      "column": "4급지 (그외 지역)",
+      "before": "238,000",
+      "after": "265,000",
+      "old_attachment_sha256": "6aabf85be793036246dfd3df3959d0b2de93db4923a40c32a90a0d055339d522",
+      "new_attachment_sha256": "b5ff83c74e657f17f9d11e84688a7c6668c6b767dea4ce5502b2f986e6928b02",
+      "verification": "official_hwpx_cell_pair"
+    },
+    {
+      "table": 2,
+      "row": "3인",
+      "column": "1급지 (서울)",
+      "before": "492,000",
+      "after": "514,000",
+      "old_attachment_sha256": "6aabf85be793036246dfd3df3959d0b2de93db4923a40c32a90a0d055339d522",
+      "new_attachment_sha256": "b5ff83c74e657f17f9d11e84688a7c6668c6b767dea4ce5502b2f986e6928b02",
+      "verification": "official_hwpx_cell_pair"
+    },
+    {
+      "table": 2,
+      "row": "3인",
+      "column": "2급지 (경기·인천)",
+      "before": "401,000",
+      "after": "422,000",
+      "old_attachment_sha256": "6aabf85be793036246dfd3df3959d0b2de93db4923a40c32a90a0d055339d522",
+      "new_attachment_sha256": "b5ff83c74e657f17f9d11e84688a7c6668c6b767dea4ce5502b2f986e6928b02",
+      "verification": "official_hwpx_cell_pair"
+    },
+    {
+      "table": 2,
+      "row": "3인",
+      "column": "3급지 (광역·세종 시 ·수도권 외 특례시)",
+      "before": "327,000",
+      "after": "347,000",
+      "old_attachment_sha256": "6aabf85be793036246dfd3df3959d0b2de93db4923a40c32a90a0d055339d522",
+      "new_attachment_sha256": "b5ff83c74e657f17f9d11e84688a7c6668c6b767dea4ce5502b2f986e6928b02",
+      "verification": "official_hwpx_cell_pair"
+    },
+    {
+      "table": 2,
+      "row": "3인",
+      "column": "4급지 (그외 지역)",
+      "before": "283,000",
+      "after": "318,000",
+      "old_attachment_sha256": "6aabf85be793036246dfd3df3959d0b2de93db4923a40c32a90a0d055339d522",
+      "new_attachment_sha256": "b5ff83c74e657f17f9d11e84688a7c6668c6b767dea4ce5502b2f986e6928b02",
+      "verification": "official_hwpx_cell_pair"
+    },
+    {
+      "table": 2,
+      "row": "4인",
+      "column": "1급지 (서울)",
+      "before": "571,000",
+      "after": "596,000",
+      "old_attachment_sha256": "6aabf85be793036246dfd3df3959d0b2de93db4923a40c32a90a0d055339d522",
+      "new_attachment_sha256": "b5ff83c74e657f17f9d11e84688a7c6668c6b767dea4ce5502b2f986e6928b02",
+      "verification": "official_hwpx_cell_pair"
+    },
+    {
+      "table": 2,
+      "row": "4인",
+      "column": "2급지 (경기·인천)",
+      "before": "463,000",
+      "after": "488,000",
+      "old_attachment_sha256": "6aabf85be793036246dfd3df3959d0b2de93db4923a40c32a90a0d055339d522",
+      "new_attachment_sha256": "b5ff83c74e657f17f9d11e84688a7c6668c6b767dea4ce5502b2f986e6928b02",
+      "verification": "official_hwpx_cell_pair"
+    },
+    {
+      "table": 2,
+      "row": "4인",
+      "column": "3급지 (광역·세종 시 ·수도권 외 특례시)",
+      "before": "381,000",
+      "after": "403,000",
+      "old_attachment_sha256": "6aabf85be793036246dfd3df3959d0b2de93db4923a40c32a90a0d055339d522",
+      "new_attachment_sha256": "b5ff83c74e657f17f9d11e84688a7c6668c6b767dea4ce5502b2f986e6928b02",
+      "verification": "official_hwpx_cell_pair"
+    },
+    {
+      "table": 2,
+      "row": "4인",
+      "column": "4급지 (그외 지역)",
+      "before": "329,000",
+      "after": "369,000",
+      "old_attachment_sha256": "6aabf85be793036246dfd3df3959d0b2de93db4923a40c32a90a0d055339d522",
+      "new_attachment_sha256": "b5ff83c74e657f17f9d11e84688a7c6668c6b767dea4ce5502b2f986e6928b02",
+      "verification": "official_hwpx_cell_pair"
+    },
+    {
+      "table": 2,
+      "row": "5인",
+      "column": "1급지 (서울)",
+      "before": "591,000",
+      "after": "618,000",
+      "old_attachment_sha256": "6aabf85be793036246dfd3df3959d0b2de93db4923a40c32a90a0d055339d522",
+      "new_attachment_sha256": "b5ff83c74e657f17f9d11e84688a7c6668c6b767dea4ce5502b2f986e6928b02",
+      "verification": "official_hwpx_cell_pair"
+    },
+    {
+      "table": 2,
+      "row": "5인",
+      "column": "2급지 (경기·인천)",
+      "before": "479,000",
+      "after": "505,000",
+      "old_attachment_sha256": "6aabf85be793036246dfd3df3959d0b2de93db4923a40c32a90a0d055339d522",
+      "new_attachment_sha256": "b5ff83c74e657f17f9d11e84688a7c6668c6b767dea4ce5502b2f986e6928b02",
+      "verification": "official_hwpx_cell_pair"
+    },
+    {
+      "table": 2,
+      "row": "5인",
+      "column": "3급지 (광역·세종 시 ·수도권 외 특례시)",
+      "before": "394,000",
+      "after": "418,000",
+      "old_attachment_sha256": "6aabf85be793036246dfd3df3959d0b2de93db4923a40c32a90a0d055339d522",
+      "new_attachment_sha256": "b5ff83c74e657f17f9d11e84688a7c6668c6b767dea4ce5502b2f986e6928b02",
+      "verification": "official_hwpx_cell_pair"
+    },
+    {
+      "table": 2,
+      "row": "5인",
+      "column": "4급지 (그외 지역)",
+      "before": "340,000",
+      "after": "382,000",
+      "old_attachment_sha256": "6aabf85be793036246dfd3df3959d0b2de93db4923a40c32a90a0d055339d522",
+      "new_attachment_sha256": "b5ff83c74e657f17f9d11e84688a7c6668c6b767dea4ce5502b2f986e6928b02",
+      "verification": "official_hwpx_cell_pair"
+    },
+    {
+      "table": 2,
+      "row": "6인",
+      "column": "1급지 (서울)",
+      "before": "699,000",
+      "after": "731,000",
+      "old_attachment_sha256": "6aabf85be793036246dfd3df3959d0b2de93db4923a40c32a90a0d055339d522",
+      "new_attachment_sha256": "b5ff83c74e657f17f9d11e84688a7c6668c6b767dea4ce5502b2f986e6928b02",
+      "verification": "official_hwpx_cell_pair"
+    },
+    {
+      "table": 2,
+      "row": "6인",
+      "column": "2급지 (경기·인천)",
+      "before": "568,000",
+      "after": "599,000",
+      "old_attachment_sha256": "6aabf85be793036246dfd3df3959d0b2de93db4923a40c32a90a0d055339d522",
+      "new_attachment_sha256": "b5ff83c74e657f17f9d11e84688a7c6668c6b767dea4ce5502b2f986e6928b02",
+      "verification": "official_hwpx_cell_pair"
+    },
+    {
+      "table": 2,
+      "row": "6인",
+      "column": "3급지 (광역·세종 시 ·수도권 외 특례시)",
+      "before": "463,000",
+      "after": "492,000",
+      "old_attachment_sha256": "6aabf85be793036246dfd3df3959d0b2de93db4923a40c32a90a0d055339d522",
+      "new_attachment_sha256": "b5ff83c74e657f17f9d11e84688a7c6668c6b767dea4ce5502b2f986e6928b02",
+      "verification": "official_hwpx_cell_pair"
+    },
+    {
+      "table": 2,
+      "row": "6인",
+      "column": "4급지 (그외 지역)",
+      "before": "402,000",
+      "after": "452,000",
+      "old_attachment_sha256": "6aabf85be793036246dfd3df3959d0b2de93db4923a40c32a90a0d055339d522",
+      "new_attachment_sha256": "b5ff83c74e657f17f9d11e84688a7c6668c6b767dea4ce5502b2f986e6928b02",
+      "verification": "official_hwpx_cell_pair"
+    }
+  ],
+  "current_standard_tables": [
+    {
+      "table": 1,
+      "header": [
+        "구 분",
+        "1인 가구",
+        "2인 가구",
+        "3인 가구",
+        "4인 가구",
+        "5인 가구",
+        "6인 가구",
+        "7인 가구"
+      ],
+      "cells": [
+        {
+          "row": "금액 (원/월)",
+          "column": "1인 가구",
+          "value": "1,313,300"
+        },
+        {
+          "row": "금액 (원/월)",
+          "column": "2인 가구",
+          "value": "2,150,710"
+        },
+        {
+          "row": "금액 (원/월)",
+          "column": "3인 가구",
+          "value": "2,744,684"
+        },
+        {
+          "row": "금액 (원/월)",
+          "column": "4인 가구",
+          "value": "3,326,345"
+        },
+        {
+          "row": "금액 (원/월)",
+          "column": "5인 가구",
+          "value": "3,870,249"
+        },
+        {
+          "row": "금액 (원/월)",
+          "column": "6인 가구",
+          "value": "4,382,016"
+        },
+        {
+          "row": "금액 (원/월)",
+          "column": "7인 가구",
+          "value": "4,873,279"
+        }
+      ],
+      "official_attachment_sha256": "b5ff83c74e657f17f9d11e84688a7c6668c6b767dea4ce5502b2f986e6928b02"
+    },
+    {
+      "table": 2,
+      "header": [
+        "구분",
+        "1급지 (서울)",
+        "2급지 (경기·인천)",
+        "3급지 (광역·세종 시 ·수도권 외 특례시)",
+        "4급지 (그외 지역)"
+      ],
+      "cells": [
+        {
+          "row": "1인",
+          "column": "1급지 (서울)",
+          "value": "381,000"
+        },
+        {
+          "row": "1인",
+          "column": "2급지 (경기·인천)",
+          "value": "313,000"
+        },
+        {
+          "row": "1인",
+          "column": "3급지 (광역·세종 시 ·수도권 외 특례시)",
+          "value": "259,000"
+        },
+        {
+          "row": "1인",
+          "column": "4급지 (그외 지역)",
+          "value": "234,000"
+        },
+        {
+          "row": "2인",
+          "column": "1급지 (서울)",
+          "value": "431,000"
+        },
+        {
+          "row": "2인",
+          "column": "2급지 (경기·인천)",
+          "value": "352,000"
+        },
+        {
+          "row": "2인",
+          "column": "3급지 (광역·세종 시 ·수도권 외 특례시)",
+          "value": "291,000"
+        },
+        {
+          "row": "2인",
+          "column": "4급지 (그외 지역)",
+          "value": "265,000"
+        },
+        {
+          "row": "3인",
+          "column": "1급지 (서울)",
+          "value": "514,000"
+        },
+        {
+          "row": "3인",
+          "column": "2급지 (경기·인천)",
+          "value": "422,000"
+        },
+        {
+          "row": "3인",
+          "column": "3급지 (광역·세종 시 ·수도권 외 특례시)",
+          "value": "347,000"
+        },
+        {
+          "row": "3인",
+          "column": "4급지 (그외 지역)",
+          "value": "318,000"
+        },
+        {
+          "row": "4인",
+          "column": "1급지 (서울)",
+          "value": "596,000"
+        },
+        {
+          "row": "4인",
+          "column": "2급지 (경기·인천)",
+          "value": "488,000"
+        },
+        {
+          "row": "4인",
+          "column": "3급지 (광역·세종 시 ·수도권 외 특례시)",
+          "value": "403,000"
+        },
+        {
+          "row": "4인",
+          "column": "4급지 (그외 지역)",
+          "value": "369,000"
+        },
+        {
+          "row": "5인",
+          "column": "1급지 (서울)",
+          "value": "618,000"
+        },
+        {
+          "row": "5인",
+          "column": "2급지 (경기·인천)",
+          "value": "505,000"
+        },
+        {
+          "row": "5인",
+          "column": "3급지 (광역·세종 시 ·수도권 외 특례시)",
+          "value": "418,000"
+        },
+        {
+          "row": "5인",
+          "column": "4급지 (그외 지역)",
+          "value": "382,000"
+        },
+        {
+          "row": "6인",
+          "column": "1급지 (서울)",
+          "value": "731,000"
+        },
+        {
+          "row": "6인",
+          "column": "2급지 (경기·인천)",
+          "value": "599,000"
+        },
+        {
+          "row": "6인",
+          "column": "3급지 (광역·세종 시 ·수도권 외 특례시)",
+          "value": "492,000"
+        },
+        {
+          "row": "6인",
+          "column": "4급지 (그외 지역)",
+          "value": "452,000"
+        }
+      ],
+      "official_attachment_sha256": "b5ff83c74e657f17f9d11e84688a7c6668c6b767dea4ce5502b2f986e6928b02"
+    },
+    {
+      "table": 3,
+      "header": [
+        "구분",
+        "경보수",
+        "중보수",
+        "대보수"
+      ],
+      "cells": [
+        {
+          "row": "수선비용",
+          "column": "경보수",
+          "value": "590만원"
+        },
+        {
+          "row": "수선비용",
+          "column": "중보수",
+          "value": "1,095만원"
+        },
+        {
+          "row": "수선비용",
+          "column": "대보수",
+          "value": "1,601만원"
+        },
+        {
+          "row": "수선주기",
+          "column": "경보수",
+          "value": "3년"
+        },
+        {
+          "row": "수선주기",
+          "column": "중보수",
+          "value": "5년"
+        },
+        {
+          "row": "수선주기",
+          "column": "대보수",
+          "value": "7년"
+        }
+      ],
+      "official_attachment_sha256": "b5ff83c74e657f17f9d11e84688a7c6668c6b767dea4ce5502b2f986e6928b02"
+    }
+  ],
+  "changes": [
+    {
+      "article": "본문 1",
+      "before": "1. 주거급여 선정기준 「주거급여법」제5조제1항에 따라 주거급여 선정기준은 다음 값 이하로 한다. <img id=\"156388679\"> </img> * 8인 가구는 7인 가구 기준과 6인 가구 기준의 차이를 7인 가구 기준에 더하여 산정(9인 가구 이상은 동일한 방식에 따라 산정) 2. 주거급여 최저보장수준 가. 임차급여 「주거급여법」 제7조제3항 및 「주거급여 실시에 관한 고시」 제4조제1항에 따른 기준임대료는 다음과 같다. <img id=\"156388321\"> </img> 나. 수선유지급여 「주거급여법」 제8조제2항 및 「주거급여 실시에 관한 고시」 제4조제1항에 따른 보수범위별 수선비용(수선유지비의 지급기준)은 다음과 같다. <img id=\"156388681\"> </img> * 소득인정액이 ① 생계급여 선정기준 이하인 경우 수선비용의 100%, ② 생계급여 선정기준 초과～중위소득 40%이하인 경우 수선비용의 90%,③ 중위소득 40% 초과～중위소득 48%이하인 경우 수선비용의 80% 지원 ** 육로로 통행이 불가능한 도서지역(제주도 본섬 제외)의 경우, 위 수선비용을 10% 가산",
+      "after": "1. 주거급여 선정기준 「주거급여법」제5조제1항에 따라 주거급여 선정기준은 다음 값 이하로 한다. <img id=\"168989221\"> </img> * 8인 가구는 7인 가구 기준과 6인 가구 기준의 차이를 7인 가구 기준에 더하여 산정(9인 가구 이상은 동일한 방식에 따라 산정) 2. 주거급여 최저보장수준 가. 임차급여 「주거급여법」 제7조제3항 및 「주거급여 실시에 관한 고시」 제4조제1항에 따른 기준임대료는 다음과 같다. <img id=\"168989223\"> </img> 나. 수선유지급여 「주거급여법」 제8조제2항 및 「주거급여 실시에 관한 고시」 제4조제1항에 따른 보수범위별 수선비용(수선유지비의 지급기준)은 다음과 같다. <img id=\"168989225\"> </img> * 소득인정액이 ① 생계급여 선정기준 이하인 경우 수선비용의 100%, ② 생계급여 선정기준 초과～중위소득 40%이하인 경우 수선비용의 90%,③ 중위소득 40% 초과～중위소득 48%이하인 경우 수선비용의 80% 지원 ** 육로로 통행이 불가능한 도서지역(제주도 본섬 제외)의 경우, 위 수선비용을 10% 가산",
+      "focus": {
+        "before": "제1항에 따라 주거급여 선정기준은 다음 값 이하로 한다. <img id=\"156388679\"> </img> * 8인 가구는 7인 가구 기준과 6인 가구 기준의 차이를 7인 가구 기준에 더하여 산정(9인 가구 이상은 동일한…",
+        "after": "제1항에 따라 주거급여 선정기준은 다음 값 이하로 한다. <img id=\"168989221\"> </img> * 8인 가구는 7인 가구 기준과 6인 가구 기준의 차이를 7인 가구 기준에 더하여 산정(9인 가구 이상은 동일한…",
+        "changed": true,
+        "old_deleted": "56388679\"> </img> * 8인 가구는 7인 가구 기준과 6인 가구 기준의 차이를 7인 가구 기준에 더하여 산정(9인 가구 이상은 동일한 방식에 따라 산정) 2. 주거급여 최저보장수준 가. 임차급여 「주거급여법」…",
+        "new_added": "68989221\"> </img> * 8인 가구는 7인 가구 기준과 6인 가구 기준의 차이를 7인 가구 기준에 더하여 산정(9인 가구 이상은 동일한 방식에 따라 산정) 2. 주거급여 최저보장수준 가. 임차급여 「주거급여법」…",
+        "precision": "multi_change_excerpt"
+      },
+      "verification": "comparison_incomplete"
+    },
+    {
+      "article": "부칙",
+      "before": "부칙 <제2025-506호, 2025. 9. 15.> 이 고시는 2026년 1월 1일부터 시행한다.",
+      "after": "부칙 <제2026-455호, 2026. 8. 31.> 이 고시는 2027년 1월 1일부터 시행한다.",
+      "focus": {
+        "before": "부칙 <제2025-506호, 2025. 9. 15.> 이 고시는 2026년 1월 1일부터 시행한다.",
+        "after": "부칙 <제2026-455호, 2026. 8. 31.> 이 고시는 2027년 1월 1일부터 시행한다.",
+        "changed": true,
+        "old_deleted": "5-506호, 2025. 9. 15.> 이 고시는 2026",
+        "new_added": "6-455호, 2026. 8. 31.> 이 고시는 2027",
+        "precision": "single_edit"
+      },
+      "verification": "comparison_incomplete"
+    },
+    {
+      "article": "첨부 1",
+      "before": "국토교통부 고시 제2025–506호\n2026년 주거급여 선정기준 및 최저보장수준 제정고시안\n1. 주거급여 선정기준\n「주거급여법」제5조제1항에 따라 주거급여 선정기준은 다음 값 이하로 한다.\n구 분1인 가구2인 가구3인 가구4인 가구5인 가구6인 가구7인 가구금액(원/월)1,230,8342,015,6602,572,3373,117,4743,627,2254,106,8574,567,272\n구 분\n1인 가구\n2인 가구\n3인 가구\n4인 가구\n5인 가구\n6인 가구\n7인 가구\n금액(원/월)\n1,230,834\n2,015,660\n2,572,337\n3,117,474\n3,627,225\n4,106,857\n4,567,272\n* 8인 가구는 7인 가구 기준과 6인 가구 기준의 차이를 7인 가구 기준에 더하여 산정(9인 가구 이상은 동일한 방식에 따라 산정)\n2. 주거급여 최저보장수준\n가. 임차급여\n｢주거급여법｣ 제7조제3항 및 ｢주거급여 실시에 관한 고시｣ 제4조제1항에 따른 기준임대료는 다음과 같다.\n(단위 : 원/월)구분1급지(서울)2급지(경기·인천)3급지(광역·세종시·수도권 외 특례시)4급지(그외 지역)1인369,000300,000247,000212,0002인414,000335,000275,000238,0003인492,000401,000327,000283,0004인571,000463,000381,000329,0005인591,000479,000394,000340,0006인699,000568,000463,000402,000* 가구원수가 7인의 경우 6인 기준임대료와 동일하고, 가구원수가 8∼9인의 경우 6인 기준임대료의 10%를 가산 (10인 가구 이상은 동일한 방식(2인 증가 시 10% 인상)에 따라 적용)\n(단위 : 원/월)\n구분\n1급지(서울)\n2급지(경기·인천)\n3급지(광역·세종시·수도권 외 특례시)\n4급지(그외 지역)\n1인\n369,000\n300,000\n247,000\n212,000\n2인\n414,000\n335,000\n275,000\n238,000\n3인\n492,000\n401,000\n327,000\n283,000\n4인\n571,000\n463,000\n381,000\n329,000\n5인\n591,000\n479,000\n394,000\n340,000\n6인\n699,000\n568,000\n463,000\n402,000\n* 가구원수가 7인의 경우 6인 기준임대료와 동일하고, 가구원수가 8∼9인의 경우 6인 기준임대료의 10%를 가산 (10인 가구 이상은 동일한 방식(2인 증가 시 10% 인상)에 따라 적용)\n나. 수선유지급여\n｢주거급여법｣ 제8조제2항 및 ｢주거급여 실시에 관한 고시｣ 제4조제1항에 따른 보수범위별 수선비용(수선유지비의 지급기준)은 다음과 같다.\n구분경보수중보수대보수수선비용590만원1,095만원1,601만원수선주기3년5년7년\n구분\n경보수\n중보수\n대보수\n수선비용\n590만원\n1,095만원\n1,601만원\n수선주기\n3년\n5년\n7년\n* 소득인정액이 ① 생계급여 선정기준 이하인 경우 수선비용의 100%,\n** 육로로 통행이 불가능한 도서지역(제주도 본섬 제외)의 경우, 위 수선비용을 10% 가산\n부 칙\n이 고시는 2026년 1월 1일부터 시행한다.\n공식 표:\n구 분 | 1인 가구 | 2인 가구 | 3인 가구 | 4인 가구 | 5인 가구 | 6인 가구 | 7인 가구\n금액 (원/월) | 1,230,834 | 2,015,660 | 2,572,337 | 3,117,474 | 3,627,225 | 4,106,857 | 4,567,272\n공식 표:\n(단위 : 원/월)\n구분 | 1급지 (서울) | 2급지 (경기·인천) | 3급지 (광역·세종 시 ·수도권 외 특례시) | 4급지 (그외 지역)\n1인 | 369,000 | 300,000 | 247,000 | 212,000\n2인 | 414,000 | 335,000 | 275,000 | 238,000\n3인 | 492,000 | 401,000 | 327,000 | 283,000\n4인 | 571,000 | 463,000 | 381,000 | 329,000\n5인 | 591,000 | 479,000 | 394,000 | 340,000\n6인 | 699,000 | 568,000 | 463,000 | 402,000\n* 가구원수가 7인의 경우 6인 기준임대료와 동일하고, 가구원수가 8∼9인의 경우 6인 기준임대료의 10%를 가산 (10인 가구 이상은 동일한 방식(2인 증가 시 10% 인상)에 따라 적용)\n공식 표:\n구분 | 경보수 | 중보수 | 대보수\n수선비용 | 590만원 | 1,095만원 | 1,601만원\n수선주기 | 3년 | 5년 | 7년",
+      "after": "국토교통부고시제2026－455호\n2027년 주거급여 선정기준 및 최저보장수준 제정고시안\n1. 주거급여 선정기준\n「주거급여법」제5조제1항에따라주거급여선정기준은다음값 이하로\n한다.\n구 분\n1인\n가구\n2인\n가구\n3인\n가구\n4인\n가구\n5인\n가구\n6인\n가구\n7인\n가구\n금액(원/월) 1,313,300 2,150,710 2,744,684 3,326,345 3,870,249 4,382,016 4,873,279\n * 8인 가구는7인 가구기준과6인 가구기준의차이를7인 가구기준에더하여산정(9\n인가구이상은동일한방식에따라산정)\n2. 주거급여 최저보장수준\n가. 임차급여\n 「주거급여법」 제7조제3항 및 「주거급여 실시에 관한 고시」 제4\n조제1항에따른기준임대료는다음과같다.\n(단위 :원/월)\n구분 1급지(서울) 2급지(경기·인천) 3급지(광역·세종시·수도권 외 특례시) 4급지(그외 지역)\n1인 381,000 313,000 259,000 234,000\n2인 431,000 352,000 291,000 265,000\n3인 514,000 422,000 347,000 318,000\n4인 596,000 488,000 403,000 369,000\n5인 618,000 505,000 418,000 382,000\n6인 731,000 599,000 492,000 452,000\n* 가구원수가 7인의 경우 6인 기준임대료와 동일하고, 가구원수가 8∼9인의 경우 6인 기준임대\n료의 10%를 가산 (10인 가구 이상은 동일한 방식(2인 증가 시 10% 인상)에 따라 적용)\n나. 수선유지급여\n 「주거급여법」 제8조제2항 및 「주거급여 실시에 관한 고시」 제4\n조제1항에 따른 보수범위별 수선비용(수선유지비의 지급기준)은 다음과\n같다.\n구분 경보수 중보수 대보수\n수선비용 590만원 1,095만원 1,601만원\n수선주기 3년 5년 7년\n *소득인정액이 ① 생계급여 선정기준이하인 경우 수선비용의 100%,\n② 생계급여선정기준 초과～중위소득 40%이하인 경우 수선비용의 90%,\n③ 중위소득40% 초과～중위소득 48%이하인 경우 수선비용의 80%지원\n ** 육로로 통행이 불가능한 도서지역(제주도 본섬 제외)의 경우, 위 수선비용을\n10%가산\n부 칙\n이고시는2027년1월1일부터시행한다.",
+      "focus": {
+        "before": "국토교통부 고시 제2025–506호 2026년 주거급여 선정기준 및 최저보장수준 제정고시안 1. 주거급여 선정기준 「주거급여법」제5조제1항에 따라 주거급여 선정기준은 다음 값 이하로 한다. 구 분1인 가구2인 가구3인 가구…",
+        "after": "국토교통부고시제2026－455호 2027년 주거급여 선정기준 및 최저보장수준 제정고시안 1. 주거급여 선정기준 「주거급여법」제5조제1항에따라주거급여선정기준은다음값 이하로 한다. 구 분 1인 가구 2인 가구 3인 가구 4인…",
+        "changed": true,
+        "old_deleted": "고시 제2025–506호 2026년 주거급여 선정기준 및 최저보장수준 제정고시안 1. 주거급여 선정기준 「주거급여법」제5조제1항에 따라 주거급여 선정기준은 다음 값 이하로 한다. 구 분1인 가구2인 가구3인 가구4인 가구5…",
+        "new_added": "고시제2026－455호 2027년 주거급여 선정기준 및 최저보장수준 제정고시안 1. 주거급여 선정기준 「주거급여법」제5조제1항에따라주거급여선정기준은다음값 이하로 한다. 구 분 1인 가구 2인 가구 3인 가구 4인 가구 5인…",
+        "precision": "multi_change_excerpt"
+      },
+      "verification": "comparison_incomplete"
+    }
+  ],
+  "unresolved": [
+    {
+      "clause": "첨부 2",
+      "reason": "counterpart_not_verified"
+    },
+    {
+      "reason": "incomplete_original_or_attachment"
+    }
+  ],
+  "institutions": [],
+  "related_regulations": [],
+  "linked_regulation_count": 0,
+  "institution_count": 0,
+  "action_count": 0,
+  "details_path": "details/8c844d5bd8212681809a14d7.json",
+  "prior_url": "https://www.law.go.kr/%ED%96%89%EC%A0%95%EA%B7%9C%EC%B9%99/2026%EB%85%84%20%EC%A3%BC%EA%B1%B0%EA%B8%89%EC%97%AC%20%EC%84%A0%EC%A0%95%EA%B8%B0%EC%A4%80%20%EB%B0%8F%20%EC%B5%9C%EC%A0%80%EB%B3%B4%EC%9E%A5%EC%88%98%EC%A4%80",
+  "source_documents": [
+    {
+      "title": "2026년 주거급여 선정기준 및 최저보장수준",
+      "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000264366",
+      "id": "admrul|48362|2100000264366",
+      "verification": "partial_or_missing_original"
+    },
+    {
+      "title": "2027년 주거급여 선정기준 및 최저보장수준",
+      "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000284670",
+      "id": "admrul|48362|2100000284670",
+      "verification": "partial_or_missing_original"
+    }
+  ]
+}

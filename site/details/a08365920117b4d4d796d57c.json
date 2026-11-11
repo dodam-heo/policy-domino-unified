@@ -1,0 +1,59 @@
+{
+  "schema": "policy-domino-unified-detail-v2",
+  "id": "ordin|2104182|2151321",
+  "title": "음성군 사무 전결처리 규칙",
+  "source": "ordin",
+  "source_kind": "자치법규",
+  "kind": "자치법규",
+  "ministry": "충청북도 음성군",
+  "published_at": "2026-07-15",
+  "effective_date": "2026-07-15",
+  "revision": "일부개정",
+  "change_type": "amended",
+  "number": "1533",
+  "url": "https://www.law.go.kr/%EC%9E%90%EC%B9%98%EB%B2%95%EA%B7%9C/%EC%9D%8C%EC%84%B1%EA%B5%B0%20%EC%82%AC%EB%AC%B4%20%EC%A0%84%EA%B2%B0%EC%B2%98%EB%A6%AC%20%EA%B7%9C%EC%B9%99",
+  "category": "분야 미확정",
+  "category_basis": "not_verified",
+  "support_standard": false,
+  "headline": "신구 원문의 실질 변경 내용을 확인하고 있습니다",
+  "source_grade": "legacy_extract_needs_revalidation",
+  "verification": "comparison_incomplete",
+  "comparison_status": "partial_unverified",
+  "relationship": "same_official_id_revision",
+  "change_count": 0,
+  "numeric_change_count": 0,
+  "standard_changes": [],
+  "current_standard_tables": [],
+  "changes": [],
+  "unresolved": [
+    {
+      "clause": "부칙 1531 20260515",
+      "reason": "counterpart_not_verified"
+    },
+    {
+      "clause": "부칙 1533 20260715",
+      "reason": "counterpart_not_verified"
+    }
+  ],
+  "institutions": [],
+  "related_regulations": [],
+  "linked_regulation_count": 0,
+  "institution_count": 0,
+  "action_count": 0,
+  "details_path": "details/a08365920117b4d4d796d57c.json",
+  "prior_url": "https://www.law.go.kr/%EC%9E%90%EC%B9%98%EB%B2%95%EA%B7%9C/%EC%9D%8C%EC%84%B1%EA%B5%B0%20%EC%82%AC%EB%AC%B4%20%EC%A0%84%EA%B2%B0%EC%B2%98%EB%A6%AC%20%EA%B7%9C%EC%B9%99",
+  "source_documents": [
+    {
+      "title": "음성군 사무 전결처리 규칙",
+      "url": "https://www.law.go.kr/%EC%9E%90%EC%B9%98%EB%B2%95%EA%B7%9C/%EC%9D%8C%EC%84%B1%EA%B5%B0%20%EC%82%AC%EB%AC%B4%20%EC%A0%84%EA%B2%B0%EC%B2%98%EB%A6%AC%20%EA%B7%9C%EC%B9%99",
+      "id": "ordin|2104182|2130063",
+      "verification": "legacy_extract_needs_revalidation"
+    },
+    {
+      "title": "음성군 사무 전결처리 규칙",
+      "url": "https://www.law.go.kr/%EC%9E%90%EC%B9%98%EB%B2%95%EA%B7%9C/%EC%9D%8C%EC%84%B1%EA%B5%B0%20%EC%82%AC%EB%AC%B4%20%EC%A0%84%EA%B2%B0%EC%B2%98%EB%A6%AC%20%EA%B7%9C%EC%B9%99",
+      "id": "ordin|2104182|2151321",
+      "verification": "legacy_extract_needs_revalidation"
+    }
+  ]
+}

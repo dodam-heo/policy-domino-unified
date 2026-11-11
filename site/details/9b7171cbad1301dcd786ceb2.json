@@ -1,0 +1,50 @@
+{
+  "schema": "policy-domino-unified-detail-v2",
+  "id": "admrul|30142|2100000233836",
+  "title": "한국정책방송원 방송운행 규정",
+  "source": "admrul",
+  "source_kind": "행정규칙",
+  "kind": "예규",
+  "ministry": "한국정책방송원",
+  "published_at": "2024-01-01",
+  "effective_date": "2024-01-01",
+  "revision": "일부개정",
+  "change_type": "amended",
+  "number": "192",
+  "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000233836",
+  "category": "정보·통신",
+  "category_basis": "policy_title_text_rule",
+  "support_standard": false,
+  "headline": "신구 원문의 실질 변경 내용을 확인하고 있습니다",
+  "source_grade": "partial_or_missing_original",
+  "verification": "comparison_incomplete",
+  "comparison_status": "original_saved_comparison_pending",
+  "relationship": "",
+  "change_count": 0,
+  "numeric_change_count": 0,
+  "standard_changes": [],
+  "current_standard_tables": [],
+  "changes": [],
+  "unresolved": [],
+  "institutions": [],
+  "related_regulations": [],
+  "linked_regulation_count": 0,
+  "institution_count": 0,
+  "action_count": 0,
+  "details_path": "details/9b7171cbad1301dcd786ceb2.json",
+  "prior_url": "",
+  "source_documents": [
+    {
+      "title": "",
+      "url": "",
+      "id": "",
+      "verification": "partial_or_missing_original"
+    },
+    {
+      "title": "한국정책방송원 방송운행 규정",
+      "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000233836",
+      "id": "admrul|30142|2100000233836",
+      "verification": "partial_or_missing_original"
+    }
+  ]
+}

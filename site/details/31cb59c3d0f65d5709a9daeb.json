@@ -1,0 +1,146 @@
+{
+  "schema": "policy-domino-unified-detail-v2",
+  "id": "admrul|35334|2100000287592",
+  "title": "가석방 업무지침",
+  "source": "admrul",
+  "source_kind": "행정규칙",
+  "kind": "예규",
+  "ministry": "법무부",
+  "published_at": "2026-11-06",
+  "effective_date": "2026-11-06",
+  "revision": "일부개정",
+  "change_type": "amended",
+  "number": "1403",
+  "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000287592",
+  "category": "분야 미확정",
+  "category_basis": "not_verified",
+  "support_standard": false,
+  "headline": "신구 원문의 실질 변경 내용을 확인하고 있습니다",
+  "source_grade": "legacy_extract_needs_revalidation",
+  "verification": "comparison_incomplete",
+  "comparison_status": "partial_unverified",
+  "relationship": "same_official_id_revision",
+  "change_count": 0,
+  "numeric_change_count": 0,
+  "standard_changes": [],
+  "current_standard_tables": [],
+  "changes": [],
+  "unresolved": [
+    {
+      "clause": "별표 0001",
+      "reason": "counterpart_not_verified"
+    },
+    {
+      "clause": "별표 0001 (가석방 예비심사 대상자 명부)",
+      "reason": "counterpart_not_verified"
+    },
+    {
+      "clause": "별표 0001 (가석방 예비심사 대상자 선정 기준)",
+      "reason": "counterpart_not_verified"
+    },
+    {
+      "clause": "별표 0002",
+      "reason": "counterpart_not_verified"
+    },
+    {
+      "clause": "별표 0002 (가석방 예비회의 결과보고)",
+      "reason": "counterpart_not_verified"
+    },
+    {
+      "clause": "별표 0002 (가석방예비심사 대상자 명부 작성방법)",
+      "reason": "counterpart_not_verified"
+    },
+    {
+      "clause": "별표 0003",
+      "reason": "counterpart_not_verified"
+    },
+    {
+      "clause": "별표 0003 (가석방 적격심사 신청자 명단)",
+      "reason": "counterpart_not_verified"
+    },
+    {
+      "clause": "별표 0003 (범죄개요 기재방법)",
+      "reason": "counterpart_not_verified"
+    },
+    {
+      "clause": "별표 0004",
+      "reason": "counterpart_not_verified"
+    },
+    {
+      "clause": "별표 0004 (가석방 적격 심사신청 현황)",
+      "reason": "counterpart_not_verified"
+    },
+    {
+      "clause": "별표 0005",
+      "reason": "counterpart_not_verified"
+    },
+    {
+      "clause": "별표 0005 (가석방 허가(예정)자 현황 보고)",
+      "reason": "counterpart_not_verified"
+    },
+    {
+      "clause": "별표 0006",
+      "reason": "counterpart_not_verified"
+    },
+    {
+      "clause": "별표 0006 (가석방자명부)",
+      "reason": "counterpart_not_verified"
+    },
+    {
+      "clause": "별표 0007",
+      "reason": "counterpart_not_verified"
+    },
+    {
+      "clause": "별표 0007 (가석방통보서)",
+      "reason": "counterpart_not_verified"
+    },
+    {
+      "clause": "별표 0008",
+      "reason": "counterpart_not_verified"
+    },
+    {
+      "clause": "별표 0008 (치료보호 조건부 가석방 동의서)",
+      "reason": "counterpart_not_verified"
+    },
+    {
+      "clause": "별표 0009",
+      "reason": "counterpart_not_verified"
+    },
+    {
+      "clause": "별표 0009 (가석방 관련 안내문)",
+      "reason": "counterpart_not_verified"
+    },
+    {
+      "clause": "별표 0010",
+      "reason": "counterpart_not_verified"
+    },
+    {
+      "clause": "별표 0010 (보안서약서)",
+      "reason": "counterpart_not_verified"
+    },
+    {
+      "reason": "incomplete_original_or_attachment"
+    }
+  ],
+  "institutions": [],
+  "related_regulations": [],
+  "linked_regulation_count": 0,
+  "institution_count": 0,
+  "action_count": 0,
+  "details_path": "details/31cb59c3d0f65d5709a9daeb.json",
+  "prior_url": "https://www.law.go.kr/%ED%96%89%EC%A0%95%EA%B7%9C%EC%B9%99/%EA%B0%80%EC%84%9D%EB%B0%A9%20%EC%97%85%EB%AC%B4%EC%A7%80%EC%B9%A8",
+  "source_documents": [
+    {
+      "title": "가석방 업무지침",
+      "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000276392",
+      "id": "admrul|35334|2100000276392",
+      "verification": "partial_or_missing_original"
+    },
+    {
+      "title": "가석방 업무지침",
+      "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000287592",
+      "id": "admrul|35334|2100000287592",
+      "verification": "legacy_extract_needs_revalidation"
+    }
+  ]
+}

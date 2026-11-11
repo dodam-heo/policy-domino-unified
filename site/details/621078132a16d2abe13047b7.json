@@ -1,0 +1,59 @@
+{
+  "schema": "policy-domino-unified-detail-v2",
+  "id": "ordin|2191197|2151331",
+  "title": "화성시 소상공인 지원에 관한 조례",
+  "source": "ordin",
+  "source_kind": "자치법규",
+  "kind": "자치법규",
+  "ministry": "경기도 화성시",
+  "published_at": "2026-07-15",
+  "effective_date": "2026-07-15",
+  "revision": "일부개정",
+  "change_type": "amended",
+  "number": "2610",
+  "url": "https://www.law.go.kr/%EC%9E%90%EC%B9%98%EB%B2%95%EA%B7%9C/%ED%99%94%EC%84%B1%EC%8B%9C%20%EC%86%8C%EC%83%81%EA%B3%B5%EC%9D%B8%20%EC%A7%80%EC%9B%90%EC%97%90%20%EA%B4%80%ED%95%9C%20%EC%A1%B0%EB%A1%80",
+  "category": "분야 미확정",
+  "category_basis": "not_verified",
+  "support_standard": false,
+  "headline": "신구 원문의 실질 변경 내용을 확인하고 있습니다",
+  "source_grade": "legacy_extract_needs_revalidation",
+  "verification": "comparison_incomplete",
+  "comparison_status": "partial_unverified",
+  "relationship": "same_official_id_revision",
+  "change_count": 0,
+  "numeric_change_count": 0,
+  "standard_changes": [],
+  "current_standard_tables": [],
+  "changes": [],
+  "unresolved": [
+    {
+      "clause": "부칙 2562 20260310",
+      "reason": "counterpart_not_verified"
+    },
+    {
+      "clause": "부칙 2610 20260715",
+      "reason": "counterpart_not_verified"
+    }
+  ],
+  "institutions": [],
+  "related_regulations": [],
+  "linked_regulation_count": 0,
+  "institution_count": 0,
+  "action_count": 0,
+  "details_path": "details/621078132a16d2abe13047b7.json",
+  "prior_url": "https://www.law.go.kr/%EC%9E%90%EC%B9%98%EB%B2%95%EA%B7%9C/%ED%99%94%EC%84%B1%EC%8B%9C%20%EC%86%8C%EC%83%81%EA%B3%B5%EC%9D%B8%20%EC%A7%80%EC%9B%90%EC%97%90%20%EA%B4%80%ED%95%9C%20%EC%A1%B0%EB%A1%80",
+  "source_documents": [
+    {
+      "title": "화성시 소상공인 지원에 관한 조례",
+      "url": "https://www.law.go.kr/%EC%9E%90%EC%B9%98%EB%B2%95%EA%B7%9C/%ED%99%94%EC%84%B1%EC%8B%9C%20%EC%86%8C%EC%83%81%EA%B3%B5%EC%9D%B8%20%EC%A7%80%EC%9B%90%EC%97%90%20%EA%B4%80%ED%95%9C%20%EC%A1%B0%EB%A1%80",
+      "id": "ordin|2191197|2115003",
+      "verification": "legacy_extract_needs_revalidation"
+    },
+    {
+      "title": "화성시 소상공인 지원에 관한 조례",
+      "url": "https://www.law.go.kr/%EC%9E%90%EC%B9%98%EB%B2%95%EA%B7%9C/%ED%99%94%EC%84%B1%EC%8B%9C%20%EC%86%8C%EC%83%81%EA%B3%B5%EC%9D%B8%20%EC%A7%80%EC%9B%90%EC%97%90%20%EA%B4%80%ED%95%9C%20%EC%A1%B0%EB%A1%80",
+      "id": "ordin|2191197|2151331",
+      "verification": "legacy_extract_needs_revalidation"
+    }
+  ]
+}

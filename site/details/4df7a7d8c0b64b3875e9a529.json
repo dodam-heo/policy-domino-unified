@@ -1,0 +1,50 @@
+{
+  "schema": "policy-domino-unified-detail-v2",
+  "id": "admrul|67927|2100000286714",
+  "title": "퇴직급여금 지급심의위원회 구성 및 운영에 관한 예규",
+  "source": "admrul",
+  "source_kind": "행정규칙",
+  "kind": "예규",
+  "ministry": "국방부",
+  "published_at": "2026-10-13",
+  "effective_date": "2026-10-13",
+  "revision": "일부개정",
+  "change_type": "amended",
+  "number": "684",
+  "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000286714",
+  "category": "노동·인사",
+  "category_basis": "policy_title_text_rule",
+  "support_standard": true,
+  "headline": "신구 원문의 실질 변경 내용을 확인하고 있습니다",
+  "source_grade": "legacy_extract_needs_revalidation",
+  "verification": "comparison_incomplete",
+  "comparison_status": "original_saved_comparison_pending",
+  "relationship": "",
+  "change_count": 0,
+  "numeric_change_count": 0,
+  "standard_changes": [],
+  "current_standard_tables": [],
+  "changes": [],
+  "unresolved": [],
+  "institutions": [],
+  "related_regulations": [],
+  "linked_regulation_count": 0,
+  "institution_count": 0,
+  "action_count": 0,
+  "details_path": "details/4df7a7d8c0b64b3875e9a529.json",
+  "prior_url": "",
+  "source_documents": [
+    {
+      "title": "",
+      "url": "",
+      "id": "",
+      "verification": "partial_or_missing_original"
+    },
+    {
+      "title": "퇴직급여금 지급심의위원회 구성 및 운영에 관한 예규",
+      "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000286714",
+      "id": "admrul|67927|2100000286714",
+      "verification": "legacy_extract_needs_revalidation"
+    }
+  ]
+}

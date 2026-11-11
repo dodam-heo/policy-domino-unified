@@ -1,0 +1,54 @@
+{
+  "schema": "policy-domino-unified-detail-v2",
+  "id": "admrul|78470|2100000287752",
+  "title": "국립재활원 안전보건관리규정",
+  "source": "admrul",
+  "source_kind": "행정규칙",
+  "kind": "예규",
+  "ministry": "국립재활원",
+  "published_at": "2026-11-02",
+  "effective_date": "2026-11-02",
+  "revision": "일부개정",
+  "change_type": "amended",
+  "number": "646",
+  "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000287752",
+  "category": "보건·의료",
+  "category_basis": "policy_title_text_rule",
+  "support_standard": false,
+  "headline": "신구 원문의 실질 변경 내용을 확인하고 있습니다",
+  "source_grade": "partial_or_missing_original",
+  "verification": "comparison_incomplete",
+  "comparison_status": "partial_unverified",
+  "relationship": "same_official_id_revision",
+  "change_count": 0,
+  "numeric_change_count": 0,
+  "standard_changes": [],
+  "current_standard_tables": [],
+  "changes": [],
+  "unresolved": [
+    {
+      "reason": "incomplete_original_or_attachment"
+    }
+  ],
+  "institutions": [],
+  "related_regulations": [],
+  "linked_regulation_count": 0,
+  "institution_count": 0,
+  "action_count": 0,
+  "details_path": "details/a111ac0df3fab0b6ea8f388e.json",
+  "prior_url": "https://www.law.go.kr/%ED%96%89%EC%A0%95%EA%B7%9C%EC%B9%99/%EA%B5%AD%EB%A6%BD%EC%9E%AC%ED%99%9C%EC%9B%90%20%EC%95%88%EC%A0%84%EB%B3%B4%EA%B1%B4%EA%B4%80%EB%A6%AC%EA%B7%9C%EC%A0%95",
+  "source_documents": [
+    {
+      "title": "국립재활원 안전보건관리규정",
+      "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000269144",
+      "id": "admrul|78470|2100000269144",
+      "verification": "partial_or_missing_original"
+    },
+    {
+      "title": "국립재활원 안전보건관리규정",
+      "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000287752",
+      "id": "admrul|78470|2100000287752",
+      "verification": "partial_or_missing_original"
+    }
+  ]
+}

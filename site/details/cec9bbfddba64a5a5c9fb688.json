@@ -1,0 +1,50 @@
+{
+  "schema": "policy-domino-unified-detail-v2",
+  "id": "admrul|98673|2100000287936",
+  "title": "글로벌 화장품 규제기관장 협의체 사무국 설치 및 운영에 관한 규정",
+  "source": "admrul",
+  "source_kind": "행정규칙",
+  "kind": "훈령",
+  "ministry": "식품의약품안전처",
+  "published_at": "2026-11-03",
+  "effective_date": "2027-01-01",
+  "revision": "제정",
+  "change_type": "new",
+  "number": "280",
+  "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000287936",
+  "category": "분야 미확정",
+  "category_basis": "not_verified",
+  "support_standard": false,
+  "headline": "신구 원문의 실질 변경 내용을 확인하고 있습니다",
+  "source_grade": "legacy_extract_needs_revalidation",
+  "verification": "comparison_incomplete",
+  "comparison_status": "original_saved_comparison_pending",
+  "relationship": "",
+  "change_count": 0,
+  "numeric_change_count": 0,
+  "standard_changes": [],
+  "current_standard_tables": [],
+  "changes": [],
+  "unresolved": [],
+  "institutions": [],
+  "related_regulations": [],
+  "linked_regulation_count": 0,
+  "institution_count": 0,
+  "action_count": 0,
+  "details_path": "details/cec9bbfddba64a5a5c9fb688.json",
+  "prior_url": "",
+  "source_documents": [
+    {
+      "title": "",
+      "url": "",
+      "id": "",
+      "verification": "partial_or_missing_original"
+    },
+    {
+      "title": "글로벌 화장품 규제기관장 협의체 사무국 설치 및 운영에 관한 규정",
+      "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000287936",
+      "id": "admrul|98673|2100000287936",
+      "verification": "legacy_extract_needs_revalidation"
+    }
+  ]
+}

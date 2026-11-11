@@ -1,0 +1,50 @@
+{
+  "schema": "policy-domino-unified-detail-v2",
+  "id": "admrul|55577|2100000285290",
+  "title": "출산전후휴가 급여등 상한액 고시",
+  "source": "admrul",
+  "source_kind": "행정규칙",
+  "kind": "고시",
+  "ministry": "고용노동부",
+  "published_at": "2026-09-17",
+  "effective_date": "2026-09-18",
+  "revision": "일부개정",
+  "change_type": "amended",
+  "number": "2026-67",
+  "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000285290",
+  "category": "분야 미확정",
+  "category_basis": "not_verified",
+  "support_standard": true,
+  "headline": "신구 원문의 실질 변경 내용을 확인하고 있습니다",
+  "source_grade": "legacy_extract_needs_revalidation",
+  "verification": "comparison_incomplete",
+  "comparison_status": "original_saved_comparison_pending",
+  "relationship": "",
+  "change_count": 0,
+  "numeric_change_count": 0,
+  "standard_changes": [],
+  "current_standard_tables": [],
+  "changes": [],
+  "unresolved": [],
+  "institutions": [],
+  "related_regulations": [],
+  "linked_regulation_count": 0,
+  "institution_count": 0,
+  "action_count": 0,
+  "details_path": "details/211d62290b0e617b9edc4a3f.json",
+  "prior_url": "",
+  "source_documents": [
+    {
+      "title": "",
+      "url": "",
+      "id": "",
+      "verification": "partial_or_missing_original"
+    },
+    {
+      "title": "출산전후휴가 급여등 상한액 고시",
+      "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000285290",
+      "id": "admrul|55577|2100000285290",
+      "verification": "legacy_extract_needs_revalidation"
+    }
+  ]
+}

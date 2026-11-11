@@ -1,0 +1,59 @@
+{
+  "schema": "policy-domino-unified-detail-v2",
+  "id": "ordin|2150857|2151335",
+  "title": "화성시 대한적십자사 및 대한적십자사봉사회 활동에 관한 조례",
+  "source": "ordin",
+  "source_kind": "자치법규",
+  "kind": "자치법규",
+  "ministry": "경기도 화성시",
+  "published_at": "2026-07-15",
+  "effective_date": "2026-07-15",
+  "revision": "일부개정",
+  "change_type": "amended",
+  "number": "2616",
+  "url": "https://www.law.go.kr/%EC%9E%90%EC%B9%98%EB%B2%95%EA%B7%9C/%ED%99%94%EC%84%B1%EC%8B%9C%20%EB%8C%80%ED%95%9C%EC%A0%81%EC%8B%AD%EC%9E%90%EC%82%AC%20%EB%B0%8F%20%EB%8C%80%ED%95%9C%EC%A0%81%EC%8B%AD%EC%9E%90%EC%82%AC%EB%B4%89%EC%82%AC%ED%9A%8C%20%ED%99%9C%EB%8F%99%EC%97%90%20%EA%B4%80%ED%95%9C%20%EC%A1%B0%EB%A1%80",
+  "category": "분야 미확정",
+  "category_basis": "not_verified",
+  "support_standard": false,
+  "headline": "신구 원문의 실질 변경 내용을 확인하고 있습니다",
+  "source_grade": "legacy_extract_needs_revalidation",
+  "verification": "comparison_incomplete",
+  "comparison_status": "partial_unverified",
+  "relationship": "same_official_id_revision",
+  "change_count": 0,
+  "numeric_change_count": 0,
+  "standard_changes": [],
+  "current_standard_tables": [],
+  "changes": [],
+  "unresolved": [
+    {
+      "clause": "부칙 1810 20210730",
+      "reason": "counterpart_not_verified"
+    },
+    {
+      "clause": "부칙 2616 20260715",
+      "reason": "counterpart_not_verified"
+    }
+  ],
+  "institutions": [],
+  "related_regulations": [],
+  "linked_regulation_count": 0,
+  "institution_count": 0,
+  "action_count": 0,
+  "details_path": "details/22e7c0eac2328e186087be40.json",
+  "prior_url": "https://www.law.go.kr/%EC%9E%90%EC%B9%98%EB%B2%95%EA%B7%9C/%ED%99%94%EC%84%B1%EC%8B%9C%20%EB%8C%80%ED%95%9C%EC%A0%81%EC%8B%AD%EC%9E%90%ED%99%9C%EB%8F%99%20%EC%A7%80%EC%9B%90%20%EC%A1%B0%EB%A1%80",
+  "source_documents": [
+    {
+      "title": "화성시 대한적십자활동 지원 조례",
+      "url": "https://www.law.go.kr/%EC%9E%90%EC%B9%98%EB%B2%95%EA%B7%9C/%ED%99%94%EC%84%B1%EC%8B%9C%20%EB%8C%80%ED%95%9C%EC%A0%81%EC%8B%AD%EC%9E%90%ED%99%9C%EB%8F%99%20%EC%A7%80%EC%9B%90%20%EC%A1%B0%EB%A1%80",
+      "id": "ordin|2150857|1618949",
+      "verification": "legacy_extract_needs_revalidation"
+    },
+    {
+      "title": "화성시 대한적십자사 및 대한적십자사봉사회 활동에 관한 조례",
+      "url": "https://www.law.go.kr/%EC%9E%90%EC%B9%98%EB%B2%95%EA%B7%9C/%ED%99%94%EC%84%B1%EC%8B%9C%20%EB%8C%80%ED%95%9C%EC%A0%81%EC%8B%AD%EC%9E%90%EC%82%AC%20%EB%B0%8F%20%EB%8C%80%ED%95%9C%EC%A0%81%EC%8B%AD%EC%9E%90%EC%82%AC%EB%B4%89%EC%82%AC%ED%9A%8C%20%ED%99%9C%EB%8F%99%EC%97%90%20%EA%B4%80%ED%95%9C%20%EC%A1%B0%EB%A1%80",
+      "id": "ordin|2150857|2151335",
+      "verification": "legacy_extract_needs_revalidation"
+    }
+  ]
+}

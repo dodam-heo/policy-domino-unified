@@ -1,0 +1,59 @@
+{
+  "schema": "policy-domino-unified-detail-v2",
+  "id": "ordin|2139837|2151313",
+  "title": "안산시 지방공무원 정원 규칙",
+  "source": "ordin",
+  "source_kind": "자치법규",
+  "kind": "자치법규",
+  "ministry": "경기도 안산시",
+  "published_at": "2026-07-15",
+  "effective_date": "2026-07-15",
+  "revision": "일부개정",
+  "change_type": "amended",
+  "number": "1417",
+  "url": "https://www.law.go.kr/%EC%9E%90%EC%B9%98%EB%B2%95%EA%B7%9C/%EC%95%88%EC%82%B0%EC%8B%9C%20%EC%A7%80%EB%B0%A9%EA%B3%B5%EB%AC%B4%EC%9B%90%20%EC%A0%95%EC%9B%90%20%EA%B7%9C%EC%B9%99",
+  "category": "노동·인사",
+  "category_basis": "policy_title_text_rule",
+  "support_standard": false,
+  "headline": "신구 원문의 실질 변경 내용을 확인하고 있습니다",
+  "source_grade": "legacy_extract_needs_revalidation",
+  "verification": "comparison_incomplete",
+  "comparison_status": "partial_unverified",
+  "relationship": "same_official_id_revision",
+  "change_count": 0,
+  "numeric_change_count": 0,
+  "standard_changes": [],
+  "current_standard_tables": [],
+  "changes": [],
+  "unresolved": [
+    {
+      "clause": "부칙 1411 20251231",
+      "reason": "counterpart_not_verified"
+    },
+    {
+      "clause": "부칙 1417 20260715",
+      "reason": "counterpart_not_verified"
+    }
+  ],
+  "institutions": [],
+  "related_regulations": [],
+  "linked_regulation_count": 0,
+  "institution_count": 0,
+  "action_count": 0,
+  "details_path": "details/4d5d4aaa452f8dc09c550a8c.json",
+  "prior_url": "https://www.law.go.kr/%EC%9E%90%EC%B9%98%EB%B2%95%EA%B7%9C/%EC%95%88%EC%82%B0%EC%8B%9C%20%EC%A7%80%EB%B0%A9%EA%B3%B5%EB%AC%B4%EC%9B%90%20%EC%A0%95%EC%9B%90%20%EA%B7%9C%EC%B9%99",
+  "source_documents": [
+    {
+      "title": "안산시 지방공무원 정원 규칙",
+      "url": "https://www.law.go.kr/%EC%9E%90%EC%B9%98%EB%B2%95%EA%B7%9C/%EC%95%88%EC%82%B0%EC%8B%9C%20%EC%A7%80%EB%B0%A9%EA%B3%B5%EB%AC%B4%EC%9B%90%20%EC%A0%95%EC%9B%90%20%EA%B7%9C%EC%B9%99",
+      "id": "ordin|2139837|2102333",
+      "verification": "legacy_extract_needs_revalidation"
+    },
+    {
+      "title": "안산시 지방공무원 정원 규칙",
+      "url": "https://www.law.go.kr/%EC%9E%90%EC%B9%98%EB%B2%95%EA%B7%9C/%EC%95%88%EC%82%B0%EC%8B%9C%20%EC%A7%80%EB%B0%A9%EA%B3%B5%EB%AC%B4%EC%9B%90%20%EC%A0%95%EC%9B%90%20%EA%B7%9C%EC%B9%99",
+      "id": "ordin|2139837|2151313",
+      "verification": "legacy_extract_needs_revalidation"
+    }
+  ]
+}

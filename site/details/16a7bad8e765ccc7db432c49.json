@@ -1,0 +1,66 @@
+{
+  "schema": "policy-domino-unified-detail-v2",
+  "id": "admrul|77245|2100000287788",
+  "title": "국립춘천병원 비급여수가규정",
+  "source": "admrul",
+  "source_kind": "행정규칙",
+  "kind": "예규",
+  "ministry": "국립춘천병원",
+  "published_at": "2026-11-04",
+  "effective_date": "2026-11-04",
+  "revision": "일부개정",
+  "change_type": "amended",
+  "number": "390",
+  "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000287788",
+  "category": "보건·의료",
+  "category_basis": "policy_title_text_rule",
+  "support_standard": true,
+  "headline": "신구 원문의 실질 변경 내용을 확인하고 있습니다",
+  "source_grade": "partial_or_missing_original",
+  "verification": "comparison_incomplete",
+  "comparison_status": "partial_unverified",
+  "relationship": "same_official_id_revision",
+  "change_count": 0,
+  "numeric_change_count": 0,
+  "standard_changes": [],
+  "current_standard_tables": [],
+  "changes": [],
+  "unresolved": [
+    {
+      "clause": "별표 0002 (약제 비급여 수가)",
+      "reason": "counterpart_not_verified"
+    },
+    {
+      "clause": "별표 0002 (진단서 및 증명서 등 발급 수수료)",
+      "reason": "counterpart_not_verified"
+    },
+    {
+      "clause": "별표 0003 (진단서 및 증명서 등 발급 수수료)",
+      "reason": "counterpart_not_verified"
+    },
+    {
+      "reason": "incomplete_original_or_attachment"
+    }
+  ],
+  "institutions": [],
+  "related_regulations": [],
+  "linked_regulation_count": 0,
+  "institution_count": 0,
+  "action_count": 0,
+  "details_path": "details/16a7bad8e765ccc7db432c49.json",
+  "prior_url": "https://www.law.go.kr/%ED%96%89%EC%A0%95%EA%B7%9C%EC%B9%99/%EA%B5%AD%EB%A6%BD%EC%B6%98%EC%B2%9C%EB%B3%91%EC%9B%90%20%EB%B9%84%EA%B8%89%EC%97%AC%EC%88%98%EA%B0%80%EA%B7%9C%EC%A0%95",
+  "source_documents": [
+    {
+      "title": "국립춘천병원 비급여수가규정",
+      "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000282198",
+      "id": "admrul|77245|2100000282198",
+      "verification": "partial_or_missing_original"
+    },
+    {
+      "title": "국립춘천병원 비급여수가규정",
+      "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000287788",
+      "id": "admrul|77245|2100000287788",
+      "verification": "partial_or_missing_original"
+    }
+  ]
+}

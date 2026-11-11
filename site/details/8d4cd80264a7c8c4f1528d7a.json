@@ -1,0 +1,50 @@
+{
+  "schema": "policy-domino-unified-detail-v2",
+  "id": "admrul|2087782|2100000285522",
+  "title": "통계작성의 변경 승인(협의) 고시(강서구사회조사)",
+  "source": "admrul",
+  "source_kind": "행정규칙",
+  "kind": "고시",
+  "ministry": "국가데이터처",
+  "published_at": "2026-09-24",
+  "effective_date": "2028-09-01",
+  "revision": "일부개정",
+  "change_type": "amended",
+  "number": "2026-667",
+  "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000285522",
+  "category": "분야 미확정",
+  "category_basis": "not_verified",
+  "support_standard": false,
+  "headline": "신구 원문의 실질 변경 내용을 확인하고 있습니다",
+  "source_grade": "legacy_extract_needs_revalidation",
+  "verification": "comparison_incomplete",
+  "comparison_status": "original_saved_comparison_pending",
+  "relationship": "",
+  "change_count": 0,
+  "numeric_change_count": 0,
+  "standard_changes": [],
+  "current_standard_tables": [],
+  "changes": [],
+  "unresolved": [],
+  "institutions": [],
+  "related_regulations": [],
+  "linked_regulation_count": 0,
+  "institution_count": 0,
+  "action_count": 0,
+  "details_path": "details/8d4cd80264a7c8c4f1528d7a.json",
+  "prior_url": "",
+  "source_documents": [
+    {
+      "title": "",
+      "url": "",
+      "id": "",
+      "verification": "partial_or_missing_original"
+    },
+    {
+      "title": "통계작성의 변경 승인(협의) 고시(강서구사회조사)",
+      "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000285522",
+      "id": "admrul|2087782|2100000285522",
+      "verification": "legacy_extract_needs_revalidation"
+    }
+  ]
+}

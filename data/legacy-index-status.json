@@ -1,0 +1,11 @@
+{
+  "unique_official_versions": 46647,
+  "shards": 768,
+  "changed_shards": 768,
+  "source_record_counts": {
+    "v2": 11626,
+    "v4": 42027,
+    "next": 16911
+  },
+  "status": "metadata_only_not_verified_source_original"
+}

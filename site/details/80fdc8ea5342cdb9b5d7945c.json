@@ -1,0 +1,50 @@
+{
+  "schema": "policy-domino-unified-detail-v2",
+  "id": "admrul|42244|2100000287782",
+  "title": "비행절차설계요령",
+  "source": "admrul",
+  "source_kind": "행정규칙",
+  "kind": "예규",
+  "ministry": "국토교통부",
+  "published_at": "2026-11-06",
+  "effective_date": "2026-11-06",
+  "revision": "일부개정",
+  "change_type": "amended",
+  "number": "469",
+  "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000287782",
+  "category": "분야 미확정",
+  "category_basis": "not_verified",
+  "support_standard": false,
+  "headline": "신구 원문의 실질 변경 내용을 확인하고 있습니다",
+  "source_grade": "partial_or_missing_original",
+  "verification": "comparison_incomplete",
+  "comparison_status": "original_saved_comparison_pending",
+  "relationship": "",
+  "change_count": 0,
+  "numeric_change_count": 0,
+  "standard_changes": [],
+  "current_standard_tables": [],
+  "changes": [],
+  "unresolved": [],
+  "institutions": [],
+  "related_regulations": [],
+  "linked_regulation_count": 0,
+  "institution_count": 0,
+  "action_count": 0,
+  "details_path": "details/80fdc8ea5342cdb9b5d7945c.json",
+  "prior_url": "",
+  "source_documents": [
+    {
+      "title": "",
+      "url": "",
+      "id": "",
+      "verification": "partial_or_missing_original"
+    },
+    {
+      "title": "비행절차설계요령",
+      "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000287782",
+      "id": "admrul|42244|2100000287782",
+      "verification": "partial_or_missing_original"
+    }
+  ]
+}

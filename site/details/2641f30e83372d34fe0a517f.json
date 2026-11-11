@@ -1,0 +1,50 @@
+{
+  "schema": "policy-domino-unified-detail-v2",
+  "id": "admrul|2075865|2100000174515",
+  "title": "2022년도 제품·포장재별 장기재활용목표율",
+  "source": "admrul",
+  "source_kind": "행정규칙",
+  "kind": "고시",
+  "ministry": "기후에너지환경부",
+  "published_at": "2018-12-20",
+  "effective_date": "2018-12-20",
+  "revision": "일부개정",
+  "change_type": "amended",
+  "number": "2018-218",
+  "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000174515",
+  "category": "분야 미확정",
+  "category_basis": "not_verified",
+  "support_standard": false,
+  "headline": "신구 원문의 실질 변경 내용을 확인하고 있습니다",
+  "source_grade": "partial_or_missing_original",
+  "verification": "comparison_incomplete",
+  "comparison_status": "original_saved_comparison_pending",
+  "relationship": "",
+  "change_count": 0,
+  "numeric_change_count": 0,
+  "standard_changes": [],
+  "current_standard_tables": [],
+  "changes": [],
+  "unresolved": [],
+  "institutions": [],
+  "related_regulations": [],
+  "linked_regulation_count": 0,
+  "institution_count": 0,
+  "action_count": 0,
+  "details_path": "details/2641f30e83372d34fe0a517f.json",
+  "prior_url": "",
+  "source_documents": [
+    {
+      "title": "",
+      "url": "",
+      "id": "",
+      "verification": "partial_or_missing_original"
+    },
+    {
+      "title": "2022년도 제품·포장재별 장기재활용목표율",
+      "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000174515",
+      "id": "admrul|2075865|2100000174515",
+      "verification": "partial_or_missing_original"
+    }
+  ]
+}

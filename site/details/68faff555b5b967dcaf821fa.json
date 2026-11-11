@@ -1,0 +1,115 @@
+{
+  "schema": "policy-domino-unified-detail-v2",
+  "id": "admrul|93775|2100000267168",
+  "title": "2026년 바이오가스 민간의무생산자 고시",
+  "source": "admrul",
+  "source_kind": "행정규칙",
+  "kind": "고시",
+  "ministry": "기후에너지환경부",
+  "published_at": "2025-10-01",
+  "effective_date": "2025-10-07",
+  "revision": "일부개정",
+  "change_type": "amended",
+  "number": "2025-165",
+  "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000267168",
+  "category": "분야 미확정",
+  "category_basis": "not_verified",
+  "support_standard": false,
+  "headline": "신구 원문의 실질 변경 내용을 확인하고 있습니다",
+  "source_grade": "official_original_verified",
+  "verification": "comparison_incomplete",
+  "comparison_status": "original_saved_comparison_pending",
+  "relationship": "",
+  "change_count": 0,
+  "numeric_change_count": 0,
+  "standard_changes": [],
+  "current_standard_tables": [
+    {
+      "table": 1,
+      "header": [
+        "연번",
+        "시도",
+        "시군",
+        "사업장명"
+      ],
+      "cells": [
+        {
+          "row": "1",
+          "column": "사업장명",
+          "value": "타임스퀘어 00021호"
+        },
+        {
+          "row": "2",
+          "column": "사업장명",
+          "value": "수협노량진수산(주)-제200200001호"
+        },
+        {
+          "row": "6",
+          "column": "사업장명",
+          "value": "롯데물산(주)-신천동 올림픽로300"
+        },
+        {
+          "row": "17",
+          "column": "사업장명",
+          "value": "(주)아워홈 LG디스플레이 파주1점"
+        }
+      ],
+      "official_attachment_sha256": "a77435dd1da7f10c7f8a530df2fea6e1355dcbaa924d9ae2b7d51ada68e8ddbc"
+    },
+    {
+      "table": 1,
+      "header": [
+        "연번",
+        "시도",
+        "시군",
+        "사업장명"
+      ],
+      "cells": [
+        {
+          "row": "1",
+          "column": "사업장명",
+          "value": "타임스퀘어 00021호"
+        },
+        {
+          "row": "2",
+          "column": "사업장명",
+          "value": "수협노량진수산(주)-제200200001호"
+        },
+        {
+          "row": "6",
+          "column": "사업장명",
+          "value": "롯데물산(주)-신천동 올림픽로300"
+        },
+        {
+          "row": "17",
+          "column": "사업장명",
+          "value": "(주)아워홈 LG디스플레이 파주1점"
+        }
+      ],
+      "official_attachment_sha256": "8f6ff850dd13222b0cb34ace1faf64018d4142730bb19bb71b533c916082ebdf"
+    }
+  ],
+  "changes": [],
+  "unresolved": [],
+  "institutions": [],
+  "related_regulations": [],
+  "linked_regulation_count": 0,
+  "institution_count": 0,
+  "action_count": 0,
+  "details_path": "details/68faff555b5b967dcaf821fa.json",
+  "prior_url": "",
+  "source_documents": [
+    {
+      "title": "",
+      "url": "",
+      "id": "",
+      "verification": "partial_or_missing_original"
+    },
+    {
+      "title": "2026년 바이오가스 민간의무생산자 고시",
+      "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000267168",
+      "id": "admrul|93775|2100000267168",
+      "verification": "official_original_verified"
+    }
+  ]
+}

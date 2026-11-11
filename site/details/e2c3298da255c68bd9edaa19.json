@@ -1,0 +1,50 @@
+{
+  "schema": "policy-domino-unified-detail-v2",
+  "id": "law|015230|291017",
+  "title": "중대범죄수사청수사관 임용령 시행규칙",
+  "source": "law",
+  "source_kind": "법령",
+  "kind": "행정안전부령",
+  "ministry": "중대범죄수사청",
+  "published_at": "2026-10-02",
+  "effective_date": "2026-10-02",
+  "revision": "제정",
+  "change_type": "new",
+  "number": "00650",
+  "url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=291017",
+  "category": "분야 미확정",
+  "category_basis": "not_verified",
+  "support_standard": false,
+  "headline": "신구 원문의 실질 변경 내용을 확인하고 있습니다",
+  "source_grade": "legacy_extract_needs_revalidation",
+  "verification": "comparison_incomplete",
+  "comparison_status": "original_saved_comparison_pending",
+  "relationship": "",
+  "change_count": 0,
+  "numeric_change_count": 0,
+  "standard_changes": [],
+  "current_standard_tables": [],
+  "changes": [],
+  "unresolved": [],
+  "institutions": [],
+  "related_regulations": [],
+  "linked_regulation_count": 0,
+  "institution_count": 0,
+  "action_count": 0,
+  "details_path": "details/e2c3298da255c68bd9edaa19.json",
+  "prior_url": "",
+  "source_documents": [
+    {
+      "title": "",
+      "url": "",
+      "id": "",
+      "verification": "partial_or_missing_original"
+    },
+    {
+      "title": "중대범죄수사청수사관 임용령 시행규칙",
+      "url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=291017",
+      "id": "law|015230|291017",
+      "verification": "legacy_extract_needs_revalidation"
+    }
+  ]
+}

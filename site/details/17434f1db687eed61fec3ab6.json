@@ -1,0 +1,50 @@
+{
+  "schema": "policy-domino-unified-detail-v2",
+  "id": "law|015225|290805",
+  "title": "전남광주통합특별시 설치에 따른 전남광주통합특별시교육감 소속 공무원 인사관리 특례에 관한 규칙",
+  "source": "law",
+  "source_kind": "법령",
+  "kind": "교육부령",
+  "ministry": "교육부",
+  "published_at": "2026-09-30",
+  "effective_date": "2026-09-30",
+  "revision": "제정",
+  "change_type": "new",
+  "number": "00393",
+  "url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=290805",
+  "category": "교육·장학",
+  "category_basis": "policy_title_text_rule",
+  "support_standard": false,
+  "headline": "신구 원문의 실질 변경 내용을 확인하고 있습니다",
+  "source_grade": "legacy_extract_needs_revalidation",
+  "verification": "comparison_incomplete",
+  "comparison_status": "original_saved_comparison_pending",
+  "relationship": "",
+  "change_count": 0,
+  "numeric_change_count": 0,
+  "standard_changes": [],
+  "current_standard_tables": [],
+  "changes": [],
+  "unresolved": [],
+  "institutions": [],
+  "related_regulations": [],
+  "linked_regulation_count": 0,
+  "institution_count": 0,
+  "action_count": 0,
+  "details_path": "details/17434f1db687eed61fec3ab6.json",
+  "prior_url": "",
+  "source_documents": [
+    {
+      "title": "",
+      "url": "",
+      "id": "",
+      "verification": "partial_or_missing_original"
+    },
+    {
+      "title": "전남광주통합특별시 설치에 따른 전남광주통합특별시교육감 소속 공무원 인사관리 특례에 관한 규칙",
+      "url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=290805",
+      "id": "law|015225|290805",
+      "verification": "legacy_extract_needs_revalidation"
+    }
+  ]
+}

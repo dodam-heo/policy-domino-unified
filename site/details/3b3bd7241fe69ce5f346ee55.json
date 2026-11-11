@@ -1,0 +1,50 @@
+{
+  "schema": "policy-domino-unified-detail-v2",
+  "id": "ordin|2093466|769353",
+  "title": "영덕군교육협의회운영조례",
+  "source": "ordin",
+  "source_kind": "자치법규",
+  "kind": "자치법규",
+  "ministry": "경상북도 영덕군",
+  "published_at": "1997-12-06",
+  "effective_date": "9999-12-31",
+  "revision": "제정",
+  "change_type": "new",
+  "number": "1429",
+  "url": "https://www.law.go.kr/%EC%9E%90%EC%B9%98%EB%B2%95%EA%B7%9C/%EC%98%81%EB%8D%95%EA%B5%B0%EA%B5%90%EC%9C%A1%ED%98%91%EC%9D%98%ED%9A%8C%EC%9A%B4%EC%98%81%EC%A1%B0%EB%A1%80",
+  "category": "교육·장학",
+  "category_basis": "policy_title_text_rule",
+  "support_standard": false,
+  "headline": "신구 원문의 실질 변경 내용을 확인하고 있습니다",
+  "source_grade": "legacy_extract_needs_revalidation",
+  "verification": "comparison_incomplete",
+  "comparison_status": "original_saved_comparison_pending",
+  "relationship": "",
+  "change_count": 0,
+  "numeric_change_count": 0,
+  "standard_changes": [],
+  "current_standard_tables": [],
+  "changes": [],
+  "unresolved": [],
+  "institutions": [],
+  "related_regulations": [],
+  "linked_regulation_count": 0,
+  "institution_count": 0,
+  "action_count": 0,
+  "details_path": "details/3b3bd7241fe69ce5f346ee55.json",
+  "prior_url": "",
+  "source_documents": [
+    {
+      "title": "",
+      "url": "",
+      "id": "",
+      "verification": "partial_or_missing_original"
+    },
+    {
+      "title": "영덕군교육협의회운영조례",
+      "url": "https://www.law.go.kr/%EC%9E%90%EC%B9%98%EB%B2%95%EA%B7%9C/%EC%98%81%EB%8D%95%EA%B5%B0%EA%B5%90%EC%9C%A1%ED%98%91%EC%9D%98%ED%9A%8C%EC%9A%B4%EC%98%81%EC%A1%B0%EB%A1%80",
+      "id": "ordin|2093466|769353",
+      "verification": "legacy_extract_needs_revalidation"
+    }
+  ]
+}

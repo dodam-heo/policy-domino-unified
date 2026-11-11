@@ -1,0 +1,50 @@
+{
+  "schema": "policy-domino-unified-detail-v2",
+  "id": "law|008000|204045",
+  "title": "재외공관 무관주재령 시행규칙",
+  "source": "law",
+  "source_kind": "법령",
+  "kind": "국방부령",
+  "ministry": "국방부",
+  "published_at": "2018-07-04",
+  "effective_date": "2018-07-04",
+  "revision": "일부개정",
+  "change_type": "amended",
+  "number": "00965",
+  "url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=204045",
+  "category": "분야 미확정",
+  "category_basis": "not_verified",
+  "support_standard": false,
+  "headline": "신구 원문의 실질 변경 내용을 확인하고 있습니다",
+  "source_grade": "legacy_extract_needs_revalidation",
+  "verification": "comparison_incomplete",
+  "comparison_status": "original_saved_comparison_pending",
+  "relationship": "",
+  "change_count": 0,
+  "numeric_change_count": 0,
+  "standard_changes": [],
+  "current_standard_tables": [],
+  "changes": [],
+  "unresolved": [],
+  "institutions": [],
+  "related_regulations": [],
+  "linked_regulation_count": 0,
+  "institution_count": 0,
+  "action_count": 0,
+  "details_path": "details/86197a4ccdc8d0add04d5ab4.json",
+  "prior_url": "",
+  "source_documents": [
+    {
+      "title": "",
+      "url": "",
+      "id": "",
+      "verification": "partial_or_missing_original"
+    },
+    {
+      "title": "재외공관 무관주재령 시행규칙",
+      "url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=204045",
+      "id": "law|008000|204045",
+      "verification": "legacy_extract_needs_revalidation"
+    }
+  ]
+}

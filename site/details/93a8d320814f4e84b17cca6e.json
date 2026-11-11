@@ -1,0 +1,50 @@
+{
+  "schema": "policy-domino-unified-detail-v2",
+  "id": "ordin|2002716|1700735",
+  "title": "인천광역시 교육비특별회계 소관 공용차량 관리 규칙",
+  "source": "ordin",
+  "source_kind": "자치법규",
+  "kind": "자치법규",
+  "ministry": "인천광역시교육청",
+  "published_at": "2022-04-21",
+  "effective_date": "2022-04-21",
+  "revision": "일부개정",
+  "change_type": "amended",
+  "number": "00723",
+  "url": "https://www.law.go.kr/%EC%9E%90%EC%B9%98%EB%B2%95%EA%B7%9C/%EC%9D%B8%EC%B2%9C%EA%B4%91%EC%97%AD%EC%8B%9C%20%EA%B5%90%EC%9C%A1%EB%B9%84%ED%8A%B9%EB%B3%84%ED%9A%8C%EA%B3%84%20%EC%86%8C%EA%B4%80%20%EA%B3%B5%EC%9A%A9%EC%B0%A8%EB%9F%89%20%EA%B4%80%EB%A6%AC%20%EA%B7%9C%EC%B9%99",
+  "category": "교육·장학",
+  "category_basis": "policy_title_text_rule",
+  "support_standard": false,
+  "headline": "신구 원문의 실질 변경 내용을 확인하고 있습니다",
+  "source_grade": "legacy_extract_needs_revalidation",
+  "verification": "comparison_incomplete",
+  "comparison_status": "original_saved_comparison_pending",
+  "relationship": "",
+  "change_count": 0,
+  "numeric_change_count": 0,
+  "standard_changes": [],
+  "current_standard_tables": [],
+  "changes": [],
+  "unresolved": [],
+  "institutions": [],
+  "related_regulations": [],
+  "linked_regulation_count": 0,
+  "institution_count": 0,
+  "action_count": 0,
+  "details_path": "details/93a8d320814f4e84b17cca6e.json",
+  "prior_url": "",
+  "source_documents": [
+    {
+      "title": "",
+      "url": "",
+      "id": "",
+      "verification": "partial_or_missing_original"
+    },
+    {
+      "title": "인천광역시 교육비특별회계 소관 공용차량 관리 규칙",
+      "url": "https://www.law.go.kr/%EC%9E%90%EC%B9%98%EB%B2%95%EA%B7%9C/%EC%9D%B8%EC%B2%9C%EA%B4%91%EC%97%AD%EC%8B%9C%20%EA%B5%90%EC%9C%A1%EB%B9%84%ED%8A%B9%EB%B3%84%ED%9A%8C%EA%B3%84%20%EC%86%8C%EA%B4%80%20%EA%B3%B5%EC%9A%A9%EC%B0%A8%EB%9F%89%20%EA%B4%80%EB%A6%AC%20%EA%B7%9C%EC%B9%99",
+      "id": "ordin|2002716|1700735",
+      "verification": "legacy_extract_needs_revalidation"
+    }
+  ]
+}

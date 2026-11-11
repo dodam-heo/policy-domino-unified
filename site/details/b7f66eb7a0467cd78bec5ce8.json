@@ -1,0 +1,50 @@
+{
+  "schema": "policy-domino-unified-detail-v2",
+  "id": "law|014462|290899",
+  "title": "군사법경찰 수사규칙",
+  "source": "law",
+  "source_kind": "법령",
+  "kind": "국방부령",
+  "ministry": "국방부",
+  "published_at": "2026-10-02",
+  "effective_date": "2026-10-02",
+  "revision": "일부개정",
+  "change_type": "amended",
+  "number": "01227",
+  "url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=290899",
+  "category": "안전·사법",
+  "category_basis": "policy_title_text_rule",
+  "support_standard": false,
+  "headline": "신구 원문의 실질 변경 내용을 확인하고 있습니다",
+  "source_grade": "legacy_extract_needs_revalidation",
+  "verification": "comparison_incomplete",
+  "comparison_status": "original_saved_comparison_pending",
+  "relationship": "",
+  "change_count": 0,
+  "numeric_change_count": 0,
+  "standard_changes": [],
+  "current_standard_tables": [],
+  "changes": [],
+  "unresolved": [],
+  "institutions": [],
+  "related_regulations": [],
+  "linked_regulation_count": 0,
+  "institution_count": 0,
+  "action_count": 0,
+  "details_path": "details/b7f66eb7a0467cd78bec5ce8.json",
+  "prior_url": "",
+  "source_documents": [
+    {
+      "title": "",
+      "url": "",
+      "id": "",
+      "verification": "partial_or_missing_original"
+    },
+    {
+      "title": "군사법경찰 수사규칙",
+      "url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=290899",
+      "id": "law|014462|290899",
+      "verification": "legacy_extract_needs_revalidation"
+    }
+  ]
+}

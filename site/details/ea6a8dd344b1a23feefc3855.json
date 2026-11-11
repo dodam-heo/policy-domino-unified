@@ -1,0 +1,59 @@
+{
+  "schema": "policy-domino-unified-detail-v2",
+  "id": "ordin|2143585|2183619",
+  "title": "포천시의회 청원 심사 규칙",
+  "source": "ordin",
+  "source_kind": "자치법규",
+  "kind": "자치법규",
+  "ministry": "경기도 포천시",
+  "published_at": "2026-11-09",
+  "effective_date": "2026-11-09",
+  "revision": "일부개정",
+  "change_type": "amended",
+  "number": "52",
+  "url": "https://www.law.go.kr/%EC%9E%90%EC%B9%98%EB%B2%95%EA%B7%9C/%ED%8F%AC%EC%B2%9C%EC%8B%9C%EC%9D%98%ED%9A%8C%20%EC%B2%AD%EC%9B%90%20%EC%8B%AC%EC%82%AC%20%EA%B7%9C%EC%B9%99",
+  "category": "분야 미확정",
+  "category_basis": "not_verified",
+  "support_standard": false,
+  "headline": "신구 원문의 실질 변경 내용을 확인하고 있습니다",
+  "source_grade": "legacy_extract_needs_revalidation",
+  "verification": "comparison_incomplete",
+  "comparison_status": "partial_unverified",
+  "relationship": "same_official_id_revision",
+  "change_count": 0,
+  "numeric_change_count": 0,
+  "standard_changes": [],
+  "current_standard_tables": [],
+  "changes": [],
+  "unresolved": [
+    {
+      "clause": "부칙 32 20220209",
+      "reason": "counterpart_not_verified"
+    },
+    {
+      "clause": "부칙 52 20261109",
+      "reason": "counterpart_not_verified"
+    }
+  ],
+  "institutions": [],
+  "related_regulations": [],
+  "linked_regulation_count": 0,
+  "institution_count": 0,
+  "action_count": 0,
+  "details_path": "details/ea6a8dd344b1a23feefc3855.json",
+  "prior_url": "https://www.law.go.kr/%EC%9E%90%EC%B9%98%EB%B2%95%EA%B7%9C/%ED%8F%AC%EC%B2%9C%EC%8B%9C%EC%9D%98%ED%9A%8C%20%EC%B2%AD%EC%9B%90%20%EC%8B%AC%EC%82%AC%20%EA%B7%9C%EC%B9%99",
+  "source_documents": [
+    {
+      "title": "포천시의회 청원 심사 규칙",
+      "url": "https://www.law.go.kr/%EC%9E%90%EC%B9%98%EB%B2%95%EA%B7%9C/%ED%8F%AC%EC%B2%9C%EC%8B%9C%EC%9D%98%ED%9A%8C%20%EC%B2%AD%EC%9B%90%20%EC%8B%AC%EC%82%AC%20%EA%B7%9C%EC%B9%99",
+      "id": "ordin|2143585|1682881",
+      "verification": "legacy_extract_needs_revalidation"
+    },
+    {
+      "title": "포천시의회 청원 심사 규칙",
+      "url": "https://www.law.go.kr/%EC%9E%90%EC%B9%98%EB%B2%95%EA%B7%9C/%ED%8F%AC%EC%B2%9C%EC%8B%9C%EC%9D%98%ED%9A%8C%20%EC%B2%AD%EC%9B%90%20%EC%8B%AC%EC%82%AC%20%EA%B7%9C%EC%B9%99",
+      "id": "ordin|2143585|2183619",
+      "verification": "legacy_extract_needs_revalidation"
+    }
+  ]
+}

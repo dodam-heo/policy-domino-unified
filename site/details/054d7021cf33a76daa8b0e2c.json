@@ -1,0 +1,50 @@
+{
+  "schema": "policy-domino-unified-detail-v2",
+  "id": "law|002546|291487",
+  "title": "교과용 도서에 관한 규정",
+  "source": "law",
+  "source_kind": "법령",
+  "kind": "대통령령",
+  "ministry": "교육부",
+  "published_at": "2026-10-27",
+  "effective_date": "2026-10-29",
+  "revision": "일부개정",
+  "change_type": "amended",
+  "number": "36784",
+  "url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=291487",
+  "category": "분야 미확정",
+  "category_basis": "not_verified",
+  "support_standard": false,
+  "headline": "신구 원문의 실질 변경 내용을 확인하고 있습니다",
+  "source_grade": "legacy_extract_needs_revalidation",
+  "verification": "comparison_incomplete",
+  "comparison_status": "original_saved_comparison_pending",
+  "relationship": "",
+  "change_count": 0,
+  "numeric_change_count": 0,
+  "standard_changes": [],
+  "current_standard_tables": [],
+  "changes": [],
+  "unresolved": [],
+  "institutions": [],
+  "related_regulations": [],
+  "linked_regulation_count": 0,
+  "institution_count": 0,
+  "action_count": 0,
+  "details_path": "details/054d7021cf33a76daa8b0e2c.json",
+  "prior_url": "",
+  "source_documents": [
+    {
+      "title": "",
+      "url": "",
+      "id": "",
+      "verification": "partial_or_missing_original"
+    },
+    {
+      "title": "교과용 도서에 관한 규정",
+      "url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=291487",
+      "id": "law|002546|291487",
+      "verification": "legacy_extract_needs_revalidation"
+    }
+  ]
+}

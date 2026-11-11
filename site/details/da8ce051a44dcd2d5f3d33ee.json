@@ -1,0 +1,50 @@
+{
+  "schema": "policy-domino-unified-detail-v2",
+  "id": "admrul|2087719|2100000287500",
+  "title": "통계작성의 변경승인(협의) 고시(의료기관별급여적정성평가현황)",
+  "source": "admrul",
+  "source_kind": "행정규칙",
+  "kind": "고시",
+  "ministry": "국가데이터처",
+  "published_at": "2026-10-29",
+  "effective_date": "2026-12-01",
+  "revision": "일부개정",
+  "change_type": "amended",
+  "number": "2026-737",
+  "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000287500",
+  "category": "보건·의료",
+  "category_basis": "policy_title_text_rule",
+  "support_standard": true,
+  "headline": "신구 원문의 실질 변경 내용을 확인하고 있습니다",
+  "source_grade": "legacy_extract_needs_revalidation",
+  "verification": "comparison_incomplete",
+  "comparison_status": "original_saved_comparison_pending",
+  "relationship": "",
+  "change_count": 0,
+  "numeric_change_count": 0,
+  "standard_changes": [],
+  "current_standard_tables": [],
+  "changes": [],
+  "unresolved": [],
+  "institutions": [],
+  "related_regulations": [],
+  "linked_regulation_count": 0,
+  "institution_count": 0,
+  "action_count": 0,
+  "details_path": "details/da8ce051a44dcd2d5f3d33ee.json",
+  "prior_url": "",
+  "source_documents": [
+    {
+      "title": "",
+      "url": "",
+      "id": "",
+      "verification": "partial_or_missing_original"
+    },
+    {
+      "title": "통계작성의 변경승인(협의) 고시(의료기관별급여적정성평가현황)",
+      "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000287500",
+      "id": "admrul|2087719|2100000287500",
+      "verification": "legacy_extract_needs_revalidation"
+    }
+  ]
+}

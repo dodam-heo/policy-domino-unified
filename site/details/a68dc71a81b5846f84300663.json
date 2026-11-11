@@ -1,0 +1,84 @@
+{
+  "schema": "policy-domino-unified-detail-v2",
+  "id": "law|013905|288319",
+  "title": "보건복지부장관의 소속 청장 지휘에 관한 규칙",
+  "source": "law",
+  "source_kind": "법령",
+  "kind": "보건복지부령",
+  "ministry": "보건복지부",
+  "published_at": "2026-07-21",
+  "effective_date": "2026-07-21",
+  "revision": "타법개정",
+  "change_type": "amended",
+  "number": "01190",
+  "url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=288319",
+  "category": "복지·소득",
+  "category_basis": "policy_title_text_rule",
+  "support_standard": false,
+  "headline": "원문 재검증 필요 · 제7조: 에 따른 승인 및 보고 사항 중 질병의 예방ㆍ관리에 관한 사항은 보건복지부 공공보건정책관이, 보건의료 연구개발에 관한 사항은 보건복지부 첨단의료지원관이 총괄한다. → 에 따른 승인 및 보고 사항 중 질병의 예방ㆍ관리에 관한 사항은 보건복지부 보건의료정책관이, 보건의료 연구개발에 관한 사항은 보건복지부 보건산업정책국장이 총괄한다.",
+  "source_grade": "legacy_extract_needs_revalidation",
+  "verification": "comparison_incomplete",
+  "comparison_status": "partial_unverified",
+  "relationship": "same_official_id_revision",
+  "change_count": 2,
+  "numeric_change_count": 0,
+  "standard_changes": [],
+  "current_standard_tables": [],
+  "changes": [
+    {
+      "article": "제7조",
+      "before": "제7조(승인 및 보고의 방법 등) ① 이 규칙에 따른 승인 및 보고는 승인 신청서 또는 보고서를 장관에게 제출하는 방법으로 한다. 다만, 사안의 긴급성ㆍ복잡성이나 보안상의 편의 등을 고려하여 필요한 경우에는 관계 문서에 직접 결재를 받는 방법으로 한다. ② 이 규칙에 따른 승인 및 보고 사항 중 질병의 예방ㆍ관리에 관한 사항은 보건복지부 공공보건정책관이, 보건의료 연구개발에 관한 사항은 보건복지부 첨단의료지원관이 총괄한다.",
+      "after": "제7조(승인 및 보고의 방법 등) ① 이 규칙에 따른 승인 및 보고는 승인 신청서 또는 보고서를 장관에게 제출하는 방법으로 한다. 다만, 사안의 긴급성ㆍ복잡성이나 보안상의 편의 등을 고려하여 필요한 경우에는 관계 문서에 직접 결재를 받는 방법으로 한다. ② 이 규칙에 따른 승인 및 보고 사항 중 질병의 예방ㆍ관리에 관한 사항은 보건복지부 보건의료정책관이, 보건의료 연구개발에 관한 사항은 보건복지부 보건산업정책국장이 총괄한다.",
+      "focus": {
+        "before": "에 따른 승인 및 보고 사항 중 질병의 예방ㆍ관리에 관한 사항은 보건복지부 공공보건정책관이, 보건의료 연구개발에 관한 사항은 보건복지부 첨단의료지원관이 총괄한다.",
+        "after": "에 따른 승인 및 보고 사항 중 질병의 예방ㆍ관리에 관한 사항은 보건복지부 보건의료정책관이, 보건의료 연구개발에 관한 사항은 보건복지부 보건산업정책국장이 총괄한다.",
+        "changed": true,
+        "old_deleted": "공공보건정책관이, 보건의료 연구개발에 관한 사항은 보건복지부 첨단의료지원관",
+        "new_added": "보건의료정책관이, 보건의료 연구개발에 관한 사항은 보건복지부 보건산업정책국장",
+        "precision": "single_edit"
+      },
+      "verification": "comparison_incomplete"
+    },
+    {
+      "article": "제8조",
+      "before": "제8조(정책협의회 등) ① 장관은 다음 각 호의 사항을 위하여 청장과 분기별로 정책협의회를 개최한다. 1. 질병관리청 주요 업무의 추진 현황 보고 2. 중요 정책사항에 대한 보건복지부와 질병관리청 간 협의 3. 그 밖에 보건복지부와 질병관리청 간 업무 협의를 위하여 필요한 사항 ② 보건복지부 공공보건정책관 또는 첨단의료지원관은 제1항에 따른 정책협의회 운영 및 보건복지부와 질병관리청 간 업무 협의를 위하여 필요한 경우 실무협의회를 개최할 수 있다.",
+      "after": "제8조(정책협의회 등) ① 장관은 다음 각 호의 사항을 위하여 청장과 분기별로 정책협의회를 개최한다. 1. 질병관리청 주요 업무의 추진 현황 보고 2. 중요 정책사항에 대한 보건복지부와 질병관리청 간 협의 3. 그 밖에 보건복지부와 질병관리청 간 업무 협의를 위하여 필요한 사항 ② 보건복지부 보건의료정책관 또는 보건산업정책국장은 제1항에 따른 정책협의회 운영 및 보건복지부와 질병관리청 간 업무 협의를 위하여 필요한 경우 실무협의회를 개최할 수 있다.",
+      "focus": {
+        "before": "보건복지부와 질병관리청 간 업무 협의를 위하여 필요한 사항 ② 보건복지부 공공보건정책관 또는 첨단의료지원관은 제1항에 따른 정책협의회 운영 및 보건복지부와 질병관리청 간 업무 협의를",
+        "after": "보건복지부와 질병관리청 간 업무 협의를 위하여 필요한 사항 ② 보건복지부 보건의료정책관 또는 보건산업정책국장은 제1항에 따른 정책협의회 운영 및 보건복지부와 질병관리청 간 업무 협의를",
+        "changed": true,
+        "old_deleted": "공공보건정책관 또는 첨단의료지원관",
+        "new_added": "보건의료정책관 또는 보건산업정책국장",
+        "precision": "single_edit"
+      },
+      "verification": "comparison_incomplete"
+    }
+  ],
+  "unresolved": [
+    {
+      "clause": "부칙 01190 20260721",
+      "reason": "counterpart_not_verified"
+    }
+  ],
+  "institutions": [],
+  "related_regulations": [],
+  "linked_regulation_count": 0,
+  "institution_count": 0,
+  "action_count": 0,
+  "details_path": "details/a68dc71a81b5846f84300663.json",
+  "prior_url": "https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EB%B3%B4%EA%B1%B4%EB%B3%B5%EC%A7%80%EB%B6%80%EC%9E%A5%EA%B4%80%EC%9D%98%20%EC%86%8C%EC%86%8D%20%EC%B2%AD%EC%9E%A5%20%EC%A7%80%ED%9C%98%EC%97%90%20%EA%B4%80%ED%95%9C%20%EA%B7%9C%EC%B9%99",
+  "source_documents": [
+    {
+      "title": "보건복지부장관의 소속 청장 지휘에 관한 규칙",
+      "url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=282235",
+      "id": "law|013905|282235",
+      "verification": "legacy_extract_needs_revalidation"
+    },
+    {
+      "title": "보건복지부장관의 소속 청장 지휘에 관한 규칙",
+      "url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=288319",
+      "id": "law|013905|288319",
+      "verification": "legacy_extract_needs_revalidation"
+    }
+  ]
+}

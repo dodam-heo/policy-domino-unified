@@ -1,0 +1,79 @@
+{
+  "schema": "policy-domino-unified-detail-v2",
+  "id": "ordin|2252558|2151219",
+  "title": "충청광역연합 공무국외출장 조례",
+  "source": "ordin",
+  "source_kind": "자치법규",
+  "kind": "자치법규",
+  "ministry": "충청광역연합",
+  "published_at": "2026-07-15",
+  "effective_date": "2026-07-15",
+  "revision": "일부개정",
+  "change_type": "amended",
+  "number": "00046",
+  "url": "https://www.law.go.kr/%EC%9E%90%EC%B9%98%EB%B2%95%EA%B7%9C/%EC%B6%A9%EC%B2%AD%EA%B4%91%EC%97%AD%EC%97%B0%ED%95%A9%20%EA%B3%B5%EB%AC%B4%EA%B5%AD%EC%99%B8%EC%B6%9C%EC%9E%A5%20%EC%A1%B0%EB%A1%80",
+  "category": "환경·에너지",
+  "category_basis": "verified_excerpt_text_rule",
+  "support_standard": false,
+  "headline": "원문 재검증 필요 · 별표 0003의00 (공무국외출장 심의결정서): ○○ 〃 초광역 건설환경과장 ○○○ 간 사 초광역 자치 팀 장 ○○○ ※ 가·부 의견란에 ○표 후 서명 → ○○ 〃 초광역 건설환경과장 ○○○ 간 사 초광역 자치 팀 장 ○○○ ※ 가ㆍ부 의견란에 ○표 후 서명",
+  "source_grade": "legacy_extract_needs_revalidation",
+  "verification": "historical_comparison_needs_revalidation",
+  "comparison_status": "changed",
+  "relationship": "same_official_id_revision",
+  "change_count": 2,
+  "numeric_change_count": 0,
+  "standard_changes": [],
+  "current_standard_tables": [],
+  "changes": [
+    {
+      "article": "별표 0003의00 (공무국외출장 심의결정서)",
+      "before": "[별지 제3호서식] 공무국외출장 심의결정서(제5조제4항 관련) □ 심의사항 출 장 명 (목적) 출 장 자 출장기간 출장국 비 고 직위(급) 성 명 공무국외출장 신청에 대하여 다음과 같이 심의 결정함. . 20 년 월 일 충청광역연합 공무국외출장 심사위원회 위원장 ○ ○ ○ □ 결정조서 직 위 성 명 의 견 서 명 비 고 가 부 위 원 장 연합사무처장 ○○○ 부위원장 초광역 자치과장 ○○○ 위 원 초광역 산업문화과장 ○○○ 〃 초광역 건설환경과장 ○○○ 간 사 초광역 자치 팀 장 ○○○ ※ 가·부 의견란에 ○표 후 서명",
+      "after": "[별지 제3호서식] 공무국외출장 심의결정서(제5조제4항 관련) □ 심의사항 출 장 명 (목적) 출 장 자 출장기간 출장국 비 고 직위(급) 성 명 공무국외출장 신청에 대하여 다음과 같이 심의 결정함. . 20 년 월 일 충청광역연합 공무국외출장 심사위원회 위원장 ○ ○ ○ □ 결정조서 직 위 성 명 의 견 서 명 비 고 가 부 위 원 장 연합사무처장 ○○○ 부위원장 초광역 자치과장 ○○○ 위 원 초광역 산업문화과장 ○○○ 〃 초광역 건설환경과장 ○○○ 간 사 초광역 자치 팀 장 ○○○ ※ 가ㆍ부 의견란에 ○표 후 서명",
+      "focus": {
+        "before": "○○ 〃 초광역 건설환경과장 ○○○ 간 사 초광역 자치 팀 장 ○○○ ※ 가·부 의견란에 ○표 후 서명",
+        "after": "○○ 〃 초광역 건설환경과장 ○○○ 간 사 초광역 자치 팀 장 ○○○ ※ 가ㆍ부 의견란에 ○표 후 서명",
+        "changed": true,
+        "old_deleted": "·",
+        "new_added": "ㆍ",
+        "precision": "single_edit"
+      },
+      "verification": "historical_comparison_needs_revalidation"
+    },
+    {
+      "article": "별표 0006의00 (공무국외출장 결과보고서)",
+      "before": "[별지 제6호서식] 공무국외출장 결과보고서(제10조제1항 관련) Ⅰ. 출장개요 ○ 목적 ○ 기간 ○ 대상국가 및 방문기관 ○ 출장자 인적사항 Ⅱ. 출장내용 ○ 주요 활동 내용 * 일정별 또는 활동내역별로 작성 Ⅲ. 시사점 및 특이사항 ○ 시사점 ○ 특이사항 ※ 선물수령 관련 선물수령 여부 : □ 예 □ 아니오 / 선물신고 여부 : □ 예 □ 아니오 10만원(미화 100달러) 이상의 선물은 소속기관에 신고하여야 하며, 시장가액을 알 수 없는 경우에는 해당 선물목록을 소속기관에 제출하고 소속기관에 구성된 선물평가단의 평가를 거쳐 신고 여부 결정 Ⅳ. 첨부자료 ○ 공무국외출장 계획서 ○ 계획에 따라 현지 일정이 진행되었음을 증명할 수 있는 자료 - 항공사에서 발행하는 전자항공권(E-ticket) 및 열차·버스 승차권 등 - 호텔 등 숙박비 Invoice 또는 영수증 - 회의 참석 또는 기관 방문시 면담·회의 장면 사진 등 ○ 감염병 예방 등 안전조치 사항 - 감염병 예방접종 확인서 사본(필요한 경우) - (개인, 단체)여행자보험 가입 증명서 사본 ※ 승차권 등 첨부자료는 가급적 스캔 또는 디지털카메라 접사 촬영하여 보고서에 첨부하되, 개인정보 노출에 주의(필요시 부분 삭제)",
+      "after": "[별지 제6호서식] 공무국외출장 결과보고서(제10조제1항 관련) Ⅰ. 출장개요 ○ 목적 ○ 기간 ○ 대상국가 및 방문기관 ○ 출장자 인적사항 Ⅱ. 출장내용 ○ 주요 활동 내용 * 일정별 또는 활동내역별로 작성 Ⅲ. 시사점 및 특이사항 ○ 시사점 ○ 특이사항 ※ 선물수령 관련 선물수령 여부 : □ 예 □ 아니오 / 선물신고 여부 : □ 예 □ 아니오 10만원(미화 100달러) 이상의 선물은 소속기관에 신고하여야 하며, 시장가액을 알 수 없는 경우에는 해당 선물목록을 소속기관에 제출하고 소속기관에 구성된 선물평가단의 평가를 거쳐 신고 여부 결정 Ⅳ. 첨부자료 ○ 공무국외출장 계획서 ○ 계획에 따라 현지 일정이 진행되었음을 증명할 수 있는 자료 - 항공사에서 발행하는 전자항공권(E-ticket) 및 열차ㆍ버스 승차권 등 - 호텔 등 숙박비 Invoice 또는 영수증 - 회의 참석 또는 기관 방문시 면담ㆍ회의 장면 사진 등 ○ 감염병 예방 등 안전조치 사항 - 감염병 예방접종 확인서 사본(필요한 경우) - (개인, 단체)여행자보험 가입 증명서 사본 ※ 승차권 등 첨부자료는 가급적 스캔 또는 디지털카메라 접사 촬영하여 보고서에 첨부하되, 개인정보 노출에 주의(필요시 부분 삭제)",
+      "focus": {
+        "before": "수 있는 자료 - 항공사에서 발행하는 전자항공권(E-ticket) 및 열차·버스 승차권 등 - 호텔 등 숙박비 Invoice 또는 영수증 - 회의 참석 또는 기관 방문시 면담·회의 장면 사진 등 ○ 감염병 예방 등 안전조치…",
+        "after": "수 있는 자료 - 항공사에서 발행하는 전자항공권(E-ticket) 및 열차ㆍ버스 승차권 등 - 호텔 등 숙박비 Invoice 또는 영수증 - 회의 참석 또는 기관 방문시 면담ㆍ회의 장면 사진 등 ○ 감염병 예방 등 안전조치…",
+        "changed": true,
+        "old_deleted": "·버스 승차권 등 - 호텔 등 숙박비 Invoice 또는 영수증 - 회의 참석 또는 기관 방문시 면담·",
+        "new_added": "ㆍ버스 승차권 등 - 호텔 등 숙박비 Invoice 또는 영수증 - 회의 참석 또는 기관 방문시 면담ㆍ",
+        "precision": "single_edit"
+      },
+      "verification": "historical_comparison_needs_revalidation"
+    }
+  ],
+  "unresolved": [],
+  "institutions": [],
+  "related_regulations": [],
+  "linked_regulation_count": 0,
+  "institution_count": 0,
+  "action_count": 0,
+  "details_path": "details/c1c20920f6bb41d69e85cafb.json",
+  "prior_url": "https://www.law.go.kr/%EC%9E%90%EC%B9%98%EB%B2%95%EA%B7%9C/%EC%B6%A9%EC%B2%AD%EA%B4%91%EC%97%AD%EC%97%B0%ED%95%A9%20%EA%B3%B5%EB%AC%B4%EA%B5%AD%EC%99%B8%EC%B6%9C%EC%9E%A5%20%EC%A1%B0%EB%A1%80",
+  "source_documents": [
+    {
+      "title": "충청광역연합 공무국외출장 조례",
+      "url": "https://www.law.go.kr/%EC%9E%90%EC%B9%98%EB%B2%95%EA%B7%9C/%EC%B6%A9%EC%B2%AD%EA%B4%91%EC%97%AD%EC%97%B0%ED%95%A9%20%EA%B3%B5%EB%AC%B4%EA%B5%AD%EC%99%B8%EC%B6%9C%EC%9E%A5%20%EC%A1%B0%EB%A1%80",
+      "id": "ordin|2252558|2032187",
+      "verification": "legacy_extract_needs_revalidation"
+    },
+    {
+      "title": "충청광역연합 공무국외출장 조례",
+      "url": "https://www.law.go.kr/%EC%9E%90%EC%B9%98%EB%B2%95%EA%B7%9C/%EC%B6%A9%EC%B2%AD%EA%B4%91%EC%97%AD%EC%97%B0%ED%95%A9%20%EA%B3%B5%EB%AC%B4%EA%B5%AD%EC%99%B8%EC%B6%9C%EC%9E%A5%20%EC%A1%B0%EB%A1%80",
+      "id": "ordin|2252558|2151219",
+      "verification": "legacy_extract_needs_revalidation"
+    }
+  ]
+}

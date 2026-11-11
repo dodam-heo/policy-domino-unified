@@ -1,0 +1,50 @@
+{
+  "schema": "policy-domino-unified-detail-v2",
+  "id": "ordin|2214675|1655537",
+  "title": "포천시의회 사무기구 직무대리 규칙",
+  "source": "ordin",
+  "source_kind": "자치법규",
+  "kind": "자치법규",
+  "ministry": "경기도 포천시",
+  "published_at": "2021-12-29",
+  "effective_date": "2022-01-13",
+  "revision": "제정",
+  "change_type": "new",
+  "number": "28",
+  "url": "https://www.law.go.kr/%EC%9E%90%EC%B9%98%EB%B2%95%EA%B7%9C/%ED%8F%AC%EC%B2%9C%EC%8B%9C%EC%9D%98%ED%9A%8C%20%EC%82%AC%EB%AC%B4%EA%B8%B0%EA%B5%AC%20%EC%A7%81%EB%AC%B4%EB%8C%80%EB%A6%AC%20%EA%B7%9C%EC%B9%99",
+  "category": "분야 미확정",
+  "category_basis": "not_verified",
+  "support_standard": false,
+  "headline": "신구 원문의 실질 변경 내용을 확인하고 있습니다",
+  "source_grade": "legacy_extract_needs_revalidation",
+  "verification": "comparison_incomplete",
+  "comparison_status": "original_saved_comparison_pending",
+  "relationship": "",
+  "change_count": 0,
+  "numeric_change_count": 0,
+  "standard_changes": [],
+  "current_standard_tables": [],
+  "changes": [],
+  "unresolved": [],
+  "institutions": [],
+  "related_regulations": [],
+  "linked_regulation_count": 0,
+  "institution_count": 0,
+  "action_count": 0,
+  "details_path": "details/af08edd0301071a4a9bd38dd.json",
+  "prior_url": "",
+  "source_documents": [
+    {
+      "title": "",
+      "url": "",
+      "id": "",
+      "verification": "partial_or_missing_original"
+    },
+    {
+      "title": "포천시의회 사무기구 직무대리 규칙",
+      "url": "https://www.law.go.kr/%EC%9E%90%EC%B9%98%EB%B2%95%EA%B7%9C/%ED%8F%AC%EC%B2%9C%EC%8B%9C%EC%9D%98%ED%9A%8C%20%EC%82%AC%EB%AC%B4%EA%B8%B0%EA%B5%AC%20%EC%A7%81%EB%AC%B4%EB%8C%80%EB%A6%AC%20%EA%B7%9C%EC%B9%99",
+      "id": "ordin|2214675|1655537",
+      "verification": "legacy_extract_needs_revalidation"
+    }
+  ]
+}

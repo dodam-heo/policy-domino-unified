@@ -1,0 +1,59 @@
+{
+  "schema": "policy-domino-unified-detail-v2",
+  "id": "ordin|2225074|2183607",
+  "title": "포천시의회 공무원 행동강령 규칙",
+  "source": "ordin",
+  "source_kind": "자치법규",
+  "kind": "자치법규",
+  "ministry": "경기도 포천시",
+  "published_at": "2026-11-09",
+  "effective_date": "2026-11-09",
+  "revision": "일부개정",
+  "change_type": "amended",
+  "number": "52",
+  "url": "https://www.law.go.kr/%EC%9E%90%EC%B9%98%EB%B2%95%EA%B7%9C/%ED%8F%AC%EC%B2%9C%EC%8B%9C%EC%9D%98%ED%9A%8C%20%EA%B3%B5%EB%AC%B4%EC%9B%90%20%ED%96%89%EB%8F%99%EA%B0%95%EB%A0%B9%20%EA%B7%9C%EC%B9%99",
+  "category": "노동·인사",
+  "category_basis": "policy_title_text_rule",
+  "support_standard": false,
+  "headline": "신구 원문의 실질 변경 내용을 확인하고 있습니다",
+  "source_grade": "legacy_extract_needs_revalidation",
+  "verification": "comparison_incomplete",
+  "comparison_status": "partial_unverified",
+  "relationship": "same_official_id_revision",
+  "change_count": 0,
+  "numeric_change_count": 0,
+  "standard_changes": [],
+  "current_standard_tables": [],
+  "changes": [],
+  "unresolved": [
+    {
+      "clause": "부칙 37 20221221",
+      "reason": "counterpart_not_verified"
+    },
+    {
+      "clause": "부칙 52 20261109",
+      "reason": "counterpart_not_verified"
+    }
+  ],
+  "institutions": [],
+  "related_regulations": [],
+  "linked_regulation_count": 0,
+  "institution_count": 0,
+  "action_count": 0,
+  "details_path": "details/e4aaed8e0e77ce77801d1107.json",
+  "prior_url": "https://www.law.go.kr/%EC%9E%90%EC%B9%98%EB%B2%95%EA%B7%9C/%ED%8F%AC%EC%B2%9C%EC%8B%9C%EC%9D%98%ED%9A%8C%20%EA%B3%B5%EB%AC%B4%EC%9B%90%20%ED%96%89%EB%8F%99%EA%B0%95%EB%A0%B9%20%EA%B7%9C%EC%B9%99",
+  "source_documents": [
+    {
+      "title": "포천시의회 공무원 행동강령 규칙",
+      "url": "https://www.law.go.kr/%EC%9E%90%EC%B9%98%EB%B2%95%EA%B7%9C/%ED%8F%AC%EC%B2%9C%EC%8B%9C%EC%9D%98%ED%9A%8C%20%EA%B3%B5%EB%AC%B4%EC%9B%90%20%ED%96%89%EB%8F%99%EA%B0%95%EB%A0%B9%20%EA%B7%9C%EC%B9%99",
+      "id": "ordin|2225074|1760485",
+      "verification": "legacy_extract_needs_revalidation"
+    },
+    {
+      "title": "포천시의회 공무원 행동강령 규칙",
+      "url": "https://www.law.go.kr/%EC%9E%90%EC%B9%98%EB%B2%95%EA%B7%9C/%ED%8F%AC%EC%B2%9C%EC%8B%9C%EC%9D%98%ED%9A%8C%20%EA%B3%B5%EB%AC%B4%EC%9B%90%20%ED%96%89%EB%8F%99%EA%B0%95%EB%A0%B9%20%EA%B7%9C%EC%B9%99",
+      "id": "ordin|2225074|2183607",
+      "verification": "legacy_extract_needs_revalidation"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "schema": "policy-domino-unified-detail-v2",
+  "id": "law|005781|291095",
+  "title": "범죄인인도법에의한인도심사등의절차에관한규칙",
+  "source": "law",
+  "source_kind": "법령",
+  "kind": "대법원규칙",
+  "ministry": "대법원",
+  "published_at": "2026-10-12",
+  "effective_date": "2026-10-12",
+  "revision": "일부개정",
+  "change_type": "amended",
+  "number": "03284",
+  "url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=291095",
+  "category": "분야 미확정",
+  "category_basis": "not_verified",
+  "support_standard": false,
+  "headline": "신구 원문의 실질 변경 내용을 확인하고 있습니다",
+  "source_grade": "legacy_extract_needs_revalidation",
+  "verification": "comparison_incomplete",
+  "comparison_status": "original_saved_comparison_pending",
+  "relationship": "",
+  "change_count": 0,
+  "numeric_change_count": 0,
+  "standard_changes": [],
+  "current_standard_tables": [],
+  "changes": [],
+  "unresolved": [],
+  "institutions": [],
+  "related_regulations": [],
+  "linked_regulation_count": 0,
+  "institution_count": 0,
+  "action_count": 0,
+  "details_path": "details/2ed1950ebc637a6f94aa91ef.json",
+  "prior_url": "",
+  "source_documents": [
+    {
+      "title": "",
+      "url": "",
+      "id": "",
+      "verification": "partial_or_missing_original"
+    },
+    {
+      "title": "범죄인인도법에의한인도심사등의절차에관한규칙",
+      "url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=291095",
+      "id": "law|005781|291095",
+      "verification": "legacy_extract_needs_revalidation"
+    }
+  ]
+}

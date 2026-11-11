@@ -1,0 +1,50 @@
+{
+  "schema": "policy-domino-unified-detail-v2",
+  "id": "admrul|2054105|2100000274532",
+  "title": "중소 소프트웨어사업자의 사업 참여 지원에 관한 지침",
+  "source": "admrul",
+  "source_kind": "행정규칙",
+  "kind": "고시",
+  "ministry": "과학기술정보통신부",
+  "published_at": "2026-01-29",
+  "effective_date": "2026-01-29",
+  "revision": "일부개정",
+  "change_type": "amended",
+  "number": "2026-4",
+  "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000274532",
+  "category": "분야 미확정",
+  "category_basis": "not_verified",
+  "support_standard": false,
+  "headline": "신구 원문의 실질 변경 내용을 확인하고 있습니다",
+  "source_grade": "partial_or_missing_original",
+  "verification": "comparison_incomplete",
+  "comparison_status": "original_saved_comparison_pending",
+  "relationship": "",
+  "change_count": 0,
+  "numeric_change_count": 0,
+  "standard_changes": [],
+  "current_standard_tables": [],
+  "changes": [],
+  "unresolved": [],
+  "institutions": [],
+  "related_regulations": [],
+  "linked_regulation_count": 0,
+  "institution_count": 0,
+  "action_count": 0,
+  "details_path": "details/34d2a7bf6b9e156f19d42356.json",
+  "prior_url": "",
+  "source_documents": [
+    {
+      "title": "",
+      "url": "",
+      "id": "",
+      "verification": "partial_or_missing_original"
+    },
+    {
+      "title": "중소 소프트웨어사업자의 사업 참여 지원에 관한 지침",
+      "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000274532",
+      "id": "admrul|2054105|2100000274532",
+      "verification": "partial_or_missing_original"
+    }
+  ]
+}

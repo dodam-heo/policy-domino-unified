@@ -1,0 +1,50 @@
+{
+  "schema": "policy-domino-unified-detail-v2",
+  "id": "admrul|2031096|2100000260042",
+  "title": "2026년도 사회복무요원 배정기준 등",
+  "source": "admrul",
+  "source_kind": "행정규칙",
+  "kind": "고시",
+  "ministry": "병무청",
+  "published_at": "2025-01-02",
+  "effective_date": "2025-01-08",
+  "revision": "제정",
+  "change_type": "new",
+  "number": "2024-7",
+  "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000260042",
+  "category": "분야 미확정",
+  "category_basis": "not_verified",
+  "support_standard": false,
+  "headline": "신구 원문의 실질 변경 내용을 확인하고 있습니다",
+  "source_grade": "official_original_verified",
+  "verification": "comparison_incomplete",
+  "comparison_status": "original_saved_comparison_pending",
+  "relationship": "",
+  "change_count": 0,
+  "numeric_change_count": 0,
+  "standard_changes": [],
+  "current_standard_tables": [],
+  "changes": [],
+  "unresolved": [],
+  "institutions": [],
+  "related_regulations": [],
+  "linked_regulation_count": 0,
+  "institution_count": 0,
+  "action_count": 0,
+  "details_path": "details/eab68caff3e1255ec82278f6.json",
+  "prior_url": "",
+  "source_documents": [
+    {
+      "title": "",
+      "url": "",
+      "id": "",
+      "verification": "partial_or_missing_original"
+    },
+    {
+      "title": "2026년도 사회복무요원 배정기준 등",
+      "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000260042",
+      "id": "admrul|2031096|2100000260042",
+      "verification": "official_original_verified"
+    }
+  ]
+}

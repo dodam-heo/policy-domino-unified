@@ -1,0 +1,65 @@
+{
+  "schema": "policy-domino-unified-detail-v2",
+  "id": "admrul|2087745|2100000285432",
+  "title": "통계작성의 변경승인(협의) 고시(국민노후보장패널조사)",
+  "source": "admrul",
+  "source_kind": "행정규칙",
+  "kind": "고시",
+  "ministry": "국가데이터처",
+  "published_at": "2026-09-23",
+  "effective_date": "2026-12-31",
+  "revision": "일부개정",
+  "change_type": "amended",
+  "number": "2026-676",
+  "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000285432",
+  "category": "복지·소득",
+  "category_basis": "verified_excerpt_text_rule",
+  "support_standard": false,
+  "headline": "원문 재검증 필요 · 본문: 001호 [2005.08.30.] 4. 통계작성의 변경 연월일 : 2026.05.25. 5. 통계작성의 변경 내용과 사유 : → 001호 [2005.08.30.] 4. 통계작성의 변경 연월일 : 2026.12.31. 5. 통계작성의 변경 내용과 사유 :",
+  "source_grade": "legacy_extract_needs_revalidation",
+  "verification": "historical_comparison_needs_revalidation",
+  "comparison_status": "changed",
+  "relationship": "same_official_id_revision",
+  "change_count": 1,
+  "numeric_change_count": 0,
+  "standard_changes": [],
+  "current_standard_tables": [],
+  "changes": [
+    {
+      "article": "본문",
+      "before": "1. 통계의 명칭 : 국민노후보장패널조사 2. 통계작성기관의 명칭 : 국민연금공단 3. 통계작성승인(협의)번호 [작성승인(협의)일] : 제322001호 [2005.08.30.] 4. 통계작성의 변경 연월일 : 2026.05.25. 5. 통계작성의 변경 내용과 사유 :",
+      "after": "1. 통계의 명칭 : 국민노후보장패널조사 2. 통계작성기관의 명칭 : 국민연금공단 3. 통계작성승인(협의)번호 [작성승인(협의)일] : 제322001호 [2005.08.30.] 4. 통계작성의 변경 연월일 : 2026.12.31. 5. 통계작성의 변경 내용과 사유 :",
+      "focus": {
+        "before": "001호 [2005.08.30.] 4. 통계작성의 변경 연월일 : 2026.05.25. 5. 통계작성의 변경 내용과 사유 :",
+        "after": "001호 [2005.08.30.] 4. 통계작성의 변경 연월일 : 2026.12.31. 5. 통계작성의 변경 내용과 사유 :",
+        "changed": true,
+        "old_deleted": "05.25",
+        "new_added": "12.31",
+        "precision": "single_edit"
+      },
+      "verification": "historical_comparison_needs_revalidation"
+    }
+  ],
+  "unresolved": [],
+  "institutions": [],
+  "related_regulations": [],
+  "linked_regulation_count": 0,
+  "institution_count": 0,
+  "action_count": 0,
+  "details_path": "details/c935032d2537c285b2882950.json",
+  "prior_url": "https://www.law.go.kr/행정규칙/%ED%86%B5%EA%B3%84%EC%9E%91%EC%84%B1%EC%9D%98%20%EB%B3%80%EA%B2%BD%EC%8A%B9%EC%9D%B8%28%ED%98%91%EC%9D%98%29%20%EA%B3%A0%EC%8B%9C%28%EA%B5%AD%EB%AF%BC%EB%85%B8%ED%9B%84%EB%B3%B4%EC%9E%A5%ED%8C%A8%EB%84%90%EC%A1%B0%EC%82%AC%29",
+  "source_documents": [
+    {
+      "title": "통계작성의 변경승인(협의) 고시(국민노후보장패널조사)",
+      "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000279928",
+      "id": "admrul|2087745|2100000279928",
+      "verification": "legacy_extract_needs_revalidation"
+    },
+    {
+      "title": "통계작성의 변경승인(협의) 고시(국민노후보장패널조사)",
+      "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000285432",
+      "id": "admrul|2087745|2100000285432",
+      "verification": "legacy_extract_needs_revalidation"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "schema": "policy-domino-unified-detail-v2",
+  "id": "ordin|2002587|2021509",
+  "title": "인천광역시교육청 공무원 행동강령",
+  "source": "ordin",
+  "source_kind": "자치법규",
+  "kind": "자치법규",
+  "ministry": "인천광역시교육청",
+  "published_at": "2025-03-17",
+  "effective_date": "2025-03-17",
+  "revision": "일부개정",
+  "change_type": "amended",
+  "number": "00769",
+  "url": "https://www.law.go.kr/%EC%9E%90%EC%B9%98%EB%B2%95%EA%B7%9C/%EC%9D%B8%EC%B2%9C%EA%B4%91%EC%97%AD%EC%8B%9C%EA%B5%90%EC%9C%A1%EC%B2%AD%20%EA%B3%B5%EB%AC%B4%EC%9B%90%20%ED%96%89%EB%8F%99%EA%B0%95%EB%A0%B9",
+  "category": "교육·장학",
+  "category_basis": "policy_title_text_rule",
+  "support_standard": false,
+  "headline": "신구 원문의 실질 변경 내용을 확인하고 있습니다",
+  "source_grade": "legacy_extract_needs_revalidation",
+  "verification": "comparison_incomplete",
+  "comparison_status": "original_saved_comparison_pending",
+  "relationship": "",
+  "change_count": 0,
+  "numeric_change_count": 0,
+  "standard_changes": [],
+  "current_standard_tables": [],
+  "changes": [],
+  "unresolved": [],
+  "institutions": [],
+  "related_regulations": [],
+  "linked_regulation_count": 0,
+  "institution_count": 0,
+  "action_count": 0,
+  "details_path": "details/80315789a803fbef787bb7e8.json",
+  "prior_url": "",
+  "source_documents": [
+    {
+      "title": "",
+      "url": "",
+      "id": "",
+      "verification": "partial_or_missing_original"
+    },
+    {
+      "title": "인천광역시교육청 공무원 행동강령",
+      "url": "https://www.law.go.kr/%EC%9E%90%EC%B9%98%EB%B2%95%EA%B7%9C/%EC%9D%B8%EC%B2%9C%EA%B4%91%EC%97%AD%EC%8B%9C%EA%B5%90%EC%9C%A1%EC%B2%AD%20%EA%B3%B5%EB%AC%B4%EC%9B%90%20%ED%96%89%EB%8F%99%EA%B0%95%EB%A0%B9",
+      "id": "ordin|2002587|2021509",
+      "verification": "legacy_extract_needs_revalidation"
+    }
+  ]
+}

@@ -1,0 +1,144 @@
+{
+  "schema": "policy-domino-unified-detail-v2",
+  "id": "admrul|48377|2100000269822",
+  "title": "2026년 교육급여의 선정기준 및 최저보장수준",
+  "source": "admrul",
+  "source_kind": "행정규칙",
+  "kind": "고시",
+  "ministry": "교육부",
+  "published_at": "2025-12-17",
+  "effective_date": "2026-01-01",
+  "revision": "전부개정",
+  "change_type": "amended",
+  "number": "2025-34",
+  "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000269822",
+  "category": "교육·장학",
+  "category_basis": "policy_title_text_rule",
+  "support_standard": true,
+  "headline": "신구 원문의 실질 변경 내용을 확인하고 있습니다",
+  "source_grade": "partial_or_missing_original",
+  "verification": "comparison_incomplete",
+  "comparison_status": "original_saved_comparison_pending",
+  "relationship": "",
+  "change_count": 0,
+  "numeric_change_count": 0,
+  "standard_changes": [],
+  "current_standard_tables": [
+    {
+      "table": 1,
+      "header": [
+        "구 분",
+        "1인가구",
+        "2인가구",
+        "3인가구",
+        "4인가구",
+        "5인가구",
+        "6인가구",
+        "7인가구"
+      ],
+      "cells": [
+        {
+          "row": "금액 (원/월)",
+          "column": "1인가구",
+          "value": "1,282,119"
+        },
+        {
+          "row": "금액 (원/월)",
+          "column": "2인가구",
+          "value": "2,099,646"
+        },
+        {
+          "row": "금액 (원/월)",
+          "column": "3인가구",
+          "value": "2,679,518"
+        },
+        {
+          "row": "금액 (원/월)",
+          "column": "4인가구",
+          "value": "3,247,369"
+        },
+        {
+          "row": "금액 (원/월)",
+          "column": "5인가구",
+          "value": "3,778,360"
+        },
+        {
+          "row": "금액 (원/월)",
+          "column": "6인가구",
+          "value": "4,277,976"
+        },
+        {
+          "row": "금액 (원/월)",
+          "column": "7인가구",
+          "value": "4,757,575"
+        }
+      ],
+      "official_attachment_sha256": "205e490bbd41f40781b06934648cfa98ca5ae4ed39af365bc28b2252561a27f3"
+    },
+    {
+      "table": 2,
+      "header": [
+        "구 분",
+        "교육활동지원비",
+        "교과서",
+        "입학금 및 수업료"
+      ],
+      "cells": [
+        {
+          "row": "초등학생",
+          "column": "교육활동지원비",
+          "value": "502,000원"
+        },
+        {
+          "row": "중학생",
+          "column": "교육활동지원비",
+          "value": "699,000원"
+        },
+        {
+          "row": "고등학생",
+          "column": "교육활동지원비",
+          "value": "860,000원"
+        },
+        {
+          "row": "지급횟수",
+          "column": "교육활동지원비",
+          "value": "연 1회"
+        },
+        {
+          "row": "지급횟수",
+          "column": "교과서",
+          "value": "연 1회"
+        },
+        {
+          "row": "지급횟수",
+          "column": "입학금 및 수업료",
+          "value": "입학금은 입학시 1회, 수업료는 분기별 지급"
+        }
+      ],
+      "official_attachment_sha256": "205e490bbd41f40781b06934648cfa98ca5ae4ed39af365bc28b2252561a27f3"
+    }
+  ],
+  "changes": [],
+  "unresolved": [],
+  "institutions": [],
+  "related_regulations": [],
+  "linked_regulation_count": 0,
+  "institution_count": 0,
+  "action_count": 0,
+  "details_path": "details/57748d3e9748cb341eee56e5.json",
+  "prior_url": "",
+  "source_documents": [
+    {
+      "title": "",
+      "url": "",
+      "id": "",
+      "verification": "partial_or_missing_original"
+    },
+    {
+      "title": "2026년 교육급여의 선정기준 및 최저보장수준",
+      "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000269822",
+      "id": "admrul|48377|2100000269822",
+      "verification": "partial_or_missing_original"
+    }
+  ]
+}

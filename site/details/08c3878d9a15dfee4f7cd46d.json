@@ -1,0 +1,50 @@
+{
+  "schema": "policy-domino-unified-detail-v2",
+  "id": "ordin|2152702|2113109",
+  "title": "용인시 행정기구 및 정원 조례 시행규칙",
+  "source": "ordin",
+  "source_kind": "자치법규",
+  "kind": "자치법규",
+  "ministry": "경기도 용인시",
+  "published_at": "2026-02-27",
+  "effective_date": "2026-02-27",
+  "revision": "일부개정",
+  "change_type": "amended",
+  "number": "1189",
+  "url": "https://www.law.go.kr/%EC%9E%90%EC%B9%98%EB%B2%95%EA%B7%9C/%EC%9A%A9%EC%9D%B8%EC%8B%9C%20%ED%96%89%EC%A0%95%EA%B8%B0%EA%B5%AC%20%EB%B0%8F%20%EC%A0%95%EC%9B%90%20%EC%A1%B0%EB%A1%80%20%EC%8B%9C%ED%96%89%EA%B7%9C%EC%B9%99",
+  "category": "조직·행정",
+  "category_basis": "policy_title_text_rule",
+  "support_standard": false,
+  "headline": "신구 원문의 실질 변경 내용을 확인하고 있습니다",
+  "source_grade": "legacy_extract_needs_revalidation",
+  "verification": "comparison_incomplete",
+  "comparison_status": "original_saved_comparison_pending",
+  "relationship": "",
+  "change_count": 0,
+  "numeric_change_count": 0,
+  "standard_changes": [],
+  "current_standard_tables": [],
+  "changes": [],
+  "unresolved": [],
+  "institutions": [],
+  "related_regulations": [],
+  "linked_regulation_count": 0,
+  "institution_count": 0,
+  "action_count": 0,
+  "details_path": "details/08c3878d9a15dfee4f7cd46d.json",
+  "prior_url": "",
+  "source_documents": [
+    {
+      "title": "",
+      "url": "",
+      "id": "",
+      "verification": "partial_or_missing_original"
+    },
+    {
+      "title": "용인시 행정기구 및 정원 조례 시행규칙",
+      "url": "https://www.law.go.kr/%EC%9E%90%EC%B9%98%EB%B2%95%EA%B7%9C/%EC%9A%A9%EC%9D%B8%EC%8B%9C%20%ED%96%89%EC%A0%95%EA%B8%B0%EA%B5%AC%20%EB%B0%8F%20%EC%A0%95%EC%9B%90%20%EC%A1%B0%EB%A1%80%20%EC%8B%9C%ED%96%89%EA%B7%9C%EC%B9%99",
+      "id": "ordin|2152702|2113109",
+      "verification": "legacy_extract_needs_revalidation"
+    }
+  ]
+}

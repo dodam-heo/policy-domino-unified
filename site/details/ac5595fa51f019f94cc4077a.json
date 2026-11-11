@@ -1,0 +1,65 @@
+{
+  "schema": "policy-domino-unified-detail-v2",
+  "id": "admrul|94247|2100000287072",
+  "title": "통계작성의 변경승인(협의) 고시(전남광주통합특별시진도군기본통계)",
+  "source": "admrul",
+  "source_kind": "행정규칙",
+  "kind": "고시",
+  "ministry": "국가데이터처",
+  "published_at": "2026-10-16",
+  "effective_date": "2026-11-30",
+  "revision": "일부개정",
+  "change_type": "amended",
+  "number": "2026-712",
+  "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000287072",
+  "category": "분야 미확정",
+  "category_basis": "not_verified",
+  "support_standard": false,
+  "headline": "원문 재검증 필요 · 본문: 1. 통계의 명칭 : 전라남도진도군기본통계 2. 통계작성기관의 명칭 : 전라남도 진도군 3. 통계작성승인(협의)번호 [작성승인(협의)일] : 제751001호 [2007.05.04.] 4. 통계작성의 변경 연월일 : 2025… → 1. 통계의 명칭 : 전라남도진도군기본통계 2. 통계작성기관의 명칭 : 전남광주통합특별시 진도군 3. 통계작성승인(협의)번호 [작성승인(협…",
+  "source_grade": "legacy_extract_needs_revalidation",
+  "verification": "historical_comparison_needs_revalidation",
+  "comparison_status": "changed",
+  "relationship": "same_official_id_revision",
+  "change_count": 1,
+  "numeric_change_count": 0,
+  "standard_changes": [],
+  "current_standard_tables": [],
+  "changes": [
+    {
+      "article": "본문",
+      "before": "1. 통계의 명칭 : 전라남도진도군기본통계 2. 통계작성기관의 명칭 : 전라남도 진도군 3. 통계작성승인(협의)번호 [작성승인(협의)일] : 제751001호 [2007.05.04.] 4. 통계작성의 변경 연월일 : 2025.10.31. 5. 통계작성의 변경 내용과 사유 :",
+      "after": "1. 통계의 명칭 : 전라남도진도군기본통계 2. 통계작성기관의 명칭 : 전남광주통합특별시 진도군 3. 통계작성승인(협의)번호 [작성승인(협의)일] : 제751001호 [2007.05.04.] 4. 통계작성의 변경 연월일 : 2026.11.30. 5. 통계작성의 변경 내용과 사유 :",
+      "focus": {
+        "before": "1. 통계의 명칭 : 전라남도진도군기본통계 2. 통계작성기관의 명칭 : 전라남도 진도군 3. 통계작성승인(협의)번호 [작성승인(협의)일] : 제751001호 [2007.05.04.] 4. 통계작성의 변경 연월일 : 2025…",
+        "after": "1. 통계의 명칭 : 전라남도진도군기본통계 2. 통계작성기관의 명칭 : 전남광주통합특별시 진도군 3. 통계작성승인(협의)번호 [작성승인(협의)일] : 제751001호 [2007.05.04.] 4. 통계작성의 변경 연월일 :…",
+        "changed": true,
+        "old_deleted": "라남도 진도군 3. 통계작성승인(협의)번호 [작성승인(협의)일] : 제751001호 [2007.05.04.] 4. 통계작성의 변경 연월일 : 2025.10.31",
+        "new_added": "남광주통합특별시 진도군 3. 통계작성승인(협의)번호 [작성승인(협의)일] : 제751001호 [2007.05.04.] 4. 통계작성의 변경 연월일 : 2026.11.30",
+        "precision": "single_edit"
+      },
+      "verification": "historical_comparison_needs_revalidation"
+    }
+  ],
+  "unresolved": [],
+  "institutions": [],
+  "related_regulations": [],
+  "linked_regulation_count": 0,
+  "institution_count": 0,
+  "action_count": 0,
+  "details_path": "details/ac5595fa51f019f94cc4077a.json",
+  "prior_url": "https://www.law.go.kr/행정규칙/%ED%86%B5%EA%B3%84%EC%9E%91%EC%84%B1%EC%9D%98%20%EB%B3%80%EA%B2%BD%EC%8A%B9%EC%9D%B8%28%ED%98%91%EC%9D%98%29%20%EA%B3%A0%EC%8B%9C%28%EC%A0%84%EB%9D%BC%EB%82%A8%EB%8F%84%EC%A7%84%EB%8F%84%EA%B5%B0%EA%B8%B0%EB%B3%B8%ED%86%B5%EA%B3%84%29",
+  "source_documents": [
+    {
+      "title": "통계작성의 변경승인(협의) 고시(전라남도진도군기본통계)",
+      "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000265348",
+      "id": "admrul|94247|2100000265348",
+      "verification": "legacy_extract_needs_revalidation"
+    },
+    {
+      "title": "통계작성의 변경승인(협의) 고시(전남광주통합특별시진도군기본통계)",
+      "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000287072",
+      "id": "admrul|94247|2100000287072",
+      "verification": "legacy_extract_needs_revalidation"
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "schema": "policy-domino-unified-detail-v2",
+  "id": "ordin|2195192|2183215",
+  "title": "충청북도의회 의원 연구단체 구성 및 운영 조례",
+  "source": "ordin",
+  "source_kind": "자치법규",
+  "kind": "자치법규",
+  "ministry": "충청북도",
+  "published_at": "2026-11-06",
+  "effective_date": "2027-01-01",
+  "revision": "일부개정",
+  "change_type": "amended",
+  "number": "5651",
+  "url": "https://www.law.go.kr/%EC%9E%90%EC%B9%98%EB%B2%95%EA%B7%9C/%EC%B6%A9%EC%B2%AD%EB%B6%81%EB%8F%84%EC%9D%98%ED%9A%8C%20%EC%9D%98%EC%9B%90%20%EC%97%B0%EA%B5%AC%EB%8B%A8%EC%B2%B4%20%EA%B5%AC%EC%84%B1%20%EB%B0%8F%20%EC%9A%B4%EC%98%81%20%EC%A1%B0%EB%A1%80",
+  "category": "분야 미확정",
+  "category_basis": "not_verified",
+  "support_standard": false,
+  "headline": "신구 원문의 실질 변경 내용을 확인하고 있습니다",
+  "source_grade": "legacy_extract_needs_revalidation",
+  "verification": "comparison_incomplete",
+  "comparison_status": "partial_unverified",
+  "relationship": "same_official_id_revision",
+  "change_count": 0,
+  "numeric_change_count": 0,
+  "standard_changes": [],
+  "current_standard_tables": [],
+  "changes": [],
+  "unresolved": [
+    {
+      "clause": "부칙 5580 20260626",
+      "reason": "counterpart_not_verified"
+    },
+    {
+      "clause": "부칙 5651 20261106",
+      "reason": "counterpart_not_verified"
+    }
+  ],
+  "institutions": [],
+  "related_regulations": [],
+  "linked_regulation_count": 0,
+  "institution_count": 0,
+  "action_count": 0,
+  "details_path": "details/16bf6aed46bcd463fa426554.json",
+  "prior_url": "https://www.law.go.kr/%EC%9E%90%EC%B9%98%EB%B2%95%EA%B7%9C/%EC%B6%A9%EC%B2%AD%EB%B6%81%EB%8F%84%EC%9D%98%ED%9A%8C%20%EC%97%B0%EA%B5%AC%EB%8B%A8%EC%B2%B4%20%EA%B5%AC%EC%84%B1%20%EB%B0%8F%20%EC%9A%B4%EC%98%81%20%EC%A1%B0%EB%A1%80",
+  "source_documents": [
+    {
+      "title": "충청북도의회 연구단체 구성 및 운영 조례",
+      "url": "https://www.law.go.kr/%EC%9E%90%EC%B9%98%EB%B2%95%EA%B7%9C/%EC%B6%A9%EC%B2%AD%EB%B6%81%EB%8F%84%EC%9D%98%ED%9A%8C%20%EC%97%B0%EA%B5%AC%EB%8B%A8%EC%B2%B4%20%EA%B5%AC%EC%84%B1%20%EB%B0%8F%20%EC%9A%B4%EC%98%81%20%EC%A1%B0%EB%A1%80",
+      "id": "ordin|2195192|2134417",
+      "verification": "legacy_extract_needs_revalidation"
+    },
+    {
+      "title": "충청북도의회 의원 연구단체 구성 및 운영 조례",
+      "url": "https://www.law.go.kr/%EC%9E%90%EC%B9%98%EB%B2%95%EA%B7%9C/%EC%B6%A9%EC%B2%AD%EB%B6%81%EB%8F%84%EC%9D%98%ED%9A%8C%20%EC%9D%98%EC%9B%90%20%EC%97%B0%EA%B5%AC%EB%8B%A8%EC%B2%B4%20%EA%B5%AC%EC%84%B1%20%EB%B0%8F%20%EC%9A%B4%EC%98%81%20%EC%A1%B0%EB%A1%80",
+      "id": "ordin|2195192|2183215",
+      "verification": "legacy_extract_needs_revalidation"
+    }
+  ]
+}

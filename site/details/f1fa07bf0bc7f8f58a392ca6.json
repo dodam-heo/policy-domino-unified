@@ -1,0 +1,59 @@
+{
+  "schema": "policy-domino-unified-detail-v2",
+  "id": "ordin|2090847|2152889",
+  "title": "여수시 적극행정 면책 및 공무원경고 등 처분 규칙",
+  "source": "ordin",
+  "source_kind": "자치법규",
+  "kind": "자치법규",
+  "ministry": "전남광주통합특별시 여수시",
+  "published_at": "2026-07-22",
+  "effective_date": "2026-07-22",
+  "revision": "일부개정",
+  "change_type": "amended",
+  "number": "880",
+  "url": "https://www.law.go.kr/%EC%9E%90%EC%B9%98%EB%B2%95%EA%B7%9C/%EC%97%AC%EC%88%98%EC%8B%9C%20%EC%A0%81%EA%B7%B9%ED%96%89%EC%A0%95%20%EB%A9%B4%EC%B1%85%20%EB%B0%8F%20%EA%B3%B5%EB%AC%B4%EC%9B%90%EA%B2%BD%EA%B3%A0%20%EB%93%B1%20%EC%B2%98%EB%B6%84%20%EA%B7%9C%EC%B9%99",
+  "category": "노동·인사",
+  "category_basis": "policy_title_text_rule",
+  "support_standard": false,
+  "headline": "신구 원문의 실질 변경 내용을 확인하고 있습니다",
+  "source_grade": "legacy_extract_needs_revalidation",
+  "verification": "comparison_incomplete",
+  "comparison_status": "partial_unverified",
+  "relationship": "same_official_id_revision",
+  "change_count": 0,
+  "numeric_change_count": 0,
+  "standard_changes": [],
+  "current_standard_tables": [],
+  "changes": [],
+  "unresolved": [
+    {
+      "clause": "부칙 815 20230713",
+      "reason": "counterpart_not_verified"
+    },
+    {
+      "clause": "부칙 880 20260722",
+      "reason": "counterpart_not_verified"
+    }
+  ],
+  "institutions": [],
+  "related_regulations": [],
+  "linked_regulation_count": 0,
+  "institution_count": 0,
+  "action_count": 0,
+  "details_path": "details/f1fa07bf0bc7f8f58a392ca6.json",
+  "prior_url": "https://www.law.go.kr/%EC%9E%90%EC%B9%98%EB%B2%95%EA%B7%9C/%EC%97%AC%EC%88%98%EC%8B%9C%20%EC%A0%81%EA%B7%B9%ED%96%89%EC%A0%95%20%EB%A9%B4%EC%B1%85%20%EB%B0%8F%20%EA%B3%B5%EB%AC%B4%EC%9B%90%EA%B2%BD%EA%B3%A0%20%EB%93%B1%20%EC%B2%98%EB%B6%84%20%EA%B7%9C%EC%B9%99",
+  "source_documents": [
+    {
+      "title": "여수시 적극행정 면책 및 공무원경고 등 처분 규칙",
+      "url": "https://www.law.go.kr/%EC%9E%90%EC%B9%98%EB%B2%95%EA%B7%9C/%EC%97%AC%EC%88%98%EC%8B%9C%20%EC%A0%81%EA%B7%B9%ED%96%89%EC%A0%95%20%EB%A9%B4%EC%B1%85%20%EB%B0%8F%20%EA%B3%B5%EB%AC%B4%EC%9B%90%EA%B2%BD%EA%B3%A0%20%EB%93%B1%20%EC%B2%98%EB%B6%84%20%EA%B7%9C%EC%B9%99",
+      "id": "ordin|2090847|1836359",
+      "verification": "legacy_extract_needs_revalidation"
+    },
+    {
+      "title": "여수시 적극행정 면책 및 공무원경고 등 처분 규칙",
+      "url": "https://www.law.go.kr/%EC%9E%90%EC%B9%98%EB%B2%95%EA%B7%9C/%EC%97%AC%EC%88%98%EC%8B%9C%20%EC%A0%81%EA%B7%B9%ED%96%89%EC%A0%95%20%EB%A9%B4%EC%B1%85%20%EB%B0%8F%20%EA%B3%B5%EB%AC%B4%EC%9B%90%EA%B2%BD%EA%B3%A0%20%EB%93%B1%20%EC%B2%98%EB%B6%84%20%EA%B7%9C%EC%B9%99",
+      "id": "ordin|2090847|2152889",
+      "verification": "legacy_extract_needs_revalidation"
+    }
+  ]
+}

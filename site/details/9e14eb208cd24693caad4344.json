@@ -1,0 +1,59 @@
+{
+  "schema": "policy-domino-unified-detail-v2",
+  "id": "ordin|2193141|2183439",
+  "title": "영주시 인구정책 지원 조례",
+  "source": "ordin",
+  "source_kind": "자치법규",
+  "kind": "자치법규",
+  "ministry": "경상북도 영주시",
+  "published_at": "2026-11-09",
+  "effective_date": "2026-11-09",
+  "revision": "일부개정",
+  "change_type": "amended",
+  "number": "1741",
+  "url": "https://www.law.go.kr/%EC%9E%90%EC%B9%98%EB%B2%95%EA%B7%9C/%EC%98%81%EC%A3%BC%EC%8B%9C%20%EC%9D%B8%EA%B5%AC%EC%A0%95%EC%B1%85%20%EC%A7%80%EC%9B%90%20%EC%A1%B0%EB%A1%80",
+  "category": "분야 미확정",
+  "category_basis": "not_verified",
+  "support_standard": false,
+  "headline": "신구 원문의 실질 변경 내용을 확인하고 있습니다",
+  "source_grade": "legacy_extract_needs_revalidation",
+  "verification": "comparison_incomplete",
+  "comparison_status": "partial_unverified",
+  "relationship": "same_official_id_revision",
+  "change_count": 0,
+  "numeric_change_count": 0,
+  "standard_changes": [],
+  "current_standard_tables": [],
+  "changes": [],
+  "unresolved": [
+    {
+      "clause": "부칙 1685 20251110",
+      "reason": "counterpart_not_verified"
+    },
+    {
+      "clause": "부칙 1741 20261109",
+      "reason": "counterpart_not_verified"
+    }
+  ],
+  "institutions": [],
+  "related_regulations": [],
+  "linked_regulation_count": 0,
+  "institution_count": 0,
+  "action_count": 0,
+  "details_path": "details/9e14eb208cd24693caad4344.json",
+  "prior_url": "https://www.law.go.kr/%EC%9E%90%EC%B9%98%EB%B2%95%EA%B7%9C/%EC%98%81%EC%A3%BC%EC%8B%9C%20%EC%9D%B8%EA%B5%AC%EC%A0%95%EC%B1%85%20%EC%A7%80%EC%9B%90%20%EC%A1%B0%EB%A1%80",
+  "source_documents": [
+    {
+      "title": "영주시 인구정책 지원 조례",
+      "url": "https://www.law.go.kr/%EC%9E%90%EC%B9%98%EB%B2%95%EA%B7%9C/%EC%98%81%EC%A3%BC%EC%8B%9C%20%EC%9D%B8%EA%B5%AC%EC%A0%95%EC%B1%85%20%EC%A7%80%EC%9B%90%20%EC%A1%B0%EB%A1%80",
+      "id": "ordin|2193141|2084021",
+      "verification": "legacy_extract_needs_revalidation"
+    },
+    {
+      "title": "영주시 인구정책 지원 조례",
+      "url": "https://www.law.go.kr/%EC%9E%90%EC%B9%98%EB%B2%95%EA%B7%9C/%EC%98%81%EC%A3%BC%EC%8B%9C%20%EC%9D%B8%EA%B5%AC%EC%A0%95%EC%B1%85%20%EC%A7%80%EC%9B%90%20%EC%A1%B0%EB%A1%80",
+      "id": "ordin|2193141|2183439",
+      "verification": "legacy_extract_needs_revalidation"
+    }
+  ]
+}

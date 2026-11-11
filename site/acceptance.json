@@ -1,0 +1,132 @@
+{
+  "schema": "policy-domino-acceptance-v1",
+  "criteria": "source index → verified original → verified comparison → verified public agency action → publication",
+  "required_examples": [
+    {
+      "name": "2027년도 기준 중위소득·생계·의료급여",
+      "official_serial": "2100000283464",
+      "stages": {
+        "indexed": true,
+        "original_saved": false,
+        "official_original_verified": false,
+        "comparison_exists": false,
+        "official_comparison_verified": false,
+        "institutional_action_verified": false,
+        "published": false
+      },
+      "source_title": "",
+      "source_url": "",
+      "comparison_status": "not_evaluated",
+      "missing_steps": [
+        "original_saved",
+        "official_original_verified",
+        "comparison_exists",
+        "official_comparison_verified",
+        "institutional_action_verified",
+        "published"
+      ]
+    },
+    {
+      "name": "2027년도 주거급여 선정기준",
+      "official_serial": "2100000284670",
+      "stages": {
+        "indexed": true,
+        "original_saved": true,
+        "official_original_verified": false,
+        "comparison_exists": true,
+        "official_comparison_verified": false,
+        "institutional_action_verified": false,
+        "published": false
+      },
+      "source_title": "2027년 주거급여 선정기준 및 최저보장수준",
+      "source_url": "https://www.law.go.kr/%ED%96%89%EC%A0%95%EA%B7%9C%EC%B9%99/2027%EB%85%84%20%EC%A3%BC%EA%B1%B0%EA%B8%89%EC%97%AC%20%EC%84%A0%EC%A0%95%EA%B8%B0%EC%A4%80%20%EB%B0%8F%20%EC%B5%9C%EC%A0%80%EB%B3%B4%EC%9E%A5%EC%88%98%EC%A4%80",
+      "comparison_status": "partial_unverified",
+      "missing_steps": [
+        "official_original_verified",
+        "official_comparison_verified",
+        "institutional_action_verified",
+        "published"
+      ]
+    },
+    {
+      "name": "2027년도 교육급여 선정기준",
+      "official_serial": "2100000285242",
+      "stages": {
+        "indexed": true,
+        "original_saved": true,
+        "official_original_verified": false,
+        "comparison_exists": true,
+        "official_comparison_verified": false,
+        "institutional_action_verified": false,
+        "published": false
+      },
+      "source_title": "2027년 교육급여의 선정기준 및 최저보장수준",
+      "source_url": "https://www.law.go.kr/%ED%96%89%EC%A0%95%EA%B7%9C%EC%B9%99/2027%EB%85%84%20%EA%B5%90%EC%9C%A1%EA%B8%89%EC%97%AC%EC%9D%98%20%EC%84%A0%EC%A0%95%EA%B8%B0%EC%A4%80%20%EB%B0%8F%20%EC%B5%9C%EC%A0%80%EB%B3%B4%EC%9E%A5%EC%88%98%EC%A4%80",
+      "comparison_status": "partial_unverified",
+      "missing_steps": [
+        "official_original_verified",
+        "official_comparison_verified",
+        "institutional_action_verified",
+        "published"
+      ]
+    }
+  ],
+  "unrelated_source_samples": [
+    {
+      "source": "ordin",
+      "serial": "1347248",
+      "title": "영주문화관광재단 설립 및 지원 조례",
+      "verification": "legacy_extract_needs_revalidation"
+    },
+    {
+      "source": "law",
+      "serial": "290527",
+      "title": "형사보상 및 명예회복에 관한 법률 시행령",
+      "verification": "legacy_extract_needs_revalidation"
+    },
+    {
+      "source": "ordin",
+      "serial": "2183565",
+      "title": "영덕군 주민참여예산제 운영조례",
+      "verification": "legacy_extract_needs_revalidation"
+    },
+    {
+      "source": "ordin",
+      "serial": "2183539",
+      "title": "영덕군 각종 위원회 구성 및 운영에 관한 조례",
+      "verification": "legacy_extract_needs_revalidation"
+    },
+    {
+      "source": "law",
+      "serial": "291029",
+      "title": "재산형등에 관한 공소청집행사무규칙",
+      "verification": "legacy_extract_needs_revalidation"
+    },
+    {
+      "source": "admrul",
+      "serial": "2200000109425",
+      "title": "국립나주병원 보통승진심사위원회규정",
+      "verification": "legacy_extract_needs_revalidation"
+    },
+    {
+      "source": "law",
+      "serial": "290215",
+      "title": "아동ㆍ청소년의 성보호에 관한 법률",
+      "verification": "legacy_extract_needs_revalidation"
+    },
+    {
+      "source": "admrul",
+      "serial": "2200000109463",
+      "title": "국립나주병원 공적심사위원회규정",
+      "verification": "legacy_extract_needs_revalidation"
+    },
+    {
+      "source": "admrul",
+      "serial": "2200000109461",
+      "title": "국립나주병원 근무성적평가위원회규정",
+      "verification": "legacy_extract_needs_revalidation"
+    }
+  ],
+  "ready_for_final_release": false,
+  "failure_count": 14
+}

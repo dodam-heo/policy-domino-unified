@@ -1,0 +1,50 @@
+{
+  "schema": "policy-domino-unified-detail-v2",
+  "id": "admrul|2087954|2100000286974",
+  "title": "통계작성의 변경승인(협의) 고시(장애인경제활동실태조사)",
+  "source": "admrul",
+  "source_kind": "행정규칙",
+  "kind": "고시",
+  "ministry": "국가데이터처",
+  "published_at": "2026-10-16",
+  "effective_date": "2026-12-31",
+  "revision": "일부개정",
+  "change_type": "amended",
+  "number": "2026-716",
+  "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000286974",
+  "category": "분야 미확정",
+  "category_basis": "not_verified",
+  "support_standard": false,
+  "headline": "신구 원문의 실질 변경 내용을 확인하고 있습니다",
+  "source_grade": "legacy_extract_needs_revalidation",
+  "verification": "historical_comparison_needs_revalidation",
+  "comparison_status": "no_text_change",
+  "relationship": "same_official_id_revision",
+  "change_count": 0,
+  "numeric_change_count": 0,
+  "standard_changes": [],
+  "current_standard_tables": [],
+  "changes": [],
+  "unresolved": [],
+  "institutions": [],
+  "related_regulations": [],
+  "linked_regulation_count": 0,
+  "institution_count": 0,
+  "action_count": 0,
+  "details_path": "details/b380cf5d185e2a0aca6b0820.json",
+  "prior_url": "https://www.law.go.kr/행정규칙/%ED%86%B5%EA%B3%84%EC%9E%91%EC%84%B1%EC%9D%98%20%EB%B3%80%EA%B2%BD%EC%8A%B9%EC%9D%B8%28%ED%98%91%EC%9D%98%29%20%EA%B3%A0%EC%8B%9C%28%EC%9E%A5%EC%95%A0%EC%9D%B8%EA%B2%BD%EC%A0%9C%ED%99%9C%EB%8F%99%EC%8B%A4%ED%83%9C%EC%A1%B0%EC%82%AC%29",
+  "source_documents": [
+    {
+      "title": "통계작성의 변경승인(협의) 고시(장애인경제활동실태조사)",
+      "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000278804",
+      "id": "admrul|2087954|2100000278804",
+      "verification": "legacy_extract_needs_revalidation"
+    },
+    {
+      "title": "통계작성의 변경승인(협의) 고시(장애인경제활동실태조사)",
+      "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000286974",
+      "id": "admrul|2087954|2100000286974",
+      "verification": "legacy_extract_needs_revalidation"
+    }
+  ]
+}

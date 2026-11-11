@@ -1,0 +1,50 @@
+{
+  "schema": "policy-domino-unified-detail-v2",
+  "id": "admrul|36723|2100000285118",
+  "title": "건강보험 행위 급여ㆍ비급여 목록표 및 급여 상대가치점수",
+  "source": "admrul",
+  "source_kind": "행정규칙",
+  "kind": "고시",
+  "ministry": "보건복지부",
+  "published_at": "2026-09-14",
+  "effective_date": "2026-10-01",
+  "revision": "일부개정",
+  "change_type": "amended",
+  "number": "2026-188",
+  "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000285118",
+  "category": "금융·보험",
+  "category_basis": "policy_title_text_rule",
+  "support_standard": true,
+  "headline": "신구 원문의 실질 변경 내용을 확인하고 있습니다",
+  "source_grade": "legacy_extract_needs_revalidation",
+  "verification": "comparison_incomplete",
+  "comparison_status": "original_saved_comparison_pending",
+  "relationship": "",
+  "change_count": 0,
+  "numeric_change_count": 0,
+  "standard_changes": [],
+  "current_standard_tables": [],
+  "changes": [],
+  "unresolved": [],
+  "institutions": [],
+  "related_regulations": [],
+  "linked_regulation_count": 0,
+  "institution_count": 0,
+  "action_count": 0,
+  "details_path": "details/2d4421ea41a357d51f1de976.json",
+  "prior_url": "",
+  "source_documents": [
+    {
+      "title": "",
+      "url": "",
+      "id": "",
+      "verification": "partial_or_missing_original"
+    },
+    {
+      "title": "건강보험 행위 급여ㆍ비급여 목록표 및 급여 상대가치점수",
+      "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000285118",
+      "id": "admrul|36723|2100000285118",
+      "verification": "legacy_extract_needs_revalidation"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "schema": "policy-domino-unified-detail-v2",
+  "id": "admrul|62100|2100000116549",
+  "title": "2022년 식량 및 주요 식품 자급률 목표",
+  "source": "admrul",
+  "source_kind": "행정규칙",
+  "kind": "고시",
+  "ministry": "농림축산식품부",
+  "published_at": "2018-03-05",
+  "effective_date": "2018-03-11",
+  "revision": "제정",
+  "change_type": "new",
+  "number": "2018-13",
+  "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000116549",
+  "category": "분야 미확정",
+  "category_basis": "not_verified",
+  "support_standard": false,
+  "headline": "신구 원문의 실질 변경 내용을 확인하고 있습니다",
+  "source_grade": "partial_or_missing_original",
+  "verification": "comparison_incomplete",
+  "comparison_status": "original_saved_comparison_pending",
+  "relationship": "",
+  "change_count": 0,
+  "numeric_change_count": 0,
+  "standard_changes": [],
+  "current_standard_tables": [],
+  "changes": [],
+  "unresolved": [],
+  "institutions": [],
+  "related_regulations": [],
+  "linked_regulation_count": 0,
+  "institution_count": 0,
+  "action_count": 0,
+  "details_path": "details/ec8d2eafd82c86b8c8739c0b.json",
+  "prior_url": "",
+  "source_documents": [
+    {
+      "title": "",
+      "url": "",
+      "id": "",
+      "verification": "partial_or_missing_original"
+    },
+    {
+      "title": "2022년 식량 및 주요 식품 자급률 목표",
+      "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000116549",
+      "id": "admrul|62100|2100000116549",
+      "verification": "partial_or_missing_original"
+    }
+  ]
+}

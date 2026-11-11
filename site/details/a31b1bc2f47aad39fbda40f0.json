@@ -1,0 +1,50 @@
+{
+  "schema": "policy-domino-unified-detail-v2",
+  "id": "law|009916|290493",
+  "title": "지방공무원 복무규정",
+  "source": "law",
+  "source_kind": "법령",
+  "kind": "대통령령",
+  "ministry": "행정안전부",
+  "published_at": "2026-09-29",
+  "effective_date": "2026-10-02",
+  "revision": "타법개정",
+  "change_type": "amended",
+  "number": "36728",
+  "url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=290493",
+  "category": "노동·인사",
+  "category_basis": "policy_title_text_rule",
+  "support_standard": false,
+  "headline": "신구 원문의 실질 변경 내용을 확인하고 있습니다",
+  "source_grade": "legacy_extract_needs_revalidation",
+  "verification": "comparison_incomplete",
+  "comparison_status": "original_saved_comparison_pending",
+  "relationship": "",
+  "change_count": 0,
+  "numeric_change_count": 0,
+  "standard_changes": [],
+  "current_standard_tables": [],
+  "changes": [],
+  "unresolved": [],
+  "institutions": [],
+  "related_regulations": [],
+  "linked_regulation_count": 0,
+  "institution_count": 0,
+  "action_count": 0,
+  "details_path": "details/a31b1bc2f47aad39fbda40f0.json",
+  "prior_url": "",
+  "source_documents": [
+    {
+      "title": "",
+      "url": "",
+      "id": "",
+      "verification": "partial_or_missing_original"
+    },
+    {
+      "title": "지방공무원 복무규정",
+      "url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=290493",
+      "id": "law|009916|290493",
+      "verification": "legacy_extract_needs_revalidation"
+    }
+  ]
+}

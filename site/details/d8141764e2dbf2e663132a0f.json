@@ -1,0 +1,59 @@
+{
+  "schema": "policy-domino-unified-detail-v2",
+  "id": "ordin|2093466|2183501",
+  "title": "영덕군교육협의회운영조례",
+  "source": "ordin",
+  "source_kind": "자치법규",
+  "kind": "자치법규",
+  "ministry": "경상북도 영덕군",
+  "published_at": "2026-11-09",
+  "effective_date": "2027-01-01",
+  "revision": "일부개정",
+  "change_type": "amended",
+  "number": "2472",
+  "url": "https://www.law.go.kr/%EC%9E%90%EC%B9%98%EB%B2%95%EA%B7%9C/%EC%98%81%EB%8D%95%EA%B5%B0%EA%B5%90%EC%9C%A1%ED%98%91%EC%9D%98%ED%9A%8C%EC%9A%B4%EC%98%81%EC%A1%B0%EB%A1%80",
+  "category": "교육·장학",
+  "category_basis": "policy_title_text_rule",
+  "support_standard": false,
+  "headline": "신구 원문의 실질 변경 내용을 확인하고 있습니다",
+  "source_grade": "legacy_extract_needs_revalidation",
+  "verification": "comparison_incomplete",
+  "comparison_status": "partial_unverified",
+  "relationship": "same_official_id_revision",
+  "change_count": 0,
+  "numeric_change_count": 0,
+  "standard_changes": [],
+  "current_standard_tables": [],
+  "changes": [],
+  "unresolved": [
+    {
+      "clause": "부칙 1429 19971206",
+      "reason": "counterpart_not_verified"
+    },
+    {
+      "clause": "부칙 2472 20261109",
+      "reason": "counterpart_not_verified"
+    }
+  ],
+  "institutions": [],
+  "related_regulations": [],
+  "linked_regulation_count": 0,
+  "institution_count": 0,
+  "action_count": 0,
+  "details_path": "details/d8141764e2dbf2e663132a0f.json",
+  "prior_url": "https://www.law.go.kr/%EC%9E%90%EC%B9%98%EB%B2%95%EA%B7%9C/%EC%98%81%EB%8D%95%EA%B5%B0%EA%B5%90%EC%9C%A1%ED%98%91%EC%9D%98%ED%9A%8C%EC%9A%B4%EC%98%81%EC%A1%B0%EB%A1%80",
+  "source_documents": [
+    {
+      "title": "영덕군교육협의회운영조례",
+      "url": "https://www.law.go.kr/%EC%9E%90%EC%B9%98%EB%B2%95%EA%B7%9C/%EC%98%81%EB%8D%95%EA%B5%B0%EA%B5%90%EC%9C%A1%ED%98%91%EC%9D%98%ED%9A%8C%EC%9A%B4%EC%98%81%EC%A1%B0%EB%A1%80",
+      "id": "ordin|2093466|769353",
+      "verification": "legacy_extract_needs_revalidation"
+    },
+    {
+      "title": "영덕군교육협의회운영조례",
+      "url": "https://www.law.go.kr/%EC%9E%90%EC%B9%98%EB%B2%95%EA%B7%9C/%EC%98%81%EB%8D%95%EA%B5%B0%EA%B5%90%EC%9C%A1%ED%98%91%EC%9D%98%ED%9A%8C%EC%9A%B4%EC%98%81%EC%A1%B0%EB%A1%80",
+      "id": "ordin|2093466|2183501",
+      "verification": "legacy_extract_needs_revalidation"
+    }
+  ]
+}

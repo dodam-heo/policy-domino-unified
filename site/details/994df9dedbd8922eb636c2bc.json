@@ -1,0 +1,50 @@
+{
+  "schema": "policy-domino-unified-detail-v2",
+  "id": "admrul|87610|2100000287094",
+  "title": "조기재취업 수당 지급제외 대상에 해당하는 임금액 고시",
+  "source": "admrul",
+  "source_kind": "행정규칙",
+  "kind": "고시",
+  "ministry": "고용노동부",
+  "published_at": "2026-11-01",
+  "effective_date": "2026-11-01",
+  "revision": "일부개정",
+  "change_type": "amended",
+  "number": "2026-71",
+  "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000287094",
+  "category": "노동·인사",
+  "category_basis": "policy_title_text_rule",
+  "support_standard": false,
+  "headline": "신구 원문의 실질 변경 내용을 확인하고 있습니다",
+  "source_grade": "legacy_extract_needs_revalidation",
+  "verification": "comparison_incomplete",
+  "comparison_status": "original_saved_comparison_pending",
+  "relationship": "",
+  "change_count": 0,
+  "numeric_change_count": 0,
+  "standard_changes": [],
+  "current_standard_tables": [],
+  "changes": [],
+  "unresolved": [],
+  "institutions": [],
+  "related_regulations": [],
+  "linked_regulation_count": 0,
+  "institution_count": 0,
+  "action_count": 0,
+  "details_path": "details/994df9dedbd8922eb636c2bc.json",
+  "prior_url": "",
+  "source_documents": [
+    {
+      "title": "",
+      "url": "",
+      "id": "",
+      "verification": "partial_or_missing_original"
+    },
+    {
+      "title": "조기재취업 수당 지급제외 대상에 해당하는 임금액 고시",
+      "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000287094",
+      "id": "admrul|87610|2100000287094",
+      "verification": "legacy_extract_needs_revalidation"
+    }
+  ]
+}

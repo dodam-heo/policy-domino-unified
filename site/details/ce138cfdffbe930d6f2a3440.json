@@ -1,0 +1,79 @@
+{
+  "schema": "policy-domino-unified-detail-v2",
+  "id": "law|004643|291725",
+  "title": "재외공관 무관주재령",
+  "source": "law",
+  "source_kind": "법령",
+  "kind": "대통령령",
+  "ministry": "국방부",
+  "published_at": "2026-11-10",
+  "effective_date": "2026-11-10",
+  "revision": "일부개정",
+  "change_type": "amended",
+  "number": "36802",
+  "url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=291725",
+  "category": "조세·재정",
+  "category_basis": "verified_excerpt_text_rule",
+  "support_standard": false,
+  "headline": "원문 재검증 필요 · 별표 0000: ■ 재외공관 무관주재령 [별표] 주재무관 정원표(제10조제1항 관련) ┌────┬──┬─────┬─────┬─────┐ │구분 │총계│육군 → ■ 재외공관 무관주재령 [별표] 주재무관 정원표(제10조제1항 본문 관련) ┌────┬──┬─────┬─────┬─────┐ │구분 │총계│육군",
+  "source_grade": "legacy_extract_needs_revalidation",
+  "verification": "historical_comparison_needs_revalidation",
+  "comparison_status": "changed",
+  "relationship": "same_official_id_revision",
+  "change_count": 2,
+  "numeric_change_count": 0,
+  "standard_changes": [],
+  "current_standard_tables": [],
+  "changes": [
+    {
+      "article": "별표 0000",
+      "before": "■ 재외공관 무관주재령 [별표] 주재무관 정원표(제10조제1항 관련) ┌────┬──┬─────┬─────┬─────┐ │구분 │총계│육군 │해군 │공군 │ │ │ ├──┬──┼──┬──┼──┬──┤ │ │ │장성│영관│장성│영관│장성│영관│ ├────┼──┼──┼──┼──┼──┼──┼──┤ │인원(명)│77 │2 │39 │1 │17 │1 │17 │ └────┴──┴──┴──┴──┴──┴──┴──┘",
+      "after": "■ 재외공관 무관주재령 [별표] 주재무관 정원표(제10조제1항 본문 관련) ┌────┬──┬─────┬─────┬─────┐ │구분 │총계│육군 │해군 │공군 │ │ │ ├──┬──┼──┬──┼──┬──┤ │ │ │장성│영관│장성│영관│장성│영관│ ├────┼──┼──┼──┼──┼──┼──┼──┤ │인원(명)│77 │2 │39 │1 │17 │1 │17 │ └────┴──┴──┴──┴──┴──┴──┴──┘",
+      "focus": {
+        "before": "■ 재외공관 무관주재령 [별표] 주재무관 정원표(제10조제1항 관련) ┌────┬──┬─────┬─────┬─────┐ │구분 │총계│육군",
+        "after": "■ 재외공관 무관주재령 [별표] 주재무관 정원표(제10조제1항 본문 관련) ┌────┬──┬─────┬─────┬─────┐ │구분 │총계│육군",
+        "changed": true,
+        "old_deleted": "",
+        "new_added": "본문",
+        "precision": "single_edit"
+      },
+      "verification": "historical_comparison_needs_revalidation"
+    },
+    {
+      "article": "제10조",
+      "before": "제10조(정원) ① 주재무관의 정원은 별표와 같이 하고, 국방부장관은「국방조직 및 정원에 관한 통칙」 및 관련 법령에 따른 정원의 범위에서 이를 운영하되, 정원을 변경할 때에는 외교부장관 및 기획예산처장관과 협의하여야 한다. ② 국방부장관은 제1항에 따른 정원 범위에서 주재무관의 재외공관별 정원을 배정하거나 이를 변경할 때에는 외교부장관과 협의하여야 한다.",
+      "after": "제10조(정원) ① 주재무관의 정원은 별표와 같이 하고, 국방부장관은「국방조직 및 정원에 관한 통칙」 및 관련 법령에 따른 정원의 범위에서 이를 운영하되, 정원을 변경할 때에는 외교부장관 및 기획예산처장관과 협의하여야 한다. 다만, 국방부장관은 인력 운영상 필요하다고 인정하는 경우에는 별표에 따른 주재무관[장성(將星)에 해당하는 주재무관으로 한정한다]의 총 정원을 넘지 않는 범위에서 각 군의 주재무관(장성에 해당하는 주재무관으로 한정한다)의 정원을 조정할 수 있다. ② 국방부장관은 제1항에 따른 정원 범위에서 주재무관의 재외공관별 정원을 배정하거나 이를 변경할 때에는 외교부장관과 협의하여야 한다.",
+      "focus": {
+        "before": "되, 정원을 변경할 때에는 외교부장관 및 기획예산처장관과 협의하여야 한다. ② 국방부장관은 제1항에 따른 정원 범위에서 주재무관의 재외공관별 정원을 배",
+        "after": "되, 정원을 변경할 때에는 외교부장관 및 기획예산처장관과 협의하여야 한다. 다만, 국방부장관은 인력 운영상 필요하다고 인정하는 경우에는 별표에 따른 주재무관[장성(將星)에 해당하는 주재무관으로 한정한다]의 총 정원을 넘지…",
+        "changed": true,
+        "old_deleted": "",
+        "new_added": "다만, 국방부장관은 인력 운영상 필요하다고 인정하는 경우에는 별표에 따른 주재무관[장성(將星)에 해당하는 주재무관으로 한정한다]의 총 정원을 넘지 않는 범위에서 각 군의 주재무관(장성에 해당하는 주재무관으로 한정한다)의 정…",
+        "precision": "single_edit"
+      },
+      "verification": "historical_comparison_needs_revalidation"
+    }
+  ],
+  "unresolved": [],
+  "institutions": [],
+  "related_regulations": [],
+  "linked_regulation_count": 0,
+  "institution_count": 0,
+  "action_count": 0,
+  "details_path": "details/ce138cfdffbe930d6f2a3440.json",
+  "prior_url": "https://www.law.go.kr/법령/%EC%9E%AC%EC%99%B8%EA%B3%B5%EA%B4%80%20%EB%AC%B4%EA%B4%80%EC%A3%BC%EC%9E%AC%EB%A0%B9",
+  "source_documents": [
+    {
+      "title": "재외공관 무관주재령",
+      "url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=281495",
+      "id": "law|004643|281495",
+      "verification": "legacy_extract_needs_revalidation"
+    },
+    {
+      "title": "재외공관 무관주재령",
+      "url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=291725",
+      "id": "law|004643|291725",
+      "verification": "legacy_extract_needs_revalidation"
+    }
+  ]
+}

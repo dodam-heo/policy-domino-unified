@@ -1,0 +1,59 @@
+{
+  "schema": "policy-domino-unified-detail-v2",
+  "id": "ordin|2093496|2183587",
+  "title": "영덕군 농수특산물 판매센터 설치 및 운영 조례",
+  "source": "ordin",
+  "source_kind": "자치법규",
+  "kind": "자치법규",
+  "ministry": "경상북도 영덕군",
+  "published_at": "2026-11-09",
+  "effective_date": "2027-01-01",
+  "revision": "일부개정",
+  "change_type": "amended",
+  "number": "2472",
+  "url": "https://www.law.go.kr/%EC%9E%90%EC%B9%98%EB%B2%95%EA%B7%9C/%EC%98%81%EB%8D%95%EA%B5%B0%20%EB%86%8D%EC%88%98%ED%8A%B9%EC%82%B0%EB%AC%BC%20%ED%8C%90%EB%A7%A4%EC%84%BC%ED%84%B0%20%EC%84%A4%EC%B9%98%20%EB%B0%8F%20%EC%9A%B4%EC%98%81%20%EC%A1%B0%EB%A1%80",
+  "category": "분야 미확정",
+  "category_basis": "not_verified",
+  "support_standard": false,
+  "headline": "신구 원문의 실질 변경 내용을 확인하고 있습니다",
+  "source_grade": "legacy_extract_needs_revalidation",
+  "verification": "comparison_incomplete",
+  "comparison_status": "partial_unverified",
+  "relationship": "same_official_id_revision",
+  "change_count": 0,
+  "numeric_change_count": 0,
+  "standard_changes": [],
+  "current_standard_tables": [],
+  "changes": [],
+  "unresolved": [
+    {
+      "clause": "부칙 2415 20250310",
+      "reason": "counterpart_not_verified"
+    },
+    {
+      "clause": "부칙 2472 20261109",
+      "reason": "counterpart_not_verified"
+    }
+  ],
+  "institutions": [],
+  "related_regulations": [],
+  "linked_regulation_count": 0,
+  "institution_count": 0,
+  "action_count": 0,
+  "details_path": "details/5ff8e8d340f4fd89fa54eca9.json",
+  "prior_url": "https://www.law.go.kr/%EC%9E%90%EC%B9%98%EB%B2%95%EA%B7%9C/%EC%98%81%EB%8D%95%EA%B5%B0%20%EB%86%8D%EC%88%98%ED%8A%B9%EC%82%B0%EB%AC%BC%20%ED%8C%90%EB%A7%A4%EC%84%BC%ED%84%B0%20%EC%84%A4%EC%B9%98%20%EB%B0%8F%20%EC%9A%B4%EC%98%81%20%EC%A1%B0%EB%A1%80",
+  "source_documents": [
+    {
+      "title": "영덕군 농수특산물 판매센터 설치 및 운영 조례",
+      "url": "https://www.law.go.kr/%EC%9E%90%EC%B9%98%EB%B2%95%EA%B7%9C/%EC%98%81%EB%8D%95%EA%B5%B0%20%EB%86%8D%EC%88%98%ED%8A%B9%EC%82%B0%EB%AC%BC%20%ED%8C%90%EB%A7%A4%EC%84%BC%ED%84%B0%20%EC%84%A4%EC%B9%98%20%EB%B0%8F%20%EC%9A%B4%EC%98%81%20%EC%A1%B0%EB%A1%80",
+      "id": "ordin|2093496|2020225",
+      "verification": "legacy_extract_needs_revalidation"
+    },
+    {
+      "title": "영덕군 농수특산물 판매센터 설치 및 운영 조례",
+      "url": "https://www.law.go.kr/%EC%9E%90%EC%B9%98%EB%B2%95%EA%B7%9C/%EC%98%81%EB%8D%95%EA%B5%B0%20%EB%86%8D%EC%88%98%ED%8A%B9%EC%82%B0%EB%AC%BC%20%ED%8C%90%EB%A7%A4%EC%84%BC%ED%84%B0%20%EC%84%A4%EC%B9%98%20%EB%B0%8F%20%EC%9A%B4%EC%98%81%20%EC%A1%B0%EB%A1%80",
+      "id": "ordin|2093496|2183587",
+      "verification": "legacy_extract_needs_revalidation"
+    }
+  ]
+}

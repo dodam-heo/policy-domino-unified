@@ -1,0 +1,50 @@
+{
+  "schema": "policy-domino-unified-detail-v2",
+  "id": "ordin|2057102|2043613",
+  "title": "문경시 공무용 차량 관리규칙",
+  "source": "ordin",
+  "source_kind": "자치법규",
+  "kind": "자치법규",
+  "ministry": "경상북도 문경시",
+  "published_at": "2025-06-11",
+  "effective_date": "2025-06-11",
+  "revision": "일부개정",
+  "change_type": "amended",
+  "number": "682",
+  "url": "https://www.law.go.kr/%EC%9E%90%EC%B9%98%EB%B2%95%EA%B7%9C/%EB%AC%B8%EA%B2%BD%EC%8B%9C%20%EA%B3%B5%EB%AC%B4%EC%9A%A9%20%EC%B0%A8%EB%9F%89%20%EA%B4%80%EB%A6%AC%EA%B7%9C%EC%B9%99",
+  "category": "분야 미확정",
+  "category_basis": "not_verified",
+  "support_standard": false,
+  "headline": "신구 원문의 실질 변경 내용을 확인하고 있습니다",
+  "source_grade": "legacy_extract_needs_revalidation",
+  "verification": "comparison_incomplete",
+  "comparison_status": "original_saved_comparison_pending",
+  "relationship": "",
+  "change_count": 0,
+  "numeric_change_count": 0,
+  "standard_changes": [],
+  "current_standard_tables": [],
+  "changes": [],
+  "unresolved": [],
+  "institutions": [],
+  "related_regulations": [],
+  "linked_regulation_count": 0,
+  "institution_count": 0,
+  "action_count": 0,
+  "details_path": "details/d570b7cbaf98c7d64b1813a4.json",
+  "prior_url": "",
+  "source_documents": [
+    {
+      "title": "",
+      "url": "",
+      "id": "",
+      "verification": "partial_or_missing_original"
+    },
+    {
+      "title": "문경시 공무용 차량 관리규칙",
+      "url": "https://www.law.go.kr/%EC%9E%90%EC%B9%98%EB%B2%95%EA%B7%9C/%EB%AC%B8%EA%B2%BD%EC%8B%9C%20%EA%B3%B5%EB%AC%B4%EC%9A%A9%20%EC%B0%A8%EB%9F%89%20%EA%B4%80%EB%A6%AC%EA%B7%9C%EC%B9%99",
+      "id": "ordin|2057102|2043613",
+      "verification": "legacy_extract_needs_revalidation"
+    }
+  ]
+}

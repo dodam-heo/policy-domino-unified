@@ -1,0 +1,59 @@
+{
+  "schema": "policy-domino-unified-detail-v2",
+  "id": "ordin|2199732|2183235",
+  "title": "충청북도 천연물산업 육성 및 지원 조례",
+  "source": "ordin",
+  "source_kind": "자치법규",
+  "kind": "자치법규",
+  "ministry": "충청북도",
+  "published_at": "2026-11-06",
+  "effective_date": "2026-11-06",
+  "revision": "전부개정",
+  "change_type": "amended",
+  "number": "5645",
+  "url": "https://www.law.go.kr/%EC%9E%90%EC%B9%98%EB%B2%95%EA%B7%9C/%EC%B6%A9%EC%B2%AD%EB%B6%81%EB%8F%84%20%EC%B2%9C%EC%97%B0%EB%AC%BC%EC%82%B0%EC%97%85%20%EC%9C%A1%EC%84%B1%20%EB%B0%8F%20%EC%A7%80%EC%9B%90%20%EC%A1%B0%EB%A1%80",
+  "category": "산업·조달",
+  "category_basis": "policy_title_text_rule",
+  "support_standard": false,
+  "headline": "신구 원문의 실질 변경 내용을 확인하고 있습니다",
+  "source_grade": "legacy_extract_needs_revalidation",
+  "verification": "comparison_incomplete",
+  "comparison_status": "partial_unverified",
+  "relationship": "same_official_id_revision",
+  "change_count": 0,
+  "numeric_change_count": 0,
+  "standard_changes": [],
+  "current_standard_tables": [],
+  "changes": [],
+  "unresolved": [
+    {
+      "clause": "부칙 4827 20221209",
+      "reason": "counterpart_not_verified"
+    },
+    {
+      "clause": "부칙 5645 20261106",
+      "reason": "counterpart_not_verified"
+    }
+  ],
+  "institutions": [],
+  "related_regulations": [],
+  "linked_regulation_count": 0,
+  "institution_count": 0,
+  "action_count": 0,
+  "details_path": "details/e17c1c162a8ac615edc1fc02.json",
+  "prior_url": "https://www.law.go.kr/%EC%9E%90%EC%B9%98%EB%B2%95%EA%B7%9C/%EC%B6%A9%EC%B2%AD%EB%B6%81%EB%8F%84%20%EC%B2%9C%EC%97%B0%EB%AC%BC%EC%82%B0%EC%97%85%20%EC%9C%A1%EC%84%B1%20%EB%B0%8F%20%EC%A7%80%EC%9B%90%20%EC%A1%B0%EB%A1%80",
+  "source_documents": [
+    {
+      "title": "충청북도 천연물산업 육성 및 지원 조례",
+      "url": "https://www.law.go.kr/%EC%9E%90%EC%B9%98%EB%B2%95%EA%B7%9C/%EC%B6%A9%EC%B2%AD%EB%B6%81%EB%8F%84%20%EC%B2%9C%EC%97%B0%EB%AC%BC%EC%82%B0%EC%97%85%20%EC%9C%A1%EC%84%B1%20%EB%B0%8F%20%EC%A7%80%EC%9B%90%20%EC%A1%B0%EB%A1%80",
+      "id": "ordin|2199732|1754713",
+      "verification": "legacy_extract_needs_revalidation"
+    },
+    {
+      "title": "충청북도 천연물산업 육성 및 지원 조례",
+      "url": "https://www.law.go.kr/%EC%9E%90%EC%B9%98%EB%B2%95%EA%B7%9C/%EC%B6%A9%EC%B2%AD%EB%B6%81%EB%8F%84%20%EC%B2%9C%EC%97%B0%EB%AC%BC%EC%82%B0%EC%97%85%20%EC%9C%A1%EC%84%B1%20%EB%B0%8F%20%EC%A7%80%EC%9B%90%20%EC%A1%B0%EB%A1%80",
+      "id": "ordin|2199732|2183235",
+      "verification": "legacy_extract_needs_revalidation"
+    }
+  ]
+}

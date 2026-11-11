@@ -1,11 +1,13 @@
 {
   "official_programs": 9683,
-  "comparisons_considered": 204,
+  "comparisons_considered": 214,
   "verified_institutional_tasks": 0,
+  "program_review_candidates": 0,
+  "related_regulations": 9,
   "comparison_statuses": {
-    "partial_unverified": 172,
-    "no_text_change": 6,
-    "changed": 26
+    "partial_unverified": 182,
+    "changed": 27,
+    "no_text_change": 5
   },
   "ai_explanation_attempts": 0,
   "ai_verified_explanations": 0,

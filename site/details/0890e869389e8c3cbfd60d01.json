@@ -1,0 +1,50 @@
+{
+  "schema": "policy-domino-unified-detail-v2",
+  "id": "law|006049|291509",
+  "title": "선거관리위원회 사무관리규칙",
+  "source": "law",
+  "source_kind": "법령",
+  "kind": "중앙선거관리위원회규칙",
+  "ministry": "중앙선거관리위원회",
+  "published_at": "2026-10-23",
+  "effective_date": "2026-10-23",
+  "revision": "타법개정",
+  "change_type": "amended",
+  "number": "00670",
+  "url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=291509",
+  "category": "분야 미확정",
+  "category_basis": "not_verified",
+  "support_standard": false,
+  "headline": "신구 원문의 실질 변경 내용을 확인하고 있습니다",
+  "source_grade": "legacy_extract_needs_revalidation",
+  "verification": "comparison_incomplete",
+  "comparison_status": "original_saved_comparison_pending",
+  "relationship": "",
+  "change_count": 0,
+  "numeric_change_count": 0,
+  "standard_changes": [],
+  "current_standard_tables": [],
+  "changes": [],
+  "unresolved": [],
+  "institutions": [],
+  "related_regulations": [],
+  "linked_regulation_count": 0,
+  "institution_count": 0,
+  "action_count": 0,
+  "details_path": "details/0890e869389e8c3cbfd60d01.json",
+  "prior_url": "",
+  "source_documents": [
+    {
+      "title": "",
+      "url": "",
+      "id": "",
+      "verification": "partial_or_missing_original"
+    },
+    {
+      "title": "선거관리위원회 사무관리규칙",
+      "url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=291509",
+      "id": "law|006049|291509",
+      "verification": "legacy_extract_needs_revalidation"
+    }
+  ]
+}

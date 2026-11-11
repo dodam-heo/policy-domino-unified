@@ -1,0 +1,50 @@
+{
+  "schema": "policy-domino-unified-detail-v2",
+  "id": "law|007624|291193",
+  "title": "시체 해부 및 보존 등에 관한 법률 시행규칙",
+  "source": "law",
+  "source_kind": "법령",
+  "kind": "보건복지부령",
+  "ministry": "보건복지부,질병관리청",
+  "published_at": "2026-10-12",
+  "effective_date": "2026-10-12",
+  "revision": "일부개정",
+  "change_type": "amended",
+  "number": "01204",
+  "url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=291193",
+  "category": "분야 미확정",
+  "category_basis": "not_verified",
+  "support_standard": false,
+  "headline": "신구 원문의 실질 변경 내용을 확인하고 있습니다",
+  "source_grade": "legacy_extract_needs_revalidation",
+  "verification": "comparison_incomplete",
+  "comparison_status": "original_saved_comparison_pending",
+  "relationship": "",
+  "change_count": 0,
+  "numeric_change_count": 0,
+  "standard_changes": [],
+  "current_standard_tables": [],
+  "changes": [],
+  "unresolved": [],
+  "institutions": [],
+  "related_regulations": [],
+  "linked_regulation_count": 0,
+  "institution_count": 0,
+  "action_count": 0,
+  "details_path": "details/eb18e1b121fec8d0fbe092de.json",
+  "prior_url": "",
+  "source_documents": [
+    {
+      "title": "",
+      "url": "",
+      "id": "",
+      "verification": "partial_or_missing_original"
+    },
+    {
+      "title": "시체 해부 및 보존 등에 관한 법률 시행규칙",
+      "url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=291193",
+      "id": "law|007624|291193",
+      "verification": "legacy_extract_needs_revalidation"
+    }
+  ]
+}

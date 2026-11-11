@@ -1,0 +1,50 @@
+{
+  "schema": "policy-domino-unified-detail-v2",
+  "id": "admrul|84144|2100000287964",
+  "title": "국가첨단전략산업 특성화대학 등 지정 및 지원에 관한 운영지침",
+  "source": "admrul",
+  "source_kind": "행정규칙",
+  "kind": "고시",
+  "ministry": "산업통상부",
+  "published_at": "2026-11-09",
+  "effective_date": "2026-11-09",
+  "revision": "일부개정",
+  "change_type": "amended",
+  "number": "2026-138",
+  "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000287964",
+  "category": "교육·장학",
+  "category_basis": "policy_title_text_rule",
+  "support_standard": false,
+  "headline": "신구 원문의 실질 변경 내용을 확인하고 있습니다",
+  "source_grade": "partial_or_missing_original",
+  "verification": "comparison_incomplete",
+  "comparison_status": "original_saved_comparison_pending",
+  "relationship": "",
+  "change_count": 0,
+  "numeric_change_count": 0,
+  "standard_changes": [],
+  "current_standard_tables": [],
+  "changes": [],
+  "unresolved": [],
+  "institutions": [],
+  "related_regulations": [],
+  "linked_regulation_count": 0,
+  "institution_count": 0,
+  "action_count": 0,
+  "details_path": "details/9a3da64848e29135b432e9d3.json",
+  "prior_url": "",
+  "source_documents": [
+    {
+      "title": "",
+      "url": "",
+      "id": "",
+      "verification": "partial_or_missing_original"
+    },
+    {
+      "title": "국가첨단전략산업 특성화대학 등 지정 및 지원에 관한 운영지침",
+      "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000287964",
+      "id": "admrul|84144|2100000287964",
+      "verification": "partial_or_missing_original"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "schema": "policy-domino-unified-detail-v2",
+  "id": "law|009256|290511",
+  "title": "특정 금융거래정보의 보고 및 이용 등에 관한 법률 시행령",
+  "source": "law",
+  "source_kind": "법령",
+  "kind": "대통령령",
+  "ministry": "금융위원회,법무부",
+  "published_at": "2026-09-29",
+  "effective_date": "2026-10-02",
+  "revision": "타법개정",
+  "change_type": "amended",
+  "number": "36728",
+  "url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=290511",
+  "category": "금융·보험",
+  "category_basis": "policy_title_text_rule",
+  "support_standard": false,
+  "headline": "신구 원문의 실질 변경 내용을 확인하고 있습니다",
+  "source_grade": "legacy_extract_needs_revalidation",
+  "verification": "comparison_incomplete",
+  "comparison_status": "original_saved_comparison_pending",
+  "relationship": "",
+  "change_count": 0,
+  "numeric_change_count": 0,
+  "standard_changes": [],
+  "current_standard_tables": [],
+  "changes": [],
+  "unresolved": [],
+  "institutions": [],
+  "related_regulations": [],
+  "linked_regulation_count": 0,
+  "institution_count": 0,
+  "action_count": 0,
+  "details_path": "details/c46ce6028114e55d5b49b8bd.json",
+  "prior_url": "",
+  "source_documents": [
+    {
+      "title": "",
+      "url": "",
+      "id": "",
+      "verification": "partial_or_missing_original"
+    },
+    {
+      "title": "특정 금융거래정보의 보고 및 이용 등에 관한 법률 시행령",
+      "url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=290511",
+      "id": "law|009256|290511",
+      "verification": "legacy_extract_needs_revalidation"
+    }
+  ]
+}

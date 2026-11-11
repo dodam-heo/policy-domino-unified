@@ -1,0 +1,50 @@
+{
+  "schema": "policy-domino-unified-detail-v2",
+  "id": "admrul|83790|2100000287976",
+  "title": "패키지시설사업 관리규정",
+  "source": "admrul",
+  "source_kind": "행정규칙",
+  "kind": "훈령",
+  "ministry": "방위사업청",
+  "published_at": "2026-11-09",
+  "effective_date": "2026-11-09",
+  "revision": "일부개정",
+  "change_type": "amended",
+  "number": "998",
+  "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000287976",
+  "category": "분야 미확정",
+  "category_basis": "not_verified",
+  "support_standard": false,
+  "headline": "신구 원문의 실질 변경 내용을 확인하고 있습니다",
+  "source_grade": "legacy_extract_needs_revalidation",
+  "verification": "historical_comparison_needs_revalidation",
+  "comparison_status": "no_text_change",
+  "relationship": "same_official_id_revision",
+  "change_count": 0,
+  "numeric_change_count": 0,
+  "standard_changes": [],
+  "current_standard_tables": [],
+  "changes": [],
+  "unresolved": [],
+  "institutions": [],
+  "related_regulations": [],
+  "linked_regulation_count": 0,
+  "institution_count": 0,
+  "action_count": 0,
+  "details_path": "details/fdc1aef2b0e5ecd641a80cf9.json",
+  "prior_url": "https://www.law.go.kr/행정규칙/%ED%8C%A8%ED%82%A4%EC%A7%80%EC%8B%9C%EC%84%A4%EC%82%AC%EC%97%85%20%EA%B4%80%EB%A6%AC%EA%B7%9C%EC%A0%95",
+  "source_documents": [
+    {
+      "title": "패키지시설사업 관리규정",
+      "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000283408",
+      "id": "admrul|83790|2100000283408",
+      "verification": "legacy_extract_needs_revalidation"
+    },
+    {
+      "title": "패키지시설사업 관리규정",
+      "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000287976",
+      "id": "admrul|83790|2100000287976",
+      "verification": "legacy_extract_needs_revalidation"
+    }
+  ]
+}

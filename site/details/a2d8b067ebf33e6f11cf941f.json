@@ -1,0 +1,50 @@
+{
+  "schema": "policy-domino-unified-detail-v2",
+  "id": "law|010162|291149",
+  "title": "제주특별자치도 설치 및 국제자유도시 조성을 위한 특별법",
+  "source": "law",
+  "source_kind": "법령",
+  "kind": "법률",
+  "ministry": "국토교통부,행정안전부",
+  "published_at": "2026-10-13",
+  "effective_date": "2026-10-13",
+  "revision": "타법개정",
+  "change_type": "amended",
+  "number": "22072",
+  "url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=291149",
+  "category": "주거·국토",
+  "category_basis": "policy_title_text_rule",
+  "support_standard": false,
+  "headline": "신구 원문의 실질 변경 내용을 확인하고 있습니다",
+  "source_grade": "legacy_extract_needs_revalidation",
+  "verification": "comparison_incomplete",
+  "comparison_status": "original_saved_comparison_pending",
+  "relationship": "",
+  "change_count": 0,
+  "numeric_change_count": 0,
+  "standard_changes": [],
+  "current_standard_tables": [],
+  "changes": [],
+  "unresolved": [],
+  "institutions": [],
+  "related_regulations": [],
+  "linked_regulation_count": 0,
+  "institution_count": 0,
+  "action_count": 0,
+  "details_path": "details/a2d8b067ebf33e6f11cf941f.json",
+  "prior_url": "",
+  "source_documents": [
+    {
+      "title": "",
+      "url": "",
+      "id": "",
+      "verification": "partial_or_missing_original"
+    },
+    {
+      "title": "제주특별자치도 설치 및 국제자유도시 조성을 위한 특별법",
+      "url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=291149",
+      "id": "law|010162|291149",
+      "verification": "legacy_extract_needs_revalidation"
+    }
+  ]
+}

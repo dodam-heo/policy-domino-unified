@@ -1,0 +1,50 @@
+{
+  "schema": "policy-domino-unified-detail-v2",
+  "id": "admrul|35902|2100000287664",
+  "title": "기후에너지환경부 소관 보조금 사업 위임사무",
+  "source": "admrul",
+  "source_kind": "행정규칙",
+  "kind": "고시",
+  "ministry": "기후에너지환경부",
+  "published_at": "2026-10-30",
+  "effective_date": "2026-10-30",
+  "revision": "일부개정",
+  "change_type": "amended",
+  "number": "2026-279",
+  "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000287664",
+  "category": "환경·에너지",
+  "category_basis": "policy_title_text_rule",
+  "support_standard": false,
+  "headline": "신구 원문의 실질 변경 내용을 확인하고 있습니다",
+  "source_grade": "legacy_extract_needs_revalidation",
+  "verification": "comparison_incomplete",
+  "comparison_status": "original_saved_comparison_pending",
+  "relationship": "",
+  "change_count": 0,
+  "numeric_change_count": 0,
+  "standard_changes": [],
+  "current_standard_tables": [],
+  "changes": [],
+  "unresolved": [],
+  "institutions": [],
+  "related_regulations": [],
+  "linked_regulation_count": 0,
+  "institution_count": 0,
+  "action_count": 0,
+  "details_path": "details/f6094bbfb45b3b99796acdc3.json",
+  "prior_url": "",
+  "source_documents": [
+    {
+      "title": "",
+      "url": "",
+      "id": "",
+      "verification": "partial_or_missing_original"
+    },
+    {
+      "title": "기후에너지환경부 소관 보조금 사업 위임사무",
+      "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000287664",
+      "id": "admrul|35902|2100000287664",
+      "verification": "legacy_extract_needs_revalidation"
+    }
+  ]
+}

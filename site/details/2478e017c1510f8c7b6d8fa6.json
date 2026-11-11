@@ -1,0 +1,50 @@
+{
+  "schema": "policy-domino-unified-detail-v2",
+  "id": "ordin|2129589|2056111",
+  "title": "충청북도 의용소방대 설치 및 운영 조례",
+  "source": "ordin",
+  "source_kind": "자치법규",
+  "kind": "자치법규",
+  "ministry": "충청북도",
+  "published_at": "2025-07-11",
+  "effective_date": "2025-07-11",
+  "revision": "일부개정",
+  "change_type": "amended",
+  "number": "5408",
+  "url": "https://www.law.go.kr/%EC%9E%90%EC%B9%98%EB%B2%95%EA%B7%9C/%EC%B6%A9%EC%B2%AD%EB%B6%81%EB%8F%84%20%EC%9D%98%EC%9A%A9%EC%86%8C%EB%B0%A9%EB%8C%80%20%EC%84%A4%EC%B9%98%20%EB%B0%8F%20%EC%9A%B4%EC%98%81%20%EC%A1%B0%EB%A1%80",
+  "category": "안전·사법",
+  "category_basis": "policy_title_text_rule",
+  "support_standard": false,
+  "headline": "신구 원문의 실질 변경 내용을 확인하고 있습니다",
+  "source_grade": "legacy_extract_needs_revalidation",
+  "verification": "comparison_incomplete",
+  "comparison_status": "original_saved_comparison_pending",
+  "relationship": "",
+  "change_count": 0,
+  "numeric_change_count": 0,
+  "standard_changes": [],
+  "current_standard_tables": [],
+  "changes": [],
+  "unresolved": [],
+  "institutions": [],
+  "related_regulations": [],
+  "linked_regulation_count": 0,
+  "institution_count": 0,
+  "action_count": 0,
+  "details_path": "details/2478e017c1510f8c7b6d8fa6.json",
+  "prior_url": "",
+  "source_documents": [
+    {
+      "title": "",
+      "url": "",
+      "id": "",
+      "verification": "partial_or_missing_original"
+    },
+    {
+      "title": "충청북도 의용소방대 설치 및 운영 조례",
+      "url": "https://www.law.go.kr/%EC%9E%90%EC%B9%98%EB%B2%95%EA%B7%9C/%EC%B6%A9%EC%B2%AD%EB%B6%81%EB%8F%84%20%EC%9D%98%EC%9A%A9%EC%86%8C%EB%B0%A9%EB%8C%80%20%EC%84%A4%EC%B9%98%20%EB%B0%8F%20%EC%9A%B4%EC%98%81%20%EC%A1%B0%EB%A1%80",
+      "id": "ordin|2129589|2056111",
+      "verification": "legacy_extract_needs_revalidation"
+    }
+  ]
+}

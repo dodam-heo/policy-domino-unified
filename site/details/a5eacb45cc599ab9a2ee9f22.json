@@ -1,0 +1,50 @@
+{
+  "schema": "policy-domino-unified-detail-v2",
+  "id": "law|015090|290127",
+  "title": "중대범죄수사청 조직 및 운영에 관한 법률",
+  "source": "law",
+  "source_kind": "법령",
+  "kind": "법률",
+  "ministry": "중대범죄수사청",
+  "published_at": "2026-09-29",
+  "effective_date": "2026-10-02",
+  "revision": "일부개정",
+  "change_type": "amended",
+  "number": "22016",
+  "url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=290127",
+  "category": "조직·행정",
+  "category_basis": "policy_title_text_rule",
+  "support_standard": false,
+  "headline": "신구 원문의 실질 변경 내용을 확인하고 있습니다",
+  "source_grade": "legacy_extract_needs_revalidation",
+  "verification": "comparison_incomplete",
+  "comparison_status": "original_saved_comparison_pending",
+  "relationship": "",
+  "change_count": 0,
+  "numeric_change_count": 0,
+  "standard_changes": [],
+  "current_standard_tables": [],
+  "changes": [],
+  "unresolved": [],
+  "institutions": [],
+  "related_regulations": [],
+  "linked_regulation_count": 0,
+  "institution_count": 0,
+  "action_count": 0,
+  "details_path": "details/a5eacb45cc599ab9a2ee9f22.json",
+  "prior_url": "",
+  "source_documents": [
+    {
+      "title": "",
+      "url": "",
+      "id": "",
+      "verification": "partial_or_missing_original"
+    },
+    {
+      "title": "중대범죄수사청 조직 및 운영에 관한 법률",
+      "url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=290127",
+      "id": "law|015090|290127",
+      "verification": "legacy_extract_needs_revalidation"
+    }
+  ]
+}

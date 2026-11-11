@@ -1,0 +1,50 @@
+{
+  "schema": "policy-domino-unified-detail-v2",
+  "id": "admrul|73876|2100000279630",
+  "title": "질병관리청 국가지정 입원치료병상 운영규정",
+  "source": "admrul",
+  "source_kind": "행정규칙",
+  "kind": "예규",
+  "ministry": "질병관리청",
+  "published_at": "2026-05-21",
+  "effective_date": "2026-05-21",
+  "revision": "일부개정",
+  "change_type": "amended",
+  "number": "180",
+  "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000279630",
+  "category": "보건·의료",
+  "category_basis": "policy_title_text_rule",
+  "support_standard": false,
+  "headline": "신구 원문의 실질 변경 내용을 확인하고 있습니다",
+  "source_grade": "legacy_extract_needs_revalidation",
+  "verification": "comparison_incomplete",
+  "comparison_status": "original_saved_comparison_pending",
+  "relationship": "",
+  "change_count": 0,
+  "numeric_change_count": 0,
+  "standard_changes": [],
+  "current_standard_tables": [],
+  "changes": [],
+  "unresolved": [],
+  "institutions": [],
+  "related_regulations": [],
+  "linked_regulation_count": 0,
+  "institution_count": 0,
+  "action_count": 0,
+  "details_path": "details/676aebaa94ee5deebfa63ba1.json",
+  "prior_url": "",
+  "source_documents": [
+    {
+      "title": "",
+      "url": "",
+      "id": "",
+      "verification": "partial_or_missing_original"
+    },
+    {
+      "title": "질병관리청 국가지정 입원치료병상 운영규정",
+      "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000279630",
+      "id": "admrul|73876|2100000279630",
+      "verification": "legacy_extract_needs_revalidation"
+    }
+  ]
+}

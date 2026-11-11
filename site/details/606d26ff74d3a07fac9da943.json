@@ -1,0 +1,50 @@
+{
+  "schema": "policy-domino-unified-detail-v2",
+  "id": "admrul|83700|2100000287816",
+  "title": "환경위성 관측자료의 검증을 위한 지상원격장비 설치·운영 지침",
+  "source": "admrul",
+  "source_kind": "행정규칙",
+  "kind": "예규",
+  "ministry": "국립환경과학원",
+  "published_at": "2026-11-05",
+  "effective_date": "2026-11-11",
+  "revision": "일부개정",
+  "change_type": "amended",
+  "number": "921",
+  "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000287816",
+  "category": "환경·에너지",
+  "category_basis": "policy_title_text_rule",
+  "support_standard": false,
+  "headline": "신구 원문의 실질 변경 내용을 확인하고 있습니다",
+  "source_grade": "legacy_extract_needs_revalidation",
+  "verification": "comparison_incomplete",
+  "comparison_status": "original_saved_comparison_pending",
+  "relationship": "",
+  "change_count": 0,
+  "numeric_change_count": 0,
+  "standard_changes": [],
+  "current_standard_tables": [],
+  "changes": [],
+  "unresolved": [],
+  "institutions": [],
+  "related_regulations": [],
+  "linked_regulation_count": 0,
+  "institution_count": 0,
+  "action_count": 0,
+  "details_path": "details/606d26ff74d3a07fac9da943.json",
+  "prior_url": "",
+  "source_documents": [
+    {
+      "title": "",
+      "url": "",
+      "id": "",
+      "verification": "partial_or_missing_original"
+    },
+    {
+      "title": "환경위성 관측자료의 검증을 위한 지상원격장비 설치·운영 지침",
+      "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000287816",
+      "id": "admrul|83700|2100000287816",
+      "verification": "legacy_extract_needs_revalidation"
+    }
+  ]
+}

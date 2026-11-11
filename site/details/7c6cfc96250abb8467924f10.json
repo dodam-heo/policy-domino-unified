@@ -1,0 +1,50 @@
+{
+  "schema": "policy-domino-unified-detail-v2",
+  "id": "admrul|2002374|2100000282670",
+  "title": "2027년 적용 최저임금안 고시",
+  "source": "admrul",
+  "source_kind": "행정규칙",
+  "kind": "고시",
+  "ministry": "고용노동부",
+  "published_at": "2026-07-16",
+  "effective_date": "2027-01-01",
+  "revision": "제정",
+  "change_type": "new",
+  "number": "2026-55",
+  "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000282670",
+  "category": "노동·인사",
+  "category_basis": "policy_title_text_rule",
+  "support_standard": false,
+  "headline": "신구 원문의 실질 변경 내용을 확인하고 있습니다",
+  "source_grade": "official_original_verified",
+  "verification": "comparison_incomplete",
+  "comparison_status": "original_saved_comparison_pending",
+  "relationship": "",
+  "change_count": 0,
+  "numeric_change_count": 0,
+  "standard_changes": [],
+  "current_standard_tables": [],
+  "changes": [],
+  "unresolved": [],
+  "institutions": [],
+  "related_regulations": [],
+  "linked_regulation_count": 0,
+  "institution_count": 0,
+  "action_count": 0,
+  "details_path": "details/7c6cfc96250abb8467924f10.json",
+  "prior_url": "",
+  "source_documents": [
+    {
+      "title": "",
+      "url": "",
+      "id": "",
+      "verification": "partial_or_missing_original"
+    },
+    {
+      "title": "2027년 적용 최저임금안 고시",
+      "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000282670",
+      "id": "admrul|2002374|2100000282670",
+      "verification": "official_original_verified"
+    }
+  ]
+}

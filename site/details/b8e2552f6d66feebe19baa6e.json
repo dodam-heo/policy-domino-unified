@@ -1,0 +1,296 @@
+{
+  "schema": "policy-domino-unified-detail-v2",
+  "id": "admrul|2075865|2100000216917",
+  "title": "2027년도 제품·포장재별 장기재활용목표율",
+  "source": "admrul",
+  "source_kind": "행정규칙",
+  "kind": "고시",
+  "ministry": "기후에너지환경부",
+  "published_at": "2022-12-05",
+  "effective_date": "2022-12-05",
+  "revision": "제정",
+  "change_type": "new",
+  "number": "2022-229",
+  "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000216917",
+  "category": "환경·에너지",
+  "category_basis": "verified_excerpt_text_rule",
+  "support_standard": false,
+  "headline": "원문 재검증 필요 · 본문 1: <img id=\"39306129\"> </img> → <img id=\"122589707\"> </img> <img id=\"122589709\"> </img> 1. \"멸균팩\"이란「자원의 절약과 재활용촉진에 관한 법률 시행령」 제18조제1호 각 목의 제품의 포장에 사용되는 종이팩으로…",
+  "source_grade": "partial_or_missing_original",
+  "verification": "comparison_incomplete",
+  "comparison_status": "partial_unverified",
+  "relationship": "same_official_id_revision",
+  "change_count": 2,
+  "numeric_change_count": 0,
+  "standard_changes": [],
+  "current_standard_tables": [
+    {
+      "table": 1,
+      "header": [
+        "품 목",
+        "2027년도 장기재활용의무율"
+      ],
+      "cells": [
+        {
+          "row": "알루미늄캔",
+          "column": "2027년도 장기재활용의무율",
+          "value": "0.829"
+        },
+        {
+          "row": "유 리 병",
+          "column": "2027년도 장기재활용의무율",
+          "value": "0.799"
+        },
+        {
+          "row": "멸균팩",
+          "column": "2027년도 장기재활용의무율",
+          "value": "0.172"
+        },
+        {
+          "row": "단일유색",
+          "column": "2027년도 장기재활용의무율",
+          "value": "0.864"
+        },
+        {
+          "row": "복합재질",
+          "column": "2027년도 장기재활용의무율",
+          "value": "0.895"
+        },
+        {
+          "row": "발포합성수지(폴리스티렌페이퍼 제외)",
+          "column": "2027년도 장기재활용의무율",
+          "value": "0.871"
+        },
+        {
+          "row": "단일재질 폴리스티렌페이퍼",
+          "column": "2027년도 장기재활용의무율",
+          "value": "0.630"
+        },
+        {
+          "row": "단일·복합재질 폴리비닐클로라이드",
+          "column": "2027년도 장기재활용의무율",
+          "value": "0.771"
+        },
+        {
+          "row": "복합재질 및 필름․시트형 단일․복합재질",
+          "column": "2027년도 장기재활용의무율",
+          "value": "0.900"
+        },
+        {
+          "row": "윤활유용기",
+          "column": "2027년도 장기재활용의무율",
+          "value": "0.869"
+        },
+        {
+          "row": "윤 활 유",
+          "column": "2027년도 장기재활용의무율",
+          "value": "0.779"
+        },
+        {
+          "row": "타 이 어",
+          "column": "2027년도 장기재활용의무율",
+          "value": "0.809"
+        },
+        {
+          "row": "형 광 등",
+          "column": "2027년도 장기재활용의무율",
+          "value": "0.975"
+        },
+        {
+          "row": "직관형",
+          "column": "2027년도 장기재활용의무율",
+          "value": "0.221"
+        },
+        {
+          "row": "평판형",
+          "column": "2027년도 장기재활용의무율",
+          "value": "0.158"
+        },
+        {
+          "row": "수산물 양식용부자",
+          "column": "2027년도 장기재활용의무율",
+          "value": "0.168"
+        },
+        {
+          "row": "산화은전지",
+          "column": "2027년도 장기재활용의무율",
+          "value": "0.560"
+        },
+        {
+          "row": "리튬전지(1차전지만 해당)",
+          "column": "2027년도 장기재활용의무율",
+          "value": "0.650"
+        },
+        {
+          "row": "니켈․카드뮴전지",
+          "column": "2027년도 장기재활용의무율",
+          "value": "0.486"
+        },
+        {
+          "row": "망간전지․알칼리망간전지",
+          "column": "2027년도 장기재활용의무율",
+          "value": "0.356"
+        },
+        {
+          "row": "니켈수소전지",
+          "column": "2027년도 장기재활용의무율",
+          "value": "0.169"
+        },
+        {
+          "row": "곤포사일리지용 필름",
+          "column": "2027년도 장기재활용의무율",
+          "value": "0.693"
+        },
+        {
+          "row": "합성수지재질 김발장",
+          "column": "2027년도 장기재활용의무율",
+          "value": "0.848"
+        },
+        {
+          "row": "산업용 필름",
+          "column": "2027년도 장기재활용의무율",
+          "value": "0.652"
+        },
+        {
+          "row": "교체용 정수기 필터",
+          "column": "2027년도 장기재활용의무율",
+          "value": "0.821"
+        },
+        {
+          "row": "안전망",
+          "column": "2027년도 장기재활용의무율",
+          "value": "0.452"
+        },
+        {
+          "row": "어망",
+          "column": "2027년도 장기재활용의무율",
+          "value": "0.450"
+        },
+        {
+          "row": "로프",
+          "column": "2027년도 장기재활용의무율",
+          "value": "0.250"
+        },
+        {
+          "row": "폴리에틸렌관",
+          "column": "2027년도 장기재활용의무율",
+          "value": "0.110"
+        },
+        {
+          "row": "폴리염화비닐(PVC) 제품",
+          "column": "2027년도 장기재활용의무율",
+          "value": "0.108"
+        },
+        {
+          "row": "폴리프로필렌 재질 생활용품",
+          "column": "2027년도 장기재활용의무율",
+          "value": "0.560"
+        },
+        {
+          "row": "파렛트",
+          "column": "2027년도 장기재활용의무율",
+          "value": "0.159"
+        },
+        {
+          "row": "플라스틱 운반상자",
+          "column": "2027년도 장기재활용의무율",
+          "value": "0.221"
+        },
+        {
+          "row": "창틀․문틀",
+          "column": "2027년도 장기재활용의무율",
+          "value": "0.167"
+        },
+        {
+          "row": "바닥재",
+          "column": "2027년도 장기재활용의무율",
+          "value": "0.300"
+        },
+        {
+          "row": "건축용 단열재",
+          "column": "2027년도 장기재활용의무율",
+          "value": "0.104"
+        },
+        {
+          "row": "전력․통신선",
+          "column": "2027년도 장기재활용의무율",
+          "value": "0.224"
+        },
+        {
+          "row": "자동차 유지관리용 부품",
+          "column": "2027년도 장기재활용의무율",
+          "value": "0.577"
+        }
+      ],
+      "official_attachment_sha256": "f04bed51505c7a44deb3e28ba1f5bc17f867655aae7cd7835239e236e2c26692"
+    }
+  ],
+  "changes": [
+    {
+      "article": "본문 1",
+      "before": "<img id=\"39306129\"> </img>",
+      "after": "<img id=\"122589707\"> </img> <img id=\"122589709\"> </img> 1. \"멸균팩\"이란「자원의 절약과 재활용촉진에 관한 법률 시행령」 제18조제1호 각 목의 제품의 포장에 사용되는 종이팩으로서 알루미늄박이 부착된 것을 말한다. 2. \"일반팩\"이란「자원의 절약과 재활용촉진에 관한 법률 시행령」 제18조제1호 각 목의 제품의 포장에 사용되는 종이팩으로서 합성수지가 부착된 것을 말한다. 다만, 제1호의 멸균팩은 제외한다. 3. 「자원의 절약과 재활용촉진에 관한 법률 시행령」 제18조제3호에 따른 합성수지재질의 1회용 봉투ㆍ쇼핑백과 제3호의2에 따른 폴리염화 비닐(PVC) 재질을 제외한 합성수지재질 필름류의 경우, 복합재질 및 필름·시트형 단일·복합재질의 장기재활용의무율을 적용한다.",
+      "focus": {
+        "before": "<img id=\"39306129\"> </img>",
+        "after": "<img id=\"122589707\"> </img> <img id=\"122589709\"> </img> 1. \"멸균팩\"이란「자원의 절약과 재활용촉진에 관한 법률 시행령」 제18조제1호 각 목의 제품의 포장에 사용되는 종이팩으로…",
+        "changed": true,
+        "old_deleted": "39306129\"> </img>",
+        "new_added": "122589707\"> </img> <img id=\"122589709\"> </img> 1. \"멸균팩\"이란「자원의 절약과 재활용촉진에 관한 법률 시행령」 제18조제1호 각 목의 제품의 포장에 사용되는 종이팩으로서 알루미늄박이…",
+        "precision": "multi_change_excerpt"
+      },
+      "verification": "comparison_incomplete"
+    },
+    {
+      "article": "부칙",
+      "before": "부칙 <제2017-240호,2017. 12. 28.> 이 고시는 발령한 날로부터 시행한다. 부칙 <제2018-218호,2018. 12. 20.> 제1조(시행일) 이 고시는 발령한 날부터 시행한다.",
+      "after": "부칙 <제2022-229호, 2022. 12. 5.> 제1조(시행일) 이 고시는 발령한 날부터 시행한다. 제2조(재검토기한) 환경부장관은 이 고시에 대하여 「훈령ㆍ예규 등의 발령 및 관리에 관한 규정」에 따라 2023년 1월 1일 기준으로 매 3년이 되는 시점(매 3년째의 12월 31일까지를 말한다)마다 그 타당성을 검토하여 개선 등의 조치를 하여야 한다.",
+      "focus": {
+        "before": "부칙 <제2017-240호,2017. 12. 28.> 이 고시는 발령한 날로부터 시행한다. 부칙 <제2018-218호,2018. 12. 20.> 제1조(시행일) 이 고시는 발령한 날부터 시행한다.",
+        "after": "부칙 <제2022-229호, 2022. 12. 5.> 제1조(시행일) 이 고시는 발령한 날부터 시행한다. 제2조(재검토기한) 환경부장관은 이 고시에 대하여 「훈령ㆍ예규 등의 발령 및 관리에 관한 규정」에 따라 2023년 1…",
+        "changed": true,
+        "old_deleted": "17-240호,2017. 12. 28.> 이 고시는 발령한 날로부터 시행한다. 부칙 <제2018-218호,2018. 12. 20.> 제1조(시행일) 이 고시는 발령한 날부터 시행",
+        "new_added": "22-229호, 2022. 12. 5.> 제1조(시행일) 이 고시는 발령한 날부터 시행한다. 제2조(재검토기한) 환경부장관은 이 고시에 대하여 「훈령ㆍ예규 등의 발령 및 관리에 관한 규정」에 따라 2023년 1월 1일 기준…",
+        "precision": "single_edit"
+      },
+      "verification": "comparison_incomplete"
+    }
+  ],
+  "unresolved": [
+    {
+      "clause": "첨부 1",
+      "reason": "counterpart_not_verified"
+    },
+    {
+      "clause": "첨부 2",
+      "reason": "counterpart_not_verified"
+    },
+    {
+      "clause": "첨부 3",
+      "reason": "counterpart_not_verified"
+    },
+    {
+      "reason": "incomplete_original_or_attachment"
+    }
+  ],
+  "institutions": [],
+  "related_regulations": [],
+  "linked_regulation_count": 0,
+  "institution_count": 0,
+  "action_count": 0,
+  "details_path": "details/b8e2552f6d66feebe19baa6e.json",
+  "prior_url": "https://www.law.go.kr/%ED%96%89%EC%A0%95%EA%B7%9C%EC%B9%99/2022%EB%85%84%EB%8F%84%20%EC%A0%9C%ED%92%88%C2%B7%ED%8F%AC%EC%9E%A5%EC%9E%AC%EB%B3%84%20%EC%9E%A5%EA%B8%B0%EC%9E%AC%ED%99%9C%EC%9A%A9%EB%AA%A9%ED%91%9C%EC%9C%A8",
+  "source_documents": [
+    {
+      "title": "2022년도 제품·포장재별 장기재활용목표율",
+      "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000174515",
+      "id": "admrul|2075865|2100000174515",
+      "verification": "partial_or_missing_original"
+    },
+    {
+      "title": "2027년도 제품·포장재별 장기재활용목표율",
+      "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000216917",
+      "id": "admrul|2075865|2100000216917",
+      "verification": "partial_or_missing_original"
+    }
+  ]
+}
