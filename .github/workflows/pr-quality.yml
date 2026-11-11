@@ -6,9 +6,13 @@ on:
       - 'tests/**'
       - 'site/**'
       - '.github/workflows/pr-quality.yml'
+concurrency:
+  group: unified-pr-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
 jobs:
   validate:
     runs-on: ubuntu-latest
+    timeout-minutes: 28
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
