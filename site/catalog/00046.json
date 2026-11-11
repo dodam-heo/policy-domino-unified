@@ -11331,7 +11331,7 @@
       "headline": "공식 목록 확보 · 신구 본문 분석 대기",
       "comparison_status": "official_index_only",
       "verification": "comparison_incomplete",
-      "source_grade": "historic_index_only",
+      "source_grade": "official_api_indexed",
       "relationship": "",
       "change_count": 0,
       "institution_count": 0,
