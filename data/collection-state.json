@@ -5,9 +5,9 @@
     "law|1|": "2026-09-23",
     "admrul|1|1": "2026-09-23",
     "admrul|1|2": "2026-09-23",
-    "admrul|1|4": "2026-10-07",
-    "admrul|1|5": "2026-10-07",
-    "admrul|1|6": "2026-10-07",
+    "admrul|1|4": "2026-09-23",
+    "admrul|1|5": "2026-09-23",
+    "admrul|1|6": "2026-09-23",
     "admrul|2|1": "2026-10-07",
     "admrul|2|5": "2026-10-07",
     "admrul|2|6": "2026-10-07",
@@ -321,7 +321,7 @@
       "last": "2026-11-11",
       "stage": "annual_forward",
       "query_year": "2027",
-      "checked_at": "2026-11-11T08:33:44.451587+00:00"
+      "checked_at": "2026-11-11T08:51:28.598195+00:00"
     },
     "admrul|2|3|2025-05-20|2026-11-11|annual_forward": {
       "reported": 18,
@@ -335,7 +335,7 @@
       "last": "2026-11-11",
       "stage": "annual_forward",
       "query_year": "2027",
-      "checked_at": "2026-11-11T08:33:45.392822+00:00"
+      "checked_at": "2026-11-11T08:51:34.474800+00:00"
     },
     "admrul|1|1|2025-05-20|2026-11-11|annual_forward": {
       "reported": 1,
@@ -349,7 +349,7 @@
       "last": "2026-11-11",
       "stage": "annual_forward",
       "query_year": "2027",
-      "checked_at": "2026-11-11T08:33:46.489750+00:00"
+      "checked_at": "2026-11-11T08:51:38.071327+00:00"
     },
     "admrul|2|1|2025-05-20|2026-11-11|annual_forward": {
       "reported": 1,
@@ -363,7 +363,7 @@
       "last": "2026-11-11",
       "stage": "annual_forward",
       "query_year": "2027",
-      "checked_at": "2026-11-11T08:33:47.037121+00:00"
+      "checked_at": "2026-11-11T08:51:38.933661+00:00"
     },
     "admrul|2|5|2026-11-05|2026-11-11|recent": {
       "reported": 0,
@@ -478,6 +478,10 @@
       "checked_at": "2026-11-11T08:45:58.138888+00:00"
     },
     "admrul|1|4|2025-05-20|2026-11-11|annual_forward": {
+      "reported": 0,
+      "collected": 0,
+      "pages": 1,
+      "complete": true,
       "source": "admrul",
       "edition": "1",
       "kind": "4",
@@ -485,10 +489,13 @@
       "last": "2026-11-11",
       "stage": "annual_forward",
       "query_year": "2027",
-      "complete": false,
-      "error": "official_api_unavailable_deferred"
+      "checked_at": "2026-11-11T08:50:52.423685+00:00"
     },
     "admrul|2|4|2025-05-20|2026-11-11|annual_forward": {
+      "reported": 0,
+      "collected": 0,
+      "pages": 1,
+      "complete": true,
       "source": "admrul",
       "edition": "2",
       "kind": "4",
@@ -496,8 +503,7 @@
       "last": "2026-11-11",
       "stage": "annual_forward",
       "query_year": "2027",
-      "complete": false,
-      "error": "official_api_unavailable_deferred"
+      "checked_at": "2026-11-11T08:50:58.417426+00:00"
     },
     "ordin|2||2026-11-05|2026-11-11|recent": {
       "source": "ordin",
@@ -726,7 +732,7 @@
       "last": "2026-11-11",
       "stage": "recent",
       "query_year": "",
-      "checked_at": "2026-11-11T08:12:43.754900+00:00"
+      "checked_at": "2026-11-11T08:51:04.117006+00:00"
     },
     "admrul|1|4|2026-10-08|2026-10-21|historical": {
       "reported": 3,
@@ -754,7 +760,7 @@
       "last": "2026-11-11",
       "stage": "recent",
       "query_year": "",
-      "checked_at": "2026-11-11T08:13:04.948211+00:00"
+      "checked_at": "2026-11-11T08:51:10.671129+00:00"
     },
     "admrul|1|5|2026-10-08|2026-10-21|historical": {
       "reported": 1,
@@ -782,7 +788,7 @@
       "last": "2026-11-11",
       "stage": "recent",
       "query_year": "",
-      "checked_at": "2026-11-11T08:13:30.338346+00:00"
+      "checked_at": "2026-11-11T08:51:21.753997+00:00"
     },
     "admrul|1|6|2026-10-08|2026-10-21|historical": {
       "reported": 0,
@@ -956,6 +962,48 @@
       "stage": "historical",
       "query_year": "",
       "checked_at": "2026-11-11T08:47:00.359279+00:00"
+    },
+    "admrul|1|4|2026-09-24|2026-10-07|historical": {
+      "reported": 2,
+      "collected": 2,
+      "pages": 1,
+      "complete": true,
+      "source": "admrul",
+      "edition": "1",
+      "kind": "4",
+      "first": "2026-09-24",
+      "last": "2026-10-07",
+      "stage": "historical",
+      "query_year": "",
+      "checked_at": "2026-11-11T08:51:04.992043+00:00"
+    },
+    "admrul|1|5|2026-09-24|2026-10-07|historical": {
+      "reported": 0,
+      "collected": 0,
+      "pages": 1,
+      "complete": true,
+      "source": "admrul",
+      "edition": "1",
+      "kind": "5",
+      "first": "2026-09-24",
+      "last": "2026-10-07",
+      "stage": "historical",
+      "query_year": "",
+      "checked_at": "2026-11-11T08:51:16.545523+00:00"
+    },
+    "admrul|1|6|2026-09-24|2026-10-07|historical": {
+      "reported": 0,
+      "collected": 0,
+      "pages": 1,
+      "complete": true,
+      "source": "admrul",
+      "edition": "1",
+      "kind": "6",
+      "first": "2026-09-24",
+      "last": "2026-10-07",
+      "stage": "historical",
+      "query_year": "",
+      "checked_at": "2026-11-11T08:51:22.447203+00:00"
     }
   },
   "attempts": {
@@ -1011,7 +1059,25 @@
     "ordin|2169217|2183795": 1,
     "ordin|2204368|2183793": 1,
     "ordin|2049243|2183791": 1,
-    "ordin|2049236|2183789": 1
+    "ordin|2049236|2183789": 1,
+    "ordin|2049118|2183787": 1,
+    "ordin|2049237|2183785": 1,
+    "ordin|2160898|2183783": 1,
+    "ordin|2049283|2183781": 1,
+    "ordin|2049046|2183779": 1,
+    "ordin|2145321|2183777": 1,
+    "ordin|2049062|2183775": 1,
+    "ordin|2049277|2183773": 1,
+    "ordin|2049276|2183771": 1,
+    "law|008542|47299": 1,
+    "law|005308|31930": 1,
+    "law|005308|32050": 1,
+    "law|005308|32051": 1,
+    "ordin|2049235|2183769": 1,
+    "ordin|2049089|2183767": 1,
+    "ordin|2049076|2183737": 1,
+    "ordin|2048983|2183735": 1,
+    "ordin|2049285|2183733": 1
   },
   "errors": {
     "admrul|40796|2100000287994": "RuntimeError: official_api_network_error: URLError",
@@ -1019,20 +1085,20 @@
     "admrul|83355|2100000287814": "RuntimeError: official_api_network_error: URLError",
     "admrul|2075865|2100000266578": "RuntimeError: official_api_network_error: URLError: <urlopen error timed out>"
   },
-  "stream_offset": 5,
+  "stream_offset": 8,
   "last_run": "2026-11-11",
   "last_run_stats": {
     "detail_attempted": 18,
-    "complete_originals_added": 1,
+    "complete_originals_added": 0,
     "compared_pairs_processed": 4,
     "failed_windows": 0,
     "streams_checked": 3,
     "pending_index_versions": 46678,
     "year_search_year": 2027,
     "time_budget_deferred": false,
-    "collection_elapsed_seconds": 200.1
+    "collection_elapsed_seconds": 174.2
   },
-  "annual_kind_offset": 0,
+  "annual_kind_offset": 2,
   "last_detail_attempt": {
     "admrul|48377|2100000285242": "2026-11-11T08:15:01.667368+00:00",
     "admrul|48362|2100000284670": "2026-11-11T08:15:47.389411+00:00",
@@ -1083,6 +1149,24 @@
     "ordin|2169217|2183795": "2026-11-11T08:48:26.442142+00:00",
     "ordin|2204368|2183793": "2026-11-11T08:49:00.998944+00:00",
     "ordin|2049243|2183791": "2026-11-11T08:49:00.998979+00:00",
-    "ordin|2049236|2183789": "2026-11-11T08:49:00.999002+00:00"
+    "ordin|2049236|2183789": "2026-11-11T08:49:00.999002+00:00",
+    "ordin|2049118|2183787": "2026-11-11T08:51:39.789567+00:00",
+    "ordin|2049237|2183785": "2026-11-11T08:51:39.789628+00:00",
+    "ordin|2160898|2183783": "2026-11-11T08:51:39.789698+00:00",
+    "ordin|2049283|2183781": "2026-11-11T08:51:40.864171+00:00",
+    "ordin|2049046|2183779": "2026-11-11T08:51:40.864225+00:00",
+    "ordin|2145321|2183777": "2026-11-11T08:51:40.864266+00:00",
+    "ordin|2049062|2183775": "2026-11-11T08:51:47.322875+00:00",
+    "ordin|2049277|2183773": "2026-11-11T08:51:47.322940+00:00",
+    "ordin|2049276|2183771": "2026-11-11T08:51:47.323005+00:00",
+    "law|008542|47299": "2026-11-11T08:51:53.800369+00:00",
+    "law|005308|31930": "2026-11-11T08:51:53.800429+00:00",
+    "law|005308|32050": "2026-11-11T08:51:53.800468+00:00",
+    "law|005308|32051": "2026-11-11T08:52:56.858606+00:00",
+    "ordin|2049235|2183769": "2026-11-11T08:52:56.858692+00:00",
+    "ordin|2049089|2183767": "2026-11-11T08:52:56.858738+00:00",
+    "ordin|2049076|2183737": "2026-11-11T08:53:35.054621+00:00",
+    "ordin|2048983|2183735": "2026-11-11T08:53:35.054691+00:00",
+    "ordin|2049285|2183733": "2026-11-11T08:53:35.054760+00:00"
   }
 }
