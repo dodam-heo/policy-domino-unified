@@ -67,6 +67,16 @@ jobs:
           from unified.engine import _pending_index_records, _local_predecessor
           records=_pending_index_records(Path('/tmp/legacy-index-validation'))
           by_serial={r['serial']:r for r in records}
+          median=next((r for r in records if r["serial"]=="2100000283464"),None)
+          if median:
+              matches=[r for r in records if r.get("source")=="admrul" and
+                       r.get("ministry")==median.get("ministry") and
+                       "소득" in r.get("title","") and
+                       "2025" in r.get("published_at","")]
+              matches.sort(key=lambda r:r.get("published_at",""),reverse=True)
+              print("MEDIAN_PREVIOUS_OFFICIAL_CANDIDATES",
+                    [(r.get("serial"),r.get("title"),r.get("published_at"),
+                      r.get("effective_date")) for r in matches[:18]])
           for number in ('2100000283464','2100000284670','2100000285242'):
               row=by_serial.get(number)
               if not row:
