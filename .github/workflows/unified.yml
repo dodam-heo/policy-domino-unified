@@ -70,6 +70,7 @@ jobs:
         env:
           LAW_OC: ${{ vars.LAW_OC || 'dori' }}
           PD_FETCH_OFFICIAL_ATTACHMENTS: 'true'
+          PD_COLLECTION_MAX_SECONDS: '360'
         run: python -m unified.engine --root data --streams 3 --details 18
       - name: Incrementally refresh official Gov24 program criteria if configured
         env:
