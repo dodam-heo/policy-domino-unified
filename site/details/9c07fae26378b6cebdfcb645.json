@@ -1,0 +1,50 @@
+{
+  "schema": "policy-domino-unified-detail-v2",
+  "id": "law|011941|283015",
+  "title": "해외진출기업의 국내복귀 지원에 관한 법률 시행령",
+  "source": "law",
+  "source_kind": "법령",
+  "kind": "대통령령",
+  "ministry": "산업통상부",
+  "published_at": "2026-01-27",
+  "effective_date": "2026-02-01",
+  "revision": "타법개정",
+  "change_type": "amended",
+  "number": "36055",
+  "url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=283015",
+  "category": "산업·조달",
+  "category_basis": "policy_title_text_rule",
+  "support_standard": false,
+  "headline": "신구 원문의 실질 변경 내용을 확인하고 있습니다",
+  "source_grade": "official_original_verified",
+  "verification": "comparison_incomplete",
+  "comparison_status": "original_saved_comparison_pending",
+  "relationship": "",
+  "change_count": 0,
+  "numeric_change_count": 0,
+  "standard_changes": [],
+  "current_standard_tables": [],
+  "changes": [],
+  "unresolved": [],
+  "institutions": [],
+  "related_regulations": [],
+  "linked_regulation_count": 0,
+  "institution_count": 0,
+  "action_count": 0,
+  "details_path": "details/9c07fae26378b6cebdfcb645.json",
+  "prior_url": "",
+  "source_documents": [
+    {
+      "title": "",
+      "url": "",
+      "id": "",
+      "verification": "partial_or_missing_original"
+    },
+    {
+      "title": "해외진출기업의 국내복귀 지원에 관한 법률 시행령",
+      "url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=283015",
+      "id": "law|011941|283015",
+      "verification": "official_original_verified"
+    }
+  ]
+}

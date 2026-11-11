@@ -7,7 +7,7 @@
   "kind": "대통령령",
   "ministry": "국토교통부",
   "published_at": "2026-10-06",
-  "effective_date": "2026-10-06",
+  "effective_date": "2027-04-07",
   "revision": "일부개정",
   "change_type": "amended",
   "number": "36746",
@@ -16,7 +16,7 @@
   "category_basis": "policy_title_text_rule",
   "support_standard": false,
   "headline": "신구 원문의 실질 변경 내용을 확인하고 있습니다",
-  "source_grade": "legacy_extract_needs_revalidation",
+  "source_grade": "partial_or_missing_original",
   "verification": "comparison_incomplete",
   "comparison_status": "original_saved_comparison_pending",
   "relationship": "",
@@ -44,7 +44,7 @@
       "title": "건축법 시행령",
       "url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=290833",
       "id": "law|002118|290833",
-      "verification": "legacy_extract_needs_revalidation"
+      "verification": "partial_or_missing_original"
     }
   ]
 }

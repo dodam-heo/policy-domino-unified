@@ -16,7 +16,7 @@
   "category_basis": "policy_title_text_rule",
   "support_standard": false,
   "headline": "신구 원문의 실질 변경 내용을 확인하고 있습니다",
-  "source_grade": "legacy_extract_needs_revalidation",
+  "source_grade": "partial_or_missing_original",
   "verification": "comparison_incomplete",
   "comparison_status": "original_saved_comparison_pending",
   "relationship": "",
@@ -44,7 +44,7 @@
       "title": "한옥 등 건축자산의 진흥에 관한 법률 시행령",
       "url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=270137",
       "id": "law|012298|270137",
-      "verification": "legacy_extract_needs_revalidation"
+      "verification": "partial_or_missing_original"
     }
   ]
 }

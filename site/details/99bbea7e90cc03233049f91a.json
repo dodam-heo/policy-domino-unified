@@ -1,0 +1,50 @@
+{
+  "schema": "policy-domino-unified-detail-v2",
+  "id": "law|003980|284783",
+  "title": "소비자생활협동조합법 시행령",
+  "source": "law",
+  "source_kind": "법령",
+  "kind": "대통령령",
+  "ministry": "공정거래위원회",
+  "published_at": "2026-03-24",
+  "effective_date": "2026-03-24",
+  "revision": "타법개정",
+  "change_type": "amended",
+  "number": "36220",
+  "url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=284783",
+  "category": "분야 미확정",
+  "category_basis": "not_verified",
+  "support_standard": false,
+  "headline": "신구 원문의 실질 변경 내용을 확인하고 있습니다",
+  "source_grade": "partial_or_missing_original",
+  "verification": "comparison_incomplete",
+  "comparison_status": "original_saved_comparison_pending",
+  "relationship": "",
+  "change_count": 0,
+  "numeric_change_count": 0,
+  "standard_changes": [],
+  "current_standard_tables": [],
+  "changes": [],
+  "unresolved": [],
+  "institutions": [],
+  "related_regulations": [],
+  "linked_regulation_count": 0,
+  "institution_count": 0,
+  "action_count": 0,
+  "details_path": "details/99bbea7e90cc03233049f91a.json",
+  "prior_url": "",
+  "source_documents": [
+    {
+      "title": "",
+      "url": "",
+      "id": "",
+      "verification": "partial_or_missing_original"
+    },
+    {
+      "title": "소비자생활협동조합법 시행령",
+      "url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=284783",
+      "id": "law|003980|284783",
+      "verification": "partial_or_missing_original"
+    }
+  ]
+}

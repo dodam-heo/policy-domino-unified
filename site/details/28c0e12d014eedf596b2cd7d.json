@@ -1,0 +1,50 @@
+{
+  "schema": "policy-domino-unified-detail-v2",
+  "id": "law|014758|288865",
+  "title": "기후ㆍ기후변화 감시 및 예측 등에 관한 법률 시행령",
+  "source": "law",
+  "source_kind": "법령",
+  "kind": "대통령령",
+  "ministry": "기상청,해양수산부",
+  "published_at": "2026-08-18",
+  "effective_date": "2026-09-18",
+  "revision": "타법개정",
+  "change_type": "amended",
+  "number": "36587",
+  "url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=288865",
+  "category": "환경·에너지",
+  "category_basis": "policy_title_text_rule",
+  "support_standard": false,
+  "headline": "신구 원문의 실질 변경 내용을 확인하고 있습니다",
+  "source_grade": "partial_or_missing_original",
+  "verification": "comparison_incomplete",
+  "comparison_status": "original_saved_comparison_pending",
+  "relationship": "",
+  "change_count": 0,
+  "numeric_change_count": 0,
+  "standard_changes": [],
+  "current_standard_tables": [],
+  "changes": [],
+  "unresolved": [],
+  "institutions": [],
+  "related_regulations": [],
+  "linked_regulation_count": 0,
+  "institution_count": 0,
+  "action_count": 0,
+  "details_path": "details/28c0e12d014eedf596b2cd7d.json",
+  "prior_url": "",
+  "source_documents": [
+    {
+      "title": "",
+      "url": "",
+      "id": "",
+      "verification": "partial_or_missing_original"
+    },
+    {
+      "title": "기후ㆍ기후변화 감시 및 예측 등에 관한 법률 시행령",
+      "url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=288865",
+      "id": "law|014758|288865",
+      "verification": "partial_or_missing_original"
+    }
+  ]
+}
