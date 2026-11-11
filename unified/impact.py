@@ -173,7 +173,7 @@ def impact_for(doc: dict, comparison: dict, programs: list[dict],
     return results
 
 
-def run(root: Path, limit_events: int = 300) -> dict:
+def run(root: Path) -> dict:
     programs = list(read_programs(root))
     generated = []
     statuses = Counter()
@@ -181,9 +181,10 @@ def run(root: Path, limit_events: int = 300) -> dict:
     key_available = bool(os.getenv("PD_LLM_API_KEY") or os.getenv("OPENAI_API_KEY"))
     model_available = bool(os.getenv("PD_LLM_MODEL"))
     ai_budget = max(0, int(os.getenv("PD_LLM_MAX_REQUESTS", "12")))
-    files = sorted((root / "comparisons").glob("*.json.gz"),
-                   key=lambda p: p.stat().st_mtime, reverse=True)
-    comparisons = [load(source, {}) for source in files[:limit_events]]
+    # Reassess every persisted comparison, not only a recent 300-file slice.
+    # Stable per-document IDs and content-addressed writes preserve work.
+    files = sorted((root / "comparisons").glob("*.json.gz"))
+    comparisons = [load(source, {}) for source in files]
     # Index the changed clauses and official downstream rule bodies ONCE.
     # Direct and two-hop references remain distinct from verified duties.
     relation_graph = legal_dependents(root, comparisons)

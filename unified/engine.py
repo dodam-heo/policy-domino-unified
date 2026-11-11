@@ -465,7 +465,19 @@ def process(api, root: Path, state: dict, record: dict) -> dict:
             and existing.get("official_xml_base64")
             and not existing.get("source_snapshot_provenance")):
         return existing
-    xml = api.detail(record)
+    # Reuse already verified, immutable official XML for incomplete annex
+    # recovery. Repeated network downloads are not required for this version.
+    xml = None
+    if existing and not existing.get("source_snapshot_provenance"):
+        encoded = existing.get("official_xml_base64")
+        try:
+            saved = base64.b64decode(encoded, validate=True) if encoded else b""
+            if saved and hash256(saved) == existing.get("body", {}).get("raw_xml_sha256"):
+                xml = saved
+        except (ValueError, TypeError):
+            pass
+    if xml is None:
+        xml = api.detail(record)
     body = parse_body(xml)
     if body.get("attachment_links") and os.getenv(
             "PD_FETCH_OFFICIAL_ATTACHMENTS", "true").lower() == "true":

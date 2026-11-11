@@ -258,16 +258,30 @@ def write_site(payload: dict, output: Path) -> dict:
         if previous.name not in retained:
             previous.unlink()
     index = {key: value for key, value in payload.items() if key != "events"}
-    # Keep initial payload responsive. The full discovered inventory is
-    # split into independently cacheable, bounded-size catalogue files.
-    recent_count=700
-    index["events"] = small[:recent_count]
+    # Make real detected changes visible before large historic inventory is
+    # loaded. Include latest documents and evidence-bearing older standards;
+    # everything else remains in searchable, cacheable archive shards.
+    front_ids = {event["id"] for event in small[:550]}
+    important = sorted(small, key=lambda e: (
+        int(e.get("action_count", 0) > 0),
+        int(e.get("verification") == "official_comparison_verified"),
+        int(e.get("change_count", 0) > 0),
+        int(bool(e.get("support_standard"))),
+        e.get("effective_date") or "",
+        e.get("published_at") or ""), reverse=True)
+    for event in important:
+        if len(front_ids) >= min(700, len(small)):
+            break
+        front_ids.add(event["id"])
+    front = [event for event in small if event["id"] in front_ids]
+    archive = [event for event in small if event["id"] not in front_ids]
+    index["events"] = front
     manifest=[]
     kept=set()
-    for i in range(recent_count,len(small),800):
+    for i in range(0,len(archive),800):
         name = "catalog/"+str(i//800).zfill(5)+".json"
         path = output.parent/name
-        save_json(path, {"events":small[i:i+800]})
+        save_json(path, {"events":archive[i:i+800]})
         kept.add(path.name)
         manifest.append(name)
     for previous in catalog.glob("*.json"):

@@ -39,6 +39,15 @@ def evaluate(root: Path, site: Path | None = None) -> dict:
             comparisons[str(rec["serial"])] = comp
     catalog = load(site/"data.json", {}) if site else {}
     events = {entry.get("id"): entry for entry in catalog.get("events", [])}
+    # The first-page JSON excludes most historical entries, which are published
+    # as shards. Examine those too before reporting an annual notice missing.
+    if site:
+        for shard in catalog.get("archive_shards", []):
+            if not isinstance(shard, str) or not shard.startswith("catalog/") or ".." in shard:
+                continue
+            for entry in load(site / shard, {}).get("events", []):
+                if isinstance(entry, dict) and entry.get("id"):
+                    events[entry["id"]] = entry
     cases = []
     for name, serial in REGRESSIONS:
         package = documents.get(serial, {})
@@ -47,6 +56,9 @@ def evaluate(root: Path, site: Path | None = None) -> dict:
         event = events.get(ident(record), {}) if record else {}
         extracted = source_grade(package)
         linked = bool(event.get("action_count", 0))
+        detail = event.get("details_path", "")
+        published = bool(event) and (not detail or
+                                     bool(site and (site / detail).is_file()))
         stages = {
             "indexed": serial in indexed_serials,
             "original_saved": bool(package),
@@ -55,7 +67,7 @@ def evaluate(root: Path, site: Path | None = None) -> dict:
             "official_comparison_verified":
                 event.get("verification") == "official_comparison_verified",
             "institutional_action_verified": linked,
-            "published": bool(event),
+            "published": published,
         }
         case = {"name": name, "official_serial": serial, "stages": stages,
                 "source_title": record.get("title", ""),

@@ -55,14 +55,19 @@ def quality_report(events: list[dict], collector: dict, *,
         grades[grade] = grades.get(grade, 0) + 1
     failures = [x for x in (collector.get("coverage") or {}).values()
                 if isinstance(x, dict) and x.get("complete") is not True]
+    latest = collector.get("last_run_stats", {})
+    deferred = bool(latest.get("time_budget_deferred"))
     return {
         "source_versions_displayed": len(events),
         "persisted_official_index_windows": indexed,
         "comparison_grades": grades,
         "failed_collection_windows": len(failures),
-        "latest_collection": collector.get("last_run_stats", {}),
+        "deferred_collection": deferred,
+        "latest_collection": latest,
         "last_collection_date": collector.get("last_run", ""),
-        "publication_can_claim_collection_complete": not failures and
-            bool(collector.get("last_run_stats", {}).get("complete_originals_added")),
-        "status": "collection_incomplete" if failures else "collection_window_checked",
+        "publication_can_claim_collection_complete": not failures and not deferred and
+            bool(events) and all(e.get("verification") == "official_comparison_verified"
+                                 for e in events),
+        "status": ("collection_incomplete" if failures or deferred else
+                   "collection_window_checked"),
     }

@@ -1,7 +1,7 @@
 "use strict";
 (function(){
   const $ = id=>document.getElementById(id);
-  const state={data:null,events:[],mode:"all",query:"",area:"",source:"",
+  const state={data:null,events:[],mode:"changed",query:"",area:"",source:"",
                selected:null,detail:null,displayLimit:60,agency:"",
                agencyQuery:"",request:0,archiveLoaded:false,archiveLoading:false};
   const fmt=n=>Number(n||0).toLocaleString("ko-KR");
@@ -32,8 +32,8 @@
   function refreshSummary(){
     const data=state.data||{},summary=data.summary||{},quality=data.quality||{};
     const nums=[
-      ["색인에 등록된 문서 판본",fmt(summary.displayed_events)],
-      ["공식 신구 검증 변경",fmt(summary.with_verified_changes)],
+      ["변경 근거 확보",fmt(summary.with_source_changes)],
+      ["공식 신구 검증 완료",fmt(summary.with_verified_changes)],
       ["공공기관별 근거 조치",fmt(summary.agency_action_count)]];
     $("metrics").replaceChildren(...nums.map(([title,value])=>add(el("div","metric"),
       el("strong","",value),el("span","",title))));
@@ -57,8 +57,9 @@
     const needle=state.query.toLocaleLowerCase("ko-KR");
     return state.events.filter(v=>{
       if(state.mode==="impact"&&!v.action_count)return false;
+       if(state.mode==="changed"&&!v.change_count&&!v.action_count)return false;
       if(state.mode==="support"&&!v.support_standard)return false;
-      if(!["all","impact"].includes(state.mode)&&v.change_type!==state.mode)return false;
+      if(!["all","impact","changed"].includes(state.mode)&&v.change_type!==state.mode)return false;
       if(state.area&&v.category!==state.area)return false;
       if(state.source&&v.source!==state.source)return false;
       if(needle&&![v.title,v.ministry,v.category,v.kind,v.revision]
@@ -87,9 +88,9 @@
   function renderList(){
     filters();
     const result=filtered();$("list-count").textContent=
-      (state.archiveLoaded?"전체 기록 ":"최근 목록 ")+fmt(state.events.length)+
+      (state.archiveLoaded?"전체 기록 ":"우선 표시 목록 ")+fmt(state.events.length)+
       "건 · 조건 일치 "+fmt(result.length)+"건"+
-      (state.archiveLoaded?"":" · 전체 색인 "+fmt(state.data?.total_indexed_versions)+"건(과거 자료는 별도 불러오기)");
+      (state.archiveLoaded?"":" · 전체 색인 "+fmt(state.data?.total_indexed_versions)+"건(전체 검색 시 추가 자료 자동 불러오기)");
     const items=$("items");
     items.replaceChildren(...(result.length?result.slice(0,state.displayLimit).map(row):
       [empty("조건에 맞는 자료가 없습니다. 분석 대기 자료도 '전체'에서 확인할 수 있습니다.")]));
@@ -430,7 +431,7 @@
       const selected=decodeURIComponent((location.hash.match(/^#event=(.*)$/)||[])[1]||"");
       if(state.events.some(x=>x.id===selected))select(selected,false);
       else if(state.events.length && window.matchMedia("(min-width:761px)").matches)
-        select(state.events[0].id,false);
+        select((filtered()[0]||state.events[0]).id,false);
     }catch(error){
       $("metrics").replaceChildren();
       $("health-title").textContent="공식 자료 표시 실패";
@@ -440,7 +441,13 @@
   }
   document.querySelectorAll("[data-mode]").forEach(button=>button.onclick=()=>{
     state.mode=button.dataset.mode;state.displayLimit=60;renderList();});
-  $("search").oninput=e=>{state.query=e.target.value;state.displayLimit=60;renderList();};
+  $("search").oninput=e=>{
+      state.query=e.target.value;
+      if(state.query.trim())state.mode="all";
+      state.displayLimit=60;renderList();
+      if(state.query.trim().length>=2&&!state.archiveLoaded&&!state.archiveLoading)
+        $("load-history").click();
+    };
   $("area").onchange=e=>{state.area=e.target.value;renderList();};
   $("source").onchange=e=>{state.source=e.target.value;renderList();};
   $("more").onclick=()=>{state.displayLimit+=60;renderList();};
