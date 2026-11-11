@@ -35,6 +35,21 @@ def main():
                 "body_status":body["status"],
                 "unresolved_keys":body["incomplete_keys"][:5],
             },ensure_ascii=False),flush=True)
+            details=[(tag(x), len((x.text or "").strip()), (x.text or "").strip()[:100])
+                     for x in root.iter() if tag(x) in (
+                       "조문내용","본문내용","행정규칙본문","부칙내용",
+                       "별표서식PDF파일링크","별표서식파일링크",
+                       "첨부파일링크","별표내용","조문형식여부")]
+            print("XML_FIELDS",serial,json.dumps(details[:15],ensure_ascii=False),flush=True)
+            print("LINKS",serial,json.dumps(body["attachment_links"][:3],ensure_ascii=False),flush=True)
+            if body["attachment_links"]:
+                from pathlib import Path
+                from .attachments import resolve_attachments
+                resolved=resolve_attachments(Path("/tmp/policy-live-annex"),body,max_links=3)
+                print("ATTACHMENTS",serial,json.dumps(
+                    resolved.get("attachments",[]),ensure_ascii=False)[:2300],flush=True)
+                print("EXTRACT",serial,"clauses",len(resolved.get("clauses",{})),
+                      "status",resolved.get("status"),flush=True)
             if len(body["clauses"]) or body["attachment_links"]:
                 success+=1
             else:
