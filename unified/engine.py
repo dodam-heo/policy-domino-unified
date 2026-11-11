@@ -228,12 +228,17 @@ def compare_bodies(before: dict, after: dict, *, annual=False) -> dict:
                             "before_hash": hash256(old), "after_hash": hash256(new)})
     if before.get("status") != "complete" or after.get("status") != "complete":
         unresolved.append({"reason": "incomplete_original_or_attachment"})
+    from .tabular import compare_tables
+    numeric_changes=compare_tables(before.get("numeric_tables",[]),
+                                   after.get("numeric_tables",[]))
     return {
         "status": ("partial_unverified" if unresolved else
                    "changed" if changes else "no_text_change"),
         "relationship": "annual_successor" if annual else "same_official_id_revision",
-        "changes": changes, "unresolved": unresolved,
-        "counts": {"changed": len(changes), "unresolved": len(unresolved)},
+        "changes": changes, "numeric_changes": numeric_changes,
+        "unresolved": unresolved,
+        "counts": {"changed": len(changes), "numeric": len(numeric_changes),
+                   "unresolved": len(unresolved)},
     }
 
 

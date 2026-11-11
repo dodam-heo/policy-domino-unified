@@ -140,6 +140,7 @@ def resolve_attachments(root: Path, original: dict,
         return original
     clauses = dict(original.get("clauses") or {})
     records, unresolved = [], []
+    structured_tables = []
     for n, rawurl in enumerate(links):
         url = normalized_url(rawurl)
         row = {"index": n+1, "source_url": url or str(rawurl)[:120],
@@ -181,6 +182,9 @@ def resolve_attachments(root: Path, original: dict,
                 unresolved.append(row)
                 continue
             clauses["첨부 "+str(n+1)] = text[:15000]
+            if fmt=="hwpx":
+                from .tabular import extract_tables
+                structured_tables.extend(extract_tables(text, sha))
             row.update({"verified_text": True, "text_sha256":
                 hashlib.sha256(text.encode("utf8")).hexdigest()})
         except Exception as exc:
@@ -191,6 +195,7 @@ def resolve_attachments(root: Path, original: dict,
     return {
         **original, "clauses": clauses,
         "attachments": records, "unresolved_attachments": unresolved,
+        "numeric_tables": structured_tables,
         "body_sha256": hashlib.sha256(json.dumps(
             clauses, ensure_ascii=False, sort_keys=True).encode("utf8")).hexdigest(),
         "status": "complete" if clauses and not unresolved and

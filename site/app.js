@@ -140,6 +140,23 @@
     add(now,el("small","",newLabel),el("div","",text(after).slice(0,340)||"본문 미확보"));
     return add(wrap,old,now);
   }
+  function numericSection(event){
+    const changed=event.standard_changes||[];
+    const block=section("공식 표·금액 기준 신구 비교",
+      "동일한 표의 같은 행·열을 대응시킨 뒤, 공식 HWPX 파일에 있는 금액만 비교합니다.");
+    if(!changed.length)return null;
+    for(const entry of changed.slice(0,30)){
+      const card=el("article","difference");
+      add(card,add(el("div","action-head"),
+          el("strong","", "표 "+entry.table+" · "+entry.row+" · "+entry.column),
+          pill("공식 첨부 표 셀","verified")),
+        evidencePair(entry.before,entry.after));
+      block.appendChild(card);
+    }
+    if(changed.length>30)block.appendChild(
+      el("p","quiet","추가 표 변경 "+fmt(changed.length-30)+"건은 다른 페이지에서 확인 가능합니다."));
+    return block;
+  }
   function changesSection(event){
     const block=section("실제 변경사항 · 신구 비교",
       "검증 상태에 따라 공식 변경 확정과 원문 재검증 대상을 구분합니다.");
@@ -316,6 +333,7 @@
         anchor("공식 원문 ↗",e.url)));
     root.appendChild(overview(e));
     root.appendChild(agencySection(e));
+    const values=numericSection(e);if(values)root.appendChild(values);
     const change=changesSection(e);root.appendChild(change);
     root.appendChild(citations(e));
   }

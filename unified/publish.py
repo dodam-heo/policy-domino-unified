@@ -121,6 +121,8 @@ def assemble(root: Path, limit: int = 50000) -> dict:
                 "comparison_status":"official_index_only",
                 "relationship":"",
                 "change_count":0,
+                "numeric_change_count":0,
+                "standard_changes":[],
                 "changes":[],
                 "unresolved":[],
                 "institutions":[],
@@ -176,6 +178,8 @@ def assemble(root: Path, limit: int = 50000) -> dict:
             "comparison_status": comparison_status,
             "relationship": comp.get("relationship", ""),
             "change_count": len(changes),
+            "numeric_change_count": len(comp.get("numeric_changes",[])),
+            "standard_changes": comp.get("numeric_changes",[])[:200],
             "changes": before_after,
             "unresolved": comp.get("unresolved", [])[:40],
             "institutions": actions,
@@ -228,6 +232,7 @@ INDEX_KEYS = (
     "category", "category_basis", "support_standard", "headline", "comparison_status", "verification",
     "source_grade", "relationship", "change_count", "institution_count",
     "action_count", "details_path", "linked_regulation_count",
+    "numeric_change_count",
 )
 
 
