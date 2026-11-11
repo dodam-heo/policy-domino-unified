@@ -281,6 +281,10 @@ class OfficialAPI:
         root = ET.fromstring(raw)
         if tag(root).lower() in ("html", "error"):
             raise ValueError("official_api_error_document")
+        if tag(root).lower() == "response":
+            error = field(root, "msg") or field(root, "result")
+            if error and not field(root, "totalCnt"):
+                raise RuntimeError("official_api_access_error: " + error[:95])
         return root, raw
 
     def search(self, source, start, end, edition="1", kind="", max_pages=20,
@@ -528,13 +532,25 @@ def run(root: Path, api: OfficialAPI, limit_streams=3, detail_budget=20,
     offset = int(state.get("stream_offset", 0)) % len(states)
     schedule = (states[offset:] + states[:offset])[:min(len(states), limit_streams)]
     failed = 0
+    connection_failures = 0
+    network_unavailable = False
 
     def collect_window(source, edition, kind, start, end, stage, query=""):
-        nonlocal failed
+        nonlocal failed, connection_failures, network_unavailable
         key = "|".join((source, edition, kind, start, end, stage))
+        if network_unavailable:
+            failed += 1
+            state["coverage"][key] = {
+                "source": source, "edition": edition, "kind": kind,
+                "first": start, "last": end, "stage": stage,
+                "query_year": query, "complete": False,
+                "error": "official_api_unavailable_deferred"}
+            save_json(state_file, state)
+            return False
         try:
             records, info = api.search(source, start, end, edition, kind,
                                        query=query)
+            connection_failures = 0
             saved = {
                 **info, "source": source, "edition": edition, "kind": kind,
                 "first": start, "last": end, "stage": stage,
@@ -551,11 +567,19 @@ def run(root: Path, api: OfficialAPI, limit_streams=3, detail_budget=20,
             return info.get("complete", False)
         except Exception as exc:
             failed += 1
+            message = type(exc).__name__ + ": " + str(exc)[:150]
+            if any(marker in message for marker in (
+                    "official_api_network_error", "official_api_access_error",
+                    "official_api_error_document")):
+                connection_failures += 1
+                if connection_failures >= 2:
+                    network_unavailable = True
+            else:
+                connection_failures = 0
             state["coverage"][key] = {
                 "source": source, "edition": edition, "kind": kind,
                 "first": start, "last": end, "stage": stage,
-                "query_year": query, "complete": False,
-                "error": type(exc).__name__ + ": " + str(exc)[:150]}
+                "query_year": query, "complete": False, "error": message}
             return False
         finally:
             save_json(state_file, state)
@@ -590,6 +614,18 @@ def run(root: Path, api: OfficialAPI, limit_streams=3, detail_budget=20,
     # Reuse metadata saved by EVERY prior run, not only the latest window.
     records = _pending_index_records(root)
     prioritized = sorted(records, key=lambda r: _priority(r, today), reverse=True)
+    if network_unavailable:
+        state["stream_offset"] = (offset + len(schedule)) % len(states)
+        state["last_run"] = today.isoformat()
+        state["last_run_stats"] = {
+            "detail_attempted": 0, "complete_originals_added": 0,
+            "compared_pairs_processed": 0, "failed_windows": failed,
+            "streams_checked": len(schedule),
+            "pending_index_versions": len(records),
+            "year_search_year": today.year + 1,
+            "source_connection": "unavailable_deferred"}
+        save_json(state_file, state)
+        return state["last_run_stats"]
     # Every run reserves work for older undigested versions, while prioritizing
     # recent standards. The capped per-run budget cannot erase the full queue.
     aged = sorted(records, key=lambda r: (
