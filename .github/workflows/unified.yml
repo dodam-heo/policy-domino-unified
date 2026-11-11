@@ -1,0 +1,91 @@
+name: Policy Domino Unified - Single Production Pipeline
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/unified.yml'
+      - 'unified/**'
+      - 'tests/**'
+      - 'site/index.html'
+      - 'site/app.js'
+      - 'site/style.css'
+  workflow_dispatch:
+  schedule:
+    - cron: '13 */6 * * *'
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+concurrency:
+  group: policy-domino-unified-single-writer
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    steps:
+      - name: Check out ONE canonical source and data store
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: true
+      - name: Use Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify audited source and evidence gates
+        run: python -m unittest discover -s tests -v
+      - name: Collect independent official change versions
+        env:
+          LAW_OC: ${{ vars.LAW_OC || 'dori' }}
+        run: python -m unified.engine --root data --streams 4 --details 24
+      - name: Identify verified public-agency program impacts
+        run: python -m unified.impact --root data
+      - name: Build compact source-backed policy workbench
+        run: python -m unified.publish --root data --output site/data.json
+      - name: Check final publication contract
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          catalog=json.loads(Path('site/data.json').read_text('utf8'))
+          assert catalog['schema']=='policy-domino-unified-ui-v1'
+          assert catalog['events']
+          ids=[e['id'] for e in catalog['events']]
+          assert len(ids)==len(set(ids))
+          for item in catalog['events']:
+              for action in item.get('institutions',[]):
+                  assert action['evidence']['proof_type']=='exact_changed_article_cited_by_official_program'
+                  assert action['evidence']['reference_quote']
+                  assert action['evidence']['service_quote']
+          print('PUBLISH_CONTRACT_PASS',catalog['summary'])
+          PY
+      - name: Store only incremental source versions and current public index
+        run: |
+          set -euo pipefail
+          git config user.name policy-domino-unified-bot
+          git config user.email policy-domino-unified-bot@users.noreply.github.com
+          git add data/ site/data.json
+          if ! git diff --cached --quiet; then
+            base_sha=$(git rev-parse HEAD)
+            git fetch origin main
+            if [ "$(git rev-parse FETCH_HEAD)" != "$base_sha" ]; then
+              echo "::error::main advanced while collecting; do not rebase generated evidence."
+              exit 1
+            fi
+            git commit -m 'data: refresh independent official evidence and public impact [skip ci]'
+            git push origin HEAD:main
+          fi
+      - name: Enable GitHub Pages for this new repository
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+      - name: Upload one verified public site
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+      - name: Deploy unified source-backed site
+        id: deployment
+        uses: actions/deploy-pages@v4
+        with:
+          timeout: 1200000
