@@ -4,7 +4,10 @@
   "verified_institutional_tasks": 0,
   "comparison_statuses": {
     "partial_unverified": 172,
-    "changed": 26,
-    "no_text_change": 6
-  }
+    "no_text_change": 6,
+    "changed": 26
+  },
+  "ai_explanation_attempts": 0,
+  "ai_verified_explanations": 0,
+  "ai_failures": 0
 }
