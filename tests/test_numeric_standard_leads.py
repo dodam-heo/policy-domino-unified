@@ -48,6 +48,26 @@ class NumericStandardLeadTests(unittest.TestCase):
         self.assertEqual(numeric_standard_leads(
             self.doc, self.comparison, idx, "comparison_incomplete"), [])
 
+    def test_exact_parent_title_and_old_amount_yield_review_only(self):
+        source = {**self.program,
+                  "basis": {"법령": "주거급여법(제0조의0, 제0항)"}}
+        idx = index_program_references([source])
+        self.assertEqual(len(idx), 0)
+        leads = numeric_standard_leads(self.doc, self.comparison, idx,
+                                       "official_comparison_verified", [source])
+        self.assertEqual(len(leads), 1)
+        self.assertEqual(leads[0]["status"],
+                         "program_link_candidate_requires_operational_proof")
+        self.assertEqual(leads[0]["evidence"]["old_value"], "3,117,474")
+
+    def test_parent_law_title_only_never_creates_a_lead(self):
+        source = {**self.program,
+                  "basis": {"법령": "주거급여법(제0조의0, 제0항)"},
+                  "criteria": {"선정기준": "주거급여 선정대상"}}
+        self.assertEqual(numeric_standard_leads(
+            self.doc, self.comparison, index_program_references([source]),
+            "comparison_incomplete", [source]), [])
+
     def test_unverified_annex_sha_never_matches(self):
         self.comparison["numeric_changes"][0]["new_attachment_sha256"] = ""
         idx = index_program_references([self.program])

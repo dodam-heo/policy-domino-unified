@@ -175,7 +175,7 @@ def impact_for(doc: dict, comparison: dict, programs: list[dict],
 
 
 def numeric_standard_leads(doc: dict, comparison: dict, program_index: dict,
-                           grade: str) -> list[dict]:
+                           grade: str, all_programs=None) -> list[dict]:
     """Match official changed HWPX cells to documented program legal bases.
 
     Matching an amount or a title by itself never establishes an institution.
@@ -211,7 +211,32 @@ def numeric_standard_leads(doc: dict, comparison: dict, program_index: dict,
             if len(re.sub(r"\D", "", value)) >= 4}
     result = {}
     for (parent_title, parent_article, paragraph), ref in parents.items():
-        for program in program_index.get((parent_title, parent_article), []):
+        exact = list(program_index.get((parent_title, parent_article), []))
+        matched_ids = {p.get("id") for p in exact}
+        # Some official service snapshots cite a governing law but contain
+        # 0-article placeholders rather than an article number. Such records
+        # can only form REVIEW CANDIDATES when the old official amount AND
+        # policy subject are independently present in operating criteria.
+        fallback = []
+        if all_programs:
+            legal_name = re.compile(r"(?<![가-힣])" + re.escape(parent_title) +
+                                    r"(?=[^가-힣]|$)")
+            for p in all_programs:
+                if p.get("id") in matched_ids:
+                    continue
+                basis_text = plain("||".join(str(v) for v in
+                    p.get("basis", {}).values() if v))
+                if not legal_name.search(basis_text):
+                    continue
+                criteria_text = " ".join(str(v) for v in
+                    p.get("criteria", {}).values() if v)
+                if not any(values(c["before"]) & values(criteria_text) for c in cells):
+                    continue
+                subject_text = str(p.get("service_name") or "") + " " + criteria_text
+                if not any(term in subject_text for term in title_words):
+                    continue
+                fallback.append(p)
+        for program in exact + fallback:
             if not all(program.get(k) for k in ("id", "agency", "service_name")):
                 continue
             basis = "||".join(str(v) for v in program.get("basis", {}).values() if v)
@@ -220,7 +245,8 @@ def numeric_standard_leads(doc: dict, comparison: dict, program_index: dict,
                      and plain(b["article"]) == parent_article
                      and (paragraph is None or b.get("paragraph") is None
                           or b["paragraph"] == paragraph)]
-            if not links:
+            exact_article = bool(links)
+            if not exact_article and program not in fallback:
                 continue
             criteria = " ".join(str(v) for v in program.get("criteria", {}).values() if v)
             if not criteria:
@@ -234,7 +260,8 @@ def numeric_standard_leads(doc: dict, comparison: dict, program_index: dict,
                 continue
             selected = matched or cells
             first = selected[0]
-            verified = grade == "official_comparison_verified" and bool(matched)
+            verified = (grade == "official_comparison_verified" and
+                        bool(matched) and exact_article)
             if program["id"] in result:
                 continue
             result[program["id"]] = {
@@ -261,7 +288,8 @@ def numeric_standard_leads(doc: dict, comparison: dict, program_index: dict,
                                    if verified else
                                    "official_hwpx_parent_law_review_candidate"),
                     "reference_quote": ref["excerpt"][:300],
-                    "program_reference": links[0]["excerpt"][:300],
+                    "program_reference": (links[0]["excerpt"][:300]
+                                          if links else basis[:300]),
                     "service_quote": criteria[:1200],
                     "old_value": first["before"],
                     "new_value": first["after"],
@@ -316,7 +344,8 @@ def run(root: Path) -> dict:
         # Include exact official HWPX table changes. These were previously
         # omitted from all program impact matching despite valid source hashes.
         existing = {(a["service_id"], a["changed_clause"]) for a in impacted}
-        for lead in numeric_standard_leads(doc, comparison, program_refs, grade):
+        for lead in numeric_standard_leads(doc, comparison, program_refs, grade,
+                                            programs):
             key = (lead["service_id"], lead["changed_clause"])
             if key not in existing:
                 impacted.append(lead)
@@ -356,6 +385,9 @@ def run(root: Path) -> dict:
         statuses[comparison.get("status", "")] += 1
         generated.extend(impacted)
     stats = {"official_programs": len(programs), "comparisons_considered": sum(statuses.values()),
+             "program_legal_reference_keys": len(program_refs),
+             "comparisons_with_numeric_tables": sum(bool(c.get("numeric_changes")) for c in comparisons),
+             "official_numeric_cell_changes": sum(len(c.get("numeric_changes", [])) for c in comparisons),
              "verified_institutional_tasks": sum(
                  a["status"] == "review_of_verified_citation" for a in generated),
              "program_review_candidates": candidates,
