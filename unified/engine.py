@@ -338,7 +338,10 @@ class OfficialAPI:
                       (r["published_at"], r["serial"]) <
                       (record["published_at"], record["serial"])]
         if candidates:
-            return max(candidates, key=lambda r: (r["published_at"], r["serial"])), False
+            prior=max(candidates, key=lambda r: (r["published_at"], r["serial"]))
+            annual=src=="admrul" and _effective_year(prior)>0 and (
+                _effective_year(record)==_effective_year(prior)+1)
+            return prior,annual
         if src == "admrul":
             m = YEAR.search(record["title"])
             if m:
@@ -355,6 +358,23 @@ class OfficialAPI:
                               r.get("ministry") == record["ministry"])]
                     if prior:
                         return max(prior, key=lambda r: r["published_at"]), True
+        # A renamed annual notice may have an entirely different official ID.
+        # Search using distinctive title tokens without enrolling policy names.
+        if src=="admrul" and _effective_year(record)>0:
+            tokens=[t for t in re.findall(r"[가-힣]{3,}",record["title"])
+                    if t not in ("기준", "고시", "제정", "개정", "년도")]
+            tokens=sorted(set(tokens),key=len,reverse=True)[:3]
+            for token in tokens:
+                for edition in ("2","1"):
+                    try:
+                        root,_=self.request("lawSearch.do","admrul",query=token,
+                                          nw=edition, page=1,display=100,sort="ddes")
+                        pool=parse_index(root,"admrul")
+                        candidate,annual=_local_predecessor(record,pool)
+                        if candidate and annual:
+                            return candidate,True
+                    except (OSError,ValueError,RuntimeError):
+                        continue
         return None, False
 
 
@@ -428,6 +448,14 @@ def _priority(rec: dict, today: dt.date) -> tuple:
             rec.get("published_at", ""), rec.get("serial", ""))
 
 
+def _effective_year(record: dict) -> int:
+    value=str(record.get("effective_date") or "")[:4]
+    if value.isdigit() and 1900<int(value)<2100:
+        return int(value)
+    match=YEAR.search(record.get("title", ""))
+    return int(match.group()[:4]) if match else 0
+
+
 def _annual_name_signature(title: str) -> set[str]:
     """Generic year-neutral bigrams for renamed annual official standards."""
     stripped = YEAR.sub("", str(title or ""))
@@ -447,13 +475,14 @@ def _local_predecessor(record: dict, records: list[dict]):
              x.get("serial") != record.get("serial")]
     same_id = [x for x in older if x.get("stable_id") == record.get("stable_id")]
     if same_id:
-        return max(same_id,key=lambda x:(x.get("published_at",""),x.get("serial",""))),False
+        previous=max(same_id,key=lambda x:(x.get("published_at",""),x.get("serial","")))
+        return previous,(_effective_year(record)>0 and
+                         _effective_year(record)==_effective_year(previous)+1)
     title = record.get("title", "")
-    current = YEAR.search(title)
     ministry = record.get("ministry", "")
-    if not current or not ministry or record.get("source") != "admrul":
+    current_year=_effective_year(record)
+    if not current_year or not ministry or record.get("source") != "admrul":
         return None,False
-    current_year = int(current.group()[:4])
     basis = _annual_name_signature(title)
     if not basis:
         return None,False
@@ -462,12 +491,12 @@ def _local_predecessor(record: dict, records: list[dict]):
         if (candidate.get("ministry") != ministry or
             candidate.get("kind") != record.get("kind")):
             continue
-        year = YEAR.search(candidate.get("title", ""))
-        if not year or int(year.group()[:4]) != current_year-1:
+        previous_year=_effective_year(candidate)
+        if previous_year != current_year-1:
             continue
         past = _annual_name_signature(candidate["title"])
         score = 2*len(basis & past)/max(1,len(basis)+len(past))
-        if score >= .68:
+        if score >= .56:
             matches.append((score,candidate))
     matches.sort(key=lambda x:(x[0],x[1].get("published_at","")),reverse=True)
     if not matches or (len(matches)>1 and matches[0][0]-matches[1][0]<.12):
