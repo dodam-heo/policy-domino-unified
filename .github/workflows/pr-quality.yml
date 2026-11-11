@@ -25,6 +25,14 @@ jobs:
         env:
           LAW_OC: ${{ vars.LAW_OC || 'dori' }}
         run: python -m unified.live_smoke
+      - name: Preserve official regression annex samples for extractor verification
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: official-annex-extraction-samples
+          path: /tmp/policy-live-annex/attachments/
+          retention-days: 3
+          if-no-files-found: warn
       - name: Fetch pinned V2 state for real migration test
         uses: actions/checkout@v4
         with:
