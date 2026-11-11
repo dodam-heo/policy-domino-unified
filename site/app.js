@@ -228,7 +228,7 @@
     if(/공공기관/.test(raw))return "공공기관";
     return "기관 유형 미확인";
   }
-  const REGION_PREFIX=/^([가-힣]+?(?:특별자치시|특별자치도|특별시|광역시|도))(?=\\s|교육청|교육지원청|$)/;
+  const REGION_PREFIX=/^([가-힣]+?(?:특별자치시|특별자치도|특별시|광역시|도))(?=\s|교육청|교육지원청|$)/;
   function agencyRegion(name){
     const m=text(name).match(REGION_PREFIX);
     return m?m[1]:"지역 구분 없음";

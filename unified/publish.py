@@ -14,7 +14,7 @@ from .engine import ident, load, save_json, hash256
 from .verification import (comparison_grade, quality_report,
                            source_grade, OFFICIAL)
 from .meaning import focused_change, headline
-from .catalog import indexed_documents
+from .catalog import indexed_documents, official_link
 
 AREAS = (
     ("복지·소득", r"중위소득|생계급여|의료급여|기초생활|사회보장|복지|연금|수급"),
@@ -81,6 +81,8 @@ def assemble(root: Path, limit: int = 50000) -> dict:
     documents = sorted(documents_by_id.values(),
                        key=lambda v: (v.get("published_at", ""), v.get("serial", "")),
                        reverse=True)
+    for doc in documents:
+        doc["url"] = official_link(doc)
     comparisons = {}
     for path in (root/"comparisons").glob("*.json.gz"):
         c = load(path, {})
@@ -194,10 +196,10 @@ def assemble(root: Path, limit: int = 50000) -> dict:
             "details_path": detail_path(key),
             "prior_url": old.get("url", ""),
             "source_documents": [
-                {"title": old.get("title", ""), "url": old.get("url", ""),
+                {"title": old.get("title", ""), "url": official_link(old),
                  "id": ident(old) if old.get("source") else "",
                  "verification": source_grade(old_package)},
-                {"title": doc.get("title", ""), "url": doc.get("url", ""),
+                {"title": doc.get("title", ""), "url": official_link(doc),
                  "id": key, "verification": source_status},
             ],
         }
