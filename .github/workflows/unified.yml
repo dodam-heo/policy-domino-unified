@@ -1,17 +1,6 @@
 name: Policy Domino Unified - Single Production Pipeline
 on:
-  push:
-    branches: [main]
-    paths:
-      - '.github/workflows/unified.yml'
-      - 'unified/**'
-      - 'tests/**'
-      - 'site/index.html'
-      - 'site/app.js'
-      - 'site/style.css'
   workflow_dispatch:
-  schedule:
-    - cron: '13 */6 * * *'
 permissions:
   contents: write
   pages: write
