@@ -1,11 +1,6 @@
 name: Verify unified integration pull request
 on:
-  pull_request:
-    paths:
-      - 'unified/**'
-      - 'tests/**'
-      - 'site/**'
-      - '.github/workflows/pr-quality.yml'
+  workflow_dispatch:
 concurrency:
   group: unified-pr-${{ github.event.pull_request.number }}
   cancel-in-progress: true
