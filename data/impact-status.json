@@ -1,6 +1,6 @@
 {
   "official_programs": 9683,
-  "comparisons_considered": 257,
+  "comparisons_considered": 261,
   "program_legal_reference_keys": 3828,
   "comparisons_with_numeric_tables": 1,
   "official_numeric_cell_changes": 31,
@@ -8,8 +8,8 @@
   "program_review_candidates": 1,
   "related_regulations": 11,
   "comparison_statuses": {
-    "partial_unverified": 224,
-    "changed": 28,
+    "partial_unverified": 227,
+    "changed": 29,
     "no_text_change": 5
   },
   "ai_explanation_attempts": 0,
